@@ -1,0 +1,195 @@
+@extends("layouts.main")
+
+@php
+	$user = Auth::user();
+	$categories = App\Models\Category::where('user_id', Auth::id())->get();
+	$items = App\Models\Item::where('user_id', Auth::id())->get();
+@endphp
+
+@php 
+  $status=['有効', '無効', '無効申請中', '申請非承認'];
+  $employee_sizes=['1人', '2人〜10人', '11人〜30人', '31人〜50人', '51人〜100人', '101人〜250人', '251人〜500人', '501人〜1000人', '1001人以上'];
+  $schedules=['できる限り早く', '1ヶ月以内', '3ヶ月以内', '半年以内', '1年以内', '3年以内', '未定'];
+  @endphp
+
+@section('content')
+<div class="content-wrapper">	
+	<div class="container-xxl flex-grow-1 container-p-y">
+		<main id="main" class="main">
+			<div class="pagetitle">
+				<nav>
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="/">Yahoo</a></li>
+						<li class="breadcrumb-item active">ダッシュボード</li>
+					</ol>
+				</nav>
+			</div><!-- End Page Title -->
+			<section class="section client-dashboard">
+				<!-- 基本機能 -->
+				<div class="row card-section">	
+					<div class=" section-title">
+						<label for="logo_check" class="display-flex">
+              <input type="checkbox" id="logo_check">
+              <img src="{{ asset('assets/img/tsukubnobi/nitaco_logo.jpg') }}" class="nitaco-logo" width="70px" height="70px">
+              <h5>ツクノビ</h5>
+            </label>	
+					</div>
+
+					<div class="card info-card sales-card">
+						<form class="card-body ">
+              <div class="row">
+                <div class="col-md-4">	
+                  <b class="card-title">
+                    ステータス
+                  </b>
+                  <div class="search-options row">
+                    @foreach($status as $key => $s)
+                      <div class="col-sm-4 col-md-6 col-lg-4">
+                        <label for="select_status_{{$key}}" class="display-flex">
+                          <input type="checkbox" id="select_status_{{$key}}">
+                          <p >{{$s}}</p>
+                        </label>	
+                      </div>
+                    @endforeach
+                  </div>
+                  <div class="m-t-15"></div>
+                  <b class="card-title">
+                    資料請求期間
+                  </b>
+                  <div class="search-options display-flex">
+                    <input type="date" placeholder="yyyy/mm/dd">
+                    <p style="font-size:20px">~</p>
+                    <input type="date" placeholder="yyyy/mm/dd">
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <b class="card-title">
+                    従業員規模 
+                  </b>
+                  <div class="search-options row">
+                    @foreach($employee_sizes as $key => $e_size)
+                      <div class="col-sm-4 col-md-6 col-lg-4">
+                        <label for="select_status_{{$key}}" class="display-flex">
+                          <input type="checkbox" id="select_status_{{$key}}">
+                          <p >{{$e_size}}</p>
+                        </label>	
+                      </div>
+                    @endforeach
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <b class="card-title">
+                    導入予定 
+                  </b>
+                  <div class="search-options row">
+                    @foreach($schedules as $key => $schedule)
+                      <div class="col-sm-4 col-md-6 col-lg-4">
+                        <label for="select_status_{{$key}}" class="display-flex">
+                          <input type="checkbox" id="select_status_{{$key}}">
+                          <p >{{$schedule}}</p>
+                        </label>	
+                      </div>
+                    @endforeach
+                  </div>
+                </div>
+              </div>
+              <div class="row m-t-15">
+                <div class="col-md-4 align-center">
+                  <button type="submit" class="btn green-button full-width">検索</button>
+                </div>                
+              </div>
+            </form>
+					</div>
+
+          <div class="row card-section">	
+					<div class="card info-card sales-card">
+						<div class="card-body ">
+              <h5 class="card-title">
+								<div class="select-all display-flex">
+									<label for="select_all" class="display-flex"></label>
+									<input type="checkbox" id="select_all"/>	
+									<font>全選択 </font > <font class="m-l-20"><span id="selected_num"></span>件選択</font>	
+								</div>
+              </h5>	
+              <div class="row">
+                <div id="table-wrapper" class="col-12">
+                  <table class="table table-bordered" style="width: 100%;" id="item-table">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>ID</th>
+                        <th>資料請求日時</th>
+                        <th>ツール</th>
+												<th>請求者情報</th>
+												<th>会社・部署・役職</th>
+												<th>規模・業種</th>
+												<th>導入予定</th>
+												<th>備考</th>
+												<th>ステータス</th>												
+                      </tr>
+                    </thead>
+
+                    <tbody id="item-table-body">
+                      @if(count($categories)>0)
+                        @foreach($categories as $c)
+                          <tr id={{ "category". $c->id }}>   
+														<td><input type="checkbox" id="select_data_{{$c->id}}"></td>    
+														<td>{{$c['id']}}</td>                
+                            <td>{{$c['created_at']}}</td>
+														<td>
+															<img src="{{ asset('assets/img/tsukubnobi/nitaco_logo.jpg') }}" class="nitaco-logo" width="33px" height="33px"/>
+															ツクノビ
+														</td>
+														@if($c->stop)
+														<td>{{$c['name']}}</td>
+                            	<td>{{$c['file_name']}}</td>
+															<td>{{$c['fall_pro']}}</td>
+															<td>{{$c['partner_tag']}}</td>
+															<td>{{$c['is_reg']}}</td>
+                            	<td >
+																<div class="status valid">
+																	<div class="status-circle"></div>
+																		有効		
+																</div>															
+																<span>
+																	無効申請
+																</span>
+															</td>		
+														@else 
+                            	<td colspan="5">無効理由：月間ツール上限数を超えたため無効</td>
+															<td>
+																<div class="status invalid">
+																	<div class="status-circle"></div>
+																		無効																	
+																</div>
+															</td>
+														@endif
+                          </tr>
+                        @endforeach
+                      @else 
+                        <tr>データなし</tr>
+                      @endif
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+						</div>
+					</div>
+				</div>
+				</div>
+				<!-- End 基本機能 -->
+			</section>
+
+		</main><!-- End #main -->
+	</div>
+</div>
+@endsection
+
+@section('script')
+	<script>
+		let selected_num=0;
+		$("#selected_num").text(selected_num);
+	</script>
+@endsection
