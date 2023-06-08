@@ -25,6 +25,14 @@ Route::get('reset_password', [LoginController::class, 'resetPwd'])->name('reset'
 Route::get('reset_pwd', function() { return view('auth.reset'); });
 Route::post('update_password', [LoginController::class, 'updatePwd'])->name('password.update');
 
+
+// Guide Routes
+Route::prefix('category_documents')->group(function() {
+	Route::get('/', [GuideController::class, 'index'])->name('guide_list');
+	Route::get('/search', [GuideController::class, 'search'])->name('guide_search');
+	Route::post('/download/confirm', [GuideController::class, 'download_confirm'])->name('download_confirm');
+});
+
 // Main Routes
 Route::group(['middleware' => ['auth']], function() {
 
@@ -51,11 +59,6 @@ Route::group(['middleware' => ['auth']], function() {
 		Route::get('/stop/{id}', [CategoryController::class, 'stop'])->name('stop');
 		Route::get('/restart/{id}', [CategoryController::class, 'restart'])->name('restart');
 		Route::post('/save/{id}', [CategoryController::class, 'save'])->name('save_category');
-	});
-
-	// Guide Routes
-	Route::prefix('guide')->group(function() {
-		Route::get('/', [GuideController::class, 'index'])->name('guide_list');
 	});
 
 	Route::prefix('account')->group(function(){

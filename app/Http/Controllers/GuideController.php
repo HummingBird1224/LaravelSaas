@@ -14,7 +14,35 @@ class GuideController extends Controller
      */
     public function index()
     {
-        return view('guides.guide_list');
+        $recommended_guides=Guide::where('recommended', 1)->get();
+        $common_guides=Guide::where('recommended',0)->get();
+        return view('guides.guide_list', ['recommended_guides'=>$recommended_guides,'common_guides'=>$common_guides]);   
+    }
+
+    public function search(Request $request)
+    {
+        $search_word=$request->get('search_word');
+        if($search_word){
+            $common_guides = Guide:: where('recommended',0)
+                            -> where('title', 'like', '%'.$search_word.'%')
+                             ->get();
+        }
+        else {
+            $common_guides = Guide:: where('recommended',0)->get();
+        }
+        
+        return response()->json($common_guides);
+    }
+
+    public function download_confirm(Request $request)
+    {
+        $docs=$request->checked_docs;
+        $doc_arr=array();
+        for($i=0; $i<count($docs);$i++){
+            $doc=Guide::findOrFail($docs[$i]);
+            array_push($doc_arr, $doc);
+        }
+        return view('guides.download_confirm', ['requested_guides'=>$doc_arr]);
     }
 
     /**

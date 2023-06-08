@@ -100,7 +100,6 @@
                                   @else 
                                     <img width="170" height="160" src="{{ asset('assets/img/tsukubnobi/no_logo.png') }}" data-xblocker="passed" style="visibility: visible;" id="logo_preview">
                                   @endif
-                                  </div>
                                 </div>
                                 <!-- <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 180px; max-height: 180px;"></div> -->
                                 <span class="help-block">180px × 180px 推奨</span>

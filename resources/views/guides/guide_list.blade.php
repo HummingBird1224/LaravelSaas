@@ -8,226 +8,211 @@
 
 @section('content')
 <div class="content-wrapper">	
-	<div class="container-xxl flex-grow-1 container-p-y">
-		<main id="main" class="main">
-			<div class="pagetitle">
-				<nav>
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="/">Yahoo</a></li>
-						<li class="breadcrumb-item active">ダッシュボード</li>
-					</ol>
-				</nav>
-			</div><!-- End Page Title -->
-			<section class="section dashboard">
+	<div class=" flex-grow-1 ">
+		<!-- <main id="main" class="main"> -->
+			<section class="section guide-list">
 				<!-- 管理者メッセージ -->
-				<div class="row card-section">	
-					<div class="card info-card message-card">
-						<div class="card-body row">
-							<div class="admin-message">
-								<div class="message-date">
-									<pre><h6>2023-05-08</h6></pre>
+				<div class="guide-introduction card-section m-t-0">	
+					<div class=" black-green-bg">
+						<div class="card-body guide-introduction-wrapper">
+							<div class="container-lg">
+								<div class="guide-introduction-header">
+									<div class="guide-introduction-header-left">
+                    <h5>ダウンロード
+                    <br/>
+                    無料！！</h5>
+                  </div>
+                  <div class="guide-introduction-header-right">
+                    <h2>無料ガイド一覧</h2>
+                    <h6>
+                      <span>
+                        業務効率化やコスト削減につながるツールやその使い方などを、様々な切り口でわかりやすく<br/>
+                        解説したボクシル限定「無料ガイド」をまとめました。チェックを付けた資料を一括でダウンロードできます。<br/>
+                      </span>
+                      <span>※ ダウンロードボタンを押すと確認画面へ遷移します。</span>
+                    </h6>
+                  </div>
 								</div>
-								<div class="message-content">
-									<p>
-										_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/										
-										β版では「期間限定」で上記カテゴリのみを対象に、
-										【月額料金:無料】【手数料は成約時のみの完全成果報酬】にて掲載いただけます。
-
-										■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□
-										一定期間をもって事前告知の後、β版は終了となる予定です。
-										また、β版終了時には上記料金の変更が発生する可能性があります。予めご容赦ください。
-										■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■□
-
-										貴社にて上記カテゴリへの掲載のご検討をされる場合は
-										以下より担当との日程調整、もしくはcs@smartcamp.co.jpまでご相談ください。
-
-										▼担当者との日程調整をする
-										https://booking.receptionist.jp/boxil_ishiguro/30min
-
-										どうぞ、よろしくお願いいたします。
-									</p>
+								<div class="guide-introduction-title text-center">
+                  <h4>おすすめ無料ガイド</h4>
 								</div>
+                <div class="guide-introduction-border">
+                  <hr>
+                </div>
+                <div class="guide-introduction-list-wrapper">
+                  <div class="row">
+                    @foreach($recommended_guides as $r_guide)
+                    <div class="col-sm-6 col-lg-3 text-center">								
+                      <label class="checkbox guide-img-thumbnail"  >
+                        <div class="guide-img-thumbnail-wrapper">
+                          <div class="guide-img">
+                            <img alt="{{$r_guide->title}}" src="{{ asset($r_guide->image) }}" data-xblocker="passed" style="visibility: visible;" width="100%" onclick="imgClick(event)" >
+                            <div class="guide-checkbox">
+                              <div class="checker">
+                                <span class="checked">
+                                  <input  class="checkbox-input" id="{{$r_guide->id}}" name="category_document" type="checkbox" value="{{$r_guide->id}}" style="display: inline-block;" onclick="inputClick(event)">
+                                </span>
+                              </div>
+                              <span class="lever-sm"></span>
+                            </div>
+                          </div>
+                          <div class="guide-title">
+                            <div>{{$r_guide->title}}</div>                            
+                          </div>
+                        </div>
+                      </label>	
+                    </div>
+                    @endforeach
+                  </div>
+                </div>
 							</div>
 						</div>
 					</div>
 				</div>
 				<!-- End 管理者メッセージ -->
-
-				<!-- 基本機能 -->
-				<div class="row card-section">	
-					<div class=" section-title">
-						<i class="menu-icon tf-icons bx bx-cog"></i>
-						<h5>基本機能</h5>
-					</div>
-
-					<div class="card info-card sales-card">
-						<div class="card-body row">
-
-							<div class="col-md-6">	
-								<p class="card-title">
-									<a class="text-link" href="{{ route('company_profile') }}">
-										<i class="menu-icon tf-icons bx bx-chevron-right"></i>
-										会社情報を編集する
-									</a>
-								</p>
-							</div>
-
-							<div class="col-md-6">
-								<p class="card-title">
-									<a class="text-link" href="{{ route('change_profile') }}">
-										<i class="menu-icon tf-icons bx bx-chevron-right"></i>
-									 	アカウント情報を変更する 
-									</a>
-								</p>
-							</div>
-
-						</div>
-					</div>
-				</div>
-				<!-- End 基本機能 -->
-
-				<!-- おすすめのお役立ちガイド-->
-				<div class="row card-section">	
-					<div class=" section-title">
-						<i class="menu-icon tf-icons bx bxs-download"></i>
-						<h5>おすすめのお役立ちガイド</h5>
-					</div>
-
-					<div class="card info-card sales-card">
-						<div class="card-body ">
-							<div class="row">
-								@for($i=1; $i<=4; $i++)
-								<div class="col-sm-6 col-md-3 text-center">								
-									<label class="checkbox document-wrapper active">
-										<div class="guide">
-											<div class="guide-img">
-												<img alt="SaaS Industry Report 2022.pdf" src="{{asset('assets/img/tsukubnobi/guide1.png')}}" data-xblocker="passed" style="visibility: visible;" width="100%">
-												<div class="guide-checkbox">
-													<div class="checker">
-														<span class="checked">
-															<input  class="checkbox-input" name="category_document" type="checkbox" value="1122" style="display: inline-block;">
-														</span>
-													</div>
-													<span class="lever-sm"></span>
-												</div>
-											</div>
-											<div class="guide-name">
-												<p style="vertical-align: inherit;">SaaS業界レポート2022</p>
-											</div>
-										</div>
-									</label>	
-								</div>
-								@endfor
-							</div>
-							
-							<div class="guide-bottom">
-								<div class="orange-button">
-									<button class="orange-button-btn">
-										<div class="button-text">
-											選択中のガイドをダウンロード
-										</div>
-									</button>
-								</div>
-								<a class="guide-more" href="">
-									お役立ちガイドをもっと見る
-									<i class="menu-icon tf-icons bx bx-chevron-right"></i>
-								</a>
-							</div>
-
-						</div>
-					</div>
-				</div>
-				<!-- End おすすめのお役立ちガイド -->
-
-				<!-- さんにおすすめのサービス -->
-				<div class="row card-section">	
-					<div class=" section-title">
-						<i class="menu-icon tf-icons bx bxs-download"></i>
-						<h5>{{$user->name}}さんにおすすめのサービス</h5>
-					</div>
-
-					<div class="card info-card sales-card">
-						<div class="card-body ">
-							<div class="row">
-								@for($i=1; $i<=6; $i++)
-								<div class="col-sm-6  service-block">								
-									<div class="service-content">
-										<a class="service-logo" href="#">
-											<img alt="logo name" src="{{asset('assets/img/tsukubnobi/service1.png')}}" data-xblocker="passed" style="visibility: visible;" width="100%" height="100%">
-										</a>
-										<div class="service-info">
-											<div class="service-title">
-												<a href="#">
-													<h6> Sansan</h6>
-												</a>
-											</div>
-											<div class="service-description">
-												<p>
-													名刺管理から、働き方を変える
-													Sansanは社内の名刺を一括管理することで、
-													企業の成長を後押しす…
-												</p>
-											</div>
-										</div>
-									</div>	
-									<div class="orange-button service-button">
-										<button class="orange-button-btn">
-											<div class="button-text">
-												資料請求
-											</div>
-										</button>
-									</div>
-								</div>
-								@endfor
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- End さんにおすすめのサービス -->
-
+        <div class="guide-common-wrapper">
+          <div class="container-lg">
+            <div class="guide-common-header text-center">
+              <h2>無料ガイド一覧</h2>
+              <hr>
+            </div>
+            <div class="guide-common-searchWrapper text-center">
+              <div id="guide-search-form" class="guide-search-formBlock"  accept-charset="UTF-8" data-remote="true" method="get">
+                <input placeholder="ガイド名・カテゴリー名 [例：経費精算システム選び方ガイド、経費精算]" class="guide-search-formBlock__inputElement" type="text" name="search" id="search">
+                <button class="guide-search-formBlock__buttonElement">
+                  <i class="bx bx-search bx-sm" aria-hidden="true"></i>
+                </button>
+            </div>
+            </div>
+            <div class="row" id="common-guide-list">
+              @foreach($common_guides as $c_guide)
+              <div class="col-sm-6 col-lg-3 text-center">								
+                <label class="checkbox guide-img-thumbnail" for="{{$c_guide->id}}">
+                  <div class="guide-img-thumbnail-wrapper">
+                    <div class="guide-img">
+                      <img alt="{{$c_guide->title}}" src="{{ asset($c_guide->image) }}" data-xblocker="passed" style="visibility: visible;" width="100%">
+                      <div class="guide-checkbox">
+                        <div class="checker">
+                          <span class="checked">
+                            <input  class="checkbox-input" id="{{$c_guide->id}}" name="category_document" type="checkbox" value="{{$c_guide->id}}" style="display: inline-block;">
+                          </span>
+                        </div>
+                        <span class="lever-sm"></span>
+                      </div>
+                    </div>
+                    <div class="guide-title">
+                      <div>{{$c_guide->title}}</div>                            
+                    </div>
+                  </div>
+                </label>	
+              </div>
+              @endforeach
+            </div>
+          </div>
+        </div>
 				<!-- 資料請求したサービス -->
-				<div class="row card-section">	
-					<div class=" section-title">
-						<i class="menu-icon tf-icons bx bxs-download"></i>
-						<h5>資料請求したサービス</h5>
-					</div>
-
-					<div class="row">
-						<div class="col-md-6">
-							<div class="card info-card sales-card">
-								<div class="card-body">	
-									<p class="card-title text-center">
-										要求された資料
-									</p>
-								</div>
-							</div>							
-						</div>
-						<div class="col-md-6">
-							<div class="card info-card sales-card">
-								<div class="card-body">	
-									<p class="card-title text-center">
-										自社サービスをお持ちの方、<br>
-										ボクシルにサービスを掲載しませんか？
-									</p>
-									<div class="orange-button text-center">
-										<button class="orange-button-btn">
-											<div class="button-text">
-												ボクシルにサービスを掲載
-											</div>
-										</button>
-									</div>
-								</div>
-							</div>							
-						</div>
-					</div>
+				<div class="card-section m-b-10">	
+          <div class="card info-card sales-card guide-download-wrapper">
+            <div class="card-body">	
+              <div class="orange-button text-center">
+                <button class="orange-button-btn" onclick="downloadClick()">
+                  <div class="button-text">
+                    選択中の資料 <spin id="checked_num">0</spin>点をまとめてダウンロード
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>							
 				</div>
 				<!-- End 資料請求したサービス -->
 
 			</section>
 
-		</main><!-- End #main -->
+		<!-- </main> -->
+    <!-- End #main -->
 	</div>
 </div>
 @endsection
 
-@push('scripts')  
+@section('script')
+  <script type="text/javascript">
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    let search_word='';
+    let checked_num=0;
+    let checkboxes=document.getElementsByClassName("checkbox-input");   
+
+    $('#search').keydown(function(event){
+      let key=event.which;
+      search_word=$('#search').val();
+      if(key==13){
+        $.ajax({
+          url : '/category_documents/search',
+          method : 'GET',
+          data : {search_word:search_word},
+          success:function(response){
+            var guide_list='';
+            response.map(guide=>{
+              guide_list += '<div class="col-sm-6 col-lg-3 text-center">\n';
+              guide_list += '<label class="checkbox guide-img-thumbnail">\n';
+              guide_list += '<div class="guide-img-thumbnail-wrapper">\n';
+              guide_list += '<div class="guide-img">\n';
+              guide_list += `<img alt="${guide.title}" src="${guide.image}" data-xblocker="passed" style="visibility: visible;" width="100%">\n`;
+              guide_list += '<div class="guide-checkbox">\n';
+              guide_list += '<div class="checker">\n';
+              guide_list += '<span class="checked">\n';
+              guide_list += `<input  class="checkbox-input" id="${guide.id}" name="category_document" type="checkbox" value="${guide.id}" style="display: inline-block;">\n`;
+              guide_list += '</span>\n</div>\n';
+              guide_list += '<span class="lever-sm"></span>\n';
+              guide_list += ' </div>\n</div>\n';
+              guide_list += '<div class="guide-title">\n';
+              guide_list += `<div>${guide.title}</div>\n`;
+              guide_list += ' </div>\n</div>\n';
+              guide_list += '</label></div>\n';                 
+            })            
+            $('#common-guide-list').html(guide_list);
+          }
+        })     
+      }
+    });     
+
+    imgClick=(event)=>{
+
+      // event.preventDefault();
+      // for(let i = 0; i<checkboxes.length; i++){
+      //   if(checkboxes[i].checked){
+      //     docs=[...docs, checkboxes[i].value];
+      //   }
+      // }
+      console.log('img')
+    }
+
+    inputClick=()=>{
+      console.log('input')
+    }
+
+    downloadClick=()=>{     
+      let docs=[]; 
+      for(let i = 0; i<checkboxes.length; i++){
+        if(checkboxes[i].checked){
+          docs=[...docs, checkboxes[i].value];
+        }
+      } 
+      if(docs.length>0){
+        $.ajax({
+          url:'/category_documents/download/confirm',
+          method:'POST',
+          data:{
+            checked_docs:docs,
+          },
+          catch:function(err){
+            console.log(err);
+          }
+        })
+      }
+    } 
+  </script>
+@endsection
