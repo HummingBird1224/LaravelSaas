@@ -202,16 +202,17 @@
         }
       } 
       if(docs.length>0){
-        $.ajax({
-          url:'/category_documents/download/confirm',
-          method:'POST',
-          data:{
-            checked_docs:docs,
-          },
-          catch:function(err){
-            console.log(err);
-          }
-        })
+        // $.ajax({
+        //   url:'/category_documents/download/confirm',
+        //   method:'POST',
+        //   data:{
+        //     checked_docs:docs,
+        //   },
+        //   catch:function(err){
+        //     console.log(err);
+        //   }
+        // })
+        location.href='/category_documents/download/confirm?checked_docs='+docs;
       }
     } 
   </script>

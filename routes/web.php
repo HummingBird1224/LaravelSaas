@@ -14,6 +14,8 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GuideController;
 
+use App\Http\Controllers\Admin\GuideController as CategoryDocumentController;
+
 // Authentication Routes
 Route::get('/signup/{role?}', [RegisterController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
@@ -28,9 +30,9 @@ Route::post('update_password', [LoginController::class, 'updatePwd'])->name('pas
 
 // Guide Routes
 Route::prefix('category_documents')->group(function() {
-	Route::get('/', [GuideController::class, 'index'])->name('guide_list');
-	Route::get('/search', [GuideController::class, 'search'])->name('guide_search');
-	Route::post('/download/confirm', [GuideController::class, 'download_confirm'])->name('download_confirm');
+	Route::get('/', [GuideController::class, 'index'])->name('free_category_documents');
+	Route::get('/search', [GuideController::class, 'search'])->name('category_documents_search');
+	Route::get('/download/confirm', [GuideController::class, 'download_confirm'])->name('download_confirm');
 });
 
 // Main Routes
@@ -112,10 +114,21 @@ Route::group(['middleware' => ['auth']], function() {
 // Admin Routes
 Route::group(['middleware' => ['auth', 'admin']], function() {
 	Route::prefix('admin')->group(function() {
+
 		Route::get('/account', [AdminController::class, 'list_account'])->name('list_account');
+
 		Route::get('/delete', [AdminController::class, 'delete_account'])->name('delete_account');
+
 		Route::get('/permit', [AdminController::class, 'permit_account'])->name('permit_account');
+
+		Route::prefix('/category_documents')->group(function(){
+			Route::get('/', [CategoryDocumentController::class, 'index'])->name('category_documents_list');
+			Route::get('/delete/{id}', [CategoryDocumentController::class, 'delete'])->name('delete_category_documents');
+			Route::get('/add', [CategoryDocumentController::class, 'create'])->name('add_category_document');
+			Route::post('/store', [CategoryDocumentController::class, 'store'])->name('store_category_document');
+		});
 	});
+
 });
 
 Route::middleware(['cors'])->group(function () {

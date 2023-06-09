@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Guide;
 use Illuminate\Http\Request;
 
@@ -14,35 +15,8 @@ class GuideController extends Controller
      */
     public function index()
     {
-        $recommended_guides=Guide::where('recommended', 1)->get();
-        $common_guides=Guide::where('recommended',0)->get();
-        return view('guides.guide_list', ['recommended_guides'=>$recommended_guides,'common_guides'=>$common_guides]);   
-    }
-
-    public function search(Request $request)
-    {
-        $search_word=$request->get('search_word');
-        if($search_word){
-            $common_guides = Guide:: where('recommended',0)
-                            -> where('title', 'like', '%'.$search_word.'%')
-                             ->get();
-        }
-        else {
-            $common_guides = Guide:: where('recommended',0)->get();
-        }
-        
-        return response()->json($common_guides);
-    }
-
-    public function download_confirm(Request $request)
-    {
-        $docs=$request->query('checked_docs');
-        $doc_arr=array();
-        foreach(explode(',', $docs) as $i){
-            $doc=Guide::findOrFail($i);
-            array_push($doc_arr, $doc);
-        }
-        return view('guides.download_confirm',['requested_guides'=>$doc_arr] );
+        $guides=Guide::get();
+        return view('admin.category_documents.list', ['guides'=>$guides]);
     }
 
     /**
@@ -52,7 +26,7 @@ class GuideController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.category_documents.add');
     }
 
     /**
@@ -63,7 +37,32 @@ class GuideController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
+        $image=$request->file('image');
+        $material=$request->file('material');
+        $guide=Company::create(
+            [
+                'title'=>$request->title,
+                'description'=>$request->description,
+                'industry'=>$request->industry,
+                'location'=>$request->prefecture,
+                'address'=>$request->address,
+                'representative'=>$request->representative,
+                'phone_number'=>$request->phone_number,
+                'founded_year'=>$request->founded_year,
+                'founded_month'=>$request->founded_month,
+                'capital'=>$request->capital,
+                'company_url'=>$request->company_url,
+            ]
+
+        );
+        if($file) {
+            $company->logo = $file->storeAs(
+            'uploads/company/logos', $file->hashName(), 'public'
+            );
+            $company->save();
+        }
+        return back()->withInput();
     }
 
     /**
@@ -106,8 +105,9 @@ class GuideController extends Controller
      * @param  \App\Models\Guide  $guide
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Guide $guide)
-    {
-        //
-    }
+    public function delete(Request $request, $id)
+	{
+		Guide::find($id)->delete();
+		return $id;
+	}
 }

@@ -102,7 +102,7 @@
                                   @else 
                                     <img width="170" height="160" src="{{ asset('avatars/default.png') }}" data-xblocker="passed" style="visibility: visible;" id="image_preview">
                                   @endif
-                                  </div>
+                                </div>
                                 <!-- <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 180px; max-height: 180px;"></div> -->
                                 <span class="help-block">180px × 180px 推奨</span>
                                 <div>
@@ -263,7 +263,5 @@
         reader.readAsDataURL(file);
       }
     });
-    // const data=@json(file_get_contents(public_path('./company_profile.json')));
-    // console.log(data)
   </script>
 @endsection
