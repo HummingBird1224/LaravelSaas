@@ -13,8 +13,12 @@ use App\Http\Controllers\MypageController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GuideController;
+use App\Http\Controllers\ServiceController ;
 
 use App\Http\Controllers\Admin\GuideController as CategoryDocumentController;
+
+// Default Route
+Route::view('/', 'dashboard');
 
 // Authentication Routes
 Route::get('/signup/{role?}', [RegisterController::class, 'index']);
@@ -38,7 +42,7 @@ Route::prefix('category_documents')->group(function() {
 // Main Routes
 Route::group(['middleware' => ['auth']], function() {
 
-	Route::view('/', 'mypage.dashboard')->name('dashboard');
+	Route::view('/mypage', 'mypage.dashboard')->name('dashboard');
 
 	// Item Routes
 	Route::prefix('item')->group(function() {
@@ -126,6 +130,18 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
 			Route::get('/delete/{id}', [CategoryDocumentController::class, 'delete'])->name('delete_category_documents');
 			Route::get('/add', [CategoryDocumentController::class, 'create'])->name('add_category_document');
 			Route::post('/store', [CategoryDocumentController::class, 'store'])->name('store_category_document');
+		});
+	});
+
+});
+
+Route::group(['middleware' => ['auth', 'client']], function() {
+	Route::prefix('client')->group(function() {
+		Route::prefix('/services')->group(function(){
+			Route::get('/', [ServiceController::class, 'index'])->name('service_list');
+			Route::get('/delete/{id}', [ServiceController::class, 'delete'])->name('delete_service');
+			Route::get('/add', [ServiceController::class, 'create'])->name('add_service');
+			Route::post('/store', [ServiceController::class, 'store'])->name('store_service');
 		});
 	});
 

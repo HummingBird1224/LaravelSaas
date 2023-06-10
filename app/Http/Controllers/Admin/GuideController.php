@@ -37,32 +37,30 @@ class GuideController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
         $image=$request->file('image');
         $material=$request->file('material');
-        $guide=Company::create(
+        $guide=Guide::create(
             [
                 'title'=>$request->title,
                 'description'=>$request->description,
-                'industry'=>$request->industry,
-                'location'=>$request->prefecture,
-                'address'=>$request->address,
-                'representative'=>$request->representative,
-                'phone_number'=>$request->phone_number,
-                'founded_year'=>$request->founded_year,
-                'founded_month'=>$request->founded_month,
-                'capital'=>$request->capital,
-                'company_url'=>$request->company_url,
+                'category_id'=>$request->category,
+                'recommended'=>$request->recommended=='on'?1:0,
             ]
 
         );
-        if($file) {
-            $company->logo = $file->storeAs(
-            'uploads/company/logos', $file->hashName(), 'public'
+        if($material) {
+            $guide->material = $material->storeAs(
+            'uploads/guides/materials', time().'_'.$material->getClientOriginalName(), 'public'
             );
-            $company->save();
+            $guide->save();
         }
-        return back()->withInput();
+        if($image) {
+            $guide->image = $image->storeAs(
+            'uploads/guides/images', time().'_'.$image->getClientOriginalName(), 'public'
+            );
+            $guide->save();
+        }
+        return redirect()->route('category_documents_list');
     }
 
     /**

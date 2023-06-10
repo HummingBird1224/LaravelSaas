@@ -184,7 +184,6 @@ class UserController extends Controller
     }
 
     public function company_profile_edit(Request $request){
-        // dd($request);
         $file=$request->file('logo');
         $company=Company::updateOrCreate(
                 [

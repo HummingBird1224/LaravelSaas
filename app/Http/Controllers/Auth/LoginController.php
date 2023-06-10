@@ -66,7 +66,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return view('mypage.dashboard');
+            return redirect('/');
         }
 
         return back()->withErrors([
@@ -86,8 +86,8 @@ class LoginController extends Controller
         Log::info('User Logged Out. ', [$user]);
         Auth::logout();
         Session::flush();
-
-        return redirect()->route('login');
+        
+        return redirect('/');
     }
 
     public function resetPwd(Request $request) {

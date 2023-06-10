@@ -36,7 +36,7 @@
                       <th>最終更新日</th>
                       <th>カテゴリー</th>
                       <th style="min-width: 90px;">
-                        <a href="{{route('add_category_document')}}" >
+                        <a href="{{route('add_service')}}" >
                           <span 
                             class="text-primary"
                             
@@ -49,26 +49,26 @@
 									</thead>
 
 									<tbody id="item-table-body">
-										@foreach($guides as $guide)
-										<tr id={{ "guide". $guide->id }}>											
-											<td>{{$guide->id}}</td>
-											<td>{{$guide->title}}</td>
-											<td style="max-width: 300px;">{{$guide->description}}</td>
+										@foreach($services as $service)
+										<tr id={{ "service". $service->id }}>											
+											<td>{{$service->id}}</td>
+											<td>{{$service->title}}</td>
+											<td style="max-width: 300px;">{{$service->description}}</td>
 											<td >
-                        <img src="{{asset($guide->image)}}" width="50px" height="50px"/>
+                        <img src="{{asset($service->image)}}" width="50px" height="50px"/>
                       </td>
-                      <td>{{$guide->recommended}}</td>
-                      <td>{{ \Carbon\Carbon::parse($guide->updated_at)->format('d/m/Y')}}</td>
+                      <td>{{$service->recommended}}</td>
+                      <td>{{ \Carbon\Carbon::parse($service->updated_at)->format('d/m/Y')}}</td>
                       <td>請求書発行</td>
                       <td style="min-width: 90px;">
 												<span
-													data-category={{ $guide }}
+													data-category={{ $service }}
 													data-bs-toggle="modal"
 													data-bs-target="#categoryModal">
 													<i class='bx bxs-edit text-primary'></i>
 												</span>
 												<span
-													data-id={{ $guide->id }}
+													data-id={{ $service->id }}
 													data-bs-toggle="modal" 
 													data-bs-target="#confirmModal">
 													<i class='bx bxs-trash text-danger'></i>
@@ -197,24 +197,24 @@
 		$('#confirmModal').on('shown.bs.modal', function(e) {
 			var target = e.relatedTarget.dataset;
 			$('#btns').html(
-				`<button type="button" class="btn btn-primary" onclick="guide.delete(${target.id})">削除</button>
+				`<button type="button" class="btn btn-primary" onclick="service.delete(${target.id})">削除</button>
 				<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">キャンセル</button>`
 			);
 		}).on('hidden.bs.modal', function(e) {
 
 		});
 		
-		const guide = {
+		const service = {
 			delete: function (id) {
 				$.ajax({
-					url: "/admin/category_documents/delete/" + id,
+					url: "/client/services/delete/" + id,
 					type: "get",
 					success: function (res) {
 						$('#confirmModal').modal('hide');
 						toastr.success('ガイドが正常に削除されました。');
 
 						// location.reload();
-						$('#guide' + res).remove();
+						$('#service' + res).remove();
 					}
 				});
 			},

@@ -346,5 +346,35 @@
       "id":"temporary_worker",
       "value":"契約・派遣・委託"
     }
+  ],
+  "functions":[
+    {
+      "id":1,
+      "value":"iPhone"
+    },
+    {
+      "id":2,
+      "value":"Android"
+    },
+    {
+      "id":3,
+      "value":"スマホブラウザ"
+    },
+    {
+      "id":4,
+      "value":"日本語対応"
+    },
+    {
+      "id":5,
+      "value":"アプリ"
+    },
+    {
+      "id":6,
+      "value":"請求書作成"
+    },
+    {
+      "id":7,
+      "value":"請求書郵送"
+    }
   ]
 }

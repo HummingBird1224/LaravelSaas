@@ -242,7 +242,7 @@
                               />
                             </div>
                           </div>                       
-                          <input type="hidden" value="271242" name="user[profile_attributes][id]" id="user_profile_attributes_id">
+                          <input type="hidden" value="271242" name="user[profile_attributes].id" id="user_profile_attributes_id">
                           <div class="orange-button text-center m-t-15">
                             <button 
                               type="submit" 

@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Client;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Service;
 use Illuminate\Http\Request;
 
-class ServiceContoller extends Controller
+class ServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,8 @@ class ServiceContoller extends Controller
      */
     public function index()
     {
-        //
+        $services=Service::get();
+        return view('client.services.list', ['services'=>$services]);
     }
 
     /**
@@ -25,7 +25,7 @@ class ServiceContoller extends Controller
      */
     public function create()
     {
-        //
+        return view('client.services.add');
     }
 
     /**
@@ -36,7 +36,7 @@ class ServiceContoller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
     }
 
     /**

@@ -8,4 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Service extends Model
 {
     use HasFactory;
+        protected $fillable = [
+        'name',
+        'description',
+        'category_id',
+        'material',
+        'image',
+        'recommended',
+    ];
+
+    public function services(){
+        return $this->hasMany(
+            Company::class,
+        );
+    }
 }

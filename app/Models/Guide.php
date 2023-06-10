@@ -11,8 +11,11 @@ class Guide extends Model
 
     protected $fillable = [
         'title',
+        'description',
+        'category_id',
         'material',
         'image',
+        'recommended',
     ];
 
     public function services(){
