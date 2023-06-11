@@ -1,28 +1,29 @@
-@extends("layouts.admin")
+@extends("layouts.client")
 
 @section('css')
 <style>
-	table th, table td {
-		text-align: center !important;
-		vertical-align: middle !important;
-	}
+table th,
+table td {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
 </style>
 @endsection
 
-@php 
-  $data=json_decode(file_get_contents(
-    public_path('company_profile.json')
-  ));
+@php
+$data=json_decode(file_get_contents(
+public_path('company_profile.json')
+));
 @endphp
 
 @section('content')
 <div class="content-wrapper">
-	<div class="container-xxl flex-grow-1 container-p-y">
-		<div class="content" style="padding-top: 0.5rem;">
-			<div class="col-12">
-				<div class="card card-info card-outline">
-					<div class="card-body">
-						<form class="row" method="POST" action="{{route('store_service')}}" enctype="multipart/form-data">
+  <div class="container-xxl flex-grow-1 container-p-y">
+    <div class="content" style="padding-top: 0.5rem;">
+      <div class="col-12">
+        <div class="card card-info card-outline">
+          <div class="card-body">
+            <form class="row" method="POST" action="{{route('store_service')}}" enctype="multipart/form-data">
               @csrf
               <div class="modal-header bg-primary">
                 <h4 class="modal-title text-white">サービスの作成</h4>
@@ -44,10 +45,11 @@
                     <strong>説明</strong>
                   </div>
                   <div class="col-8">
-                    <textarea class="form-control" type="text" id="s_description" name="description" value="" required ></textarea>
+                    <textarea class="form-control" type="text" id="s_description" name="description" value=""
+                      required></textarea>
                   </div>
                 </div>
-                
+
                 <div class="row m-t-15">
                   <div class="col-4">
                     <strong>材料</strong>
@@ -64,7 +66,8 @@
                   <div class="col-8">
                     <!-- <input class="form-control" type="file" id="g_image" name="image" value="" required /> -->
                     <div class="fileinput-new thumbnail" style="max-width: 180px; max-height: 180px;">
-                      <img width="170" height="160" src="{{ asset('assets/img/tsukubnobi/no_logo.png') }}" data-xblocker="passed" style="visibility: visible;" id="image_preview">
+                      <img width="170" height="160" src="{{ asset('assets/img/tsukubnobi/no_logo.png') }}"
+                        data-xblocker="passed" style="visibility: visible;" id="image_preview">
                     </div>
                     <span class="help-block">180px × 180px 推奨</span>
                     <div>
@@ -83,7 +86,8 @@
                   <div class="col-8">
                     <!-- <input class="form-control" type="file" id="g_image" name="image" value="" required /> -->
                     <div class="fileinput-new thumbnail" style="max-width: 180px; max-height: 180px;">
-                      <img width="170" height="160" src="{{ asset('assets/img/tsukubnobi/no_logo.png') }}" data-xblocker="passed" style="visibility: visible;" id="image_preview">
+                      <img width="170" height="160" src="{{ asset('assets/img/tsukubnobi/no_logo.png') }}"
+                        data-xblocker="passed" style="visibility: visible;" id="image_preview">
                     </div>
                     <span class="help-block">180px × 180px 推奨</span>
                     <div>
@@ -102,7 +106,8 @@
                   <div class="col-8">
                     <!-- <input class="form-control" type="file" id="g_image" name="image" value="" required /> -->
                     <div class="fileinput-new thumbnail" style="max-width: 180px; max-height: 180px;">
-                      <img width="170" height="160" src="{{ asset('assets/img/tsukubnobi/no_logo.png') }}" data-xblocker="passed" style="visibility: visible;" id="image_preview">
+                      <img width="170" height="160" src="{{ asset('assets/img/tsukubnobi/no_logo.png') }}"
+                        data-xblocker="passed" style="visibility: visible;" id="image_preview">
                     </div>
                     <span class="help-block">180px × 180px 推奨</span>
                     <div>
@@ -112,52 +117,58 @@
                       </span>
                     </div>
                     <div>
-                      <div class="row mt-2"> 
+                      <div class="row mt-2">
                         <label class="col-md-4">UIタイトル </label>
-                        <input class="form-control col-md-8 flex-width" type="text"  name="uis[][title]" value="" required />
+                        <input class="form-control col-md-8 flex-width" type="text" name="uis[][title]" value=""
+                          required />
                       </div>
                       <div class="row mt-2">
                         <label class="col-md-4">UI説明 </label>
-                        <textarea class="form-control col-md-8 flex-width" type="text"  name="uis[][description]" value="" required ></textarea>
+                        <textarea class="form-control col-md-8 flex-width" type="text" name="uis[][description]"
+                          value="" required></textarea>
                       </div>
                     </div>
                   </div>
                 </div>
-                
+
                 <div class="row m-t-15">
                   <div class="col-4">
                     <strong>プラン価格</strong>
                   </div>
                   <div class="col-8">
                     <div>
-                      <div class="row mt-2"> 
+                      <div class="row mt-2">
                         <label class="col-md-4">年額/ユーザー </label>
-                        <input class="form-control col-md-8 flex-width" type="number"  name="prices[][year]" value=""  />
+                        <input class="form-control col-md-8 flex-width" type="number" name="prices[][year]" value="" />
                       </div>
                       <div class="row mt-2">
                         <label class="col-md-4">月額/ユーザー</label>
-                        <input class="form-control col-md-8 flex-width" type="number"  name="prices[][month]" value=""  >
+                        <input class="form-control col-md-8 flex-width" type="number" name="prices[][month]" value="">
                       </div>
-                      <div class="row mt-2"> 
+                      <div class="row mt-2">
                         <label class="col-md-4">初期費用 </label>
-                        <input class="form-control col-md-8 flex-width" type="number"  name="prices[][initial_price]" value=""  />
+                        <input class="form-control col-md-8 flex-width" type="number" name="prices[][initial_price]"
+                          value="" />
                       </div>
                       <div class="row mt-2">
                         <label class="col-md-4">最低利用人数</label>
-                        <input class="form-control col-md-8 flex-width" type="number"  name="prices[][min_user]" value=""  >
+                        <input class="form-control col-md-8 flex-width" type="number" name="prices[][min_user]"
+                          value="">
                       </div>
-                      <div class="row mt-2"> 
+                      <div class="row mt-2">
                         <label class="col-md-4">最低利用期間 </label>
-                        <input class="form-control col-md-8 flex-width" type="number"  name="prices[][min_usage]" value=""  />
+                        <input class="form-control col-md-8 flex-width" type="number" name="prices[][min_usage]"
+                          value="" />
                       </div>
                       <div class="row mt-2">
                         <label class="col-md-4">説明</label>
-                        <textarea class="form-control col-md-8 flex-width" type="text"  name="prices[][description]" value=""  ></textarea>
+                        <textarea class="form-control col-md-8 flex-width" type="text" name="prices[][description]"
+                          value=""></textarea>
                       </div>
                     </div>
                   </div>
                 </div>
-                
+
                 <div class="row m-t-15">
                   <div class="col-4">
                     <strong>機能ごとの評価</strong>
@@ -165,45 +176,46 @@
                   <div class="col-8">
                     <div class="row">
                       @foreach($data->functions as $function)
-                        <label class="col-md-4">
-                          <input type="checkbox"  id={{ "function-". $function->id }} value="{{$function->id}}" name="functions[]" />
-                          {{$function->value}}
-                        </label>                        
+                      <label class="col-md-4">
+                        <input type="checkbox" id={{ "function-". $function->id }} value="{{$function->id}}"
+                          name="functions[]" />
+                        {{$function->value}}
+                      </label>
                       @endforeach
                     </div>
-                    <input class="" type="checkbox" id="g_recommended" name="recommended"    />
+                    <input class="" type="checkbox" id="g_recommended" name="recommended" />
                   </div>
-                </div>			
+                </div>
               </div>
 
               <!-- Modal footer -->
               <div class="modal-footer" id="button-container">
-                <button type="submit" class="btn btn-primary" >追加</button>
+                <button type="submit" class="btn btn-primary">追加</button>
               </div>
             </form>
-					</div>
-					<!-- /.card-body -->
-				</div>
-			</div>
-		</div>
-	</div>
+          </div>
+          <!-- /.card-body -->
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 @endsection
-	
+
 @section("script")
-  <script>
-    const imageUpload = document.getElementById('image_upload');
-    const imagePreview = document.getElementById('image_preview');
-    imageUpload.addEventListener('change', function() {
-      const file = this.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.addEventListener('load', function() {
-          imagePreview.src = this.result;
-        });
-        reader.readAsDataURL(file);
-      }
+<script>
+const imageUpload = document.getElementById('image_upload');
+const imagePreview = document.getElementById('image_preview');
+imageUpload.addEventListener('change', function() {
+  const file = this.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.addEventListener('load', function() {
+      imagePreview.src = this.result;
     });
-  </script>
+    reader.readAsDataURL(file);
+  }
+});
+</script>
 @endsection

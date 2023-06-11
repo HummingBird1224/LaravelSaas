@@ -76,10 +76,6 @@ Route::group(['middleware' => ['auth']], function() {
 		Route::post('/edit_company_profile', [UserController::class, 'company_profile_edit']);
 	});
 
-	Route::prefix('client')->group(function(){
-		Route::get('/dashboard', [ClientController::class, 'index'])->name('client_dashboard');
-	});
-
 	Route::view('/noitfy', 'logs.notify')->name('notify_list');
 	
 	Route::get('/mypage/register_tracking', [MypageController::class, 'register_tracking'])->name('register_tracking');
@@ -137,6 +133,9 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
 
 Route::group(['middleware' => ['auth', 'client']], function() {
 	Route::prefix('client')->group(function() {
+		Route::get('/client_tools', [ClientController::class, 'client_tools'])->name('client_tools');
+		Route::get('/client_reports', [ClientController::class, 'client_reports'])->name('client_reports');
+
 		Route::prefix('/services')->group(function(){
 			Route::get('/', [ServiceController::class, 'index'])->name('service_list');
 			Route::get('/delete/{id}', [ServiceController::class, 'delete'])->name('delete_service');

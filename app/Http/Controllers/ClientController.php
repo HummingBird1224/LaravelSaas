@@ -6,8 +6,12 @@ use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
-    public function index(){
-        return view('client.dashboard');
+    public function client_tools(){
+        return view('client.tools');
+    }
+
+     public function client_reports(){
+        return view('client.reports');
     }
     
 }
