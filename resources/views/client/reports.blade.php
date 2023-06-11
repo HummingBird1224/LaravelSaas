@@ -6,6 +6,12 @@ $categories = App\Models\Category::where('user_id', Auth::id())->get();
 $items = App\Models\Item::where('user_id', Auth::id())->get();
 @endphp
 
+@php
+$status=['有効', '無効', '無効申請中', '申請非承認'];
+$employee_sizes=['1人', '2人〜10人', '11人〜30人', '31人〜50人', '51人〜100人', '101人〜250人', '251人〜500人', '501人〜1000人', '1001人以上'];
+$schedules=['できる限り早く', '1ヶ月以内', '3ヶ月以内', '半年以内', '1年以内', '3年以内', '未定'];
+@endphp
+
 @section('content')
 <div class="content-wrapper">
   <div class="container-xxl flex-grow-1 container-p-y">
@@ -30,16 +36,14 @@ $items = App\Models\Item::where('user_id', Auth::id())->get();
                     <table class="table table-bordered" style="width: 100%;" id="item-table">
                       <thead>
                         <tr>
-                          <th>#</th>
-                          <th>ID</th>
-                          <th>資料請求日時</th>
                           <th>ツール</th>
-                          <th>請求者情報</th>
-                          <th>会社・部署・役職</th>
-                          <th>規模・業種</th>
-                          <th>導入予定</th>
-                          <th>備考</th>
-                          <th>ステータス</th>
+                          <th>タイトル</th>
+                          <th>期間</th>
+                          <th>合計の資料請求数</th>
+                          <th>有効の資料請求数</th>
+                          <th>無効の資料請求数</th>
+                          <th>発行日</th>
+                          <th>ダウンロード</th>
                         </tr>
                       </thead>
 
@@ -47,38 +51,25 @@ $items = App\Models\Item::where('user_id', Auth::id())->get();
                         @if(count($categories)>0)
                         @foreach($categories as $c)
                         <tr id={{ "category". $c->id }}>
-                          <td><input type="checkbox" id="select_data_{{$c->id}}"></td>
-                          <td>{{$c['id']}}</td>
-                          <td>{{$c['created_at']}}</td>
                           <td>
                             <img src="{{ asset('assets/img/tsukubnobi/nitaco_logo.jpg') }}" class="nitaco-logo"
                               width="33px" height="33px" />
-                            ツクノビ
                           </td>
-                          @if($c->stop)
-                          <td>{{$c['name']}}</td>
-                          <td>{{$c['file_name']}}</td>
+                          <td>2023年05月成果レポート</td>
+                          <td>{{ \Carbon\Carbon::parse($c['updated_at'])->format('d/m/Y')}}</td>
                           <td>{{$c['fall_pro']}}</td>
-                          <td>{{$c['partner_tag']}}</td>
-                          <td>{{$c['is_reg']}}</td>
+                          <td>{{$c['trk_num']}}</td>
+                          <td>{{$c['reg_num']}}</td>
                           <td>
-                            <div class="status valid">
-                              <div class="status-circle"></div>
-                              有効
-                            </div>
-                            <span>
-                              無効申請
-                            </span>
+                            2019.10.01
                           </td>
-                          @else
-                          <td colspan="5">無効理由：月間ツール上限数を超えたため無効</td>
                           <td>
-                            <div class="status invalid">
-                              <div class="status-circle"></div>
-                              無効
-                            </div>
+                            <a href="">
+                              PDFダウンロード
+                            </a>
+                            <br>
+                            ※今後実装予定
                           </td>
-                          @endif
                         </tr>
                         @endforeach
                         @else

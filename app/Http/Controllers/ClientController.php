@@ -10,8 +10,12 @@ class ClientController extends Controller
         return view('client.tools');
     }
 
-     public function client_reports(){
+    public function client_reports(){
         return view('client.reports');
+    }
+
+    public function client_members(){
+        return view('client.members');
     }
     
 }

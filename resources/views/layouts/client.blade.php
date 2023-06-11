@@ -95,7 +95,7 @@
 								else echo 'class="menu-item"'; ?>>
             <a href="{{route('client_tools')}}" class="menu-link">
               <i class="menu-icon tf-icons bx bx-home-circle"></i>
-              <div>マイページ</div>
+              <div>資料請求</div>
             </a>
           </li>
 
@@ -103,15 +103,15 @@
 								else echo 'class="menu-item"'; ?>>
             <a href="{{ route('client_reports') }}" class="menu-link ">
               <i class='menu-icon tf-icons bx bx-message-rounded'></i>
-              <div>投稿した口コミ</div>
+              <div>成果レポート</div>
             </a>
           </li>
 
-          <li <?php if (strrpos(url()->current(), "mypage/requested_materials")) echo 'class="menu-item active open"';
+          <li <?php if (strrpos(url()->current(), "client/client_members")) echo 'class="menu-item active open"';
 								else echo 'class="menu-item"'; ?>>
-            <a href="{{ route('requested_materials') }}" class="menu-link">
+            <a href="{{ route('client_members') }}" class="menu-link">
               <i class='menu-icon tf-icons bx bx-download'></i>
-              <div>請求した資料</div>
+              <div>メンバー一覧</div>
             </a>
           </li>
 

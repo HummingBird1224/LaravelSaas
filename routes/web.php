@@ -39,10 +39,17 @@ Route::prefix('category_documents')->group(function() {
 	Route::get('/download/confirm', [GuideController::class, 'download_confirm'])->name('download_confirm');
 });
 
+Route::get('/categories', [CategoryController::class, 'category_view'])->name('categories');
+
 // Main Routes
 Route::group(['middleware' => ['auth']], function() {
 
-	Route::view('/mypage', 'mypage.dashboard')->name('dashboard');
+	Route::prefix('mypage')->group(function(){
+		Route::view('/', 'mypage.dashboard')->name('dashboard');
+		Route::view('/reputation_answers', 'mypage.review')->name('reputation_answers');
+		Route::view('/requested_materials', 'mypage.download')->name('requested_materials');
+	});
+	
 
 	// Item Routes
 	Route::prefix('item')->group(function() {
@@ -135,6 +142,8 @@ Route::group(['middleware' => ['auth', 'client']], function() {
 	Route::prefix('client')->group(function() {
 		Route::get('/client_tools', [ClientController::class, 'client_tools'])->name('client_tools');
 		Route::get('/client_reports', [ClientController::class, 'client_reports'])->name('client_reports');
+		Route::get('/client_members', [ClientController::class, 'client_members'])->name('client_members');
+		Route::get('/client_members_new', [ClientController::class, 'client_members_new'])->name('client_members_new');
 
 		Route::prefix('/services')->group(function(){
 			Route::get('/', [ServiceController::class, 'index'])->name('service_list');

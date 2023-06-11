@@ -15,6 +15,11 @@ class CategoryController extends Controller
 		return view('category.list', ['categories' => $categories]);
 	}
 
+	public function category_view()
+	{
+		return view('category.list');
+	}
+
 	public function create(Request $request)
 	{
 		$req = json_decode($request['postData']);
