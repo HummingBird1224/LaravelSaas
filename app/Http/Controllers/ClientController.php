@@ -21,5 +21,9 @@ class ClientController extends Controller
     public function client_account_change(){
         return view('client.account_change');
     }
+
+    public function client_managing(){
+        return view('admin.client_managing');
+    }
     
 }

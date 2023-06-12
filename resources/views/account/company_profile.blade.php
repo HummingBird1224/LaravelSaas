@@ -214,7 +214,7 @@ public_path('company_profile.json')
                           </div>
                           <input type="hidden" value="271242" name="user[profile_attributes].id"
                             id="user_profile_attributes_id">
-                          <div class="orange-button text-center m-t-15">
+                          <div class="middle-button text-center m-t-15">
                             <button type="submit" name="commit" value="更新する"
                               class="green-button button btn-raised btn-orange-md" data-disable-with="送信中...">
                               更新する

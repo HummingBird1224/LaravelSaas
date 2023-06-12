@@ -116,23 +116,21 @@
             </a>
           </li>
 
-          <li <?php if (strpos(url()->current(), "account/company_profile")) echo 'class="menu-item active"';
+          <li <?php if (strpos(url()->current(), "admin/service_managing")) echo 'class="menu-item active"';
 								else echo 'class="menu-item"'; ?>>
-            <a href="{{ route('company_profile') }}" class="menu-link">
+            <a href="{{ route('admin_service_managing') }}" class="menu-link">
               <i class="menu-icon tf-icons bx bx-building"></i>
               <div>会社情報</div>
             </a>
           </li>
 
-          @if (Auth::user()->role == 'admin')
-          <li <?php if (strpos(url()->current(), "client/client_tools")) echo 'class="menu-item active"';
+          <li <?php if (strpos(url()->current(), "admin/client_managing")) echo 'class="menu-item active"';
 								else echo 'class="menu-item"'; ?>>
-            <a href="{{ route('client_tools') }}" class="menu-link">
+            <a href="{{ route('admin_client_managing') }}" class="menu-link">
               <i class="menu-icon tf-icons bx bxs-user-account"></i>
-              <div>ユーザー管理</div>
+              <div>リード無効化申請管理</div>
             </a>
           </li>
-          @endif
 
           <li class="menu-item">
             <a href="{{ route('logout') }}" class="menu-link">
@@ -146,7 +144,11 @@
 
       <!-- Layout container -->
       <div class="layout-page">
-
+        <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+          <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+            <i class="bx bx-menu bx-sm"></i>
+          </a>
+        </div>
         <!-- Content wrapper -->
         <div class="content-wrapper">
 

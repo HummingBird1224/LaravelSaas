@@ -141,6 +141,16 @@
           </li>
           @endif
 
+          @if (Auth::user()->role == 'admin')
+          <li <?php if (strpos(url()->current(), "admin/category_documents")) echo 'class="menu-item active"';
+								else echo 'class="menu-item"'; ?>>
+            <a href="{{ route('category_documents_list') }}" class="menu-link">
+              <i class="menu-icon tf-icons bx bxs-user-account"></i>
+              <div>ユーザー管理</div>
+            </a>
+          </li>
+          @endif
+
           <li class="menu-item">
             <a href="{{ route('logout') }}" class="menu-link">
               <i class='menu-icon tf-icons bx bx-log-out'></i>
@@ -153,7 +163,11 @@
 
       <!-- Layout container -->
       <div class="layout-page">
-
+        <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+          <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+            <i class="bx bx-menu bx-sm"></i>
+          </a>
+        </div>
         <!-- Content wrapper -->
         <div class="content-wrapper">
 

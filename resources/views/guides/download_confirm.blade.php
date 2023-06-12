@@ -13,7 +13,7 @@ public_path('company_profile.json')
 @endphp
 
 @section('content')
-<div class="content-wrapper">
+<div class="">
   <div class="container-xxl flex-grow-1 container-p-y">
     <main id="main" class="main">
       <section class="section change_profile">
@@ -26,7 +26,7 @@ public_path('company_profile.json')
                 <div class="card-body">
                   <h2 class="card-title">会員の方はこちら</h2>
                   <div class="green-button text-center">
-                    <button class="orange-button-btn" onclick="loginClick()">
+                    <button class="orange-button button" onclick="loginClick()">
                       <div class="button-text">
                         会員の方はこちら
                       </div>
@@ -133,9 +133,9 @@ public_path('company_profile.json')
                                     id="email" value="{{$user->email}}" />
                                 </div>
                               </div>
-                              <div class="orange-button text-center m-t-15">
+                              <div class="middle-button text-center m-t-15">
                                 <button type="submit" name="commit" value="更新する"
-                                  class="orange-button-btn btn-raised btn-orange-md" data-disable-with="送信中...">
+                                  class="orange-button button btn-raised btn-orange-md" data-disable-with="送信中...">
                                   会社情報検索
                                 </button>
                               </div>
@@ -291,9 +291,9 @@ public_path('company_profile.json')
                         <div class="related-services">
                           <p>資料には以下のサービス情報が含まれます（2件）</p>
                         </div>
-                        <a class="text-center service-add-button" href="{{route('add_service')}}">
-                          <div class="orange-button" style="width:50%">
-                            <div class="orange-button-btn">
+                        <a class="text-center service-add-button" href="{{route('add_service', $r_guide->id)}}">
+                          <div class="middle-button" style="width:50%">
+                            <div class="orange-button button">
                               サービスの追加
                             </div>
                           </div>

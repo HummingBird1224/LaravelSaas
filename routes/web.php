@@ -138,6 +138,8 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
 
 		Route::get('/service_activities', [ServiceController::class, 'service_activities'])->name('admin_service_activities');
 		Route::get('/category_issues', [AdminController::class, 'category_issues'])->name('admin_category_issues');
+		Route::get('/service_managing', [ServiceController::class, 'service_managing'])->name('admin_service_managing');
+		Route::get('/client_managing', [ClientController::class, 'client_managing'])->name('admin_client_managing');
 	});
 
 });
@@ -152,7 +154,7 @@ Route::group(['middleware' => ['auth', 'client']], function() {
 		Route::prefix('/services')->group(function(){
 			Route::get('/', [ServiceController::class, 'index'])->name('service_list');
 			Route::get('/delete/{id}', [ServiceController::class, 'delete'])->name('delete_service');
-			Route::get('/add', [ServiceController::class, 'create'])->name('add_service');
+			Route::get('/add/{id}', [ServiceController::class, 'create'])->name('add_service');
 			Route::post('/store', [ServiceController::class, 'store'])->name('store_service');
 		});
 	});

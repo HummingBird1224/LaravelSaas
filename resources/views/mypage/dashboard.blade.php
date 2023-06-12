@@ -114,7 +114,7 @@ $items = App\Models\Item::where('user_id', Auth::id())->get();
             </div>
 
             <div class="guide-bottom">
-              <div class="orange-button">
+              <div class="middle-button">
                 <button class="green-button button" onclick="downloadConfirm()">
                   <div class="button-text">
                     選択中のガイドをダウンロード
@@ -163,7 +163,7 @@ $items = App\Models\Item::where('user_id', Auth::id())->get();
                 </div>
               </div>
             </div>
-            <div class="orange-button service-button">
+            <div class="middle-button service-button">
               <button class="green-button button">
                 <div class="button-text">
                   資料請求
@@ -202,7 +202,7 @@ $items = App\Models\Item::where('user_id', Auth::id())->get();
             自社サービスをお持ちの方、<br>
             ボクシルにサービスを掲載しませんか？
           </p>
-          <div class="orange-button text-center">
+          <div class="middle-button text-center">
             <button class="green-button button">
               <div class="button-text">
                 ボクシルにサービスを掲載

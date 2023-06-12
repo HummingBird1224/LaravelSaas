@@ -90,6 +90,19 @@ $items = App\Models\Item::where('user_id', Auth::id())->get();
               </button>
             </div>
           </div>
+          <div class="card-section m-b-10">
+            <div class="card info-card sales-card guide-download-wrapper">
+              <div class="card-body">
+                <div class="middle-button text-center">
+                  <button class="middle-button" onclick="downloadClick()">
+                    <div class="button-text">
+                      選択中の資料 <spin id="checked_num">0</spin>点をまとめてダウンロード
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="row" id="common-guide-list">
             @foreach($common_guides as $c_guide)
             <div class="col-sm-6 col-lg-3 text-center">
@@ -120,10 +133,10 @@ $items = App\Models\Item::where('user_id', Auth::id())->get();
       </div>
       <!-- 資料請求したサービス -->
       <div class="card-section m-b-10">
-        <div class="card info-card sales-card guide-download-wrapper">
+        <div class="card info-card guide-download-wrapper fixed-button" >
           <div class="card-body">
-            <div class="orange-button text-center">
-              <button class="orange-button-btn" onclick="downloadClick()">
+            <div class="middle-button text-center">
+              <button class="middle-button" onclick="downloadClick()">
                 <div class="button-text">
                   選択中の資料 <spin id="checked_num">0</spin>点をまとめてダウンロード
                 </div>
@@ -212,6 +225,9 @@ downloadClick = () => {
     if (checkboxes[i].checked) {
       docs = [...docs, checkboxes[i].value];
     }
+  }
+  if(docs.length==0){
+    toastr.error('ガイドを選択する必要があります。');
   }
   if (docs.length > 0) {
     // $.ajax({

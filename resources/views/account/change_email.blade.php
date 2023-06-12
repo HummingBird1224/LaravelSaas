@@ -155,7 +155,7 @@ $user = Auth::user();
                           <small class="text-danger text-xs">{{ $message }}</small>
                           @enderror
                           <!-- <button type="submit" class="btn btn-primary d-grid w-100">{{__('messages.action.register')}}</button> -->
-                          <div class="orange-button text-center m-t-15">
+                          <div class="middle-button text-center m-t-15">
                             <button type="submit" name="commit" value="変更する"
                               class="green-button button btn-raised btn-orange-md col-xs-offset-3 track-regist-db"
                               data-disable-with="送信中...">
