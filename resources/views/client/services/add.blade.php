@@ -1,4 +1,4 @@
-@extends("layouts.no_aside")
+@extends("layouts.client")
 
 @section('css')
 <style>
@@ -17,7 +17,7 @@ public_path('company_profile.json')
 @endphp
 
 @section('content')
-<div class="">
+<div class="content-wrapper">
   <div class="container-xxl flex-grow-1 container-p-y">
     <div class="content" style="padding-top: 0.5rem;">
       <div class="col-12">
@@ -25,7 +25,6 @@ public_path('company_profile.json')
           <div class="card-body">
             <form class="row" method="POST" action="{{route('store_service')}}" enctype="multipart/form-data">
               @csrf
-              <input type="hidden" name="guide_id" value="{{$guide_id}}" />
               <div class="modal-header bg-primary">
                 <h4 class="modal-title text-white">サービスの作成</h4>
               </div>
@@ -72,7 +71,7 @@ public_path('company_profile.json')
                     </div>
                     <span class="help-block">180px × 180px 推奨</span>
                     <div>
-                      <span class="btn btn-raised blue-button button btn-file">
+                      <span class="btn btn-raised green-button btn-file">
                         <label class="fileinput-new" for="image_upload">アップロード</label>
                         <input accept="image/jpeg, image/png" type="file" name="m_image" id="image_upload" hidden>
                       </span>
@@ -92,7 +91,7 @@ public_path('company_profile.json')
                     </div>
                     <span class="help-block">180px × 180px 推奨</span>
                     <div>
-                      <span class="btn btn-raised blue-button button btn-file">
+                      <span class="btn btn-raised green-button btn-file">
                         <label class="fileinput-new" for="image_upload">アップロード</label>
                         <input accept="image/jpeg, image/png" type="file" name="logo" id="image_upload" hidden>
                       </span>
@@ -112,7 +111,7 @@ public_path('company_profile.json')
                     </div>
                     <span class="help-block">180px × 180px 推奨</span>
                     <div>
-                      <span class="btn btn-raised blue-button button btn-file">
+                      <span class="btn btn-raised green-button btn-file">
                         <label class="fileinput-new" for="image_upload">アップロード</label>
                         <input accept="image/jpeg, image/png" type="file" name="uis[][image]" id="image_upload" hidden>
                       </span>
@@ -190,11 +189,8 @@ public_path('company_profile.json')
               </div>
 
               <!-- Modal footer -->
-              <div class="modal-footer " id="button-container">
+              <div class="modal-footer" id="button-container">
                 <button type="submit" class="btn btn-primary">追加</button>
-                <a href="{{url()->previous()}}">
-                  <button type="button" class="btn orange-button btn" style="color:white">戻る</button>
-                </a>
               </div>
             </form>
           </div>
