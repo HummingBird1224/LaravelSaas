@@ -34,29 +34,13 @@ Route::post('update_password', [LoginController::class, 'updatePwd'])->name('pas
 
 // Guide Routes
 Route::prefix('category_documents')->group(function() {
-	Route::get('/', [GuideController::class, 'index'])->name('free_category_documents');
-	Route::get('/search', [GuideController::class, 'search'])->name('category_documents_search');
-	Route::get('/download/confirm', [GuideController::class, 'download_confirm'])->name('download_confirm');
+	Route::get('/', [GuideController::class, 'index'])->name('category_documents');
+	Route::get('/search', [GuideController::class, 'search'])->name('category_documents_search');	
 });
 
+Route::get('/download/confirm', [GuideController::class, 'download_confirm'])->name('download_confirm');
+
 Route::get('/categories', [CategoryController::class, 'category_view'])->name('categories');
-
-	// ----------------  sniper code -------------- //
-
-	// Main Route
-	Route::view('/main', 'main')->name('main');
-
-	// Issus Routes
-	Route::prefix('issus')->group(function() {
-		Route::view('/', 'issus.index')->name('issus');
-	});
-	
-	// Log Routes
-	Route::prefix('log')->group(function() {
-		Route::view('/', 'logs.index')->name('log');
-		Route::view('/service', 'logs.service')->name('log_service');
-	});
-
 
 // Main Routes
 Route::group(['middleware' => ['auth']], function() {
@@ -151,6 +135,11 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
 			Route::get('/add', [CategoryDocumentController::class, 'create'])->name('add_category_document');
 			Route::post('/store', [CategoryDocumentController::class, 'store'])->name('store_category_document');
 		});
+
+		Route::get('/service_activities', [ServiceController::class, 'service_activities'])->name('admin_service_activities');
+		Route::get('/category_issues', [AdminController::class, 'category_issues'])->name('admin_category_issues');
+		Route::get('/service_managing', [ServiceController::class, 'service_managing'])->name('admin_service_managing');
+		Route::get('/client_managing', [ClientController::class, 'client_managing'])->name('admin_client_managing');
 	});
 
 });
@@ -159,13 +148,13 @@ Route::group(['middleware' => ['auth', 'client']], function() {
 	Route::prefix('client')->group(function() {
 		Route::get('/client_tools', [ClientController::class, 'client_tools'])->name('client_tools');
 		Route::get('/client_reports', [ClientController::class, 'client_reports'])->name('client_reports');
-		Route::get('/client_members', [ClientController::class, 'client_members'])->name('client_members');
-		Route::get('/client_members_new', [ClientController::class, 'client_members_new'])->name('client_members_new');
+		Route::get('/client_invalid_condition', [ClientController::class, 'client_invalid_condition'])->name('client_invalid_condition');
+		Route::get('/client_account_change', [ClientController::class, 'client_account_change'])->name('client_account_change');
 
 		Route::prefix('/services')->group(function(){
 			Route::get('/', [ServiceController::class, 'index'])->name('service_list');
 			Route::get('/delete/{id}', [ServiceController::class, 'delete'])->name('delete_service');
-			Route::get('/add', [ServiceController::class, 'create'])->name('add_service');
+			Route::get('/add/{id}', [ServiceController::class, 'create'])->name('add_service');
 			Route::post('/store', [ServiceController::class, 'store'])->name('store_service');
 		});
 	});
