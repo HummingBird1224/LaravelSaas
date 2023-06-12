@@ -26,9 +26,4 @@ class AdminController extends Controller
 		$user->is_permitted = $request['isPermitted'];
 		$user->save();
 	}
-
-	public function category_issues()
-	{
-		return view('admin.category_issues');
-	}
 }
