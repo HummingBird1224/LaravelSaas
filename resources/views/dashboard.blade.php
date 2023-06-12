@@ -21,7 +21,7 @@ $user=Auth::user();
   <meta name="csrf_token" content="{{ csrf_token() }}">
   <title>{{ env('APP_NAME') }}</title>
   <meta content="on" http-equiv="x-dns-prefetch-control" />
-  <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon/favicon.png') }}" />
+  <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/tsukubnobi/tsukunobi_favicon.svg') }}" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Service;
+use App\Models\Guide;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -23,9 +24,9 @@ class ServiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        return view('client.services.add');
+        return view('client.services.add', ['guide_id'=>$id]);
     }
 
     /**
@@ -37,6 +38,16 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         dd($request);
+    }
+
+    public function service_activities()
+    {
+        return view('admin.service_activities');
+    }
+
+    public function service_managing()
+    {
+        return view('admin.service_managing');
     }
 
     /**

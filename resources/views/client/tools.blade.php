@@ -90,7 +90,7 @@ $schedules=['できる限り早く', '1ヶ月以内', '3ヶ月以内', '半年�
               </div>
               <div class="row m-t-15">
                 <div class="col-md-4 align-center">
-                  <button type="submit" class="btn green-button full-width">検索</button>
+                  <button type="submit" class="btn pruple-button button full-width">検索</button>
                 </div>
               </div>
             </form>

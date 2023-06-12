@@ -19,7 +19,7 @@ class AddNewFieldToTable extends Migration
             $table->string('furigana_sur');
             $table->string('furigana_given');
             $table->string('phone_number');
-            // $table->text('avatar');
+            $table->text('avatar');
         });
     }
 

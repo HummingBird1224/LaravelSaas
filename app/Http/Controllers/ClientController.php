@@ -14,8 +14,16 @@ class ClientController extends Controller
         return view('client.reports');
     }
 
-    public function client_members(){
-        return view('client.members');
+    public function client_invalid_condition(){
+        return view('client.invalid_condition');
+    }
+
+    public function client_account_change(){
+        return view('client.account_change');
+    }
+
+    public function client_managing(){
+        return view('admin.client_managing');
     }
     
 }
