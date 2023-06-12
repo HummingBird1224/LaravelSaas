@@ -42,6 +42,22 @@ Route::get('/download/confirm', [GuideController::class, 'download_confirm'])->n
 
 Route::get('/categories', [CategoryController::class, 'category_view'])->name('categories');
 
+	// ----------------  sniper code -------------- //
+
+	// Main Route
+	Route::view('/main', 'main')->name('main');
+
+	// Issus Routes
+	Route::prefix('issus')->group(function() {
+		Route::view('/', 'issus.index')->name('issus');
+	});
+	
+	// Log Routes
+	Route::prefix('log')->group(function() {
+		Route::view('/', 'logs.index')->name('log');
+		Route::view('/service', 'logs.service')->name('log_service');
+	});
+	
 // Main Routes
 Route::group(['middleware' => ['auth']], function() {
 
