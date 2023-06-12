@@ -39,6 +39,11 @@ class ServiceController extends Controller
         dd($request);
     }
 
+    public function service_activities()
+    {
+        return view('admin.service_activities');
+    }
+
     /**
      * Display the specified resource.
      *

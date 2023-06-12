@@ -71,7 +71,7 @@ public_path('company_profile.json')
                     </div>
                     <span class="help-block">180px × 180px 推奨</span>
                     <div>
-                      <span class="btn btn-raised green-button btn-file">
+                      <span class="btn btn-raised blue-button button btn-file">
                         <label class="fileinput-new" for="image_upload">アップロード</label>
                         <input accept="image/jpeg, image/png" type="file" name="m_image" id="image_upload" hidden>
                       </span>
@@ -91,7 +91,7 @@ public_path('company_profile.json')
                     </div>
                     <span class="help-block">180px × 180px 推奨</span>
                     <div>
-                      <span class="btn btn-raised green-button btn-file">
+                      <span class="btn btn-raised blue-button button btn-file">
                         <label class="fileinput-new" for="image_upload">アップロード</label>
                         <input accept="image/jpeg, image/png" type="file" name="logo" id="image_upload" hidden>
                       </span>
@@ -111,7 +111,7 @@ public_path('company_profile.json')
                     </div>
                     <span class="help-block">180px × 180px 推奨</span>
                     <div>
-                      <span class="btn btn-raised green-button btn-file">
+                      <span class="btn btn-raised blue-button button btn-file">
                         <label class="fileinput-new" for="image_upload">アップロード</label>
                         <input accept="image/jpeg, image/png" type="file" name="uis[][image]" id="image_upload" hidden>
                       </span>

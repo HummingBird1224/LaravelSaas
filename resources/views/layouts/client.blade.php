@@ -13,7 +13,7 @@
   <meta name="description" content="" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon/favicon.png') }}" />
+  <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/tsukubnobi/tsukunobi_favicon.svg') }}" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -99,7 +99,7 @@
             </a>
           </li>
 
-          <li <?php if (strpos(url()->current(), "client/client_reports")) echo 'class="menu-item active open"';
+          <li <?php if (strpos(url()->current(), "client/client_reports")) echo 'class="menu-item active "';
 								else echo 'class="menu-item"'; ?>>
             <a href="{{ route('client_reports') }}" class="menu-link ">
               <i class='menu-icon tf-icons bx bx-message-rounded'></i>
@@ -107,27 +107,19 @@
             </a>
           </li>
 
-          <li <?php if (strrpos(url()->current(), "client/client_members")) echo 'class="menu-item active open"';
+          <li <?php if (strrpos(url()->current(), "client/client_invalid_condition")) echo 'class="menu-item active "';
 								else echo 'class="menu-item"'; ?>>
-            <a href="{{ route('client_members') }}" class="menu-link">
+            <a href="{{ route('client_invalid_condition') }}" class="menu-link">
               <i class='menu-icon tf-icons bx bx-download'></i>
-              <div>メンバー一覧</div>
+              <div style="font-size:14px">リード無効条件について</div>
             </a>
           </li>
 
-          <li <?php if (strpos(url()->current(), "account/change_profile")) echo 'class="menu-item active"';
+          <li <?php if (strpos(url()->current(), "client/client_account_change")) echo 'class="menu-item active"';
 								else echo 'class="menu-item"'; ?>>
-            <a href="{{ route('change_profile') }}" class="menu-link">
+            <a href="{{ route('client_account_change') }}" class="menu-link">
               <i class="menu-icon tf-icons bx bx-cog"></i>
               <div>アカウント情報</div>
-            </a>
-          </li>
-
-          <li <?php if (strpos(url()->current(), "account/company_profile")) echo 'class="menu-item active"';
-								else echo 'class="menu-item"'; ?>>
-            <a href="{{ route('company_profile') }}" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-building"></i>
-              <div>会社情報</div>
             </a>
           </li>
 
