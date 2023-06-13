@@ -18,7 +18,7 @@ use App\Http\Controllers\ServiceController ;
 use App\Http\Controllers\Admin\GuideController as CategoryDocumentController;
 
 // Default Route
-Route::view('/', 'dashboard');
+Route::view('/', 'dashboard')->name('dashboard');
 
 // Authentication Routes
 Route::get('/signup/{role?}', [RegisterController::class, 'index']);
@@ -62,7 +62,7 @@ Route::get('/categories', [CategoryController::class, 'category_view'])->name('c
 Route::group(['middleware' => ['auth']], function() {
 
 	Route::prefix('mypage')->group(function(){
-		Route::view('/', 'mypage.dashboard')->name('dashboard');
+		Route::view('/', 'mypage.dashboard')->name('mypage');
 		Route::view('/reputation_answers', 'mypage.review')->name('reputation_answers');
 		Route::view('/requested_materials', 'mypage.download')->name('requested_materials');
 	});

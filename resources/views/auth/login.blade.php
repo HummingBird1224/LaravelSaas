@@ -19,7 +19,6 @@
     <link rel="stylesheet" media="all" href="{{ asset('assets/vendor/css/dashboard-1.css') }}" />
     <link rel="stylesheet" media="all" href="{{ asset('assets/vendor/css/dashboard-responsive.css') }}" />
     <link rel="stylesheet" media="all" href="https://precompiled-assets.boxil.jp/assets/application-ad1c2e0774638a9874c7ce9b343d948ebe76d23a8686d7ac92f28ca8d37a87a5.css" />
-    <script src="{{ asset('assets/js/dashboard-index.js') }}"></script>
     <style>
         /* .moda-users-title {
             padding: 10px 0;
@@ -89,26 +88,27 @@
                         </div>
                     </div>
                     <div class="m-b-10 text-center text-14 text-gray middle-line" style="padding-top: 15px;"><span>または</span></div>
-                    <form class="new_auth_user" id="modal-signin-form" action="/users/sign_in/" accept-charset="UTF-8" data-remote="true" method="post">
-                        <input type="hidden" name="authenticity_token" id="authenticity_token" value="ltIIq4jfCxXF4uNGZ+6ywHWAiyEyq4PiVNgt4yEZHw/vnRqz3dEYKzpSbXI7Fbcp98HZTb1WW5YWY16T9auUYQ==">
+                    <form class="new_auth_user" id="modal-signin-form" action="/login" accept-charset="UTF-8" data-remote="true" method="post">
+                        @csrf
+                        <!-- <input type="hidden" name="authenticity_token" id="authenticity_token" value="ltIIq4jfCxXF4uNGZ+6ywHWAiyEyq4PiVNgt4yEZHw/vnRqz3dEYKzpSbXI7Fbcp98HZTb1WW5YWY16T9auUYQ=="> -->
                         <div class="has-error modal-users-error-text" id="modal-signin-errors">
                             <div></div>
                         </div>
                         <div class="modal-users-input-form" id="modal-signin-email">
-                            <input autofocus="autofocus" class="form-control placeholder-no-fix input-chic" placeholder="メールアドレス" required="required" type="email" name="auth_user[email]" id="auth_user_email">
+                            <input autofocus="autofocus" class="form-control placeholder-no-fix input-chic" placeholder="メールアドレス" required="required" type="email" name="email" id="email">
                         </div>
                         <div class="modal-users-input-form" id="modal-signin-password">
-                            <input autocomplete="off" class="form-control placeholder-no-fix input-chic" placeholder="パスワード" required="required" type="password" name="auth_user[password]" id="auth_user_password">
+                            <input autocomplete="off" class="form-control placeholder-no-fix input-chic" placeholder="パスワード" required="required" type="password" name="password" id="password">
                         </div>
-                        <div class="modal-users-checkbox-wrapper">
+                        <!-- <div class="modal-users-checkbox-wrapper">
                             <label>
                                 <input name="auth_user[remember_me]" type="hidden" value="0">
                                 <input type="checkbox" value="1" checked="checked" name="auth_user[remember_me]" id="auth_user_remember_me">
                                 <div class="modal-users-checkbox-text">ログインを記憶</div>
                             </label>
-                        </div>
+                        </div> -->
                         <div class="modal-users-btn-wrapper none-bt">
-                            <button name="button" type="submit" class="btn btn-raised btn-orange-md btn-modal-part-signin btn-modal-part-signin-email" data-disable-with="ログイン中...">ログイン</button>
+                            <button type="submit" class="btn btn-raised btn-orange-md btn-modal-part-signin btn-modal-part-signin-email" data-disable-with="ログイン中...">ログイン</button>
                         </div>
                         <div class="modal-part-signin-forget-password">
                             <a class="text-link" href="/users/password/new/">パスワードを忘れた方はこちら<i class="fa fa-angle-right" aria-hidden="true"></i></a>
