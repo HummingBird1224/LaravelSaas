@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddCategoryidFieldToGuidesTable extends Migration
+class CreateGuidesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class AddCategoryidFieldToGuidesTable extends Migration
      */
     public function up()
     {
-        Schema::table('guides', function (Blueprint $table) {
-            $table->integer('category_id')->after('description');
+        Schema::create('guides', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
         });
     }
 
@@ -25,8 +26,6 @@ class AddCategoryidFieldToGuidesTable extends Migration
      */
     public function down()
     {
-        Schema::table('guides', function (Blueprint $table) {
-            $table->dropColumn('category_id');
-        });
+        Schema::dropIfExists('guides');
     }
 }

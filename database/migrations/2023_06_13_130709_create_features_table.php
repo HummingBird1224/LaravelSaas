@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddGuideFieldInCompanyTable extends Migration
+class CreateFeaturesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class AddGuideFieldInCompanyTable extends Migration
      */
     public function up()
     {
-        Schema::table('companies', function (Blueprint $table) {
-            $table->integer('guide_id')->nullable;
+        Schema::create('features', function (Blueprint $table) {
+            $table->id();
+            $table->integer('category_id');
+            $table->string('title');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +28,6 @@ class AddGuideFieldInCompanyTable extends Migration
      */
     public function down()
     {
-        Schema::table('companies', function (Blueprint $table) {
-            $table->dropColumn('guide_id');
-        });
+        Schema::dropIfExists('features');
     }
 }

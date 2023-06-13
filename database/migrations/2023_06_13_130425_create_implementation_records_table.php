@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class RemoveNameFiledInUsersTable extends Migration
+class CreateImplementationRecordsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class RemoveNameFiledInUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('name');
+        Schema::create('implementation_records', function (Blueprint $table) {
+            $table->id();
+            $table->integer('service_id');
+            $table->integer('company_id');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +28,6 @@ class RemoveNameFiledInUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('name');
-        });
+        Schema::dropIfExists('implementation_records');
     }
 }

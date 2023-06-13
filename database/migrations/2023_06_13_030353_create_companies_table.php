@@ -15,18 +15,19 @@ class CreateCompaniesTable extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
             $table->string('name');
-            $table->string('employee_number');
-            $table->integer('industry');
-            $table->text('logo');
-            $table->string('location');
+            $table->string('corporation_scale');
+            $table->integer('business_type');
+            $table->string('logo');
+            $table->integer('prefecture');
             $table->string('address');
             $table->string('representative');
             $table->string('phone_number');
             $table->integer('founded_year');
             $table->integer('founded_month');
             $table->string('capital');
-            $table->text('company_url');
+            $table->string('company_url');
             $table->timestamps();
         });
     }

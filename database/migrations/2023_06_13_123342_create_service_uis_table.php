@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddRecommendedFieldInGuidesTable extends Migration
+class CreateServiceUisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class AddRecommendedFieldInGuidesTable extends Migration
      */
     public function up()
     {
-        Schema::table('guides', function (Blueprint $table) {
-            $table->boolean('recommended')->default(0)->after('image');
+        Schema::create('service_uis', function (Blueprint $table) {
+            $table->id();
+            $table->integer('service_id');
+            $table->string('portfolio');
+            $table->text('description')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -25,8 +29,6 @@ class AddRecommendedFieldInGuidesTable extends Migration
      */
     public function down()
     {
-        Schema::table('guides', function (Blueprint $table) {
-            $table->dropColumn('recommended');
-        });
+        Schema::dropIfExists('service_uis');
     }
 }
