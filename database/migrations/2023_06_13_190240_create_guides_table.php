@@ -15,6 +15,14 @@ class CreateGuidesTable extends Migration
     {
         Schema::create('guides', function (Blueprint $table) {
             $table->id();
+            $table->integer('for_id');
+            $table->string('title');
+            $table->text('description')->nullable();
+            $table->string('image');
+            $table->string('data');
+            $table->boolean('for')->default(0);
+            $table->boolean('recommended')->default(0);
+            $table->boolean('free')->default(1);
             $table->timestamps();
         });
     }
