@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use App\Models\User;
 
 class UserSeeder extends Seeder
 {
@@ -17,12 +18,6 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'name' => Str::random(10),
-            'name' => Str::random(10),
-            'birthday' => now(),
-            'email' => Str::random(10).'@gmail.com',
-            'password' => Hash::make('123123'),
-        ]);
+        User::factory()->count(19)->create();
     }
 }

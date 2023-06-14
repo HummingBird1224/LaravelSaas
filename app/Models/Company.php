@@ -15,12 +15,11 @@ class Company extends Model
 
     protected $fillable=[
         'user_id',
-        'source',
         'name',
-        'employee_number',
-        'industry',
+        'corporation_scale',
+        'business_type',
         'logo',
-        'location',
+        'prefecture',
         'address',
         'representative',
         'phone_number',
@@ -28,8 +27,6 @@ class Company extends Model
         'founded_month',
         'capital',
         'company_url',
-        'department',
-        'job_title',
     ];
 
     public function user() {

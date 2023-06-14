@@ -32,9 +32,9 @@ $user=Auth::user();
   <script async="" crossorigin="anonymous" src="{{ asset('assets/js/fontawesome.js') }}"></script>
   <link rel="stylesheet" media="all" href="{{ asset('assets/vendor/css/dashboard-1.css') }}" />
   <link rel="stylesheet" media="all" href="{{ asset('assets/vendor/css/dashboard-responsive.css') }}" />
-  <script src="{{ asset('assets/js/dashboard-index.js') }}">
-  </script> <!-- Google Tag Manager -->
-  <script>
+  <script src="{{ asset('assets/js/dashboard-index.js') }}">  </script> 
+  <!-- Google Tag Manager -->
+  <!-- <script>
   (
     function(w, d, s, l, i) {
       w[l] = w[l] || [];
@@ -52,374 +52,374 @@ $user=Auth::user();
     }
   )
   (window, document, 'script', 'dataLayer', 'GTM-NWHPVX');
-  </script>
+  </script> -->
   <!-- End Google Tag Manager -->
   <script>
   window.gon = {};
-  gon.track_event_params = {
-    "controller": "services",
-    "action": "index",
-    "finished_experiments": null,
-    "controller": "services",
-    "action": "index",
-    "original_url": "https://10.10.14.81:8000/",
-    "referer_url": null,
-    "request_method": "GET",
-    "visit_token": "63a799ad-86b1-4e14-8433-015508f7615a",
-    "ahoy_visitor": "d1a7375b-f6bd-458b-8513-7fd5dd70fc33",
-    "request_ips": "188.43.14.13, 172.68.10.212, 10.16.1.223",
-    "phase": "render",
-    "request_hash": "61ba5ec401156a4805e4324e8a095a1a",
-    "params": {
-      "controller": "services",
-      "action": "index"
-    }
-  };
-  gon.flash = null;
-  gon.category_documents = [{
-      "id": 1122,
-      "category_id": null,
-      "title": "SaaS業界レポート2022",
-      "origin_file_id": "e4c6736449243e59f6a7084e5da89799e273b9542b8fe4113eb78b3fd5c2",
-      "origin_file_filename": "SaaS業界レポート2022.pdf",
-      "origin_file_size": "29027810",
-      "origin_file_content_type": "application/pdf",
-      "presentation_file_id": null,
-      "presentation_file_filename": null,
-      "presentation_file_size": null,
-      "presentation_file_content_type": null,
-      "slidable": true,
-      "pages": 115,
-      "downloads_count": 2696,
-      "created_at": "2022-11-11T09:43:42.000+09:00",
-      "updated_at": "2023-05-25T14:20:14.000+09:00",
-      "self_hosting": false,
-      "origin_file_data": {
-        "id": "e4c6736449243e59f6a7084e5da89799e273b9542b8fe4113eb78b3fd5c2",
-        "storage": "category_store",
-        "metadata": {
-          "size": "29027810",
-          "filename": "SaaS業界レポート2022.pdf",
-          "mime_type": "application/pdf"
-        }
-      },
-      "presentation_file_data": null,
-      "usage_type": "other",
-      "is_published_useful_guide": true
-    },
-    {
-      "id": 42,
-      "category_id": 117,
-      "title": "経費精算システム選び方ガイド",
-      "origin_file_id": "bada2aaad9154d2709e51219f2186aa1d53beb53bb90ae497ef14e2cdfab",
-      "origin_file_filename": "新選び方ガイド：経費精算システム導入ガイド_20230406.pptx.pdf",
-      "origin_file_size": "4661940",
-      "origin_file_content_type": "application/pdf",
-      "presentation_file_id": "0f7ff425c2e964bf55bdc97fb9e7d0409fa45d70887fd8d6866849e6d0b1",
-      "presentation_file_filename": "経費精算システム選び方ガイド_20210803.pptx",
-      "presentation_file_size": "828357",
-      "presentation_file_content_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
-      "slidable": true,
-      "pages": 25,
-      "downloads_count": 16423,
-      "created_at": "2016-11-22T12:25:13.000+09:00",
-      "updated_at": "2023-05-25T17:30:41.000+09:00",
-      "self_hosting": true,
-      "origin_file_data": {
-        "id": "bada2aaad9154d2709e51219f2186aa1d53beb53bb90ae497ef14e2cdfab",
-        "storage": "category_store",
-        "metadata": {
-          "size": "4661940",
-          "filename": "新選び方ガイド：経費精算システム導入ガイド_20230406.pptx.pdf",
-          "mime_type": "application/pdf"
-        }
-      },
-      "presentation_file_data": {
-        "id": "0f7ff425c2e964bf55bdc97fb9e7d0409fa45d70887fd8d6866849e6d0b1",
-        "storage": "category_presentations",
-        "metadata": {
-          "size": "828357",
-          "filename": "経費精算システム選び方ガイド_20210803.pptx",
-          "mime_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation"
-        }
-      },
-      "usage_type": "boxil_wp",
-      "is_published_useful_guide": true
-    },
-    {
-      "id": 23,
-      "category_id": 71,
-      "title": "ERP(基幹システム)選び方ガイド",
-      "origin_file_id": "0c18139e900f6d6d4287dee988cd5b8fa86e18528ee077f4824e04fcb9b9",
-      "origin_file_filename": "ERP(基幹システム)選び方ガイド_20230201.pptx.pdf",
-      "origin_file_size": "808045",
-      "origin_file_content_type": "application/pdf",
-      "presentation_file_id": "964d2edc412ef6e8512b87e11bb9a10552b276c16b72af12f843e955ef27",
-      "presentation_file_filename": "ERP(基幹システム)選び方ガイド_20210428.pptx",
-      "presentation_file_size": "1881799",
-      "presentation_file_content_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
-      "slidable": true,
-      "pages": 15,
-      "downloads_count": 7326,
-      "created_at": "2016-10-10T17:58:32.000+09:00",
-      "updated_at": "2023-05-25T15:00:12.000+09:00",
-      "self_hosting": false,
-      "origin_file_data": {
-        "id": "0c18139e900f6d6d4287dee988cd5b8fa86e18528ee077f4824e04fcb9b9",
-        "storage": "category_store",
-        "metadata": {
-          "size": "808045",
-          "filename": "ERP(基幹システム)選び方ガイド_20230201.pptx.pdf",
-          "mime_type": "application/pdf"
-        }
-      },
-      "presentation_file_data": {
-        "id": "964d2edc412ef6e8512b87e11bb9a10552b276c16b72af12f843e955ef27",
-        "storage": "category_presentations",
-        "metadata": {
-          "size": "1881799",
-          "filename": "ERP(基幹システム)選び方ガイド_20210428.pptx",
-          "mime_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation"
-        }
-      },
-      "usage_type": "boxil_wp",
-      "is_published_useful_guide": true
-    },
-    {
-      "id": 45,
-      "category_id": 115,
-      "title": "請求書発行システム選び方ガイド",
-      "origin_file_id": "b46d99de69064ef1bdb3d18a7816a0e5888f1a5ee9551b911485ac5f3ede",
-      "origin_file_filename": "請求書発行システム_選び方ガイド_20221221.pptx (2).pdf",
-      "origin_file_size": "844533",
-      "origin_file_content_type": "application/pdf",
-      "presentation_file_id": "ae0659f2b6eb5c9b1da6ad0e5c573c9ebc05ea9e6f923dcad2e23c89ba64",
-      "presentation_file_filename": "請求書発行システム_選び方ガイド_20210430.pptx",
-      "presentation_file_size": "1876547",
-      "presentation_file_content_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
-      "slidable": true,
-      "pages": 19,
-      "downloads_count": 7651,
-      "created_at": "2016-11-24T19:05:38.000+09:00",
-      "updated_at": "2023-05-25T14:33:55.000+09:00",
-      "self_hosting": true,
-      "origin_file_data": {
-        "id": "b46d99de69064ef1bdb3d18a7816a0e5888f1a5ee9551b911485ac5f3ede",
-        "storage": "category_store",
-        "metadata": {
-          "size": "844533",
-          "filename": "請求書発行システム_選び方ガイド_20221221.pptx (2).pdf",
-          "mime_type": "application/pdf"
-        }
-      },
-      "presentation_file_data": {
-        "id": "ae0659f2b6eb5c9b1da6ad0e5c573c9ebc05ea9e6f923dcad2e23c89ba64",
-        "storage": "category_presentations",
-        "metadata": {
-          "size": "1876547",
-          "filename": "請求書発行システム_選び方ガイド_20210430.pptx",
-          "mime_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation"
-        }
-      },
-      "usage_type": "boxil_wp",
-      "is_published_useful_guide": true
-    },
-    {
-      "id": 77,
-      "category_id": null,
-      "title": "労務管理システム選び方ガイド",
-      "origin_file_id": "3ffbf17e352629e591b352d733bb956195d4778c04ff7bdf6564938a99ec",
-      "origin_file_filename": "労務管理システム選び方ガイド_20221128.pptx.pdf",
-      "origin_file_size": "1048368",
-      "origin_file_content_type": "application/pdf",
-      "presentation_file_id": "4b5da32ab53ce9157ad1e08349627244daad77b1e772b354f0cd9daac2ea",
-      "presentation_file_filename": "労務管理システム選び方ガイド_210607.pptx",
-      "presentation_file_size": "2139856",
-      "presentation_file_content_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
-      "slidable": true,
-      "pages": 18,
-      "downloads_count": 2378,
-      "created_at": "2017-09-21T16:52:33.000+09:00",
-      "updated_at": "2023-05-25T10:01:18.000+09:00",
-      "self_hosting": true,
-      "origin_file_data": {
-        "id": "3ffbf17e352629e591b352d733bb956195d4778c04ff7bdf6564938a99ec",
-        "storage": "category_store",
-        "metadata": {
-          "size": "1048368",
-          "filename": "労務管理システム選び方ガイド_20221128.pptx.pdf",
-          "mime_type": "application/pdf"
-        }
-      },
-      "presentation_file_data": {
-        "id": "4b5da32ab53ce9157ad1e08349627244daad77b1e772b354f0cd9daac2ea",
-        "storage": "category_presentations",
-        "metadata": {
-          "size": "2139856",
-          "filename": "労務管理システム選び方ガイド_210607.pptx",
-          "mime_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation"
-        }
-      },
-      "usage_type": "boxil_wp",
-      "is_published_useful_guide": true
-    },
-    {
-      "id": 334,
-      "category_id": null,
-      "title": "電子契約システム選び方ガイド",
-      "origin_file_id": "c80716f98969f3f81ca8fd8456bdd6d01f7335b7dd8d6bbd7573105c788d",
-      "origin_file_filename": "新選び方ガイド：電子契約システム導入ガイド_20221024.pptx (4).pdf",
-      "origin_file_size": "1881974",
-      "origin_file_content_type": "application/pdf",
-      "presentation_file_id": "ee6a0af8d71fe2feb0cb733c8009d9e9e1a73be329b3d0c47d0d8afe4326",
-      "presentation_file_filename": "電子契約システム選び方ガイド_210604.pptx",
-      "presentation_file_size": "2703375",
-      "presentation_file_content_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
-      "slidable": true,
-      "pages": 27,
-      "downloads_count": 14183,
-      "created_at": "2019-08-01T12:32:33.000+09:00",
-      "updated_at": "2023-05-25T13:23:55.000+09:00",
-      "self_hosting": true,
-      "origin_file_data": {
-        "id": "c80716f98969f3f81ca8fd8456bdd6d01f7335b7dd8d6bbd7573105c788d",
-        "storage": "category_store",
-        "metadata": {
-          "size": "1881974",
-          "filename": "新選び方ガイド：電子契約システム導入ガイド_20221024.pptx (4).pdf",
-          "mime_type": "application/pdf"
-        }
-      },
-      "presentation_file_data": {
-        "id": "ee6a0af8d71fe2feb0cb733c8009d9e9e1a73be329b3d0c47d0d8afe4326",
-        "storage": "category_presentations",
-        "metadata": {
-          "size": "2703375",
-          "filename": "電子契約システム選び方ガイド_210604.pptx",
-          "mime_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation"
-        }
-      },
-      "usage_type": "boxil_wp",
-      "is_published_useful_guide": true
-    },
-    {
-      "id": 67,
-      "category_id": null,
-      "title": "人事評価システム選び方ガイド",
-      "origin_file_id": "a029147f9f31f36e8beeb458c8e6eefce42017f93615d0affe5ad0fa33fe",
-      "origin_file_filename": "新選び方ガイド：人事評価システム導入ガイド_20221219.pptx.pdf",
-      "origin_file_size": "3254995",
-      "origin_file_content_type": "application/pdf",
-      "presentation_file_id": "4a38d3931269f30cf7d90249c7205a77f108e2eb062b91220a7f72b1e0de",
-      "presentation_file_filename": "人事評価システム選び方ガイド_20210617.pptx",
-      "presentation_file_size": "2197803",
-      "presentation_file_content_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
-      "slidable": true,
-      "pages": 24,
-      "downloads_count": 4293,
-      "created_at": "2017-09-20T19:00:08.000+09:00",
-      "updated_at": "2023-05-22T08:48:48.000+09:00",
-      "self_hosting": true,
-      "origin_file_data": {
-        "id": "a029147f9f31f36e8beeb458c8e6eefce42017f93615d0affe5ad0fa33fe",
-        "storage": "category_store",
-        "metadata": {
-          "size": "3254995",
-          "filename": "新選び方ガイド：人事評価システム導入ガイド_20221219.pptx.pdf",
-          "mime_type": "application/pdf"
-        }
-      },
-      "presentation_file_data": {
-        "id": "4a38d3931269f30cf7d90249c7205a77f108e2eb062b91220a7f72b1e0de",
-        "storage": "category_presentations",
-        "metadata": {
-          "size": "2197803",
-          "filename": "人事評価システム選び方ガイド_20210617.pptx",
-          "mime_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation"
-        }
-      },
-      "usage_type": "boxil_wp",
-      "is_published_useful_guide": true
-    },
-    {
-      "id": 17,
-      "category_id": 111,
-      "title": "採用管理システム選び方ガイド",
-      "origin_file_id": "8a71becfb23e9fdc6615891d7dd87955a0d1670b63f8788e46bd5993c918",
-      "origin_file_filename": "新選び方ガイド：採用管理システム（ATS）導入ガイド_20221026.pptx.pdf",
-      "origin_file_size": "4246460",
-      "origin_file_content_type": "application/pdf",
-      "presentation_file_id": "5751f31deaa56f3d692dd4661a4a6551711ca8bfcb2de35228fad35a0459",
-      "presentation_file_filename": "採用管理システム選び方ガイド_210330 (1).pptx",
-      "presentation_file_size": "2657737",
-      "presentation_file_content_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
-      "slidable": true,
-      "pages": 24,
-      "downloads_count": 4002,
-      "created_at": "2016-10-10T17:37:49.000+09:00",
-      "updated_at": "2023-05-25T10:01:09.000+09:00",
-      "self_hosting": true,
-      "origin_file_data": {
-        "id": "e01605a07d52471db739a3b3f8c7122c.pdf",
-        "storage": "category_store",
-        "metadata": {
-          "size": 4228362,
-          "filename": "新選び方ガイド：採用管理システム（ATS）導入ガイド_20230420.pptx.pdf",
-          "mime_type": "application/pdf"
-        }
-      },
-      "presentation_file_data": {
-        "id": "5751f31deaa56f3d692dd4661a4a6551711ca8bfcb2de35228fad35a0459",
-        "storage": "category_presentations",
-        "metadata": {
-          "size": "2657737",
-          "filename": "採用管理システム選び方ガイド_210330 (1).pptx",
-          "mime_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation"
-        }
-      },
-      "usage_type": "boxil_wp",
-      "is_published_useful_guide": true
-    },
-    {
-      "id": 51,
-      "category_id": 469,
-      "title": "文書管理システム選び方ガイド",
-      "origin_file_id": "956bc8ec2e8558dc1dd8009e5e7879d31be0a7a30b9a5f5e72c8e8a0bda7",
-      "origin_file_filename": "WP_文書管理_20230201.pptx (1).pdf",
-      "origin_file_size": "823579",
-      "origin_file_content_type": "application/pdf",
-      "presentation_file_id": "18ac1a7ce689efe8638ae98505f00ac6d134af5394a99d04e8d82a936ee7",
-      "presentation_file_filename": "WP_文書管理_202120210728.pptx",
-      "presentation_file_size": "1794147",
-      "presentation_file_content_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
-      "slidable": true,
-      "pages": 14,
-      "downloads_count": 1553,
-      "created_at": "2017-06-28T18:38:53.000+09:00",
-      "updated_at": "2023-05-25T10:08:22.000+09:00",
-      "self_hosting": true,
-      "origin_file_data": {
-        "id": "956bc8ec2e8558dc1dd8009e5e7879d31be0a7a30b9a5f5e72c8e8a0bda7",
-        "storage": "category_store",
-        "metadata": {
-          "size": "823579",
-          "filename": "WP_文書管理_20230201.pptx (1).pdf",
-          "mime_type": "application/pdf"
-        }
-      },
-      "presentation_file_data": {
-        "id": "18ac1a7ce689efe8638ae98505f00ac6d134af5394a99d04e8d82a936ee7",
-        "storage": "category_presentations",
-        "metadata": {
-          "size": "1794147",
-          "filename": "WP_文書管理_202120210728.pptx",
-          "mime_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation"
-        }
-      },
-      "usage_type": "boxil_wp",
-      "is_published_useful_guide": true
-    }
-  ];
+  // gon.track_event_params = {
+  //   "controller": "services",
+  //   "action": "index",
+  //   "finished_experiments": null,
+  //   "controller": "services",
+  //   "action": "index",
+  //   "original_url": "https://10.10.14.81:8000/",
+  //   "referer_url": null,
+  //   "request_method": "GET",
+  //   "visit_token": "63a799ad-86b1-4e14-8433-015508f7615a",
+  //   "ahoy_visitor": "d1a7375b-f6bd-458b-8513-7fd5dd70fc33",
+  //   "request_ips": "188.43.14.13, 172.68.10.212, 10.16.1.223",
+  //   "phase": "render",
+  //   "request_hash": "61ba5ec401156a4805e4324e8a095a1a",
+  //   "params": {
+  //     "controller": "services",
+  //     "action": "index"
+  //   }
+  // };
+  // gon.flash = null;
+  // gon.category_documents = [{
+  //     "id": 1122,
+  //     "category_id": null,
+  //     "title": "SaaS業界レポート2022",
+  //     "origin_file_id": "e4c6736449243e59f6a7084e5da89799e273b9542b8fe4113eb78b3fd5c2",
+  //     "origin_file_filename": "SaaS業界レポート2022.pdf",
+  //     "origin_file_size": "29027810",
+  //     "origin_file_content_type": "application/pdf",
+  //     "presentation_file_id": null,
+  //     "presentation_file_filename": null,
+  //     "presentation_file_size": null,
+  //     "presentation_file_content_type": null,
+  //     "slidable": true,
+  //     "pages": 115,
+  //     "downloads_count": 2696,
+  //     "created_at": "2022-11-11T09:43:42.000+09:00",
+  //     "updated_at": "2023-05-25T14:20:14.000+09:00",
+  //     "self_hosting": false,
+  //     "origin_file_data": {
+  //       "id": "e4c6736449243e59f6a7084e5da89799e273b9542b8fe4113eb78b3fd5c2",
+  //       "storage": "category_store",
+  //       "metadata": {
+  //         "size": "29027810",
+  //         "filename": "SaaS業界レポート2022.pdf",
+  //         "mime_type": "application/pdf"
+  //       }
+  //     },
+  //     "presentation_file_data": null,
+  //     "usage_type": "other",
+  //     "is_published_useful_guide": true
+  //   },
+  //   {
+  //     "id": 42,
+  //     "category_id": 117,
+  //     "title": "経費精算システム選び方ガイド",
+  //     "origin_file_id": "bada2aaad9154d2709e51219f2186aa1d53beb53bb90ae497ef14e2cdfab",
+  //     "origin_file_filename": "新選び方ガイド：経費精算システム導入ガイド_20230406.pptx.pdf",
+  //     "origin_file_size": "4661940",
+  //     "origin_file_content_type": "application/pdf",
+  //     "presentation_file_id": "0f7ff425c2e964bf55bdc97fb9e7d0409fa45d70887fd8d6866849e6d0b1",
+  //     "presentation_file_filename": "経費精算システム選び方ガイド_20210803.pptx",
+  //     "presentation_file_size": "828357",
+  //     "presentation_file_content_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+  //     "slidable": true,
+  //     "pages": 25,
+  //     "downloads_count": 16423,
+  //     "created_at": "2016-11-22T12:25:13.000+09:00",
+  //     "updated_at": "2023-05-25T17:30:41.000+09:00",
+  //     "self_hosting": true,
+  //     "origin_file_data": {
+  //       "id": "bada2aaad9154d2709e51219f2186aa1d53beb53bb90ae497ef14e2cdfab",
+  //       "storage": "category_store",
+  //       "metadata": {
+  //         "size": "4661940",
+  //         "filename": "新選び方ガイド：経費精算システム導入ガイド_20230406.pptx.pdf",
+  //         "mime_type": "application/pdf"
+  //       }
+  //     },
+  //     "presentation_file_data": {
+  //       "id": "0f7ff425c2e964bf55bdc97fb9e7d0409fa45d70887fd8d6866849e6d0b1",
+  //       "storage": "category_presentations",
+  //       "metadata": {
+  //         "size": "828357",
+  //         "filename": "経費精算システム選び方ガイド_20210803.pptx",
+  //         "mime_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+  //       }
+  //     },
+  //     "usage_type": "boxil_wp",
+  //     "is_published_useful_guide": true
+  //   },
+  //   {
+  //     "id": 23,
+  //     "category_id": 71,
+  //     "title": "ERP(基幹システム)選び方ガイド",
+  //     "origin_file_id": "0c18139e900f6d6d4287dee988cd5b8fa86e18528ee077f4824e04fcb9b9",
+  //     "origin_file_filename": "ERP(基幹システム)選び方ガイド_20230201.pptx.pdf",
+  //     "origin_file_size": "808045",
+  //     "origin_file_content_type": "application/pdf",
+  //     "presentation_file_id": "964d2edc412ef6e8512b87e11bb9a10552b276c16b72af12f843e955ef27",
+  //     "presentation_file_filename": "ERP(基幹システム)選び方ガイド_20210428.pptx",
+  //     "presentation_file_size": "1881799",
+  //     "presentation_file_content_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+  //     "slidable": true,
+  //     "pages": 15,
+  //     "downloads_count": 7326,
+  //     "created_at": "2016-10-10T17:58:32.000+09:00",
+  //     "updated_at": "2023-05-25T15:00:12.000+09:00",
+  //     "self_hosting": false,
+  //     "origin_file_data": {
+  //       "id": "0c18139e900f6d6d4287dee988cd5b8fa86e18528ee077f4824e04fcb9b9",
+  //       "storage": "category_store",
+  //       "metadata": {
+  //         "size": "808045",
+  //         "filename": "ERP(基幹システム)選び方ガイド_20230201.pptx.pdf",
+  //         "mime_type": "application/pdf"
+  //       }
+  //     },
+  //     "presentation_file_data": {
+  //       "id": "964d2edc412ef6e8512b87e11bb9a10552b276c16b72af12f843e955ef27",
+  //       "storage": "category_presentations",
+  //       "metadata": {
+  //         "size": "1881799",
+  //         "filename": "ERP(基幹システム)選び方ガイド_20210428.pptx",
+  //         "mime_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+  //       }
+  //     },
+  //     "usage_type": "boxil_wp",
+  //     "is_published_useful_guide": true
+  //   },
+  //   {
+  //     "id": 45,
+  //     "category_id": 115,
+  //     "title": "請求書発行システム選び方ガイド",
+  //     "origin_file_id": "b46d99de69064ef1bdb3d18a7816a0e5888f1a5ee9551b911485ac5f3ede",
+  //     "origin_file_filename": "請求書発行システム_選び方ガイド_20221221.pptx (2).pdf",
+  //     "origin_file_size": "844533",
+  //     "origin_file_content_type": "application/pdf",
+  //     "presentation_file_id": "ae0659f2b6eb5c9b1da6ad0e5c573c9ebc05ea9e6f923dcad2e23c89ba64",
+  //     "presentation_file_filename": "請求書発行システム_選び方ガイド_20210430.pptx",
+  //     "presentation_file_size": "1876547",
+  //     "presentation_file_content_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+  //     "slidable": true,
+  //     "pages": 19,
+  //     "downloads_count": 7651,
+  //     "created_at": "2016-11-24T19:05:38.000+09:00",
+  //     "updated_at": "2023-05-25T14:33:55.000+09:00",
+  //     "self_hosting": true,
+  //     "origin_file_data": {
+  //       "id": "b46d99de69064ef1bdb3d18a7816a0e5888f1a5ee9551b911485ac5f3ede",
+  //       "storage": "category_store",
+  //       "metadata": {
+  //         "size": "844533",
+  //         "filename": "請求書発行システム_選び方ガイド_20221221.pptx (2).pdf",
+  //         "mime_type": "application/pdf"
+  //       }
+  //     },
+  //     "presentation_file_data": {
+  //       "id": "ae0659f2b6eb5c9b1da6ad0e5c573c9ebc05ea9e6f923dcad2e23c89ba64",
+  //       "storage": "category_presentations",
+  //       "metadata": {
+  //         "size": "1876547",
+  //         "filename": "請求書発行システム_選び方ガイド_20210430.pptx",
+  //         "mime_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+  //       }
+  //     },
+  //     "usage_type": "boxil_wp",
+  //     "is_published_useful_guide": true
+  //   },
+  //   {
+  //     "id": 77,
+  //     "category_id": null,
+  //     "title": "労務管理システム選び方ガイド",
+  //     "origin_file_id": "3ffbf17e352629e591b352d733bb956195d4778c04ff7bdf6564938a99ec",
+  //     "origin_file_filename": "労務管理システム選び方ガイド_20221128.pptx.pdf",
+  //     "origin_file_size": "1048368",
+  //     "origin_file_content_type": "application/pdf",
+  //     "presentation_file_id": "4b5da32ab53ce9157ad1e08349627244daad77b1e772b354f0cd9daac2ea",
+  //     "presentation_file_filename": "労務管理システム選び方ガイド_210607.pptx",
+  //     "presentation_file_size": "2139856",
+  //     "presentation_file_content_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+  //     "slidable": true,
+  //     "pages": 18,
+  //     "downloads_count": 2378,
+  //     "created_at": "2017-09-21T16:52:33.000+09:00",
+  //     "updated_at": "2023-05-25T10:01:18.000+09:00",
+  //     "self_hosting": true,
+  //     "origin_file_data": {
+  //       "id": "3ffbf17e352629e591b352d733bb956195d4778c04ff7bdf6564938a99ec",
+  //       "storage": "category_store",
+  //       "metadata": {
+  //         "size": "1048368",
+  //         "filename": "労務管理システム選び方ガイド_20221128.pptx.pdf",
+  //         "mime_type": "application/pdf"
+  //       }
+  //     },
+  //     "presentation_file_data": {
+  //       "id": "4b5da32ab53ce9157ad1e08349627244daad77b1e772b354f0cd9daac2ea",
+  //       "storage": "category_presentations",
+  //       "metadata": {
+  //         "size": "2139856",
+  //         "filename": "労務管理システム選び方ガイド_210607.pptx",
+  //         "mime_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+  //       }
+  //     },
+  //     "usage_type": "boxil_wp",
+  //     "is_published_useful_guide": true
+  //   },
+  //   {
+  //     "id": 334,
+  //     "category_id": null,
+  //     "title": "電子契約システム選び方ガイド",
+  //     "origin_file_id": "c80716f98969f3f81ca8fd8456bdd6d01f7335b7dd8d6bbd7573105c788d",
+  //     "origin_file_filename": "新選び方ガイド：電子契約システム導入ガイド_20221024.pptx (4).pdf",
+  //     "origin_file_size": "1881974",
+  //     "origin_file_content_type": "application/pdf",
+  //     "presentation_file_id": "ee6a0af8d71fe2feb0cb733c8009d9e9e1a73be329b3d0c47d0d8afe4326",
+  //     "presentation_file_filename": "電子契約システム選び方ガイド_210604.pptx",
+  //     "presentation_file_size": "2703375",
+  //     "presentation_file_content_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+  //     "slidable": true,
+  //     "pages": 27,
+  //     "downloads_count": 14183,
+  //     "created_at": "2019-08-01T12:32:33.000+09:00",
+  //     "updated_at": "2023-05-25T13:23:55.000+09:00",
+  //     "self_hosting": true,
+  //     "origin_file_data": {
+  //       "id": "c80716f98969f3f81ca8fd8456bdd6d01f7335b7dd8d6bbd7573105c788d",
+  //       "storage": "category_store",
+  //       "metadata": {
+  //         "size": "1881974",
+  //         "filename": "新選び方ガイド：電子契約システム導入ガイド_20221024.pptx (4).pdf",
+  //         "mime_type": "application/pdf"
+  //       }
+  //     },
+  //     "presentation_file_data": {
+  //       "id": "ee6a0af8d71fe2feb0cb733c8009d9e9e1a73be329b3d0c47d0d8afe4326",
+  //       "storage": "category_presentations",
+  //       "metadata": {
+  //         "size": "2703375",
+  //         "filename": "電子契約システム選び方ガイド_210604.pptx",
+  //         "mime_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+  //       }
+  //     },
+  //     "usage_type": "boxil_wp",
+  //     "is_published_useful_guide": true
+  //   },
+  //   {
+  //     "id": 67,
+  //     "category_id": null,
+  //     "title": "人事評価システム選び方ガイド",
+  //     "origin_file_id": "a029147f9f31f36e8beeb458c8e6eefce42017f93615d0affe5ad0fa33fe",
+  //     "origin_file_filename": "新選び方ガイド：人事評価システム導入ガイド_20221219.pptx.pdf",
+  //     "origin_file_size": "3254995",
+  //     "origin_file_content_type": "application/pdf",
+  //     "presentation_file_id": "4a38d3931269f30cf7d90249c7205a77f108e2eb062b91220a7f72b1e0de",
+  //     "presentation_file_filename": "人事評価システム選び方ガイド_20210617.pptx",
+  //     "presentation_file_size": "2197803",
+  //     "presentation_file_content_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+  //     "slidable": true,
+  //     "pages": 24,
+  //     "downloads_count": 4293,
+  //     "created_at": "2017-09-20T19:00:08.000+09:00",
+  //     "updated_at": "2023-05-22T08:48:48.000+09:00",
+  //     "self_hosting": true,
+  //     "origin_file_data": {
+  //       "id": "a029147f9f31f36e8beeb458c8e6eefce42017f93615d0affe5ad0fa33fe",
+  //       "storage": "category_store",
+  //       "metadata": {
+  //         "size": "3254995",
+  //         "filename": "新選び方ガイド：人事評価システム導入ガイド_20221219.pptx.pdf",
+  //         "mime_type": "application/pdf"
+  //       }
+  //     },
+  //     "presentation_file_data": {
+  //       "id": "4a38d3931269f30cf7d90249c7205a77f108e2eb062b91220a7f72b1e0de",
+  //       "storage": "category_presentations",
+  //       "metadata": {
+  //         "size": "2197803",
+  //         "filename": "人事評価システム選び方ガイド_20210617.pptx",
+  //         "mime_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+  //       }
+  //     },
+  //     "usage_type": "boxil_wp",
+  //     "is_published_useful_guide": true
+  //   },
+  //   {
+  //     "id": 17,
+  //     "category_id": 111,
+  //     "title": "採用管理システム選び方ガイド",
+  //     "origin_file_id": "8a71becfb23e9fdc6615891d7dd87955a0d1670b63f8788e46bd5993c918",
+  //     "origin_file_filename": "新選び方ガイド：採用管理システム（ATS）導入ガイド_20221026.pptx.pdf",
+  //     "origin_file_size": "4246460",
+  //     "origin_file_content_type": "application/pdf",
+  //     "presentation_file_id": "5751f31deaa56f3d692dd4661a4a6551711ca8bfcb2de35228fad35a0459",
+  //     "presentation_file_filename": "採用管理システム選び方ガイド_210330 (1).pptx",
+  //     "presentation_file_size": "2657737",
+  //     "presentation_file_content_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+  //     "slidable": true,
+  //     "pages": 24,
+  //     "downloads_count": 4002,
+  //     "created_at": "2016-10-10T17:37:49.000+09:00",
+  //     "updated_at": "2023-05-25T10:01:09.000+09:00",
+  //     "self_hosting": true,
+  //     "origin_file_data": {
+  //       "id": "e01605a07d52471db739a3b3f8c7122c.pdf",
+  //       "storage": "category_store",
+  //       "metadata": {
+  //         "size": 4228362,
+  //         "filename": "新選び方ガイド：採用管理システム（ATS）導入ガイド_20230420.pptx.pdf",
+  //         "mime_type": "application/pdf"
+  //       }
+  //     },
+  //     "presentation_file_data": {
+  //       "id": "5751f31deaa56f3d692dd4661a4a6551711ca8bfcb2de35228fad35a0459",
+  //       "storage": "category_presentations",
+  //       "metadata": {
+  //         "size": "2657737",
+  //         "filename": "採用管理システム選び方ガイド_210330 (1).pptx",
+  //         "mime_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+  //       }
+  //     },
+  //     "usage_type": "boxil_wp",
+  //     "is_published_useful_guide": true
+  //   },
+  //   {
+  //     "id": 51,
+  //     "category_id": 469,
+  //     "title": "文書管理システム選び方ガイド",
+  //     "origin_file_id": "956bc8ec2e8558dc1dd8009e5e7879d31be0a7a30b9a5f5e72c8e8a0bda7",
+  //     "origin_file_filename": "WP_文書管理_20230201.pptx (1).pdf",
+  //     "origin_file_size": "823579",
+  //     "origin_file_content_type": "application/pdf",
+  //     "presentation_file_id": "18ac1a7ce689efe8638ae98505f00ac6d134af5394a99d04e8d82a936ee7",
+  //     "presentation_file_filename": "WP_文書管理_202120210728.pptx",
+  //     "presentation_file_size": "1794147",
+  //     "presentation_file_content_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+  //     "slidable": true,
+  //     "pages": 14,
+  //     "downloads_count": 1553,
+  //     "created_at": "2017-06-28T18:38:53.000+09:00",
+  //     "updated_at": "2023-05-25T10:08:22.000+09:00",
+  //     "self_hosting": true,
+  //     "origin_file_data": {
+  //       "id": "956bc8ec2e8558dc1dd8009e5e7879d31be0a7a30b9a5f5e72c8e8a0bda7",
+  //       "storage": "category_store",
+  //       "metadata": {
+  //         "size": "823579",
+  //         "filename": "WP_文書管理_20230201.pptx (1).pdf",
+  //         "mime_type": "application/pdf"
+  //       }
+  //     },
+  //     "presentation_file_data": {
+  //       "id": "18ac1a7ce689efe8638ae98505f00ac6d134af5394a99d04e8d82a936ee7",
+  //       "storage": "category_presentations",
+  //       "metadata": {
+  //         "size": "1794147",
+  //         "filename": "WP_文書管理_202120210728.pptx",
+  //         "mime_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+  //       }
+  //     },
+  //     "usage_type": "boxil_wp",
+  //     "is_published_useful_guide": true
+  //   }
+  // ];
   </script>
 </head>
 
@@ -549,7 +549,7 @@ $user=Auth::user();
                 <li class="dropdown-list">
                   <a class="dropdown-inner" href="/mypage">
                     <i class="fa fa-home dropdown-icon" aria-hidden="true"></i>
-                    {{$user->fisrt_name}} {{$user->last_name}}マイページ
+                    {{$user->full_name}}マイページ
                   </a>
                 </li>
                 <li class="dropdown-list">
@@ -3666,13 +3666,17 @@ $user=Auth::user();
               <div class="servicesIndex-categoryDocument-text">
                 業務効率化やコスト削減につながるツールやその使い方などを、様々な切り口でわかりやすく解説したボクシル限定「無料ガイド」をまとめました。チェックを付けた資料を一括でダウンロードできます。
               </div>
-              <div class="servicesIndex-categoryDocument-document-all"><a class="btn-go-to-category-documents"
+              <div class="servicesIndex-categoryDocument-document-all">
+                <a class="btn-go-to-category-documents"
                   href="/category_documents/">
-                  <div class="inner-text">お役立ちガイド一覧を見る</div><i class="far fa-chevron-double-right inner-icon"></i>
-                </a></div>
-              <div class="servicesIndex-categoryDocument-wrapper"><label
-                  class="checkbox servicesIndex-categoryDocument">
-                  <div class="servicesIndex-categoryDocument-block-img"><img alt="お役立ちガイド画像"
+                  <div class="inner-text">お役立ちガイド一覧を見る</div>
+                  <i class="far fa-chevron-double-right inner-icon"></i>
+                </a>
+              </div>
+              <div class="servicesIndex-categoryDocument-wrapper">
+                <label class="checkbox servicesIndex-categoryDocument">
+                  <div class="servicesIndex-categoryDocument-block-img">
+                    <img alt="お役立ちガイド画像"
                       src="https://slides.boxil.jp/category/slides/e4c6736449243e59f6a7084e5da89799e273b9542b8fe4113eb78b3fd5c2/s3-0.jpg" />
                     <div class="servicesIndex-categoryDocument-checkbox new-checkbox-input-filled boxil-checkbox"><input
                         class="boxil-checkbox-input check-categoryDocument-1122" id="category_document_1122"
@@ -3902,14 +3906,9 @@ $user=Auth::user();
       </div>
     </div>
   </div>
-  <script src="https://d-cache.microad.jp/js/td_bx_access.js"></script>
-  <script>
-  microadTd.BX.start({
-    "service_category_large": "",
-    "service_category_small": ""
-  });
-  </script>
-  <script>
+  <!-- <script src="https://d-cache.microad.jp/js/td_bx_access.js"></script> -->
+
+  <!-- <script>
   (function() {
     var uid = '';
     var o = [];
@@ -3921,7 +3920,7 @@ $user=Auth::user();
       unescape('%2F%3E');
     window.document.body.appendChild(elm);
   })();
-  </script>
+  </script> -->
   <div id="js-overlap-hidden-target">
     <div id="corporate-lp-banner">
       <div class="clb-wrappar">
@@ -4169,8 +4168,8 @@ $user=Auth::user();
   <script src="{{ asset('assets/js/plugin.ofi.min.js') }}" type="text/javascript">
   </script>
   <script src="{{ asset('assets/js/firebase-app.js') }}"></script>
-  <script src="{{ asset('assets/js/firebase-messaging.js') }}"></script>
-  <script>
+  <!-- <script src="{{ asset('assets/js/firebase-messaging.js') }}"></script> -->
+  <!-- <script>
   firebase.initializeApp({
     'messagingSenderId': '155292325693'
 
@@ -4207,8 +4206,8 @@ $user=Auth::user();
     }
     ahoy.track('js-ahoyTrack', track_event_params)
   }
-  </script>
-  <script src="https://js.adsrvr.org/up_loader.1.1.0.js" type="text/javascript"></script>
+  </script> -->
+  <!-- <script src="https://js.adsrvr.org/up_loader.1.1.0.js" type="text/javascript"></script>
   <script>
   ttd_dom_ready(function() {
     if (typeof TTDUniversalPixelApi === 'function') {
@@ -4220,7 +4219,7 @@ $user=Auth::user();
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v52afc6f149f6479b8c77fa569edb01181681764108816"
     integrity="sha512-jGCTpDpBAYDGNYR5ztKt4BQPGef1P0giN6ZGVUi835kFF88FOmmn8jBQWNgrNd8g/Yu421NdgWhwQoaOPFflDw=="
     data-cf-beacon='{"rayId":"7ccdcad8fe9c15f6","token":"9613f918f1724629a41d218df1c8428f","version":"2023.4.0","si":100}'
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script> -->
 </body>
 
 </html>
