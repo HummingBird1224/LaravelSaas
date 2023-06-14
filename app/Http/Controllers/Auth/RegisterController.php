@@ -62,9 +62,9 @@ class RegisterController extends Controller
             $data,
             [
                 'email'                 => 'required|email|max:255|unique:users',
-                'password'              => 'required|min:6|max:30|confirmed',
+                'password'              => 'required|min:8|max:30|confirmed',
                 'password_confirmation' => 'required|same:password',
-                'name' => 'required', 
+                // 'name' => 'required',
             ],
             [
                 'email.required' => 'メールフィールドは必須です。',
@@ -73,14 +73,14 @@ class RegisterController extends Controller
                 'email.max' => '電子メールは255文字を超えてはなりません。',
 
                 'password.required' => 'パスワードフィールドは必須です。',
-                'password.min' => 'パスワードは6文字以上である必要があります。',
+                'password.min' => 'パスワードは8文字以上である必要があります。',
                 'password.max' => 'パスワードは30文字以内にする必要があります。',
                 'password.confirmed' => 'パスワードの確認が一致しません。',
 
                 'password_confirmation.required' => 'パスワード確認フィールドは必須です。',
                 'password_confirmation.same' => 'パスワードの確認とパスワードは一致している必要があります。',
 
-                'name.required' => '名前フィールドは必須です。',
+                // 'name.required' => '名前フィールドは必須です。',
             ]
         );
     }
@@ -94,22 +94,23 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
         $this->validator($request->all())->validate();
-
+        // dd($request->all());
         $user = $this->create($request->all());
+        // dd($request, $user);
 
         Auth::login($user);
 
-        return view('mypage.dashboard');
+        return redirect()->route('dashboard');
     }
 
     protected function create(array $data)
     {
-       
+        // dd($data);
         $data['password'] = Hash::make($data['password']);
-        $data['role'] = 'user';
+        // // $data['role'] = 'user';
         $user = User::create($data);
 
-        $user->save();
+        // $user->save();
 
         return $user;
     }

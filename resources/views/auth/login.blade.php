@@ -114,7 +114,7 @@
                             <a class="text-link" href="/users/password/new/">パスワードを忘れた方はこちら<i class="fa fa-angle-right" aria-hidden="true"></i></a>
                         </div>
                         <div class="margin-top-30">
-                            <a class="btn-raised btn-border-orange" href="/registration/">新規会員登録はこちら</a>
+                            <a class="btn-raised btn-border-orange" href="/register/">新規会員登録はこちら</a>
                         </div>
                     </form>
                 </div>

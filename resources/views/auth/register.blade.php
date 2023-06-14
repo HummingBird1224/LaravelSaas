@@ -148,464 +148,12 @@ $user=Auth::user();
         </div>
       </div>
       <div class="header-action">
-        <ul class="header-menu"></ul>
+        <ul class="header-menu pc-menu">
+        </ul>
       </div>
     </div>
   </header>
   <div class="registrationForm">
-    <!-- <div class="i-block">
-      <div class="registration-title-block flex space-between align-center">
-        <div>
-          <div class="registration-title">無料会員登録</div>
-          <div class="registration-description"></div>
-        </div>
-      </div>
-      <div class="entryProfile-buttonWrapper--signup">
-        <div class="authButtonWrapper m-b-20">
-          <div class="authButtonWrapper__block">
-            <a class="btn btn-raised authButtonWrapper__flat" rel="nofollow" data-method="post" href="/users/auth/google_oauth2/?is_business=false"><i class="fa fa-google authButtonWrapper__googleIcon" aria-hidden="true"></i>Googleで基本情報を入力</a>
-          </div>
-          <div class="authButtonWrapper__block">
-            <a class="btn btn-raised authButtonWrapper__flat authButtonWrapper__flat__fb" rel="nofollow" data-method="post" href="/users/auth/facebook/?is_business=false"><i class="fa fa-facebook authButtonWrapper__fbIcon" aria-hidden="true"></i>Facebookで基本情報を入力</a>
-          </div>
-        </div>
-        <div class="emailRegistration-form-title">メールアドレスで登録</div>
-        <form class="new_user" id="js-registrationForm" action="/create_registration/" accept-charset="UTF-8" method="post">
-          <input type="hidden" name="authenticity_token" value="MkBe8d8AZ9l4WJ2a82vjZ0BEIAxo5uUwPUg4tHdatftLD0zpig5054foE66vkOaOwgVyYOcbPUR/80vEo+g+lQ==">
-          <input type="hidden" name="user[redirect_path]" id="user_redirect_path">
-          <div class="div">
-            <div class="form-group rg-input-block">
-              <div class="rg-title-block text-left">
-                <span>名前(全角漢字)</span>
-              </div>
-              <div class="rg-form-block">
-                <div class="rg-form has-error" id="last-name">
-                  <div class="flex align-center">
-                    <input class="form-control placeholder-no-fix registration-initial-boxcolor registration-error-boxcolor" placeholder="名字" maxlength="200" size="200" type="text" name="user[profile_attributes][last_name]" id="user_profile_attributes_last_name">
-                    <div class="reg-icon-wrapper">
-                      <div class="reg-success-icon" style="display: none;">
-                        <i class="fa fa-check-circle" aria-hidden="true"></i>
-                      </div>
-                      <div class="reg-error-icon" style="display: block;">
-                        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="reg-help-block">名前（姓）を入力して下さい</div>
-                </div>
-                <div class="rg-form has-error" id="first-name">
-                  <div class="flex align-center">
-                    <input class="form-control placeholder-no-fix registration-initial-boxcolor registration-error-boxcolor" placeholder="名前" maxlength="200" size="200" type="text" name="user[profile_attributes][first_name]" id="user_profile_attributes_first_name">
-                    <div class="reg-icon-wrapper">
-                      <div class="reg-success-icon" style="display: none;">
-                        <i class="fa fa-check-circle" aria-hidden="true"></i>
-                      </div>
-                      <div class="reg-error-icon" style="display: block;">
-                        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="reg-help-block">名前（名）を入力して下さい</div>
-                </div>
-              </div>
-            </div>
-            <div class="form-group rg-input-block">
-              <div class="rg-title-block text-left">
-                <span>名前(全角カナ)</span>
-              </div>
-              <div class="rg-form-block">
-                <div class="rg-form has-error" id="last-name-kana">
-                  <div class="flex align-center">
-                    <input class="form-control placeholder-no-fix registration-initial-boxcolor registration-error-boxcolor" placeholder="ミョウジ" maxlength="200" size="200" type="text" name="user[profile_attributes][last_name_kana]" id="user_profile_attributes_last_name_kana">
-                    <div class="reg-icon-wrapper">
-                      <div class="reg-success-icon" style="display: none;">
-                        <i class="fa fa-check-circle" aria-hidden="true"></i>
-                      </div>
-                      <div class="reg-error-icon" style="display: block;">
-                        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="reg-help-block">カナ（姓）を入力して下さい</div>
-                </div>
-                <div class="rg-form has-error" id="first-name-kana">
-                  <div class="flex align-center">
-                    <input class="form-control placeholder-no-fix registration-initial-boxcolor registration-error-boxcolor" placeholder="ナマエ" maxlength="200" size="200" type="text" name="user[profile_attributes][first_name_kana]" id="user_profile_attributes_first_name_kana">
-                    <div class="reg-icon-wrapper">
-                      <div class="reg-success-icon" style="display: none;">
-                        <i class="fa fa-check-circle" aria-hidden="true"></i>
-                      </div>
-                      <div class="reg-error-icon" style="display: block;">
-                        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="reg-help-block">カナ（名）を入力して下さい</div>
-                </div>
-              </div>
-            </div>
-            <div class="form-group rg-input-block">
-              <div class="rg-title-block text-left">
-                <span>電話番号</span>
-              </div>
-              <div class="rg-form-block">
-                <div class="rg-form full-form has-error" id="phone">
-                  <div class="flex align-center">
-                    <input class="form-control placeholder-no-fix registration-initial-boxcolor registration-error-boxcolor" placeholder="ビジネス利用の電話番号を入力" maxlength="13" size="13" type="text" name="user[profile_attributes][phone]" id="user_profile_attributes_phone">
-                    <div class="reg-icon-wrapper">
-                      <div class="reg-success-icon" style="display: none;">
-                        <i class="fa fa-check-circle" aria-hidden="true"></i>
-                      </div>
-                      <div class="reg-error-icon" style="display: block;">
-                        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <p class="tel-message">※ 日中に繋がる番号を入力してください。携帯電話を推奨しています。</p>
-                  <div class="reg-help-block">電話番号を入力して下さい</div>
-                </div>
-              </div>
-            </div>
-            <input type="hidden" name="user[profile_attributes][eight_profile]" id="user_profile_attributes_eight_profile">
-            <div class="form-group rg-input-block">
-              <div class="rg-title-block text-left">
-                <span>メールアドレス</span>
-              </div>
-              <div class="rg-form-block">
-                <div class="rg-form full-form has-error" id="email">
-                  <div class="flex align-center">
-                    <input id="user-email-registration" class="form-control placeholder-no-fix registration-initial-boxcolor registration-error-boxcolor" placeholder="ビジネス利用のEmailを入力" maxlength="200" size="200" type="email" value="" name="user[email]">
-                    <div class="reg-icon-wrapper">
-                      <div class="reg-success-icon" style="display: none;">
-                        <i class="fa fa-check-circle" aria-hidden="true"></i>
-                      </div>
-                      <div class="reg-error-icon" style="display: block;">
-                        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                      </div>
-                    </div>
-                    <button id="searchConfirmCompleteCompany" type="button">会社情報検索</button>
-                    <div aria-hidden="true" aria-labelledby="myLargeModalLabel" class="modal fade" id="modalConfirmCompleteCompany" role="dialog" tabindex="-1">
-                      <div class="modal-dialog modal-lg modal-m-t-75">
-                        <div class="modal-content">
-                          <div class="movable-wrapper">
-                            <div class="modalConfirmCompleteCompany">
-                              <div id="modalConfirmCompleteCompany__body--loading">
-                                <div class="modalConfirmCompleteCompany__loading">
-                                  <img class="loading-icon" src="/boxil/boxil_loading.gif">
-                                </div>
-                              </div>
-                              <div id="modalConfirmCompleteCompany__body--failure" style="display: none">
-                                <div class="modalConfirmCompleteCompany__bodyHeader">
-                                  <div class="modalConfirmCompleteCompany__bodyHeader__title">会社情報が見つかりませんでした。</div>
-                                  <div class="modalConfirmCompleteCompany__bodyHeader__description">メールアドレスは正しく入力されてますか？会社及びビジネス用のメールアドレスを入力してください。</div>
-                                </div>
-                              </div>
-                              <div id="modalConfirmCompleteCompany__body--success" style="display: none">
-                                <div class="modalConfirmCompleteCompany__bodyHeader">
-                                  <div class="modalConfirmCompleteCompany__bodyHeader__title">こちらの会社に在籍されていますか？</div>
-                                  <div class="modalConfirmCompleteCompany__bodyHeader__description">『はい』を選択すると会社情報を自動入力します。入力内容は後から変更できます。</div>
-                                </div>
-                                <div class="modalConfirmCompleteCompany__bodyContent">
-                                  <div class="modalConfirmCompleteCompany__info">
-                                    <div class="modalConfirmCompleteCompany__info__label">ドメイン</div>
-                                    <div class="modalConfirmCompleteCompany__info__value" id="modalConfirmCompleteCompany__domain"></div>
-                                  </div>
-                                  <div class="modalConfirmCompleteCompany__info">
-                                    <div class="modalConfirmCompleteCompany__info__label">会社名</div>
-                                    <div class="modalConfirmCompleteCompany__info__value" id="modalConfirmCompleteCompany__companyName"></div>
-                                  </div>
-                                  <div class="modalConfirmCompleteCompany__info">
-                                    <div class="modalConfirmCompleteCompany__info__label">所在地</div>
-                                    <div class="modalConfirmCompleteCompany__info__value" id="modalConfirmCompleteCompany__address"></div>
-                                  </div>
-                                  <div class="modalConfirmCompleteCompany__info">
-                                    <div class="modalConfirmCompleteCompany__info__label">業種</div>
-                                    <div class="modalConfirmCompleteCompany__info__value" id="modalConfirmCompleteCompany__typeOfBusiness"></div>
-                                  </div>
-                                  <div class="modalConfirmCompleteCompany__info">
-                                    <div class="modalConfirmCompleteCompany__info__label">従業員規模</div>
-                                    <div class="modalConfirmCompleteCompany__info__value" id="modalConfirmCompleteCompany__scale"></div>
-                                  </div>
-                                </div>
-                                <div class="modalConfirmCompleteCompany__bodyFooter">
-                                  <button id="modalConfirmCompleteCompany__yesButton" type="button">はい</button>
-                                  <button aria-label="Close" data-dismiss="modal" id="modalConfirmCompleteCompany__noButton" type="button">いいえ</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="reg-help-block">メールアドレスを入力して下さい</div>
-                </div>
-              </div>
-            </div>
-            <div class="form-group rg-input-block">
-              <div class="rg-title-block text-left">
-                <span>パスワード</span>
-              </div>
-              <div class="rg-form-block">
-                <div class="rg-form full-form has-error" id="password">
-                  <div class="flex align-center">
-                    <input id="user-password-registration" class="form-control placeholder-no-fix registration-initial-boxcolor registration-error-boxcolor" placeholder="パスワードを8文字以上で入力（半角英数）" maxlength="200" size="200" type="password" name="user[password]" aria-autocomplete="list">
-                    <div class="reg-icon-wrapper">
-                      <div class="reg-success-icon" style="display: none;">
-                        <i class="fa fa-check-circle" aria-hidden="true"></i>
-                      </div>
-                      <div class="reg-error-icon" style="display: block;">
-                        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="reg-help-block">パスワードを入力して下さい</div>
-                </div>
-              </div>
-            </div>
-            <input value="2023-06-12 23:56:07 +0900" type="hidden" name="user[confirmed_at]" id="user_confirmed_at">
-            <div class="form-group rg-input-block">
-              <div class="rg-title-block text-left">
-                <span>会社名</span>
-              </div>
-              <div class="rg-form-block">
-                <div class="rg-form full-form has-error" id="company-name">
-                  <div class="flex align-center">
-                    <input class="form-control placeholder-no-fix registration-initial-boxcolor registration-error-boxcolor" placeholder="所属している会社名を入力して検索" maxlength="200" autocomplete="off" size="200" type="text" name="user[corporation_attributes][company_name]" id="user_corporation_attributes_company_name">
-                    <div class="reg-icon-wrapper">
-                      <div class="reg-success-icon" style="display: none;">
-                        <i class="fa fa-check-circle" aria-hidden="true"></i>
-                      </div>
-                      <div class="reg-error-icon" style="display: block;">
-                        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="reg-list-block">
-                    <ul class="company-select-box" style="display: none;"></ul>
-                  </div>
-                  <div class="reg-help-block">会社名を入力して下さい</div>
-                </div>
-              </div>
-            </div>
-            <div class="form-group rg-input-block">
-              <div class="rg-title-block text-left">
-                <span>所在地</span>
-              </div>
-              <div class="rg-form-block">
-                <div class="rg-form" id="prefecture">
-                  <div class="flex align-center">
-                    <select class="form-control placeholder-no-fix registration-initial-boxcolor registration-nomal-boxcolor" name="user[corporation_attributes][prefecture]" id="user_corporation_attributes_prefecture">
-                      <option value="">選択してください</option>
-                      <option value="1">北海道</option>
-                      <option value="2">青森県</option>
-                      <option value="3">岩手県</option>
-                      <option value="4">宮城県</option>
-                      <option value="5">秋田県</option>
-                      <option value="6">山形県</option>
-                      <option value="7">福島県</option>
-                      <option value="8">茨城県</option>
-                      <option value="9">栃木県</option>
-                      <option value="10">群馬県</option>
-                      <option value="11">埼玉県</option>
-                      <option value="12">千葉県</option>
-                      <option value="13">東京都</option>
-                      <option value="14">神奈川県</option>
-                      <option value="15">新潟県</option>
-                      <option value="16">富山県</option>
-                      <option value="17">石川県</option>
-                      <option value="18">福井県</option>
-                      <option value="19">山梨県</option>
-                      <option value="20">長野県</option>
-                      <option value="21">岐阜県</option>
-                      <option value="22">静岡県</option>
-                      <option value="23">愛知県</option>
-                      <option value="24">三重県</option>
-                      <option value="25">滋賀県</option>
-                      <option value="26">京都府</option>
-                      <option value="27">大阪府</option>
-                      <option value="28">兵庫県</option>
-                      <option value="29">奈良県</option>
-                      <option value="30">和歌山県</option>
-                      <option value="31">鳥取県</option>
-                      <option value="32">島根県</option>
-                      <option value="33">岡山県</option>
-                      <option value="34">広島県</option>
-                      <option value="35">山口県</option>
-                      <option value="36">徳島県</option>
-                      <option value="37">香川県</option>
-                      <option value="38">愛媛県</option>
-                      <option value="39">高知県</option>
-                      <option value="40">福岡県</option>
-                      <option value="41">佐賀県</option>
-                      <option value="42">長崎県</option>
-                      <option value="43">熊本県</option>
-                      <option value="44">大分県</option>
-                      <option value="45">宮崎県</option>
-                      <option value="46">鹿児島県</option>
-                      <option value="47">沖縄県</option>
-                      <option value="99">海外</option>
-                    </select>
-                    <div class="reg-icon-wrapper">
-                      <div class="reg-success-icon" style="display: block;">
-                        <i class="fa fa-check-circle" aria-hidden="true"></i>
-                      </div>
-                      <div class="reg-error-icon" style="display: none;">
-                        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="reg-help-block"></div>
-                </div>
-                <div class="rg-form has-error" id="company-address">
-                  <div class="flex align-center">
-                    <input class="form-control placeholder-no-fix registration-initial-boxcolor registration-error-boxcolor" placeholder="港区三田3-13-16 三田43MTビル13F" maxlength="200" size="200" type="text" name="user[corporation_attributes][address]" id="user_corporation_attributes_address">
-                    <div class="reg-icon-wrapper">
-                      <div class="reg-success-icon" style="display: none;">
-                        <i class="fa fa-check-circle" aria-hidden="true"></i>
-                      </div>
-                      <div class="reg-error-icon" style="display: block;">
-                        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="reg-help-block">市区町村番地を入力してください</div>
-                </div>
-              </div>
-            </div>
-            <div class="form-group rg-input-block">
-              <div class="rg-title-block text-left">
-                <span>業種</span>
-              </div>
-              <div class="rg-form-block">
-                <div class="rg-form" id="type-of-business">
-                  <div class="flex align-center">
-                    <select class="form-control placeholder-no-fix registration-initial-boxcolor registration-nomal-boxcolor" name="user[corporation_attributes][type_of_business]" id="user_corporation_attributes_type_of_business">
-                      <option value="">選択してください</option>
-                      <option value="1">不動産/建設/設備系</option>
-                      <option value="2">メーカー/製造系</option>
-                      <option value="3">エネルギー/環境/リサイクル系</option>
-                      <option value="4">IT/通信/インターネット系</option>
-                      <option value="5">輸送/交通/物流/倉庫系</option>
-                      <option value="6">小売/流通/商社系</option>
-                      <option value="7">金融/保険系</option>
-                      <option value="8">サービス/外食/レジャー系</option>
-                      <option value="9">コンサルティング・専門サービス</option>
-                      <option value="10">マスコミ/広告/デザイン/ゲーム/エンターテイメント系</option>
-                      <option value="11">医療系</option>
-                    </select>
-                    <div class="reg-icon-wrapper">
-                      <div class="reg-success-icon" style="display: block;">
-                        <i class="fa fa-check-circle" aria-hidden="true"></i>
-                      </div>
-                      <div class="reg-error-icon" style="display: none;">
-                        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="reg-help-block"></div>
-                </div>
-              </div>
-            </div>
-            <div class="form-group rg-input-block">
-              <div class="rg-title-block text-left">
-                <span>従業員規模</span>
-              </div>
-              <div class="rg-form-block">
-                <div class="rg-form" id="scale">
-                  <div class="flex align-center">
-                    <select class="form-control placeholder-no-fix registration-initial-boxcolor registration-nomal-boxcolor" name="user[corporation_attributes][scale]" id="user_corporation_attributes_scale">
-                      <option value="">選択してください</option>
-                      <option value="no_employee">1人</option>
-                      <option value="very_small">2～10人</option>
-                      <option value="smaller">11～30人</option>
-                      <option value="small">31～50人</option>
-                      <option value="medium">51～100人</option>
-                      <option value="large">101～200人</option>
-                      <option value="small_large">201～300人</option>
-                      <option value="medium_large">301～500人</option>
-                      <option value="very_large">501～1000人</option>
-                      <option value="over_thousand">1000人以上</option>
-                    </select>
-                    <div class="reg-icon-wrapper">
-                      <div class="reg-success-icon" style="display: block;">
-                        <i class="fa fa-check-circle" aria-hidden="true"></i>
-                      </div>
-                      <div class="reg-error-icon" style="display: none;">
-                        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="reg-help-block"></div>
-                </div>
-              </div>
-            </div>
-            <div class="form-group rg-input-block">
-              <div class="rg-title-block text-left">
-                <span>部署/役職</span>
-              </div>
-              <div class="rg-form-block">
-                <div class="rg-form" id="department">
-                  <div class="flex align-center">
-                    <select class="form-control placeholder-no-fix registration-initial-boxcolor registration-nomal-boxcolor" name="user[profile_attributes][department]" id="user_profile_attributes_department">
-                      <option value="">選択してください</option>
-                      <option value="infomation_system">情報システム部門</option>
-                      <option value="marketing">マーケティング部門</option>
-                      <option value="sales">営業・販売部門</option>
-                      <option value="corporate_planning">経営企画部門</option>
-                      <option value="public_relations">広報・PR部門</option>
-                      <option value="human_resources">人事部門</option>
-                      <option value="general_or_leagal">総務・法務部門</option>
-                      <option value="accounting">経理・財務部門</option>
-                    </select>
-                    <div class="reg-icon-wrapper">
-                      <div class="reg-success-icon" style="display: block;">
-                        <i class="fa fa-check-circle" aria-hidden="true"></i>
-                      </div>
-                      <div class="reg-error-icon" style="display: none;">
-                        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="reg-help-block"></div>
-                </div>
-                <div class="rg-form" id="position">
-                  <div class="flex align-center">
-                    <select class="form-control placeholder-no-fix registration-initial-boxcolor registration-nomal-boxcolor" name="user[profile_attributes][position]" id="user_profile_attributes_position">
-                      <option value="">選択してください</option>
-                      <option value="executive">経営者</option>
-                      <option value="officer">役員（取締役）</option>
-                      <option value="division_manager">事業部長・工場長クラス</option>
-                      <option value="manager">部長・課長クラス</option>
-                      <option value="assistant_manager">係長・主任クラス</option>
-                      <option value="general_staff">一般社員・職員</option>
-                      <option value="temporary_worker">契約・派遣・委託</option>
-                    </select>
-                    <div class="reg-icon-wrapper">
-                      <div class="reg-success-icon" style="display: block;">
-                        <i class="fa fa-check-circle" aria-hidden="true"></i>
-                      </div>
-                      <div class="reg-error-icon" style="display: none;">
-                        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="reg-help-block"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="registrationForm-footer">
-            <div class="registrationForm-notice">
-              <input name="user[agreement]" type="hidden" value="0">
-              <input class="checkbox inline" required="required" type="checkbox" value="1" name="user[agreement]" id="user_agreement">
-              <label for="user_agreement">「<a class="text-link-color text-none" target="_blank" href="https://smartcamp.co.jp/handling_of_privacy">個人情報の取扱いについて</a>」、及び「<a class="text-link-color text-none" target="_blank" href="/terms/">利用規約</a>」に同意の上</label>
-            </div>
-            <input type="submit" name="commit" value="未入力の項目があります" id="submit-registration" class="btn btn-orange-lg registrationForm-submit track-regist-db  disable" data-disable-with="送信中..." disabled="disabled">
-          </div>
-        </form>
-      </div>
-    </div> -->
     <div class="i-block">
       <div class="registration-title-block flex space-between align-center">
         <div>
@@ -623,9 +171,10 @@ $user=Auth::user();
           </div>
         </div>
         <div class="emailRegistration-form-title">メールアドレスで登録</div>
-        <form class="new_user" id="js-registrationForm" action="/create_registration/" accept-charset="UTF-8" method="post">
-          <input type="hidden" name="authenticity_token" value="bXuMShj0B1Sougybu1RccHjcdokgF0N9VefVy4KbvYcUNJ5STfoUalcKgq/nr1mZ+p0k5a/qmwkXXKa7Vik26Q==">
-          <input type="hidden" name="user[redirect_path]" id="user_redirect_path">
+        <form class="new_user" id="js-registrationForm" action="/register" accept-charset="UTF-8" method="post">
+          @csrf
+          <!-- <input type="hidden" name="authenticity_token" value="bXuMShj0B1Sougybu1RccHjcdokgF0N9VefVy4KbvYcUNJ5STfoUalcKgq/nr1mZ+p0k5a/qmwkXXKa7Vik26Q==">
+          <input type="hidden" name="user[redirect_path]" id="user_redirect_path"> -->
           <div class="div">
             <div class="form-group rg-input-block">
               <div class="rg-title-block text-left">
@@ -634,7 +183,7 @@ $user=Auth::user();
               <div class="rg-form-block">
                 <div class="rg-form" id="last-name">
                   <div class="flex align-center">
-                    <input class="form-control placeholder-no-fix registration-initial-boxcolor" placeholder="名字" maxlength="200" size="200" type="text" name="user[profile_attributes][last_name]" id="user_profile_attributes_last_name">
+                    <input class="form-control placeholder-no-fix registration-initial-boxcolor" placeholder="名字" maxlength="200" size="200" type="text" name="last_name" id="user_profile_attributes_last_name">
                     <div class="reg-icon-wrapper">
                       <div class="reg-success-icon">
                         <i class="fa fa-check-circle" aria-hidden="true"></i>
@@ -648,7 +197,7 @@ $user=Auth::user();
                 </div>
                 <div class="rg-form" id="first-name">
                   <div class="flex align-center">
-                    <input class="form-control placeholder-no-fix registration-initial-boxcolor" placeholder="名前" maxlength="200" size="200" type="text" name="user[profile_attributes][first_name]" id="user_profile_attributes_first_name">
+                    <input class="form-control placeholder-no-fix registration-initial-boxcolor" placeholder="名前" maxlength="200" size="200" type="text" name="first_name" id="user_profile_attributes_first_name">
                     <div class="reg-icon-wrapper">
                       <div class="reg-success-icon">
                         <i class="fa fa-check-circle" aria-hidden="true"></i>
@@ -669,7 +218,7 @@ $user=Auth::user();
               <div class="rg-form-block">
                 <div class="rg-form" id="last-name-kana">
                   <div class="flex align-center">
-                    <input class="form-control placeholder-no-fix registration-initial-boxcolor" placeholder="ミョウジ" maxlength="200" size="200" type="text" name="user[profile_attributes][last_name_kana]" id="user_profile_attributes_last_name_kana">
+                    <input class="form-control placeholder-no-fix registration-initial-boxcolor" placeholder="ミョウジ" maxlength="200" size="200" type="text" name="kana_last" id="user_profile_attributes_last_name_kana">
                     <div class="reg-icon-wrapper">
                       <div class="reg-success-icon">
                         <i class="fa fa-check-circle" aria-hidden="true"></i>
@@ -683,7 +232,7 @@ $user=Auth::user();
                 </div>
                 <div class="rg-form" id="first-name-kana">
                   <div class="flex align-center">
-                    <input class="form-control placeholder-no-fix registration-initial-boxcolor" placeholder="ナマエ" maxlength="200" size="200" type="text" name="user[profile_attributes][first_name_kana]" id="user_profile_attributes_first_name_kana">
+                    <input class="form-control placeholder-no-fix registration-initial-boxcolor" placeholder="ナマエ" maxlength="200" size="200" type="text" name="kana_first" id="user_profile_attributes_first_name_kana">
                     <div class="reg-icon-wrapper">
                       <div class="reg-success-icon">
                         <i class="fa fa-check-circle" aria-hidden="true"></i>
@@ -704,7 +253,7 @@ $user=Auth::user();
               <div class="rg-form-block">
                 <div class="rg-form full-form" id="phone">
                   <div class="flex align-center">
-                    <input class="form-control placeholder-no-fix registration-initial-boxcolor" placeholder="ビジネス利用の電話番号を入力" maxlength="13" size="13" type="text" name="user[profile_attributes][phone]" id="user_profile_attributes_phone">
+                    <input class="form-control placeholder-no-fix registration-initial-boxcolor" placeholder="ビジネス利用の電話番号を入力" maxlength="13" size="13" type="text" name="phone_number" id="user_profile_attributes_phone">
                     <div class="reg-icon-wrapper">
                       <div class="reg-success-icon">
                         <i class="fa fa-check-circle" aria-hidden="true"></i>
@@ -719,7 +268,7 @@ $user=Auth::user();
                 </div>
               </div>
             </div>
-            <input type="hidden" name="user[profile_attributes][eight_profile]" id="user_profile_attributes_eight_profile">
+            <!-- <input type="hidden" name="user[profile_attributes][eight_profile]" id="user_profile_attributes_eight_profile"> -->
             <div class="form-group rg-input-block">
               <div class="rg-title-block text-left">
                 <span>メールアドレス</span>
@@ -727,7 +276,7 @@ $user=Auth::user();
               <div class="rg-form-block">
                 <div class="rg-form full-form" id="email">
                   <div class="flex align-center">
-                    <input id="user-email-registration" class="form-control placeholder-no-fix registration-initial-boxcolor" placeholder="ビジネス利用のEmailを入力" maxlength="200" size="200" type="email" value="" name="user[email]">
+                    <input id="user-email-registration" class="form-control placeholder-no-fix registration-initial-boxcolor" placeholder="ビジネス利用のEmailを入力" maxlength="200" size="200" type="email" value="" name="email">
                     <div class="reg-icon-wrapper">
                       <div class="reg-success-icon">
                         <i class="fa fa-check-circle" aria-hidden="true"></i>
@@ -802,7 +351,7 @@ $user=Auth::user();
               <div class="rg-form-block">
                 <div class="rg-form full-form" id="password">
                   <div class="flex align-center">
-                    <input id="user-password-registration" class="form-control placeholder-no-fix registration-initial-boxcolor" placeholder="パスワードを8文字以上で入力（半角英数）" maxlength="200" size="200" type="password" name="user[password]">
+                    <input id="user-password-registration" class="form-control placeholder-no-fix registration-initial-boxcolor" placeholder="パスワードを8文字以上で入力（半角英数）" maxlength="200" size="200" type="password" name="password">
                     <div class="reg-icon-wrapper">
                       <div class="reg-success-icon">
                         <i class="fa fa-check-circle" aria-hidden="true"></i>
@@ -816,7 +365,28 @@ $user=Auth::user();
                 </div>
               </div>
             </div>
-            <input value="2023-06-13 13:19:00 +0900" type="hidden" name="user[confirmed_at]" id="user_confirmed_at">
+            <div class="form-group rg-input-block">
+              <div class="rg-title-block text-left">
+                <span>パスワード</span>
+              </div>
+              <div class="rg-form-block">
+                <div class="rg-form full-form" id="password">
+                  <div class="flex align-center">
+                    <input id="user-confirm-password-registration" class="form-control placeholder-no-fix registration-initial-boxcolor" placeholder="パスワードを8文字以上で入力（半角英数）" maxlength="200" size="200" type="password" name="password_confirmation">
+                    <div class="reg-icon-wrapper">
+                      <div class="reg-success-icon">
+                        <i class="fa fa-check-circle" aria-hidden="true"></i>
+                      </div>
+                      <div class="reg-error-icon">
+                        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="reg-help-block"></div>
+                </div>
+              </div>
+            </div>
+            <!-- <input value="2023-06-13 13:19:00 +0900" type="hidden" name="user[confirmed_at]" id="user_confirmed_at"> -->
             <div class="form-group rg-input-block">
               <div class="rg-title-block text-left">
                 <span>会社名</span>
@@ -824,7 +394,7 @@ $user=Auth::user();
               <div class="rg-form-block">
                 <div class="rg-form full-form" id="company-name">
                   <div class="flex align-center">
-                    <input class="form-control placeholder-no-fix registration-initial-boxcolor" placeholder="所属している会社名を入力して検索" maxlength="200" autocomplete="off" size="200" type="text" name="user[corporation_attributes][company_name]" id="user_corporation_attributes_company_name">
+                    <input class="form-control placeholder-no-fix registration-initial-boxcolor" placeholder="所属している会社名を入力して検索" maxlength="200" autocomplete="off" size="200" type="text" name="company_name" id="user_corporation_attributes_company_name">
                     <div class="reg-icon-wrapper">
                       <div class="reg-success-icon">
                         <i class="fa fa-check-circle" aria-hidden="true"></i>
@@ -848,7 +418,7 @@ $user=Auth::user();
               <div class="rg-form-block">
                 <div class="rg-form" id="prefecture">
                   <div class="flex align-center">
-                    <select class="form-control placeholder-no-fix registration-initial-boxcolor" name="user[corporation_attributes][prefecture]" id="user_corporation_attributes_prefecture">
+                    <select class="form-control placeholder-no-fix registration-initial-boxcolor" name="prefecture" id="user_corporation_attributes_prefecture">
                       <option value="">選択してください</option>
                       <option value="1">北海道</option>
                       <option value="2">青森県</option>
@@ -912,7 +482,7 @@ $user=Auth::user();
                 </div>
                 <div class="rg-form" id="company-address">
                   <div class="flex align-center">
-                    <input class="form-control placeholder-no-fix registration-initial-boxcolor" placeholder="港区三田3-13-16 三田43MTビル13F" maxlength="200" size="200" type="text" name="user[corporation_attributes][address]" id="user_corporation_attributes_address">
+                    <input class="form-control placeholder-no-fix registration-initial-boxcolor" placeholder="港区三田3-13-16 三田43MTビル13F" maxlength="200" size="200" type="text" name="address" id="user_corporation_attributes_address">
                     <div class="reg-icon-wrapper">
                       <div class="reg-success-icon">
                         <i class="fa fa-check-circle" aria-hidden="true"></i>
@@ -933,7 +503,7 @@ $user=Auth::user();
               <div class="rg-form-block">
                 <div class="rg-form" id="type-of-business">
                   <div class="flex align-center">
-                    <select class="form-control placeholder-no-fix registration-initial-boxcolor" name="user[corporation_attributes][type_of_business]" id="user_corporation_attributes_type_of_business">
+                    <select class="form-control placeholder-no-fix registration-initial-boxcolor" name="business_type" id="user_corporation_attributes_type_of_business">
                       <option value="">選択してください</option>
                       <option value="1">不動産/建設/設備系</option>
                       <option value="2">メーカー/製造系</option>
@@ -967,7 +537,7 @@ $user=Auth::user();
               <div class="rg-form-block">
                 <div class="rg-form" id="scale">
                   <div class="flex align-center">
-                    <select class="form-control placeholder-no-fix registration-initial-boxcolor" name="user[corporation_attributes][scale]" id="user_corporation_attributes_scale">
+                    <select class="form-control placeholder-no-fix registration-initial-boxcolor" name="corporation_scale" id="user_corporation_attributes_scale">
                       <option value="">選択してください</option>
                       <option value="no_employee">1人</option>
                       <option value="very_small">2～10人</option>
@@ -1000,7 +570,7 @@ $user=Auth::user();
               <div class="rg-form-block">
                 <div class="rg-form" id="department">
                   <div class="flex align-center">
-                    <select class="form-control placeholder-no-fix registration-initial-boxcolor" name="user[profile_attributes][department]" id="user_profile_attributes_department">
+                    <select class="form-control placeholder-no-fix registration-initial-boxcolor" name="department" id="user_profile_attributes_department">
                       <option value="">選択してください</option>
                       <option value="infomation_system">情報システム部門</option>
                       <option value="marketing">マーケティング部門</option>
@@ -1024,7 +594,7 @@ $user=Auth::user();
                 </div>
                 <div class="rg-form" id="position">
                   <div class="flex align-center">
-                    <select class="form-control placeholder-no-fix registration-initial-boxcolor" name="user[profile_attributes][position]" id="user_profile_attributes_position">
+                    <select class="form-control placeholder-no-fix registration-initial-boxcolor" name="official_position" id="user_profile_attributes_position">
                       <option value="">選択してください</option>
                       <option value="executive">経営者</option>
                       <option value="officer">役員（取締役）</option>
@@ -1044,23 +614,24 @@ $user=Auth::user();
                     </div>
                   </div>
                   <div class="reg-help-block"></div>
+                  <!-- @if($errors)<span>{{$errors}}</span>@endif -->
                 </div>
               </div>
             </div>
           </div>
           <div class="registrationForm-footer">
             <div class="registrationForm-notice">
-              <input name="user[agreement]" type="hidden" value="0">
-              <input class="checkbox inline" required="required" type="checkbox" value="1" name="user[agreement]" id="user_agreement">
+              <!-- <input name="user[agreement]" type="hidden" value="0">
+              <input class="checkbox inline" required="required" type="checkbox" value="1" name="user[agreement]" id="user_agreement"> -->
               <label for="user_agreement">「<a class="text-link-color text-none" target="_blank" href="https://smartcamp.co.jp/handling_of_privacy">個人情報の取扱いについて</a>」、及び「<a class="text-link-color text-none" target="_blank" href="/terms/">利用規約</a>」に同意の上</label>
             </div>
-            <input type="submit" name="commit" value="未入力の項目があります" id="submit-registration" class="btn btn-orange-lg registrationForm-submit track-regist-db  disable" data-disable-with="送信中..." disabled="disabled">
+            <!-- <input type="submit" name="commit" value="未入力の項目があります" id="submit-registration" class="btn btn-orange-lg registrationForm-submit track-regist-db  disable" data-disable-with="送信中..." disabled="disabled"> -->
+            <input type="submit" value="未入力の項目があります" id="submit-registration" class="btn btn-orange-lg registrationForm-submit track-regist-db" data-disable-with="送信中...">
           </div>
         </form>
+        <label for="user_agreement"><a class="text-link-color text-none" href="/login">すでにアカウントを持っていますか?</a></label>
       </div>
     </div>
-
-
   </div>
   <footer class="footer--dark">
     <div class="simple-footer">
@@ -1099,12 +670,11 @@ $user=Auth::user();
     </div>
   </footer>
   
-  <script src="{{ asset('assets/js/jquery.lazyload.min.js') }}" type="text/javascript"></script>
+  <!-- <script src="{{ asset('assets/js/jquery.lazyload.min.js') }}" type="text/javascript"></script>
   <script src="{{ asset('assets/js/plugin.trunk8.min.js') }}" type="text/javascript"></script>
-  <script src="{{ asset('assets/js/plugin.ofi.min.js') }}" type="text/javascript">
-  </script>
+  <script src="{{ asset('assets/js/plugin.ofi.min.js') }}" type="text/javascript"></script>
   <script src="{{ asset('assets/js/firebase-app.js') }}"></script>
-  <script src="{{ asset('assets/js/firebase-messaging.js') }}"></script>
+  <script src="{{ asset('assets/js/firebase-messaging.js') }}"></script> -->
 </body>
 
 </html>
