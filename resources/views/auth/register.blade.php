@@ -183,7 +183,7 @@ $user=Auth::user();
               <div class="rg-form-block">
                 <div class="rg-form" id="last-name">
                   <div class="flex align-center">
-                    <input class="form-control placeholder-no-fix registration-initial-boxcolor" placeholder="名字" maxlength="200" size="200" type="text" name="last_name" id="user_profile_attributes_last_name">
+                    <input class="form-control placeholder-no-fix registration-initial-boxcolor" placeholder="名字" maxlength="200" size="200" type="text" name="last_name" id="user_profile_attributes_last_name" required>
                     <div class="reg-icon-wrapper">
                       <div class="reg-success-icon">
                         <i class="fa fa-check-circle" aria-hidden="true"></i>
@@ -197,7 +197,7 @@ $user=Auth::user();
                 </div>
                 <div class="rg-form" id="first-name">
                   <div class="flex align-center">
-                    <input class="form-control placeholder-no-fix registration-initial-boxcolor" placeholder="名前" maxlength="200" size="200" type="text" name="first_name" id="user_profile_attributes_first_name">
+                    <input class="form-control placeholder-no-fix registration-initial-boxcolor" placeholder="名前" maxlength="200" size="200" type="text" name="first_name" id="user_profile_attributes_first_name" required>
                     <div class="reg-icon-wrapper">
                       <div class="reg-success-icon">
                         <i class="fa fa-check-circle" aria-hidden="true"></i>
@@ -253,7 +253,7 @@ $user=Auth::user();
               <div class="rg-form-block">
                 <div class="rg-form full-form" id="phone">
                   <div class="flex align-center">
-                    <input class="form-control placeholder-no-fix registration-initial-boxcolor" placeholder="ビジネス利用の電話番号を入力" maxlength="13" size="13" type="text" name="phone_number" id="user_profile_attributes_phone">
+                    <input class="form-control placeholder-no-fix registration-initial-boxcolor" placeholder="ビジネス利用の電話番号を入力" maxlength="13" size="13" type="text" name="phone_number" id="user_profile_attributes_phone" required>
                     <div class="reg-icon-wrapper">
                       <div class="reg-success-icon">
                         <i class="fa fa-check-circle" aria-hidden="true"></i>
@@ -276,7 +276,7 @@ $user=Auth::user();
               <div class="rg-form-block">
                 <div class="rg-form full-form" id="email">
                   <div class="flex align-center">
-                    <input id="user-email-registration" class="form-control placeholder-no-fix registration-initial-boxcolor" placeholder="ビジネス利用のEmailを入力" maxlength="200" size="200" type="email" value="" name="email">
+                    <input id="user-email-registration" class="form-control placeholder-no-fix registration-initial-boxcolor" placeholder="ビジネス利用のEmailを入力" maxlength="200" size="200" type="email" value="" name="email" required>
                     <div class="reg-icon-wrapper">
                       <div class="reg-success-icon">
                         <i class="fa fa-check-circle" aria-hidden="true"></i>
@@ -285,8 +285,9 @@ $user=Auth::user();
                         <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
                       </div>
                     </div>
+                    
                     <button id="searchConfirmCompleteCompany" type="button">会社情報検索</button>
-                    <div aria-hidden="true" aria-labelledby="myLargeModalLabel" class="modal fade" id="modalConfirmCompleteCompany" role="dialog" tabindex="-1">
+                    <!-- <div aria-hidden="true" aria-labelledby="myLargeModalLabel" class="modal fade" id="modalConfirmCompleteCompany" role="dialog" tabindex="-1">
                       <div class="modal-dialog modal-lg modal-m-t-75">
                         <div class="modal-content">
                           <div class="movable-wrapper">
@@ -338,11 +339,16 @@ $user=Auth::user();
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                   </div>
                   <div class="reg-help-block"></div>
                 </div>
               </div>
+              <!-- @if ($errors->has('email'))
+                <span class="help-block">
+                  <strong>{{ $errors->first('email') }}</strong>
+                </span>
+              @endif -->
             </div>
             <div class="form-group rg-input-block">
               <div class="rg-title-block text-left">
@@ -351,7 +357,7 @@ $user=Auth::user();
               <div class="rg-form-block">
                 <div class="rg-form full-form" id="password">
                   <div class="flex align-center">
-                    <input id="user-password-registration" class="form-control placeholder-no-fix registration-initial-boxcolor" placeholder="パスワードを8文字以上で入力（半角英数）" maxlength="200" size="200" type="password" name="password">
+                    <input id="user-password-registration" class="form-control placeholder-no-fix registration-initial-boxcolor" placeholder="パスワードを8文字以上で入力（半角英数）" maxlength="200" size="200" type="password" name="password" required>
                     <div class="reg-icon-wrapper">
                       <div class="reg-success-icon">
                         <i class="fa fa-check-circle" aria-hidden="true"></i>
@@ -367,12 +373,12 @@ $user=Auth::user();
             </div>
             <div class="form-group rg-input-block">
               <div class="rg-title-block text-left">
-                <span>パスワード</span>
+                <span>パスワード確認</span>
               </div>
               <div class="rg-form-block">
                 <div class="rg-form full-form" id="password">
                   <div class="flex align-center">
-                    <input id="user-confirm-password-registration" class="form-control placeholder-no-fix registration-initial-boxcolor" placeholder="パスワードを8文字以上で入力（半角英数）" maxlength="200" size="200" type="password" name="password_confirmation">
+                    <input id="user-confirm-password-registration" class="form-control placeholder-no-fix registration-initial-boxcolor" placeholder="パスワードを8文字以上で入力（半角英数）" maxlength="200" size="200" type="password" name="password_confirmation" required>
                     <div class="reg-icon-wrapper">
                       <div class="reg-success-icon">
                         <i class="fa fa-check-circle" aria-hidden="true"></i>
