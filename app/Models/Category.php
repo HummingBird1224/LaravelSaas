@@ -15,22 +15,12 @@ class Category extends Model
      * @var string[]
      */
     protected $fillable = [
-        'user_id',
-        'name',
-        'access_key',
-        'secret_key',
-        'partner_tag',
-        'yahoo_id',
-        'target_price',
-        'fall_pro',
-        'web_hook',
-        'len',
-        'file_name',
-        'reg_num',
-        'trk_num',
-        'is_reg',
-        'stop',
-        'round',
+        'title',
+        'description',
+        'guide_id',
+        'success_method',
+        'large_category_id',
+        'issue_id',
     ];
 
     public function user() {
@@ -40,9 +30,10 @@ class Category extends Model
         );
     }
 
-    public function items() {
-        return $this->hasMany(
-            Item::class,
+    public function guide() {
+        return $this->hasOne(
+            Guide::class,
+            'guide_id'
         );
     }
 }

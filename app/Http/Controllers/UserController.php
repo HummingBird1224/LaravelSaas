@@ -116,10 +116,7 @@ class UserController extends Controller
     }
 
     public function change_profile_view(){
-        $user = User::findOrFail(Auth::id())
-                ->with(['company'=>function($query){
-                    $query->where('source', 0);
-                }])->first();
+        $user = User::findOrFail(Auth::id());
 		return view('account.change_profile',['user'=>$user] );
 	}
 
