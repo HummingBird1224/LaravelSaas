@@ -18,9 +18,9 @@ class Guide extends Model
         'recommended',
     ];
 
-    public function services(){
-        return $this->hasMany(
-            Company::class,
+    public function category(){
+        return $this->hasOne(
+            Category::class,
         );
     }
 }

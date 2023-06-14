@@ -1,11 +1,6 @@
 @extends("layouts.main")
 
 @php
-if(count($user->company)){
-$company=$user->company[0];
-$isCompany=true;
-}
-else $isCompany=false;
 $data=json_decode(file_get_contents(
 public_path('company_profile.json')
 ));
@@ -50,7 +45,7 @@ public_path('company_profile.json')
                           @csrf
                           <input type="hidden" name="authenticity_token"
                             value="LgeuzujFUlMVxzWPs26P9g8koraSjDZKRE+USK717pQ40HiHN2bvAzWCdUipB063Np91mxyCPC7frPCgdvX4rg==">
-                          <input hidden name="user[email]" id="email" value="{{$user->email}}">
+                          <input hidden name="email" id="email" value="{{$user->email}}">
                           <div class="form-group row">
                             <label class="col-md-3 control-label">メールアドレス</label>
                             <div class="col-md-4">
@@ -65,7 +60,7 @@ public_path('company_profile.json')
                                   <div class="form-group string required user_profile_last_name">
                                     <input class="form-control string required form-control w-50px inline-block"
                                       required="required" aria-required="true" placeholder="姓" type="text"
-                                      value="{{$user->first_name}}" name="user[first_name]"
+                                      value="{{$user->first_name}}" name="first_name"
                                       id="user_profile_attributes_last_name">
                                   </div>
                                 </span>
@@ -73,7 +68,7 @@ public_path('company_profile.json')
                                   <div class="form-group string required user_profile_first_name">
                                     <input class="form-control string required form-control w-50px inline-block"
                                       required="required" aria-required="true" placeholder="名" type="text"
-                                      value="{{$user->last_name}}" name="user[last_name]"
+                                      value="{{$user->last_name}}" name="last_name"
                                       id="user_profile_attributes_first_name">
                                   </div>
                                 </span>
@@ -86,16 +81,16 @@ public_path('company_profile.json')
                                   <div class="form-group string required user_profile_last_name_kana">
                                     <input class="form-control string required form-control w-50px inline-block"
                                       required="required" aria-required="true" placeholder="セイ" type="text"
-                                      name="user[furigana_first]" id="user_profile_attributes_last_name_kana"
-                                      value="{{$user->furigana_first}}">
+                                      name="kana_first" id="user_profile_attributes_last_name_kana"
+                                      value="{{$user->kana_first}}">
                                   </div>
                                 </span>
                                 <span class="m-l-35">
                                   <div class="form-group string required user_profile_first_name_kana">
                                     <input class="form-control string required form-control w-50px inline-block"
                                       required="required" aria-required="true" placeholder="メイ" type="text"
-                                      name="user[furigana_last]" id="user_profile_attributes_first_name_kana"
-                                      value="{{$user->furigana_last}}">
+                                      name="kana_last" id="user_profile_attributes_first_name_kana"
+                                      value="{{$user->kana_last}}">
                                   </div>
                                 </span>
                               </div>
@@ -107,7 +102,7 @@ public_path('company_profile.json')
                             <div class="col-sm-8 m-l-20">
                               <input class="form-control string tel required w-300px" pattern="[0-9]{10,11}"
                                 title="電話番号はハイフンなしで入力してください" required="required" aria-required="true"
-                                placeholder="03xxxxxxxx（ハイフンなし）" type="tel" name="user[phone_number]"
+                                placeholder="03xxxxxxxx（ハイフンなし）" type="tel" name="phone_number"
                                 id="user_profile_attributes_phone" value="{{$user->phone_number}}">
                             </div>
                           </div>
@@ -142,9 +137,10 @@ public_path('company_profile.json')
                               for="user_corporation_attributes_company_name">会社名（必須）</label>
                             <div class="col-sm-8 flex m-l-20">
                               <input class="form-control string required w-300px" required="required"
-                                aria-required="true" placeholder="スマートキャンプ株式会社" type="text" name="company[name]"
+                                aria-required="true" placeholder="スマートキャンプ株式会社" type="text" name="company_name"
                                 id="user_corporation_attributes_company_name"
-                                <?php if($isCompany) echo 'value="'.$company->name.'"' ?> />
+                                value="{{$user->company_name}}" 
+                              />
                             </div>
                           </div>
                           <div class="string required w-full form-group ">
@@ -154,15 +150,15 @@ public_path('company_profile.json')
                                 <div class="select required user_corporation_prefecture">
                                   <div class="flex">
                                     <select class="select required form-control w-100px form-control-for-corporations"
-                                      required="required" aria-required="true" name="company[prefecture]"
+                                      required="required" aria-required="true" name="prefecture"
                                       id="user_corporation_attributes_prefecture">
                                       <option value="">選択してください</option>
                                       @foreach($data->prefectures as $prefecture)
-                                      @if($isCompany&&$prefecture->value==$company->location)
-                                      <option value="{{$prefecture->value}}" selected>{{$prefecture->value}}</option>
-                                      @else
-                                      <option value="{{$prefecture->value}}">{{$prefecture->value}}</option>
-                                      @endif
+                                        @if($prefecture->id==$user->prefecture)
+                                        <option value="{{$prefecture->value}}" selected>{{$prefecture->value}}</option>
+                                        @else
+                                        <option value="{{$prefecture->value}}">{{$prefecture->value}}</option>
+                                        @endif
                                       @endforeach
                                     </select>
                                   </div>
@@ -173,8 +169,9 @@ public_path('company_profile.json')
                                   <div class="flex">
                                     <input class="string required form-control w-300px form-control-for-corporations"
                                       required="required" aria-required="true" placeholder="港区三田3-13-16 三田43MTビル13F"
-                                      type="text" name="company[address]" id="user_corporation_attributes_address"
-                                      <?php if($isCompany) echo 'value="'.$company->address.'"' ?> />
+                                      type="text" name="address" id="user_corporation_attributes_address"
+                                      value="{{$user->address}}" 
+                                     />
                                   </div>
                                 </div>
                               </span>
@@ -186,15 +183,15 @@ public_path('company_profile.json')
                               for="user_corporation_attributes_type_of_business">業種（必須）</label>
                             <div class="col-sm-8 flex m-l-20">
                               <select class="form-control select required w-300px" required="required"
-                                aria-required="true" name="company[industry]"
+                                aria-required="true" name="business_type"
                                 id="user_corporation_attributes_type_of_business">
                                 <option value="">選択してください</option>
                                 @foreach($data->industries as $industry)
-                                @if($isCompany&&$industry->id==$company->industry)
-                                <option value="{{$industry->id}}" selected>{{$industry->value}}</option>
-                                @else
-                                <option value="{{$industry->id}}">{{$industry->value}}</option>
-                                @endif
+                                  @if($industry->id==$user->business_type)
+                                  <option value="{{$industry->id}}" selected>{{$industry->value}}</option>
+                                  @else
+                                  <option value="{{$industry->id}}">{{$industry->value}}</option>
+                                  @endif
                                 @endforeach
                               </select>
                             </div>
@@ -204,15 +201,15 @@ public_path('company_profile.json')
                               for="user_corporation_attributes_scale">従業員規模（必須）</label>
                             <div class="col-sm-8 flex m-l-20">
                               <select class="form-control select required w-300px" required="required"
-                                aria-required="true" name="company[employee_number]"
+                                aria-required="true" name="corporation_scale"
                                 id="user_corporation_attributes_scale">
                                 <option value="">選択してください</option>
                                 @foreach($data->employee_numbers as $e_num)
-                                @if($isCompany&&$e_num->id==$company->employee_number)
-                                <option value="{{$e_num->id}}" selected>{{$e_num->value}}</option>
-                                @else
-                                <option value="{{$e_num->id}}">{{$e_num->value}}</option>
-                                @endif
+                                  @if($e_num->id==$user->corporation_scale)
+                                  <option value="{{$e_num->id}}" selected>{{$e_num->value}}</option>
+                                  @else
+                                  <option value="{{$e_num->id}}">{{$e_num->value}}</option>
+                                  @endif
                                 @endforeach
                               </select>
                             </div>
@@ -222,14 +219,14 @@ public_path('company_profile.json')
                               for="user_profile_attributes_department">部署区分（必須）</label>
                             <div class="col-sm-8 flex m-l-20">
                               <select class="form-control select required w-300px" required="required"
-                                aria-required="true" name="company[department]" id="user_profile_attributes_department">
+                                aria-required="true" name="department" id="user_profile_attributes_department">
                                 <option value="">選択してください</option>
                                 @foreach($data->departments as $department)
-                                @if($isCompany&&$department->id==$company->department)
-                                <option value="{{$department->id}}" selected>{{$department->value}}</option>
-                                @else
-                                <option value="{{$department->id}}">{{$department->value}}</option>
-                                @endif
+                                  @if($department->id==$user->department)
+                                  <option value="{{$department->id}}" selected>{{$department->value}}</option>
+                                  @else
+                                  <option value="{{$department->id}}">{{$department->value}}</option>
+                                  @endif
                                 @endforeach
                               </select>
                             </div>
@@ -239,14 +236,14 @@ public_path('company_profile.json')
                               for="user_profile_attributes_position">役職区分（必須）</label>
                             <div class="col-sm-8 flex m-l-20">
                               <select class="form-control select required w-300px" required="required"
-                                aria-required="true" name="company[job_title]" id="user_profile_attributes_position">
+                                aria-required="true" name="official_position" id="user_profile_attributes_position">
                                 <option value="">選択してください</option>
                                 @foreach($data->jobs as $job)
-                                @if($isCompany&&$job->id==$company->job_title)
-                                <option value="{{$job->id}}" selected>{{$job->value}}</option>
-                                @else
-                                <option value="{{$job->id}}">{{$job->value}}</option>
-                                @endif
+                                  @if($job->id==$user->official_position)
+                                  <option value="{{$job->id}}" selected>{{$job->value}}</option>
+                                  @else
+                                  <option value="{{$job->id}}">{{$job->value}}</option>
+                                  @endif
                                 @endforeach
                               </select>
                             </div>
