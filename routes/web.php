@@ -44,15 +44,17 @@ Route::get('/download/confirm', [GuideController::class, 'download_confirm'])->n
 Route::get('/categories', [CategoryController::class, 'category_view'])->name('categories');
 
 	// Issus Routes
-	Route::prefix('issus')->group(function() {
-		Route::view('/', 'issus.index')->name('issus');
+	Route::prefix('issues')->group(function() {
+		Route::view('/', 'issus.index')->name('issues');
 	});
 	
-	// Log Routes
-	Route::prefix('log')->group(function() {
-		Route::view('/', 'logs.index')->name('log');
-		Route::view('/service', 'logs.service')->name('log_service');
-	});
+	Route::view('/sc/{id}','logs.index')->name('sc');
+
+
+	// Route::prefix('log')->group(function() {
+	// 	Route::view('/', 'logs.index')->name('log');
+	// 	Route::view('/service', 'logs.service')->name('log_service');
+	// });
 	
 // Main Routes
 Route::group(['middleware' => ['auth']], function() {
@@ -61,7 +63,7 @@ Route::group(['middleware' => ['auth']], function() {
 		Route::view('/', 'mypage.dashboard')->name('mypage');
 		Route::get('/reputation_answers',[ReviewController::class, 'repuation_answers'] )->name('reputation_answers');
 		Route::get('/delete_review/{id}',[ReviewController::class, 'destroy'] )->name('delete_review');
-		Route::view('/requested_materials', 'mypage.download')->name('requested_materials');
+		Route::view('/requested_materials', 'mypage.requested_materials')->name('requested_materials');
 	});
 	
 

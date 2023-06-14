@@ -2,8 +2,6 @@
 
 @php
 	$user = Auth::user();
-	$categories = App\Models\Category::where('user_id', Auth::id())->get();
-	$items = App\Models\Item::where('user_id', Auth::id())->get();
 @endphp
 
 @section('content')
