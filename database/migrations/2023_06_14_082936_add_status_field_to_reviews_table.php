@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGuidesTable extends Migration
+class AddStatusFieldToReviewsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateGuidesTable extends Migration
      */
     public function up()
     {
-        Schema::create('guides', function (Blueprint $table) {
-            $table->id();
-            $table->text('title');
-            $table->text('material');
-            $table->text('image');
-            $table->timestamps();
+        Schema::table('reviews', function (Blueprint $table) {
+            $table->enum('status', ['publishing', 'rejected', 'approved'])->default('publishing');
         });
     }
 
@@ -29,6 +25,8 @@ class CreateGuidesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('guides');
+        Schema::table('reviews', function (Blueprint $table) {
+            $table->dropColumn('status');
+        });
     }
 }

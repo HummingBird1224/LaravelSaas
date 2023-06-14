@@ -2,8 +2,6 @@
 
 @php
 $user = Auth::user();
-$categories = App\Models\Category::where('user_id', Auth::id())->get();
-$items = App\Models\Item::where('user_id', Auth::id())->get();
 @endphp
 
 @section('content')
@@ -136,7 +134,7 @@ $items = App\Models\Item::where('user_id', Auth::id())->get();
   <div class="row card-section">
     <div class=" section-title">
       <i class="menu-icon tf-icons bx bxs-download"></i>
-      <h5>{{$user->name}}さんにおすすめのサービス</h5>
+      <h5>{{$user->full_name}}さんにおすすめのサービス</h5>
     </div>
 
     <div class="card info-card sales-card">

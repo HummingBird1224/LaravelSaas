@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use App\Models\User;
+use App\Models\Review;
 use ZipArchive;
 
 use Illuminate\Support\Facades\Mail;
@@ -13,12 +14,13 @@ use Illuminate\Support\Facades\Auth;
 
 class MypageController extends Controller
 {  
-	public function index() {
-		$user = Auth::user();
-		$item_cnt = Item::where('user_id', $user->id)->where('status', 1)->count();
-		$error_cnt = Item::where('user_id', $user->id)->where('status', 0)->count();
-		return view('mypage.dashboard', ['user' => $user, 'item_cnt' => $item_cnt, 'error_cnt' => $error_cnt]);
-	}
+	// public function index() {
+	// 	$user = Auth::user();
+	// 	$item_cnt = Item::where('user_id', $user->id)->where('status', 1)->count();
+	// 	$error_cnt = Item::where('user_id', $user->id)->where('status', 0)->count();
+	// 	return view('mypage.dashboard', ['user' => $user, 'item_cnt' => $item_cnt, 'error_cnt' => $error_cnt]);
+	// }
+
 
 	public function error_list() {
 		$user = Auth::user();

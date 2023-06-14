@@ -19,7 +19,7 @@ class CreateCompaniesTable extends Migration
             $table->string('name');
             $table->string('corporation_scale');
             $table->integer('business_type');
-            $table->string('logo');
+            $table->string('logo')->default('assets/img/tsukubnobi/no_logo.png');
             $table->integer('prefecture');
             $table->string('address');
             $table->string('representative');

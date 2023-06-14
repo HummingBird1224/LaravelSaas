@@ -48,15 +48,14 @@ class User extends Authenticatable
         'password',
     ];
 
-    public function categories() {
-        return $this->hasMany(
-            Category::class,
-        );
-    }
+    public function getFullNameAttribute()
+    {
+        return "{$this->first_name} {$this->last_name}";
+    }    
 
-    public function items() {
+    public function reviews(){
         return $this->hasMany(
-            Item::class,
+            Review::class,
         );
     }
 

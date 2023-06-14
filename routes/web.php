@@ -14,6 +14,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GuideController;
 use App\Http\Controllers\ServiceController ;
+use App\Http\Controllers\ReviewController ;
 
 use App\Http\Controllers\Admin\GuideController as CategoryDocumentController;
 
@@ -42,11 +43,6 @@ Route::get('/download/confirm', [GuideController::class, 'download_confirm'])->n
 
 Route::get('/categories', [CategoryController::class, 'category_view'])->name('categories');
 
-	// ----------------  sniper code -------------- //
-
-	// Main Route
-	Route::view('/main', 'main')->name('main');
-
 	// Issus Routes
 	Route::prefix('issus')->group(function() {
 		Route::view('/', 'issus.index')->name('issus');
@@ -63,7 +59,8 @@ Route::group(['middleware' => ['auth']], function() {
 
 	Route::prefix('mypage')->group(function(){
 		Route::view('/', 'mypage.dashboard')->name('mypage');
-		Route::view('/reputation_answers', 'mypage.review')->name('reputation_answers');
+		Route::get('/reputation_answers',[ReviewController::class, 'repuation_answers'] )->name('reputation_answers');
+		Route::get('/delete_review/{id}',[ReviewController::class, 'destroy'] )->name('delete_review');
 		Route::view('/requested_materials', 'mypage.download')->name('requested_materials');
 	});
 	
@@ -124,13 +121,6 @@ Route::group(['middleware' => ['auth']], function() {
 	
 	//download zip file
 	Route::get('/mypage/ext_download', [MypageController::class, 'extDownload'])->name('extDownload');
-
-	//submited reviews
-	Route::view('/mypage/reputation_answers', 'mypage.review')->name('reputation_answers');
-	// Route::get('/mypage/reputation_answers', [MypageController::class, 'reputation_answers'])->name('reputation_answers');
-	
-	//requested materials
-	Route::view('/mypage/requested_materials', 'mypage.download')->name('requested_materials');
 
 	Route::view('/custom', 'layouts.main');
 });
