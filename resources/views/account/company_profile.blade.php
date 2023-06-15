@@ -1,13 +1,8 @@
 @extends("layouts.main")
 
 @php
-if(count($user->company)){
-$company=$user->company[0];
-$isCompany=true;
-}
-else $isCompany=false;
 $data=json_decode(file_get_contents(
-public_path('company_profile.json')
+  public_path('company_profile.json')
 ));
 @endphp
 
@@ -47,14 +42,13 @@ public_path('company_profile.json')
                           @csrf
                           <input type="hidden" name="authenticity_token"
                             value="LgeuzujFUlMVxzWPs26P9g8koraSjDZKRE+USK717pQ40HiHN2bvAzWCdUipB063Np91mxyCPC7frPCgdvX4rg==">
-                          <input value="true" type="hidden" name="user[first_create]" id="user_first_create">
                           <div class="form-group  user_profile_phone row">
                             <label class="col-sm-3 control-label tel required"
                               for="user_profile_attributes_phone">会社名（必須）</label>
                             <div class="col-sm-8 m-l-20">
                               <input class="form-control string tel required w-300px" required="required"
                                 aria-required="true" placeholder="スマートキャンプ株式会社" type="tel" name="name"
-                                id="company_profile_name" <?php if($isCompany) echo 'value="'.$company->name.'"' ?> />
+                                id="company_profile_name" @if($company) value="{{ $company->name }}" @endif />
                             </div>
                           </div>
                           <div class="form-group select required user_corporation_scale">
@@ -62,14 +56,14 @@ public_path('company_profile.json')
                               for="user_corporation_attributes_scale">従業員規模（必須）</label>
                             <div class="col-sm-8 flex m-l-20">
                               <select class="form-control select required w-300px" required="required"
-                                aria-required="true" name="employee_number" id="user_corporation_attributes_scale">
+                                aria-required="true" name="corporation_scale" id="user_corporation_attributes_scale">
                                 <option value="">選択してください</option>
                                 @foreach($data->employee_numbers as $e_num)
-                                @if($isCompany&&$e_num->id==$company->employee_number)
-                                <option value="{{$e_num->id}}" selected>{{$e_num->value}}</option>
-                                @else
-                                <option value="{{$e_num->id}}">{{$e_num->value}}</option>
-                                @endif
+                                  @if(isset($company)&&$e_num->id==$company->corporation_scale)
+                                  <option value="{{$e_num->id}}" selected>{{$e_num->value}}</option>
+                                  @else
+                                  <option value="{{$e_num->id}}">{{$e_num->value}}</option>
+                                  @endif
                                 @endforeach
                               </select>
                             </div>
@@ -79,14 +73,14 @@ public_path('company_profile.json')
                               for="user_corporation_attributes_type_of_business">業種（必須）</label>
                             <div class="col-sm-8 flex m-l-20">
                               <select class="form-control select required w-300px" required="required"
-                                aria-required="true" name="industry" id="user_corporation_attributes_type_of_business">
+                                aria-required="true" name="business_type" id="user_corporation_attributes_type_of_business">
                                 <option value="">選択してください</option>
                                 @foreach($data->industries as $industry)
-                                @if($isCompany&&$industry->id==$company->industry)
-                                <option value="{{$industry->id}}" selected>{{$industry->value}}</option>
-                                @else
-                                <option value="{{$industry->id}}">{{$industry->value}}</option>
-                                @endif
+                                  @if($company&&$industry->id==$company->business_type)
+                                  <option value="{{$industry->id}}" selected>{{$industry->value}}</option>
+                                  @else
+                                  <option value="{{$industry->id}}">{{$industry->value}}</option>
+                                  @endif
                                 @endforeach
                               </select>
                             </div>
@@ -96,7 +90,7 @@ public_path('company_profile.json')
                             <div class="col-md-4 m-l-20">
                               <div class="fileinput fileinput-new" data-provides="fileinput">
                                 <div class="fileinput-new thumbnail" style="max-width: 180px; max-height: 180px;">
-                                  @if($isCompany&&$company->logo)
+                                  @if($company&&$company->logo)
                                   <img width="170" height="160" src="{{ asset($company->logo) }}" data-xblocker="passed"
                                     style="visibility: visible;" id="logo_preview">
                                   @else
@@ -116,8 +110,6 @@ public_path('company_profile.json')
                               </div>
                             </div>
                           </div>
-                          <input type="hidden" value="271242" name="user[profile_attributes][id]"
-                            id="user_profile_attributes_id">
                           <div class="m-t-15"></div>
                           <div class="string required w-full form-group ">
                             <label class="string required col-sm-3 control-label">所在地（必須）</label>
@@ -130,11 +122,11 @@ public_path('company_profile.json')
                                       id="user_corporation_attributes_prefecture">
                                       <option value="">選択してください</option>
                                       @foreach($data->prefectures as $prefecture)
-                                      @if($isCompany&&$prefecture->value==$company->location)
-                                      <option value="{{$prefecture->value}}" selected>{{$prefecture->value}}</option>
-                                      @else
-                                      <option value="{{$prefecture->value}}">{{$prefecture->value}}</option>
-                                      @endif
+                                        @if($company&&$prefecture->id==$company->prefecture)
+                                        <option value="{{$prefecture->id}}" selected>{{$prefecture->value}}</option>
+                                        @else
+                                        <option value="{{$prefecture->id}}">{{$prefecture->value}}</option>
+                                        @endif
                                       @endforeach
                                     </select>
                                   </div>
@@ -146,7 +138,7 @@ public_path('company_profile.json')
                                     <input class="string required form-control w-300px form-control-for-corporations"
                                       required="required" aria-required="true" placeholder="港区三田3-13-16 三田43MTビル13F"
                                       type="text" name="address" id="user_corporation_attributes_address"
-                                      <?php if($isCompany) echo 'value="'.$company->address.'"' ?> />
+                                      <?php if($company) echo 'value="'.$company->address.'"' ?> />
                                   </div>
                                 </div>
                               </span>
@@ -159,7 +151,7 @@ public_path('company_profile.json')
                               <input class="form-control string required w-300px" required="required"
                                 aria-required="true" placeholder="山田 太郎" type="text" name="representative"
                                 id="user_corporation_attributes_representative_name"
-                                <?php if($isCompany) echo 'value="'.$company->reperesentative.'"' ?> />
+                                <?php if($company) echo 'value="'.$company->representative.'"' ?> />
                             </div>
                           </div>
                           <div class="form-group string required user_corporation_company_name">
@@ -169,7 +161,7 @@ public_path('company_profile.json')
                               <input class="form-control string required w-300px" required="required"
                                 aria-required="true" placeholder="03xxxxxxxx（ハイフンなし）" type="text" name="phone_number"
                                 id="user_corporation_attributes_phone_number"
-                                <?php if($isCompany) echo 'value="'.$company->phone_number.'"' ?> />
+                                <?php if($company) echo 'value="'.$company->phone_number.'"' ?> />
                             </div>
                           </div>
                           <div class="form-group string required user_corporation_company_name">
@@ -179,7 +171,7 @@ public_path('company_profile.json')
                               <input class="form-control string required w-300px" required="required"
                                 aria-required="true" placeholder="2015" type="number" name="founded_year"
                                 id="user_corporation_attributes_founded_year"
-                                <?php if($isCompany) echo 'value="'.$company->founded_year.'"' ?> />
+                                <?php if($company) echo 'value="'.$company->founded_year.'"' ?> />
                             </div>
                           </div>
                           <div class="form-group string required user_corporation_company_name">
@@ -189,7 +181,7 @@ public_path('company_profile.json')
                               <input class="form-control string required w-300px" max="12" min="1" required="required"
                                 aria-required="true" placeholder="10" type="number" name="founded_month"
                                 id="user_corporation_attributes_founded_month"
-                                <?php if($isCompany) echo 'value="'.$company->founded_month.'"' ?> />
+                                <?php if($company) echo 'value="'.$company->founded_month.'"' ?> />
                             </div>
                           </div>
                           <div class="form-group string required user_corporation_company_name">
@@ -199,7 +191,7 @@ public_path('company_profile.json')
                               <input class="form-control string required w-300px" required="required"
                                 aria-required="true" placeholder="1234万円" type="text" name="capital"
                                 id="user_corporation_attributes_capital"
-                                <?php if($isCompany) echo 'value="'.$company->capital.'"' ?> />
+                                <?php if($company) echo 'value="'.$company->capital.'"' ?> />
                             </div>
                           </div>
                           <div class="form-group string required user_corporation_company_name">
@@ -209,7 +201,7 @@ public_path('company_profile.json')
                               <input class="form-control string required w-300px" required="required"
                                 aria-required="true" placeholder="http://xxx.jp" type="text" name="company_url"
                                 id="user_corporation_attributes_company_url"
-                                <?php if($isCompany) echo 'value="'.$company->company_url.'"' ?> />
+                                <?php if($company) echo 'value="'.$company->company_url.'"' ?> />
                             </div>
                           </div>
                           <input type="hidden" value="271242" name="user[profile_attributes].id"
