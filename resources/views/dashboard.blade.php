@@ -2156,7 +2156,7 @@
                   <div class="servicesIndex-categoryDocument-block-title">ERP(基幹システム)選び方ガイド</div>
                 </label><label class="checkbox servicesIndex-categoryDocument">
                   <div class="servicesIndex-categoryDocument-block-img"><img alt="お役立ちガイド画像"
-                      src="https://slides.boxil.jp/category/slides/b46d99de69064ef1bdb3d18a7816a0e5888f1a5ee9551b911485ac5f3ede/s3-0.jpg" />
+                      src="" />
                     <div class="servicesIndex-categoryDocument-checkbox new-checkbox-input-filled boxil-checkbox"><input
                         class="boxil-checkbox-input check-categoryDocument-45" id="category_document_45"
                         name="category_document" type="checkbox" value="45" /><label class="new-checkbox"
@@ -2165,7 +2165,7 @@
                   <div class="servicesIndex-categoryDocument-block-title">請求書発行システム選び方ガイド</div>
                 </label><label class="checkbox servicesIndex-categoryDocument">
                   <div class="servicesIndex-categoryDocument-block-img"><img alt="お役立ちガイド画像"
-                      src="https://slides.boxil.jp/category/slides/3ffbf17e352629e591b352d733bb956195d4778c04ff7bdf6564938a99ec/s3-0.jpg" />
+                      src="" />
                     <div class="servicesIndex-categoryDocument-checkbox new-checkbox-input-filled boxil-checkbox"><input
                         class="boxil-checkbox-input check-categoryDocument-77" id="category_document_77"
                         name="category_document" type="checkbox" value="77" /><label class="new-checkbox"
