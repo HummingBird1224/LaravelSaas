@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="ja" prefix="og: http://ogp.me/ns#">
+<html lang="ja" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default"
+  data-assets-path="{{ asset('assets/') }}" data-template="vertical-menu-template-free">
 
 @php
 $user=Auth::user();
@@ -21,7 +22,7 @@ $user=Auth::user();
   <meta name="csrf_token" content="{{ csrf_token() }}">
   <title>{{ env('APP_NAME') }}</title>
   <meta content="on" http-equiv="x-dns-prefetch-control" />
-  <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon/favicon.png') }}" />
+  <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/tsukubnobi/tsukunobi_favicon.svg') }}" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -37,27 +38,7 @@ $user=Auth::user();
   <style>
     
   </style>
-  </script> <!-- Google Tag Manager -->
-  <script>
-    (
-      function(w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({
-          'gtm.start': new Date().getTime(),
-          event: 'gtm.js'
-        });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != 'dataLayer' ? '&l=' + l : '';
-        j.async = true;
-        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl +
-          '&gtm_auth=cp0y_3tB8sa_v6ZzSrzPcQ&gtm_preview=env-62&gtm_cookies_win=x';
-        f.parentNode.insertBefore(j, f);
-      }
-    )
-    (window, document, 'script', 'dataLayer', 'GTM-NWHPVX');
-  </script>
-  <!-- End Google Tag Manager -->
+  </script> 
   <script>
     window.gon = {};
     gon.track_event_params = {
@@ -429,6 +410,37 @@ $user=Auth::user();
 </head>
 
 <body class="services index" id="">
+  
+  <div id="fb-root"></div>
+
+  <div class="drawermenu-bg" id="drawermenu-bg"></div>
+  <nav class="drawermenu-block">
+    <div class="drawermenu-close">
+      <div class="menubar-toggle active">
+        <span class="menubar-icon"></span>
+        <span class="menubar-icon"></span>
+        <span class="menubar-icon"></span>
+      </div>
+    </div>
+    <div class="block-header">MENU</div>
+    <ul>
+      <li class="drawermenu-list sign">
+        <a class="drawermenu-inner" href="/register/">無料会員登録</a>
+      </li>
+      <li class="drawermenu-list sign">
+        <a class="drawermenu-inner" data-signin="true" data-target="#modal-signin" data-toggle="modal" href="/login">ログイン</a>
+      </li>
+      <li class="drawermenu-list">
+        <a class="drawermenu-inner" href="/categories/">カテゴリから探す</a>
+      </li>
+      <li class="drawermenu-list">
+        <a class="drawermenu-inner" href="/issues/">課題から探す</a>
+      </li>
+      <li class="drawermenu-list">
+        <a class="drawermenu-inner" href="/category_documents/">お役立ちガイド</a>
+      </li>
+    </ul>
+  </nav>
   <header class="l-header" id="boxil-navbar">
     <div class="deprecateHeader__warning" id="ie-display">
       <div class="deprecateHeader__warningInner">
@@ -440,17 +452,16 @@ $user=Auth::user();
       <div class="brand-logo-only">
         <a href="/">
           <img class="brand-logo-img" alt="BOXIL SaaS ロゴ"
-            src="{{ asset('assets/img/tsukubnobi/tsukunobi_favicon.svg') }}" />
+            src="{{asset('assets/img/tsukubnobi/tsukunobi_logo-black.png')}}" />
         </a>
       </div>
       <div class="brand-logo">
-        <a href="https://boxil.jp/">
+        <a href="/">
           <img class="brand-logo-img" alt="BOXIL SaaS ロゴ"
-            src="https://assets.boxil.jp/images/logo/boxil-saas-yoko-color-logo.svg" />
+            src="{{asset('assets/img/tsukubnobi/tsukunobi_logo-black.png')}}" />
         </a>
       </div>
       <div class="header-nav">
-        <h1 class="brand-title">BOXIL SaaS（ボクシル サース）- SaaS比較サイト</h1>
         <nav>
           <ul class="navigation">
             <li class="navigation-item sign">
@@ -467,18 +478,7 @@ $user=Auth::user();
             </li>
             <li class="navigation-item">
               <a class="bn-title-menu-ele-link" href="/category_documents/">お役立ちガイド</a>
-            </li>
-            <li class="navigation-item">
-              <a class="bn-title-menu-ele-link" href="/mag/">ニュース・記事</a>
-            </li>
-            <li class="navigation-item navigation-introdution">
-              <a class="bn-title-menu-ele-link"
-                href="https://boxil.smartcamp.co.jp/?utm_source=boxil&amp;utm_medium=referral&amp;utm_campaign=boxil_header">掲載希望の方</a>
-            </li>
-            <li class="navigation-item">
-              <a class="bn-title-menu-ele-link"
-                href="/consultations/?utm_medium=boxil&utm_source=header">SaaSのQ&amp;A</a>
-            </li>
+            </li>           
           </ul>
         </nav>
       </div>
@@ -491,11 +491,11 @@ $user=Auth::user();
         </form>
       </div>
       <div class="header-introduction">
-        <a class="header-menu-link header-menu-item"
+        <!-- <a class="header-menu-link header-menu-item"
           href="https://boxil.smartcamp.co.jp/?utm_source=boxil&amp;utm_medium=referral&amp;utm_campaign=boxil_header">
           <i class="fas fa-laptop item-icon"></i>
           <div class="item-text">掲載希望の方</div>
-        </a><!--  -->
+        </a> -->
       </div>
       @if($user)
       <div class="header-action">
@@ -508,7 +508,7 @@ $user=Auth::user();
                 <li class="dropdown-list">
                   <a class="dropdown-inner" href="/mypage">
                     <i class="fa fa-home dropdown-icon" aria-hidden="true"></i>
-                    {{$user->fisrt_name}} {{$user->last_name}}マイページ
+                    {{$user->full_name}}マイページ
                   </a>
                 </li>
                 <li class="dropdown-list">
