@@ -136,7 +136,7 @@
 								else echo 'class="menu-item"'; ?>>
             <a href="{{ route('client_tools') }}" class="menu-link">
               <i class="menu-icon tf-icons bx bxs-user-account"></i>
-              <div>ユーザー管理</div>
+              <div>クライアントパネル</div>
             </a>
           </li>
           @endif
@@ -145,8 +145,8 @@
           <li <?php if (strpos(url()->current(), "admin/category_documents")) echo 'class="menu-item active"';
 								else echo 'class="menu-item"'; ?>>
             <a href="{{ route('category_documents_list') }}" class="menu-link">
-              <i class="menu-icon tf-icons bx bxs-user-account"></i>
-              <div>ユーザー管理</div>
+              <i class="menu-icon tf-icons bx bxs-user-detail"></i>
+              <div>管理パネル</div>
             </a>
           </li>
           @endif

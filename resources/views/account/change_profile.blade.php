@@ -10,14 +10,6 @@ public_path('company_profile.json')
 <div class="content-wrapper">
   <div class="container-xxl flex-grow-1 container-p-y">
     <main id="main" class="main">
-      <div class="pagetitle">
-        <nav>
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Yahoo</a></li>
-            <li class="breadcrumb-item active">プロフィール</li>
-          </ol>
-        </nav>
-      </div><!-- End Page Title -->
       <section class="section change_profile">
         <!-- 編集中の口コミ -->
         <div class="row card-section">
@@ -155,9 +147,9 @@ public_path('company_profile.json')
                                       <option value="">選択してください</option>
                                       @foreach($data->prefectures as $prefecture)
                                         @if($prefecture->id==$user->prefecture)
-                                        <option value="{{$prefecture->value}}" selected>{{$prefecture->value}}</option>
+                                        <option value="{{$prefecture->id}}" selected>{{$prefecture->value}}</option>
                                         @else
-                                        <option value="{{$prefecture->value}}">{{$prefecture->value}}</option>
+                                        <option value="{{$prefecture->id}}">{{$prefecture->value}}</option>
                                         @endif
                                       @endforeach
                                     </select>

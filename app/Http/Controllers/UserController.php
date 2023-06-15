@@ -125,48 +125,39 @@ class UserController extends Controller
 	}
 
     public function company_profile_view(){
-        $user = User::findOrFail(Auth::id())
-                ->with(['company'=>function($query){
-                    $query->where('source', 1);
-                }])->first();
-        return view('account.company_profile', ['user'=>$user]);
+        $company = Company::where('user_id',Auth::id())->first();
+        // dd($company);
+        return view('account.company_profile', ['company'=>$company]);
     }
 
     public function profile_edit(Request $request){
-        $_user=$request->user;
-        $_company=$request->company;
         $file=$request->file('avatar');
         $user = User::updateOrCreate(
             [
                 'id'=>Auth::id()
             ],
             [
-                'first_name'=>$_user['first_name'],
-                'last_name'=>$_user['last_name'],
-                'furigana_first'=>$_user['furigana_first'],
-                'furigana_last'=>$_user['furigana_last'],
-                'phone_number'=>$_user['phone_number'],
+                'first_name'=>$request['first_name'],
+                'last_name'=>$request['last_name'],
+                'kana_first'=>$request['kana_first'],
+                'kana_last'=>$request['kana_last'],
+                'phone_number'=>$request['phone_number'],
+                'company_name'=>$request['company_name'],
+                'corporation_scale'=>$request['corporation_scale'],
+                'business_type'=>$request['business_type'],
+                'prefecture'=>$request['prefecture'],
+                'address'=>$request['address'],
+                'department'=>$request['department'],
+                'official_position'=>$request['official_position'],
+                'prefecture'=>$request['prefecture'],
+                'address'=>$request['address'],
             ]);
         if($file) {
             $user->avatar = $file->storeAs(
-            'uploads/avatars', $file->hashName(), 'public'
+                'uploads/avatars', time().'_'.$file->getClientOriginalName(), 'public'
             );
             $user->save();
         }
-        $company=Company::updateOrCreate(
-                [
-                    'user_id'=>Auth::id(),
-                    'source'=>0
-                ],
-                [
-                    'name'=>$_company['name'],
-                    'employee_number'=>$_company['employee_number'],
-                    'industry'=>$_company['industry'],
-                    'location'=>$_company['prefecture'],
-                    'address'=>$_company['address'],
-                    'department'=>$_company['department'],
-                    'job_title'=>$_company['job_title'],
-                ]);
         return back()->withInput();
     }
 
@@ -185,13 +176,12 @@ class UserController extends Controller
         $company=Company::updateOrCreate(
                 [
                     'user_id'=>Auth::id(),
-                    'source'=>1
                 ],
                 [
                     'name'=>$request->name,
-                    'employee_number'=>$request->employee_number,
-                    'industry'=>$request->industry,
-                    'location'=>$request->prefecture,
+                    'corporation_scale'=>$request->corporation_scale,
+                    'business_type'=>$request->business_type,
+                    'prefecture'=>$request->prefecture,
                     'address'=>$request->address,
                     'representative'=>$request->representative,
                     'phone_number'=>$request->phone_number,
@@ -202,7 +192,7 @@ class UserController extends Controller
                 ]);
         if($file) {
             $company->logo = $file->storeAs(
-            'uploads/company/logos', $file->hashName(), 'public'
+                'uploads/company/logos', time().'_'.$file->getClientOriginalName(), 'public'
             );
             $company->save();
         }
