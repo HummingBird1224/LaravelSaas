@@ -6,19 +6,40 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\Category;
+use App\Models\LargeCategory;
 
 class CategoryController extends Controller
 {
-	public function index(Request $request)
+	public function index()
 	{
-		$categories = Category::where('user_id', Auth::id())->orderBy('id', 'desc')->get();
-		return view('category.list', ['categories' => $categories]);
+		$lcs=LargeCategory::with('categories')->get();
+		return view('category.lc_list', ['lcs'=>$lcs]);
 	}
 
-	public function category_view()
+	public function lc_view($id)
 	{
-		return view('category.list');
+		$lc=LargeCategory::findOrFail($id);
+		// return view('category.lc_list', ['lc'=>$lc]);
 	}
+
+	public function show($id)
+	{
+		$category=Category::findOrFail($id);
+		return view('category.show', ['category'=>$category]);
+	}
+
+
+	public function categories_by_parent($parent,$id)
+	{
+		$categories=Category::where($parent, $id)->get();
+		return $categories;
+	}
+
+	// public function categories_by_issue($id)
+	// {
+	// 	$categories=Category::where('issue', $id);
+	// 	return $categories;
+	// }
 
 	public function create(Request $request)
 	{

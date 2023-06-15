@@ -23,6 +23,20 @@ class Category extends Model
         'issue_id',
     ];
 
+    public function large_category() {
+        return $this->belongsTo(
+            LargeCategory::class,
+            'large_category_id'
+        );
+    }
+
+    public function issue() {
+        return $this->belongsTo(
+            Issue::class,
+            'issue_id'
+        );
+    }
+
     public function guide() {
         return $this->hasOne(
             Guide::class,
@@ -45,6 +59,12 @@ class Category extends Model
     public function necessary_points() {
         return $this->hasMany(
             CategoryNecessaryPoint::class,
+        );
+    }
+
+    public function services(){
+        return $this->hasMany(
+            Service::class,
         );
     }
 }

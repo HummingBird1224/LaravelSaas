@@ -2,8 +2,7 @@
 
 @php
 $user = Auth::user();
-$categories = App\Models\Category::where('user_id', Auth::id())->get();
-$items = App\Models\Item::where('user_id', Auth::id())->get();
+$guides=$user->guides;
 @endphp
 
 @php
@@ -90,7 +89,7 @@ $schedules=['できる限り早く', '1ヶ月以内', '3ヶ月以内', '半年�
               </div>
               <div class="row m-t-15">
                 <div class="col-md-4 align-center">
-                  <button type="submit" class="btn pruple-button button full-width">検索</button>
+                  <button type="submit" class="btn blue-button button full-width">検索</button>
                 </div>
               </div>
             </form>
@@ -126,43 +125,42 @@ $schedules=['できる限り早く', '1ヶ月以内', '3ヶ月以内', '半年�
                       </thead>
 
                       <tbody id="item-table-body">
-                        @if(count($categories)>0)
-                        @foreach($categories as $c)
-                        <tr id={{ "category". $c->id }}>
-                          <td><input type="checkbox" id="select_data_{{$c->id}}"></td>
-                          <td>{{$c['id']}}</td>
-                          <td>{{$c['created_at']}}</td>
-                          <td>
-                            <img src="{{ asset('assets/img/tsukubnobi/nitaco_logo.jpg') }}" class="nitaco-logo"
-                              width="33px" height="33px" />
-                            ツクノビ
-                          </td>
-                          @if($c->stop)
-                          <td>{{$c['name']}}</td>
-                          <td>{{$c['file_name']}}</td>
-                          <td>{{$c['fall_pro']}}</td>
-                          <td>{{$c['partner_tag']}}</td>
-                          <td>{{$c['is_reg']}}</td>
-                          <td>
-                            <div class="status valid">
-                              <div class="status-circle"></div>
-                              有効
-                            </div>
-                            <span>
-                              無効申請
-                            </span>
-                          </td>
-                          @else
-                          <td colspan="5">無効理由：月間ツール上限数を超えたため無効</td>
-                          <td>
-                            <div class="status invalid">
-                              <div class="status-circle"></div>
-                              無効
-                            </div>
-                          </td>
-                          @endif
-                        </tr>
-                        @endforeach
+                        @if(count($guides)>0)
+                          @foreach($guides as $guide)
+                          <tr id={{ "guide". $guide->id }}>
+                            <td><input type="checkbox" id="select_data_{{$guide->id}}"></td>
+                            <td>{{$guide['id']}}</td>
+                            <td>{{ \Carbon\Carbon::parse($guide->updated_at)->format('Y年m月d日 H:i')}}</td>
+                            <td>
+                              <img src="{{ asset($guide->image) }}" class="nitaco-logo"
+                                width="33px" height="33px" />
+                              {{$guide->title}}
+                            </td>
+                            <td>
+                              {{$user['full_name']}}
+                              {{$user['phone_number']}}
+                              {{$user['email']}}
+                            </td>
+                            <td>
+                              {{$user['company_name']}}
+                              {{$user['department']}}
+                              {{$user['official_position']}}
+                            </td>
+                            <td>{{$user['corporation_scale']}}</td>
+                            <td>できる限り早く</td>
+                            <td>なし</td>
+                            <td>
+                              <div class="status valid">
+                                <div class="status-circle"></div>
+                                有効
+                              </div>
+                              <span>
+                                無効申請
+                              </span>
+                            </td>
+                            
+                          </tr>
+                          @endforeach
                         @else
                         <tr>データなし</tr>
                         @endif

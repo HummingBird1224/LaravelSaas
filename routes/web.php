@@ -32,6 +32,12 @@ Route::get('reset_password', [LoginController::class, 'resetPwd'])->name('reset'
 Route::get('reset_pwd', function() { return view('auth.reset'); });
 Route::post('update_password', [LoginController::class, 'updatePwd'])->name('password.update');
 
+//Category Routes
+Route::prefix('categories')->group(function(){
+	Route::get('/', [CategoryController::class, 'index'])->name('categories');
+	Route::get('/{id}', [CategoryController::class, 'show'])->name('category_view');
+});
+Route::get('/lc/{id}',[CategoryController::class,'lc_view'])->name('lc_view');
 
 // Guide Routes
 Route::prefix('category_documents')->group(function() {
@@ -39,9 +45,12 @@ Route::prefix('category_documents')->group(function() {
 	Route::get('/search', [GuideController::class, 'search'])->name('category_documents_search');	
 });
 
-Route::get('/download/confirm', [GuideController::class, 'download_confirm'])->name('download_confirm');
+Route::get('/categories/{parent}/{id}',[CategoryController::class, 'categories_by_parent'])->name('categories_by_parent');
+// Route::get('/issue/categories/{id}',[CategoryController::class, 'categories_by_issue'])->name('categories_by_issue');
 
-Route::get('/categories', [CategoryController::class, 'category_view'])->name('categories');
+Route::get('/downloads/confirm', [GuideController::class, 'download_confirm'])->name('download_confirm');
+
+// Route::get('/categories', [CategoryController::class, 'category_view'])->name('categories');
 
 	// Issus Routes
 	Route::prefix('issues')->group(function() {
@@ -78,17 +87,17 @@ Route::group(['middleware' => ['auth']], function() {
 	});
 
 	// Category Routes
-	Route::prefix('category')->group(function() {
-		Route::get('/', [CategoryController::class, 'index'])->name('category_list');
-		Route::post('/add', [CategoryController::class, 'create'])->name('add_category');
-		Route::post('/edit', [CategoryController::class, 'edit'])->name('edit_category');
-		Route::get('/delete/{id}', [CategoryController::class, 'delete'])->name('delete_category');
-		Route::post('/set/column', [CategoryController::class, 'set_column'])->name('set_column');
-		Route::get('/scan/{id}', [CategoryController::class, 'scan'])->name('scan');
-		Route::get('/stop/{id}', [CategoryController::class, 'stop'])->name('stop');
-		Route::get('/restart/{id}', [CategoryController::class, 'restart'])->name('restart');
-		Route::post('/save/{id}', [CategoryController::class, 'save'])->name('save_category');
-	});
+	// Route::prefix('category')->group(function() {
+	// 	Route::get('/', [CategoryController::class, 'index'])->name('category_list');
+	// 	Route::post('/add', [CategoryController::class, 'create'])->name('add_category');
+	// 	Route::post('/edit', [CategoryController::class, 'edit'])->name('edit_category');
+	// 	Route::get('/delete/{id}', [CategoryController::class, 'delete'])->name('delete_category');
+	// 	Route::post('/set/column', [CategoryController::class, 'set_column'])->name('set_column');
+	// 	Route::get('/scan/{id}', [CategoryController::class, 'scan'])->name('scan');
+	// 	Route::get('/stop/{id}', [CategoryController::class, 'stop'])->name('stop');
+	// 	Route::get('/restart/{id}', [CategoryController::class, 'restart'])->name('restart');
+	// 	Route::post('/save/{id}', [CategoryController::class, 'save'])->name('save_category');
+	// });
 
 	Route::prefix('account')->group(function(){
 		Route::get('/change_profile', [UserController::class, 'change_profile_view'])->name('change_profile');
@@ -138,7 +147,7 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
 		Route::get('/permit', [AdminController::class, 'permit_account'])->name('permit_account');
 
 		Route::prefix('/category_documents')->group(function(){
-			Route::get('/', [CategoryDocumentController::class, 'index'])->name('category_documents_list');
+			Route::get('/', [GuideController::class, 'guide_list'])->name('category_documents_list');
 			Route::get('/delete/{id}', [CategoryDocumentController::class, 'delete'])->name('delete_category_documents');
 			Route::get('/add', [CategoryDocumentController::class, 'create'])->name('add_category_document');
 			Route::post('/store', [CategoryDocumentController::class, 'store'])->name('store_category_document');

@@ -1,12 +1,8 @@
-@extends("layouts.no_aside")
+@extends("layouts.no_aside_initial")
 
 @php
 $user=Auth::user();
-if($user&&count($user->company)){
-$company=$user->company[0];
-$isCompany=true;
-}
-else $isCompany=false;
+$company=$user->company;
 $data=json_decode(file_get_contents(
 public_path('company_profile.json')
 ));
@@ -149,7 +145,7 @@ public_path('company_profile.json')
                                       aria-required="true" name="department" id="department">
                                       <option value="">選択してください</option>
                                       @foreach($data->departments as $department)
-                                      @if($isCompany&&$department->id==$company->department)
+                                      @if($company&&$department->id==$company->department)
                                       <option value="{{$department->id}}" selected>{{$department->value}}</option>
                                       @else
                                       <option value="{{$department->id}}">{{$department->value}}</option>
@@ -162,7 +158,7 @@ public_path('company_profile.json')
                                       aria-required="true" name="job_title" id="job_title">
                                       <option value="">選択してください</option>
                                       @foreach($data->jobs as $job)
-                                      @if($isCompany&&$job->id==$company->job_title)
+                                      @if($company&&$job->id==$company->job_title)
                                       <option value="{{$job->id}}" selected>{{$job->value}}</option>
                                       @else
                                       <option value="{{$job->id}}">{{$job->value}}</option>
@@ -180,7 +176,7 @@ public_path('company_profile.json')
                                 <div class="col-sm-8 flex m-l-20">
                                   <input class="form-control string required w-300px" required="required"
                                     aria-required="true" placeholder="所属している会社名を入力して検索" type="text" name="company_name"
-                                    id="company_name" <?php if($isCompany) echo 'value="'.$company->name.'"' ?> />
+                                    id="company_name" <?php if($company) echo 'value="'.$company->name.'"' ?> />
                                 </div>
                               </div>
 
@@ -196,7 +192,7 @@ public_path('company_profile.json')
                                           id="user_corporation_attributes_prefecture">
                                           <option value="">選択してください</option>
                                           @foreach($data->prefectures as $prefecture)
-                                          @if($isCompany&&$prefecture->value==$company->location)
+                                          @if($company&&$prefecture->value==$company->location)
                                           <option value="{{$prefecture->value}}" selected>{{$prefecture->value}}
                                           </option>
                                           @else
@@ -214,7 +210,7 @@ public_path('company_profile.json')
                                           class="string required form-control w-300px form-control-for-corporations"
                                           required="required" aria-required="true" placeholder="港区三田3-13-16 三田43MTビル13F"
                                           type="text" name="address" id="user_corporation_attributes_address"
-                                          <?php if($isCompany) echo 'value="'.$company->address.'"' ?> />
+                                          <?php if($company) echo 'value="'.$company->address.'"' ?> />
                                       </div>
                                     </div>
                                   </span>
@@ -230,7 +226,7 @@ public_path('company_profile.json')
                                     id="user_corporation_attributes_type_of_business">
                                     <option value="">選択してください</option>
                                     @foreach($data->industries as $industry)
-                                    @if($isCompany&&$industry->id==$company->industry)
+                                    @if($company&&$industry->id==$company->industry)
                                     <option value="{{$industry->id}}" selected>{{$industry->value}}</option>
                                     @else
                                     <option value="{{$industry->id}}">{{$industry->value}}</option>
@@ -248,7 +244,7 @@ public_path('company_profile.json')
                                     aria-required="true" name="employee_number" id="user_corporation_attributes_scale">
                                     <option value="">選択してください</option>
                                     @foreach($data->employee_numbers as $e_num)
-                                    @if($isCompany&&$e_num->id==$company->employee_number)
+                                    @if($company&&$e_num->id==$company->employee_number)
                                     <option value="{{$e_num->id}}" selected>{{$e_num->value}}</option>
                                     @else
                                     <option value="{{$e_num->id}}">{{$e_num->value}}</option>

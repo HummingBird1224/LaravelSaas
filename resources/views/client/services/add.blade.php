@@ -1,4 +1,4 @@
-@extends("layouts.no_aside")
+@extends("layouts.no_aside_initial")
 
 @section('css')
 <style>

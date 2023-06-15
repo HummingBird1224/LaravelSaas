@@ -35,6 +35,13 @@ class Review extends Model
         );
     }
 
+     public function company(){
+        return $this->belongsTo(
+            Company::class,
+            'company_id'
+        );
+    }
+
     public function service(){
         return $this->belongsTo(
             Service::class,

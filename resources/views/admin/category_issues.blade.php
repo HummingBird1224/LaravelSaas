@@ -10,12 +10,6 @@ table td {
 </style>
 @endsection
 
-@php
-$data=json_decode(file_get_contents(
-public_path('company_profile.json')
-));
-@endphp
-
 @section('content')
 <div class="content-wrapper">
   <div class="container-xxl flex-grow-1 container-p-y">
@@ -31,13 +25,13 @@ public_path('company_profile.json')
               <div class="top-section">
                 <div class="top-select">
                   <h6>大分類名</h6>
-                  <select class="form-control m-t-15" aria-required="true" name="employee_number"
-                    id="user_corporation_attributes_scale">
-                    @for($i=1; $i<=6;$i++) 
-                    <option value={{ "大分類名". $i }}>
-                      大分類名{{$i}}
+                  <select class="form-control m-t-15" aria-required="true" name="lc_title"
+                    id="lc_title">
+                    @foreach($lcs as $lc) 
+                    <option value="{{$lc->id }}">
+                      {{$lc->title}}
                     </option>
-                    @endfor
+                    @endforeach
                   </select>
                   <form class="display-flex m-t-15" action="" type="post">
                     <input type="text" placeholder="入力しましょう" class="form-control  " />
@@ -50,10 +44,14 @@ public_path('company_profile.json')
                 <h6>小分類名</h6>
                 <div class="row">
                   <div class="col-sm-6 ">
-                    <div class="bottom-section-wrapper">
-                      @for($i=1; $i<=6; $i++) 
-                      <div> <a href="">小分類名{{$i}}</a> </div>
-                      @endfor
+                    <div class="bottom-section-wrapper" id="lc_categories">
+                      @if(count($lcs[0]->categories))
+                        @foreach($lcs[0]->categories as $category) 
+                        <div> <a href="">{{$category->title}}</a> </div>
+                        @endforeach
+                      @else
+                        カテゴリなし
+                      @endif
                     </div>
                   </div>
                   <form class="col-sm-6 " action="" type="post">
@@ -77,13 +75,13 @@ public_path('company_profile.json')
               <div class="top-section">
                 <div class="top-select">
                   <h6>大課題名</h6>
-                  <select class="form-control m-t-15" aria-required="true" name="employee_number"
-                    id="user_corporation_attributes_scale">
-                    @for($i=1; $i<=6;$i++) 
-                    <option value={{ "大課題名". $i }}>
-                      大課題名{{$i}}
+                  <select class="form-control m-t-15" aria-required="true" name="issue_title"
+                    id="issue_title">
+                    @foreach($issues as $issue) 
+                    <option value="{{ $issue->id }}">
+                      {{$issue->title}}
                     </option>
-                    @endfor
+                    @endforeach
                   </select>
                   <form class="display-flex m-t-15" action="" type="post">
                     <input type="text" placeholder="入力しましょう" class="form-control  " />
@@ -96,10 +94,14 @@ public_path('company_profile.json')
                 <h6>小課題名</h6>
                 <div class="row">
                   <div class="col-sm-6 ">
-                    <div class="bottom-section-wrapper">
-                      @for($i=1; $i<=6; $i++) 
-                      <div> <a href="">小課題名{{$i}}</a> </div>
-                      @endfor
+                    <div class="bottom-section-wrapper" id="issue_categories">
+                      @if(count($issues[0]->categories))
+                        @foreach($issues[0]->categories as $category) 
+                        <div> <a href="">{{$category->title}}</a> </div>
+                        @endforeach
+                      @else
+                        カテゴリなし
+                      @endif
                     </div>
                   </div>
                   <form class="col-sm-6 " action="" type="post">
@@ -113,7 +115,6 @@ public_path('company_profile.json')
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
@@ -122,5 +123,38 @@ public_path('company_profile.json')
 @endsection
 
 @section("script")
-
+<script>
+  $('#lc_title').change((e)=>{
+    $.ajax({
+      url:'/categories/large_category_id/'+e.target.value,
+      method:'get',
+      success:(res)=>{
+        let lc_categories='';
+        if(res.length>0){
+          res.map(category=>{
+            lc_categories +=`<div> <a href="">${category.title}</a> </div>`;
+          })        
+          $('#lc_categories').html(lc_categories);
+        }
+        else $('#lc_categories').html('カテゴリなし');
+      }
+    })
+  })
+   $('#issue_title').change((e)=>{
+    $.ajax({
+      url:'/categories/issue_id/'+e.target.value,
+      method:'get',
+      success:(res)=>{
+        let issue_categories='';
+        if(res.length>0){
+          res.map(category=>{
+            issue_categories +=`<div> <a href="">${category.title}</a> </div>`;
+          })        
+          $('#issue_categories').html(issue_categories);
+        }
+        else $('#issue_categories').html('カテゴリなし');
+      }
+    })
+  })
+</script>
 @endsection

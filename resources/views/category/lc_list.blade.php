@@ -6,7 +6,7 @@
       <div class="breadcrumb-boxil-wrapper">
         <div class="container">
           <ul>
-            <li class="p-t-7"><a href="https://boxil.jp/"><span class="m-l-5">BOXIL</span></a></li>
+            <li class="p-t-7"><a href="/"><span class="m-l-5">ツクノビ</span></a></li>
             <li class="p-t-7"><i class="far fa-angle-right m-l-10" aria-hidden="true"></i></li>
             <li class="p-t-7"><span class="m-l-5">カテゴリから探す</span></li>
           </ul>
@@ -14,25 +14,25 @@
       </div>
       <h1>カテゴリから探す</h1>
       <div class="pagesCategories-content">
-        @for($j=1; $j<=3; $j++)
+        @foreach($lcs as $lc)
         <div class="pagesCategories-content-parentCategory">
-          <a href="/tags/lc-accounting/">
+          <a href="{{route('lc_view', $lc->id)}}">
             <div>
               <i class="fa fa-'square" aria-hidden="true"></i>
             </div>
-            <span class="text-link">通信インフラ</span>
+            <span class="text-link">{{$lc->title}}</span>
           </a>
         </div>
         <div class="pagesCategories-content-childCategories">
-          @for($i=1; $i<=15; $i++ )
+          @foreach($lc->categories as $category )
           <div class="pagesCategories-content-childCategory text-overflow-ellipsis">
-            <a href="/sc/1">
-              <span class="text-link">WEB会議システム</span>
+            <a href="{{route('category_view', $category->id)}}">
+              <span class="text-link">{{$category->title}}</span>
             </a>
           </div>
-          @endfor
+          @endforeach
         </div>
-        @endfor
+        @endforeach
       </div>
     </div>
   </main>
