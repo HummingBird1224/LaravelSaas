@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddGuideIdFieldInCategoriesTable extends Migration
+class AddSomeFieldInUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddGuideIdFieldInCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::table('categories', function (Blueprint $table) {
-            $table->integer('guide_id')->after('description')->nullable();
+        Schema::table('users', function (Blueprint $table) {
+            $table->integer('company_id')->nullable()->after('id');
         });
     }
 
@@ -25,8 +25,8 @@ class AddGuideIdFieldInCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::table('categories', function (Blueprint $table) {
-            $table->dropColumn('guide_id');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumb('company_id');
         });
     }
 }

@@ -19,6 +19,11 @@ class GuideController extends Controller
         return view('guides.guide_list', ['recommended_guides'=>$recommended_guides,'common_guides'=>$common_guides]);   
     }
 
+    public function guide_list(){
+        $guides=Guide::with('category')->get();
+        return view('admin.category_documents.list', ['guides'=>$guides]);
+    }
+
     public function search(Request $request)
     {
         $search_word=$request->get('search_word');

@@ -1,9 +1,7 @@
-@extends("layouts.no_aside")
+@extends("layouts.no_aside_initial")
 
 @php
 $user = Auth::user();
-$categories = App\Models\Category::where('user_id', Auth::id())->get();
-$items = App\Models\Item::where('user_id', Auth::id())->get();
 @endphp
 
 @section('content')
@@ -94,7 +92,7 @@ $items = App\Models\Item::where('user_id', Auth::id())->get();
             <div class="card info-card sales-card guide-download-wrapper">
               <div class="card-body">
                 <div class="middle-button text-center">
-                  <button class="middle-button" onclick="downloadClick()">
+                  <button class="orange-button button" onclick="downloadClick()">
                     <div class="button-text">
                       選択中の資料 <spin id="checked_num">0</spin>点をまとめてダウンロード
                     </div>
@@ -136,7 +134,7 @@ $items = App\Models\Item::where('user_id', Auth::id())->get();
         <div class="card info-card guide-download-wrapper fixed-button" >
           <div class="card-body">
             <div class="middle-button text-center">
-              <button class="middle-button" onclick="downloadClick()">
+              <button class="orange-button button" onclick="downloadClick()">
                 <div class="button-text">
                   選択中の資料 <spin id="checked_num">0</spin>点をまとめてダウンロード
                 </div>
@@ -184,7 +182,7 @@ $('#search').keydown(function(event) {
           guide_list += '<div class="guide-img-thumbnail-wrapper">\n';
           guide_list += '<div class="guide-img">\n';
           guide_list +=
-            `<img alt="${guide.title}" src="${guide.image}" data-xblocker="passed" style="visibility: visible;" width="100%">\n`;
+            `<img alt="${guide.title}" src="/${guide.image}" data-xblocker="passed" style="visibility: visible;" width="100%">\n`;
           guide_list += '<div class="guide-checkbox">\n';
           guide_list += '<div class="checker">\n';
           guide_list += '<span class="checked">\n';
@@ -240,7 +238,7 @@ downloadClick = () => {
     //     console.log(err);
     //   }
     // })
-    location.href = '/download/confirm?checked_docs=' + docs;
+    location.href = '/downloads/confirm?checked_docs=' + docs;
   }
 }
 </script>

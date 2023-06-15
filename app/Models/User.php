@@ -20,6 +20,7 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
+        'company_id',
         'first_name',
         'last_name',
         'kana_first',
@@ -60,8 +61,19 @@ class User extends Authenticatable
     }
 
     public function company() {
-        return $this->hasMany(
+        return $this->hasOne(
             Company::class,
         );
+    }
+
+    public function services(){
+        return $this->hasMany(
+            Service::class
+        );
+    }
+
+    public function guides()
+    {
+        return $this->belongsToMany(Guide::class, 'user_guide');
     }
 }

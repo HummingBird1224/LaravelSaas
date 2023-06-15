@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\LargeCategory;
+use App\Models\Issue;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -29,6 +31,8 @@ class AdminController extends Controller
 
 	public function category_issues()
 	{
-		return view('admin.category_issues');
+		$lcs=LargeCategory::with('categories')->get();
+		$issues=Issue::with('categories')->get();
+		return view('admin.category_issues', ['lcs'=>$lcs, 'issues'=>$issues]);
 	}
 }

@@ -21,14 +21,20 @@ class Guide extends Model
     ];
 
     public function category(){
-        return $this->hasOne(
+        return $this->belongsTo(
             Category::class,
+            'category_id'
         );
     }
 
-    public function service(){
-        return $this->hasOne(
+    public function services(){
+        return $this->hasMany(
             Service::class,
         );
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'user_guide');
     }
 }

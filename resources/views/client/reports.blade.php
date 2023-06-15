@@ -2,15 +2,9 @@
 
 @php
 $user = Auth::user();
-$categories = App\Models\Category::where('user_id', Auth::id())->get();
-$items = App\Models\Item::where('user_id', Auth::id())->get();
+$guides=$user->guides;
 @endphp
 
-@php
-$status=['有効', '無効', '無効申請中', '申請非承認'];
-$employee_sizes=['1人', '2人〜10人', '11人〜30人', '31人〜50人', '51人〜100人', '101人〜250人', '251人〜500人', '501人〜1000人', '1001人以上'];
-$schedules=['できる限り早く', '1ヶ月以内', '3ヶ月以内', '半年以内', '1年以内', '3年以内', '未定'];
-@endphp
 
 @section('content')
 <div class="content-wrapper">
@@ -48,30 +42,30 @@ $schedules=['できる限り早く', '1ヶ月以内', '3ヶ月以内', '半年�
                       </thead>
 
                       <tbody id="item-table-body">
-                        @if(count($categories)>0)
-                        @foreach($categories as $c)
-                        <tr id={{ "category". $c->id }}>
-                          <td>
-                            <img src="{{ asset('assets/img/tsukubnobi/nitaco_logo.jpg') }}" class="nitaco-logo"
-                              width="33px" height="33px" />
-                          </td>
-                          <td>2023年05月成果レポート</td>
-                          <td>{{ \Carbon\Carbon::parse($c['updated_at'])->format('d/m/Y')}}</td>
-                          <td>{{$c['fall_pro']}}</td>
-                          <td>{{$c['trk_num']}}</td>
-                          <td>{{$c['reg_num']}}</td>
-                          <td>
-                            2019.10.01
-                          </td>
-                          <td>
-                            <a href="">
-                              PDFダウンロード
-                            </a>
-                            <br>
-                            ※今後実装予定
-                          </td>
-                        </tr>
-                        @endforeach
+                        @if(count($guides)>0)
+                          @foreach($guides as $guide)
+                          <tr id={{ "guide". $guide->id }}>
+                            <td>
+                              <img src="{{ asset($guide->image) }}" class="nitaco-logo"
+                                width="33px" height="33px" />
+                            </td>
+                            <td>2023年06月成果レポート</td>
+                            <td>{{ \Carbon\Carbon::parse($guide['updated_at'])->format('Y年m月d日 H:i')}}</td>
+                            <td>8</td>
+                            <td>0</td>
+                            <td>8</td>
+                            <td>
+                              2019.10.01
+                            </td>
+                            <td>
+                              <a href="">
+                                PDFダウンロード
+                              </a>
+                              <br>
+                              ※今後実装予定
+                            </td>
+                          </tr>
+                          @endforeach
                         @else
                         <tr>データなし</tr>
                         @endif

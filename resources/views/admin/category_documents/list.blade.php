@@ -30,7 +30,6 @@
 										<tr>											
 											<th>ID</th>
 											<th>タイトル</th>
-											<th style="max-width: 300px;">説明</th>
 											<th >画像</th>
                       <th>おすすめされた</th>
                       <th>最終更新日</th>
@@ -53,11 +52,13 @@
 										<tr id={{ "guide". $guide->id }}>											
 											<td>{{$guide->id}}</td>
 											<td>{{$guide->title}}</td>
-											<td style="max-width: 300px;">{{$guide->description}}</td>
 											<td >
                         <img src="{{asset($guide->image)}}" width="50px" height="50px"/>
                       </td>
-                      <td>{{$guide->recommended}}</td>
+											@if($guide->recommended)
+                      	<td>おすすめされた</td>
+											@else <td></td>
+											@endif
                       <td>{{ \Carbon\Carbon::parse($guide->updated_at)->format('d/m/Y')}}</td>
                       <td>請求書発行</td>
                       <td style="min-width: 90px;">

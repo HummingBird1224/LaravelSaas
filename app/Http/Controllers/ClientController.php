@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth;
+
 class ClientController extends Controller
 {
     public function client_tools(){
+        // $user=Auth::user();
         return view('client.tools');
     }
 
