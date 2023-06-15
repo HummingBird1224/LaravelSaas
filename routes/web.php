@@ -48,13 +48,14 @@ Route::get('/categories', [CategoryController::class, 'category_view'])->name('c
 		Route::view('/', 'issus.index')->name('issues');
 	});
 	
+	// Route::view('/sc/{id}','logs.index')->name('sc');
 	Route::view('/sc/{id}','logs.index')->name('sc');
-
 
 	// Route::prefix('log')->group(function() {
 	// 	Route::view('/', 'logs.index')->name('log');
 	// 	Route::view('/service', 'logs.service')->name('log_service');
 	// });
+	// Route::get('/service/{id}', [ServiceController::class, 'get_service'] )->name('service');
 	
 // Main Routes
 Route::group(['middleware' => ['auth']], function() {
@@ -97,6 +98,11 @@ Route::group(['middleware' => ['auth']], function() {
 		Route::post('/edit_email', [UserController::class, 'email_edit']);
 		Route::get('/company_profile', [UserController::class, 'company_profile_view'])->name('company_profile');
 		Route::post('/edit_company_profile', [UserController::class, 'company_profile_edit']);
+	});
+	
+	Route::prefix('review')->group(function(){
+		Route::view('/add_review','reviews.add_review')->name('add_review');
+		Route::post('/add_review', [ReviewController::class, 'create'])->name('create_review');
 	});
 
 	Route::view('/noitfy', 'logs.notify')->name('notify_list');
