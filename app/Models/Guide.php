@@ -12,15 +12,23 @@ class Guide extends Model
     protected $fillable = [
         'title',
         'description',
-        'category_id',
-        'material',
+        'for_id',
+        'data',
         'image',
         'recommended',
+        'for',
+        'free'
     ];
 
     public function category(){
         return $this->hasOne(
             Category::class,
+        );
+    }
+
+    public function service(){
+        return $this->hasOne(
+            Service::class,
         );
     }
 }

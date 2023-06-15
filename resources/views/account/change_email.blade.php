@@ -75,8 +75,7 @@ $user = Auth::user();
                         </div>
                         @endif
                         {{ isset($error) ? $error : '' }}
-                        <form id="formAuthentication" class="mb-3" method="POST" action="/account/edit_email"
-                          onsubmit="onSubmit(event)">
+                        <form id="formAuthentication" class="mb-3" method="POST" action="/account/edit_email">
                           @csrf
                           <!-- <div class="mb-2">
                             <label for="email" class="form-label">Email</label>
@@ -179,13 +178,4 @@ $user = Auth::user();
     </main><!-- End #main -->
   </div>
 </div>
-@endsection
-
-@section('script')
-<script>
-function onSubmit(e) {
-
-  console.log('e')
-}
-</script>
 @endsection
