@@ -18,6 +18,8 @@ class Review extends Model
         'effect_after_implementation',
         'score',
         'status',
+        'good_point',
+        'bad_point',
     ];
 
     public function scopePublishing($query){

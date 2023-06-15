@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Review;
+use App\Models\Company;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -31,9 +32,28 @@ class ReviewController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        // dd($request);
+        $company_id = Company::select('id')->where('user_id', Auth::id())->get();
+		$create_review = new Review;
+
+		$create_review->user_id = Auth::id();
+        $create_review->service_id = 1;
+        $create_review->company_id = $company_id[0]->id;
+		$create_review->title = $request->title;
+		$create_review->description = $request->description;
+		$create_review->effect_after_implementation = $request->effect_after_implementation;
+		$create_review->score = $request->score;
+		$create_review->good_point = $request->good_point;
+		$create_review->bad_point = $request->bad_point;
+		$create_review->save();
+        
+        // $good = explode("\n", $request->good_point);
+        // var_dump($good);
+        
+        return redirect()->route('dashboard');
+        // return ;
     }
 
     /**
