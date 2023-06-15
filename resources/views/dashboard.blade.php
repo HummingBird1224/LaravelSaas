@@ -21,14 +21,14 @@
               </li>
             </ul>
           </div>
-          <div class="boxilTop__searchBox">
+          <!-- <div class="boxilTop__searchBox">
             <form accept-charset="utf-8" action="/search/" class="header-search-form" method="get">
               <input type="text" name="q" class="input" placeholder="サービス名・カテゴリ名 [例：Salesforce、営業支援ツール]" />
               <button aria-label="検索" class="btn-search">
                 <i class="fa fa-search"></i>
               </button>
             </form>
-          </div>
+          </div> -->
         </div>
         <div class="boxilTop__logosWrapper">
           <div class="boxilTop__logos">
