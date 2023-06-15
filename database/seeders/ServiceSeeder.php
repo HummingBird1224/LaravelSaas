@@ -3,9 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Guide;
 
-class GuideSeeder extends Seeder
+class ServiceSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +13,6 @@ class GuideSeeder extends Seeder
      */
     public function run()
     {
-        Guide::factory()->count(8)->create();
+        //
     }
 }

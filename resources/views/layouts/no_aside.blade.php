@@ -482,14 +482,14 @@ $user=Auth::user();
           </ul>
         </nav>
       </div>
-      <div class="header-search">
+      <!-- <div class="header-search">
         <form accept-charset="utf-8" action="/search/" class="header-search-form" method="get">
           <input type="text" name="q" class="input" placeholder="サービス名・カテゴリ名 [例：Salesforce、営業支援ツール]" />
           <button aria-label="検索" class="btn-search">
             <i class="fa fa-search"></i>
           </button>
         </form>
-      </div>
+      </div> -->
       <div class="header-introduction">
         <!-- <a class="header-menu-link header-menu-item"
           href="https://boxil.smartcamp.co.jp/?utm_source=boxil&amp;utm_medium=referral&amp;utm_campaign=boxil_header">

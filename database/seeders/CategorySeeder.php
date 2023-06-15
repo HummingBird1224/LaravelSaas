@@ -20,7 +20,7 @@ class CategorySeeder extends Seeder
     public function run()
     {
        
-        Category :: factory()->count(3)->create()
+        Category :: factory()->count(10)->create()
                     ->each(function($category){
                          $faker = Faker::create('ja_JP');
                         for($i=1; $i<3; $i++){

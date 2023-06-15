@@ -51,4 +51,16 @@ class Service extends Model
             Review::class,
         );
     }
+
+    public function uis(){
+        return $this->hasMany(
+            ServiceUI::class,
+        );
+    }
+
+    public function prices(){
+        return $this->hasMany(
+            ServicePricePlan::class,
+        );
+    }
 }
