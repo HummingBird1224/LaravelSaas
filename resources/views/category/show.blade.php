@@ -1,5 +1,58 @@
 @extends('layouts.no_aside')
 
+@php
+$user=Auth::user();
+@endphp
+
+@section('additional_style')
+  <style>
+    .pagesCategories-content-childCategory {
+      width: 24%;
+    }
+    .pagesCategories-content-childCategory a {
+      color: black;
+      text-decoration: none;
+    }
+    .pagesCategories-content-parentCategory a {
+      color: black;
+      text-decoration: none;
+    }
+    .v2Layout {
+      display: flex;
+      width: 100%;
+      max-width: 1200px;
+      margin-top: 32px;
+      margin-bottom: 100px;
+    }
+    .categoryContents .categoryV2Item {
+      margin-top: 32px;
+      background: #FFFFFF;
+      border: 1px solid #E0E0E0;
+      padding: 32px;
+    }
+    .categoryV2Section .categoryV2Section__title {
+      min-height: 67px;
+      background: #F1F8F8;
+      font-weight: 700;
+      font-size: 24px;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      color: #006666;
+      padding: 16px;
+      border-left: solid 4px #006666;
+      letter-spacing: 1.2px;
+    }
+    .categoryV2Section .categoryV2Section__content {
+      margin-top: 24px;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      color: #222222;
+    }
+  </style>
+@endsection
+
 @section('content')
   <div class="container" style="padding-top: 4rem;">
 
@@ -310,4 +363,4 @@
       </div>
     </div>
   </div>
-  @endsection
+@endsection
