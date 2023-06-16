@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Models\Category;
 use App\Models\LargeCategory;
+use App\Models\Issue;
 
 class CategoryController extends Controller
 {
@@ -20,6 +21,12 @@ class CategoryController extends Controller
 	{
 		$lc=LargeCategory::findOrFail($id);
 		// return view('category.lc_list', ['lc'=>$lc]);
+	}
+
+	public function issues()
+	{
+		$issues=Issue::with('categories')->get();
+		return view('category.issue_list', ['issues'=>$issues]);
 	}
 
 	public function show($id)

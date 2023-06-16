@@ -36,6 +36,8 @@ Route::post('update_password', [LoginController::class, 'updatePwd'])->name('pas
 
 //Category Routes
 Route::get('/lc/{id}',[CategoryController::class,'lc_view'])->name('lc_view');
+Route::get('/issues',[CategoryController::class,'issues'])->name('issues');
+
 Route::prefix('categories')->group(function(){
 	Route::get('/', [CategoryController::class, 'index'])->name('categories');
 	Route::get('/{id}', [CategoryController::class, 'show'])->name('category_view');
@@ -55,14 +57,9 @@ Route::get('/categories/{parent}/{id}',[CategoryController::class, 'categories_b
 Route::get('/downloads/confirm', [GuideController::class, 'download_confirm'])->name('download_confirm');
 
 // Route::get('/categories', [CategoryController::class, 'category_view'])->name('categories');
-
-	// Issus Routes
-	Route::prefix('issues')->group(function() {
-		Route::view('/', 'issus.index')->name('issues');
-	});
 	
 	// Route::view('/sc/{id}','logs.index')->name('sc');
-	Route::view('/sc/{id}','logs.index')->name('sc');
+	// Route::view('/sc/{id}','logs.index')->name('sc');
 
 	// Route::prefix('log')->group(function() {
 	// 	Route::view('/', 'logs.index')->name('log');
