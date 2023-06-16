@@ -537,36 +537,20 @@
           </i>
         </div>
         <div class="boxilTopPrImgWrapper">
+          @foreach($r_services as $r_service)
           <a target="_blank" rel="noopener" class="boxilTopPrImg"
-            href="">
+            href="{{route('service_view', $r_service->id)}}">
             <div class="banner">
               <div class="pr">PR</div>
-              <img alt="バナー: LegalForce"
-                src="https://store.boxil.jp/boxil_banner/images/uploads/banner/image/73/thumb.jpg" />
+              <img alt="{{$r_service->guide->title}}"
+                src="{{asset($r_service->guide->image)}}" />
               <div class="bannerContent">
-                <div class="serviceName">LegalForce</div>
-                <div class="categoryName">電子契約システム</div>
+                <div class="serviceName">{{$r_service->title}}</div>
+                <div class="categoryName">{{$r_service->category->title}}</div>
               </div>
             </div>
           </a>
-          <a target="_blank" rel="noopener" class="boxilTopPrImg" href="https://boxil.smartcamp.co.jp/">
-            <div class="banner">
-              <img alt="バナー: BOXILへの掲載はこちら"
-                src="https://store.boxil.jp/boxil_banner/images/uploads/banner/image/74/thumb.jpg" />
-              <div class="bannerContent">
-                <div class="serviceName">BOXILへの掲載はこちら</div>
-              </div>
-            </div>
-          </a>
-          <a target="_blank" rel="noopener" class="boxilTopPrImg" href="https://lp.expo.boxil.jp/exhibitors">
-            <div class="banner">
-              <img alt="バナー: BOXIL EXPO　出展企業募集"
-                src="https://store.boxil.jp/boxil_banner/images/uploads/banner/image/76/thumb.jpg" />
-              <div class="bannerContent">
-                <div class="serviceName">BOXIL EXPO　出展企業募集</div>
-              </div>
-            </div>
-          </a>
+          @endforeach
         </div>
       </div>
       <div class="boxil-wrappar-full-width">
@@ -580,7 +564,7 @@
             </h2>
             <div class="sub-text"></div>
             <div class="toCategoryIndexBtnWrapper">
-              <a class="toCategoryIndexBtn" href="/categories/">
+              <a class="toCategoryIndexBtn" href="{{route('categories')}}">
                 <div class="toCategoryIndexBtnWrapper--labelPc">
                   <div class="inner-text">カテゴリ一覧へ</div>
                   <i class="far fa-chevron-double-right inner-icon"></i>
@@ -593,11 +577,12 @@
             </div>
           </div>
           <div class="servicesIndex-categories">
+            @foreach($lcs as $lc)
             <div class="departmentCategoryGroups js-department-category-groups js-department-shrinked">
               <div class="header">
                 <h3 class="departmentTitle">
                   <i class="fas fa-bullseye-arrow titleIcon"></i>
-                  営業・マーケティング
+                  {{$lc->title}}
                 </h3>
                 <div class="categoryBoxesMoreButton js-category-more">
                   <span class="inner-text js-category-more-text">さらに表示する</span>
@@ -608,116 +593,23 @@
                 <div class="categoryBoxes js-sp-toggle-category display-show-default-pc display-show-default-sp">
                   <h4 class="parentCategoryTitle">
                     <a class="js-track js-track-si-categoryLink-mainTop titleText"
-                      href="/tags/lc-sales/?_via=si-categoryLink-mainTop">
-                      営業・顧客管理
+                      href="{{route('lc_view',$lc->id)}}">
+                      {{$lc->title}}
                       <i class="far fa-chevron-double-right linkIcon"></i>
                     </a>
                   </h4>
                   <div class="categoryBox">
+                    @foreach($lc->categories as $category)
                     <ul
                       class="childCategoryList js-category js-sp-toggle-category display-show-default-pc display-show-default-sp">
                       <li class="childCategoryListItem">
                         <span class="listMark">
                           <a class="js-track js-track-si-categoryLink-mainTop"
-                            href="/sc-sfa/?_via=si-categoryLink-mainTop">SFA(営業支援システム)</a>
-                        </span>
-                      </li>
-                      <li class="childCategoryListItem">
-                        <span class="listMark">
-                          <a class="js-track js-track-si-categoryLink-mainTop"
-                            href="/sc-crm/?_via=si-categoryLink-mainTop">CRM(顧客管理システム)</a>
-                        </span>
-                      </li>
-                      <li class="childCategoryListItem">
-                        <span class="listMark">
-                          <a class="js-track js-track-si-categoryLink-mainTop"
-                            href="/sc-business_card/?_via=si-categoryLink-mainTop">名刺管理ソフト</a>
+                            href="{{route('category_view', $category->id)}}">{{$category->title}}</a>
                         </span>
                       </li>
                     </ul>
-                    <ul
-                      class="childCategoryList js-category js-sp-toggle-category display-show-default-pc js-toggle-category js-category-shrinked">
-                      <li class="childCategoryListItem">
-                        <span class="listMark">
-                          <a class="js-track js-track-si-categoryLink-mainTop"
-                            href="/sc-webinar_tool/?_via=si-categoryLink-mainTop">ウェビナーツール</a>
-                        </span>
-                      </li>
-                      <li class="childCategoryListItem">
-                        <span class="listMark">
-                          <a class="js-track js-track-si-categoryLink-mainTop"
-                            href="/sc-web_customer_service/?_via=si-categoryLink-mainTop">WEB接客</a>
-                        </span>
-                      </li>
-                      <li class="childCategoryListItem">
-                        <span class="listMark">
-                          <a class="js-track js-track-si-categoryLink-mainTop"
-                            href="/sc-online_talks/?_via=si-categoryLink-mainTop">オンライン商談ツール・システム</a>
-                        </span>
-                      </li>
-                    </ul>
-                    <ul
-                      class="childCategoryList js-category js-sp-toggle-category display-show-default-pc js-toggle-category js-category-shrinked">
-                      <li class="childCategoryListItem">
-                        <span class="listMark">
-                          <a class="js-track js-track-si-categoryLink-mainTop"
-                            href="/sc-chat_system/?_via=si-categoryLink-mainTop">チャットシステム</a>
-                        </span>
-                      </li>
-                      <li class="childCategoryListItem">
-                        <span class="listMark">
-                          <a class="js-track js-track-si-categoryLink-mainTop"
-                            href="/sc-email_sharing_Inquiry/?_via=si-categoryLink-mainTop">メール共有・問合せ管理システム</a>
-                        </span>
-                      </li>
-                      <li class="childCategoryListItem">
-                        <span class="listMark">
-                          <a class="js-track js-track-si-categoryLink-mainTop"
-                            href="/sc-cti/?_via=si-categoryLink-mainTop">CTI</a>
-                        </span>
-                      </li>
-                    </ul>
-                    <ul
-                      class="childCategoryList js-category js-sp-toggle-category display-show-default-pc js-toggle-category js-category-shrinked">
-                      <li class="childCategoryListItem">
-                        <span class="listMark">
-                          <a class="js-track js-track-si-categoryLink-mainTop"
-                            href="/sc-inbound_call_center/?_via=si-categoryLink-mainTop">コールセンターシステム（インバウンド）</a>
-                        </span>
-                      </li>
-                      <li class="childCategoryListItem">
-                        <span class="listMark">
-                          <a class="js-track js-track-si-categoryLink-mainTop"
-                            href="/sc-outbound_call_center/?_via=si-categoryLink-mainTop">
-                            コールセンターシステム（アウトバウンド）
-                          </a>
-                        </span>
-                      </li>
-                      <li class="childCategoryListItem">
-                        <span class="listMark">
-                          <a class="js-track js-track-si-categoryLink-mainTop"
-                            href="/sc-deposit_management/?_via=si-categoryLink-mainTop">
-                            会員管理・入金管理
-                          </a>
-                        </span>
-                      </li>
-                    </ul>
-                    <ul
-                      class="childCategoryList js-category js-sp-toggle-category display-show-default-pc js-toggle-category js-category-shrinked">
-                      <li class="childCategoryListItem">
-                        <span class="listMark">
-                          <a class="js-track js-track-si-categoryLink-mainTop"
-                            href="/sc-event_management/?_via=si-categoryLink-mainTop">イベント管理</a>
-                        </span>
-                      </li>
-                      <li class="childCategoryListItem"><span class="listMark"><a
-                            class="js-track js-track-si-categoryLink-mainTop"
-                            href="/sc-questionnaire_system/?_via=si-categoryLink-mainTop">Webアンケートツール・システム</a></span>
-                      </li>
-                      <li class="childCategoryListItem"><span class="listMark"><a
-                            class="js-track js-track-si-categoryLink-mainTop"
-                            href="/sc-vehicle_management/?_via=si-categoryLink-mainTop">車両管理システム</a></span></li>
-                    </ul>
+                    @endforeach
                   </div>
                 </div>
                 <div class="categoryBoxes display-show-default-sp js-toggle-category js-category-shrinked">
@@ -799,7 +691,8 @@
                 </div>
               </div>
             </div>
-            <div class="departmentCategoryGroups js-department-category-groups js-department-shrinked">
+            @endforeach
+            <!-- <div class="departmentCategoryGroups js-department-category-groups js-department-shrinked">
               <div class="header">
                 <h3 class="departmentTitle"><i class="fas fa-bullseye-arrow titleIcon"></i>総務・法務</h3>
                 <div class="categoryBoxesMoreButton js-category-more"><span
@@ -1455,7 +1348,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
           <div class="servicesIndex-categories-more">
             <div class="btn-read-more-round js-department-more"><span
@@ -2362,19 +2255,6 @@
   </div>
   <!-- <script src="https://d-cache.microad.jp/js/td_bx_access.js"></script> -->
 
-  <!-- <script>
-  (function() {
-    var uid = '';
-    var o = [];
-    var elm = window.document.createElement('div');
-    elm.innerHTML = unescape('%3C') + 'img src="//relay-dsp.ad-m.asia/dmp/sync/bizmatrix?pid=b2ceff7d7e3fda0a7b' +
-      '&uid=' + encodeURIComponent(uid) + '&o=' + encodeURIComponent(o.join(',')) + '&l=' + encodeURIComponent(
-        location.href) +
-      '" alt=""  style="display:block; margin:0; padding:0; border:0; outline:0; width:0; height:0; line-height:0;" ' +
-      unescape('%2F%3E');
-    window.document.body.appendChild(elm);
-  })();
-  </script> -->
   <div id="js-overlap-hidden-target">
     <div id="corporate-lp-banner">
       <div class="clb-wrappar">
