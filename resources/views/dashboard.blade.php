@@ -592,11 +592,11 @@
               <div class="categoryBoxWrapper">
                 <div class="categoryBoxes js-sp-toggle-category display-show-default-pc display-show-default-sp">
                   <h4 class="parentCategoryTitle">
-                    <a class="js-track js-track-si-categoryLink-mainTop titleText"
+                    <div class="js-track js-track-si-categoryLink-mainTop titleText"
                       href="{{route('lc_view',$lc->id)}}">
                       {{$lc->title}}
                       <i class="far fa-chevron-double-right linkIcon"></i>
-                    </a>
+                    </div>
                   </h4>
                   <div class="categoryBox">
                     @foreach($lc->categories as $category)
@@ -612,83 +612,6 @@
                     @endforeach
                   </div>
                 </div>
-                <div class="categoryBoxes display-show-default-sp js-toggle-category js-category-shrinked">
-                  <h4 class="parentCategoryTitle"><a class="js-track js-track-si-categoryLink-mainTop titleText"
-                      href="/tags/lc-marketing/?_via=si-categoryLink-mainTop">マーケティング<i
-                        class="far fa-chevron-double-right linkIcon"></i></a></h4>
-                  <div class="categoryBox">
-                    <ul
-                      class="childCategoryList js-category display-show-default-sp js-toggle-category js-category-shrinked">
-                      <li class="childCategoryListItem"><span class="listMark"><a
-                            class="js-track js-track-si-categoryLink-mainTop"
-                            href="/sc-marketing_automation/?_via=si-categoryLink-mainTop">MAツール(BtoB)</a></span></li>
-                      <li class="childCategoryListItem"><span class="listMark"><a
-                            class="js-track js-track-si-categoryLink-mainTop"
-                            href="/sc-email/?_via=si-categoryLink-mainTop">メール配信システム</a></span></li>
-                      <li class="childCategoryListItem"><span class="listMark"><a
-                            class="js-track js-track-si-categoryLink-mainTop"
-                            href="/sc-sms/?_via=si-categoryLink-mainTop">SMS送信サービス</a></span></li>
-                    </ul>
-                    <ul class="childCategoryList js-category js-toggle-category js-category-shrinked">
-                      <li class="childCategoryListItem"><span class="listMark"><a
-                            class="js-track js-track-si-categoryLink-mainTop"
-                            href="/sc-video_distribution/?_via=si-categoryLink-mainTop">動画配信システム</a></span></li>
-                      <li class="childCategoryListItem"><span class="listMark"><a
-                            class="js-track js-track-si-categoryLink-mainTop"
-                            href="/sc-lead_generation/?_via=si-categoryLink-mainTop">リードジェネレーション</a></span></li>
-                      <li class="childCategoryListItem"><span class="listMark"><a
-                            class="js-track js-track-si-categoryLink-mainTop"
-                            href="/sc-cms/?_via=si-categoryLink-mainTop">CMS・WEB制作ソフト</a></span></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="categoryBoxes js-toggle-category js-category-shrinked">
-                  <h4 class="parentCategoryTitle"><a class="js-track js-track-si-categoryLink-mainTop titleText"
-                      href="/tags/lc-btoc_tool/?_via=si-categoryLink-mainTop">BtoCビジネスツール<i
-                        class="far fa-chevron-double-right linkIcon"></i></a></h4>
-                  <div class="categoryBox">
-                    <ul class="childCategoryList js-category js-toggle-category js-category-shrinked">
-                      <li class="childCategoryListItem"><span class="listMark"><a
-                            class="js-track js-track-si-categoryLink-mainTop"
-                            href="/sc-customer_analysis/?_via=si-categoryLink-mainTop">MAツール(BtoC)</a></span></li>
-                      <li class="childCategoryListItem"><span class="listMark"><a
-                            class="js-track js-track-si-categoryLink-mainTop"
-                            href="/sc-pos_system/?_via=si-categoryLink-mainTop">POSシステム</a></span></li>
-                      <li class="childCategoryListItem"><span class="listMark"><a
-                            class="js-track js-track-si-categoryLink-mainTop"
-                            href="/sc-chat_bot/?_via=si-categoryLink-mainTop">チャットボット</a></span></li>
-                    </ul>
-                    <ul class="childCategoryList js-category js-toggle-category js-category-shrinked">
-                      <li class="childCategoryListItem"><span class="listMark"><a
-                            class="js-track js-track-si-categoryLink-mainTop"
-                            href="/sc-settlement_btoc/?_via=si-categoryLink-mainTop">決済代行(BtoC)</a></span></li>
-                      <li class="childCategoryListItem"><span class="listMark"><a
-                            class="js-track js-track-si-categoryLink-mainTop"
-                            href="/sc-web_push/?_via=si-categoryLink-mainTop">Webプッシュ通知サービス</a></span></li>
-                      <li class="childCategoryListItem"><span class="listMark"><a
-                            class="js-track js-track-si-categoryLink-mainTop"
-                            href="/sc-shift_management/?_via=si-categoryLink-mainTop">シフト管理システム</a></span></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="categoryBoxes js-toggle-category js-category-shrinked">
-                  <h4 class="parentCategoryTitle"><a class="js-track js-track-si-categoryLink-mainTop titleText"
-                      href="/tags/lc-analytics/?_via=si-categoryLink-mainTop">データ分析・管理<i
-                        class="far fa-chevron-double-right linkIcon"></i></a></h4>
-                  <div class="categoryBox">
-                    <ul class="childCategoryList js-category js-toggle-category js-category-shrinked">
-                      <li class="childCategoryListItem"><span class="listMark"><a
-                            class="js-track js-track-si-categoryLink-mainTop"
-                            href="/sc-bi/?_via=si-categoryLink-mainTop">BIツール</a></span></li>
-                      <li class="childCategoryListItem"><span class="listMark"><a
-                            class="js-track js-track-si-categoryLink-mainTop"
-                            href="/sc-backup_tool/?_via=si-categoryLink-mainTop">データバックアップ</a></span></li>
-                      <li class="childCategoryListItem"><span class="listMark"><a
-                            class="js-track js-track-si-categoryLink-mainTop"
-                            href="/sc-text_mining/?_via=si-categoryLink-mainTop">テキストマイニングツール</a></span></li>
-                    </ul>
-                  </div>
-                </div>
               </div>
             </div>
             @endforeach
@@ -701,618 +624,73 @@
         </div>
       </div>
       <div class="boxil-wrappar">
-        <main class="bw-main">
+        <main class="bw-main" style="width:100%; padding-right:0">
           <div class="main-inner">
             <div id="servicesIndex-boxilRanking">
               <div class="servicesIndex-topPageTitle">
                 <h2 class="heading-2">
-                  <div class="heading-2-icon-wrapper"><i class="fas fa-pennant heading-2-icon"></i></div>ランキング
+                  <div class="heading-2-icon-wrapper">
+                    <i class="fas fa-pennant heading-2-icon"></i>
+                  </div>
+                  ランキング
                 </h2>
                 <div class="sub-text"></div>
               </div>
               <div class="servicesIndex-boxilRankingContent">
                 @foreach($categories as $category)
-                <div class="rankingBox">
-                  <div class="rankingBox-title">
-                    <a class="js-track js-track-si-categoryLink-mainRanking"
-                      href="{{route('service_view', $category->id)}}">
-                      {{$category->title}}
+                  @if(count($category->services)>0)
+                  <div class="rankingBox">
+                    <div class="rankingBox-title">
+                      <a class="js-track js-track-si-categoryLink-mainRanking"
+                        href="{{route('category_view', $category->id)}}">
+                        {{$category->title}}
+                      </a>
+                    </div>
+                    @foreach($category->services as $service)                  
+                    <a class="rankingBox-service-wrapper js-track js-track-si-serviceLink-mainRanking"
+                      href="{{route('service_view', $service->id)}}">
+                      <div class="i-serviceBlock rankingBox-service flex">
+                        <div class="rankingBox-service-top-ranking">
+                          <i class="fas fa-crown ranking-crown no-1"></i>
+                        </div>
+                        <div class="service-logo-top-recommend">
+                          <img alt="{{$service->title}}" class="service-logo-image" loading="lazy"
+                            src="{{asset($service->logo)}}" />
+                        </div>
+                        <div class="i-service-details">
+                          <div class="i-service-details-serviceName text-overflow-ellipsis">
+                            <span class="text-overflow-ellipsis">{{$service->title}}</span>
+                          </div>
+                          <div class="i-service-details-serviceReview">
+                            <i class="fa fa-yellow fa-star text-yellow "  style="margin-right: 0px;"></i>
+                            <i class="fa fa-yellow fa-star text-yellow "  style="margin-right: 0px;"></i>
+                            <i class="fa fa-yellow fa-star text-yellow "  style="margin-right: 0px;"></i>
+                            <i class="fa fa-yellow fa-star text-yellow "  style="margin-right: 0px;"></i>
+                            <i class="fa fa-yellow fa-star text-black-400 " style="margin-right: 0px;"></i>
+                            <span class="average">{{$service->reviews_avg_score?(int)$service->reviews_avg_score:'レビューはありません'}}</span>
+                            <span class="number">({{$service->reviews_count?$service->reviews_count:0}}件)</span>
+                          </div>
+                          <div class="i-service-details-serviceCategory">
+                            <div class="i-service-details-serviceCategory-tag text-overflow-ellipsis">
+                              {{$category->title}}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </a>
+                    @endforeach
                   </div>
-                  @foreach($category->services as $service)
-                  <a class="rankingBox-service-wrapper js-track js-track-si-serviceLink-mainRanking"
-                    href="{{route('service_view', $service->id)}}">
-                    <div class="i-serviceBlock rankingBox-service flex">
-                      <div class="rankingBox-service-top-ranking">
-                        <i class="fas fa-crown ranking-crown no-1"></i>
-                      </div>
-                      <div class="service-logo-top-recommend">
-                        <img alt="{{$service->title}}" class="service-logo-image" loading="lazy"
-                          src="{{asset($service->logo)}}" />
-                      </div>
-                      <div class="i-service-details">
-                        <div class="i-service-details-serviceName text-overflow-ellipsis">
-                          <span class="text-overflow-ellipsis">{{$service->title}}</span>
-                        </div>
-                        <div class="i-service-details-serviceReview">
-                          <i class="fa fa-yellow fa-star text-yellow "  style="margin-right: 0px;"></i>
-                          <i class="fa fa-yellow fa-star text-yellow "  style="margin-right: 0px;"></i>
-                          <i class="fa fa-yellow fa-star text-yellow "  style="margin-right: 0px;"></i>
-                          <i class="fa fa-yellow fa-star text-yellow "  style="margin-right: 0px;"></i>
-                          <i class="fa fa-yellow fa-star text-black-400 " style="margin-right: 0px;"></i>
-                          <span class="average">{{$service->reviews_avg_score?(int)$service->reviews_avg_score:'レビューはありません'}}</span>
-                          <span class="number">({{$service->reviews_count?$service->reviews_count:0}}件)</span>
-                        </div>
-                        <div class="i-service-details-serviceCategory">
-                          <div class="i-service-details-serviceCategory-tag text-overflow-ellipsis">
-                            {{$category->title}}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                  @endforeach
-                </div>
+                  @endif
                 @endforeach
-                <!--   -->
-                <!-- <div class="rankingBox">
-                  <div class="rankingBox-title"><a class="js-track js-track-si-categoryLink-mainRanking"
-                      href="/sc-workflow/?_via=si-categoryLink-mainRanking">ワークフローシステム</a></div><a
-                    class="rankingBox-service-wrapper js-track js-track-si-serviceLink-mainRanking"
-                    href="/service/201/?_via=si-serviceLink-mainRanking">
-                    <div class="i-serviceBlock rankingBox-service flex">
-                      <div class="rankingBox-service-top-ranking"><i class="fas fa-crown ranking-crown no-1"></i></div>
-                      <div class="service-logo-top-recommend"><img alt="サイボウズ Office" class="service-logo-image"
-                          loading="lazy"
-                          src="https://boxil.jp/attachments/files/images/eyJpZCI6IjAxY2YxYmU4NWJmZWMxMWU3MzllYmFiNmMwZTMyYmI4LnBuZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX2xvZ28iLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQxMC01NzAtMWlrdjhzMC5wbmciLCJzaXplIjo0ODk4LCJtaW1lX3R5cGUiOm51bGx9fQ" />
-                      </div>
-                      <div class="i-service-details">
-                        <div class="i-service-details-serviceName text-overflow-ellipsis"><span
-                            class="text-overflow-ellipsis">サイボウズ Office</span></div>
-                        <div class="i-service-details-serviceReview"><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-black-400 "
-                            style="margin-right: 0px;"></i><span class="average">4.11</span><span
-                            class="number">（257件）</span></div>
-                        <div class="i-service-details-serviceCategory">
-                          <div class="i-service-details-serviceCategory-tag text-overflow-ellipsis">ワークフローシステム</div>
-                        </div>
-                      </div>
-                    </div>
-                  </a><a class="rankingBox-service-wrapper js-track js-track-si-serviceLink-mainRanking"
-                    href="/service/661/?_via=si-serviceLink-mainRanking">
-                    <div class="i-serviceBlock rankingBox-service flex">
-                      <div class="rankingBox-service-top-ranking"><i class="fas fa-crown ranking-crown no-2"></i></div>
-                      <div class="service-logo-top-recommend"><img alt="ジョブカンワークフロー" class="service-logo-image"
-                          loading="lazy"
-                          src="https://boxil.jp/attachments/files/images/eyJpZCI6ImE4Y2M5NzJjYTIxNzI2NGQ3YTAxZjU3ZjgwZTk5YjI5LnBuZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX2xvZ28iLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQxMC01NzAtMWY3MzM4di5wbmciLCJzaXplIjoyMjkyLCJtaW1lX3R5cGUiOm51bGx9fQ" />
-                      </div>
-                      <div class="i-service-details">
-                        <div class="i-service-details-serviceName text-overflow-ellipsis"><span
-                            class="text-overflow-ellipsis">ジョブカンワークフロー</span></div>
-                        <div class="i-service-details-serviceReview"><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-black-400 "
-                            style="margin-right: 0px;"></i><span class="average">4.09</span><span
-                            class="number">（99件）</span></div>
-                        <div class="i-service-details-serviceCategory">
-                          <div class="i-service-details-serviceCategory-tag text-overflow-ellipsis">ワークフローシステム</div>
-                        </div>
-                      </div>
-                    </div>
-                  </a><a class="rankingBox-service-wrapper js-track js-track-si-serviceLink-mainRanking"
-                    href="/service/2733/?_via=si-serviceLink-mainRanking">
-                    <div class="i-serviceBlock rankingBox-service flex">
-                      <div class="rankingBox-service-top-ranking"><i class="fas fa-crown ranking-crown no-3"></i></div>
-                      <div class="service-logo-top-recommend"><img alt="コラボフロー" class="service-logo-image"
-                          loading="lazy"
-                          src="https://boxil.jp/attachments/files/images/eyJpZCI6IjcwMzViYmU0MGYwZGRkN2FmMTlkNjAyNGEzNmY3NzJmLnBuZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX2xvZ28iLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQxMC04MTE4LTF4YjY5c2wucG5nIiwic2l6ZSI6MTQxMywibWltZV90eXBlIjpudWxsfX0" />
-                      </div>
-                      <div class="i-service-details">
-                        <div class="i-service-details-serviceName text-overflow-ellipsis"><span
-                            class="text-overflow-ellipsis">コラボフロー</span></div>
-                        <div class="i-service-details-serviceReview"><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-black-400 "
-                            style="margin-right: 0px;"></i><span class="average">4.2</span><span
-                            class="number">（15件）</span></div>
-                        <div class="i-service-details-serviceCategory">
-                          <div class="i-service-details-serviceCategory-tag text-overflow-ellipsis">ワークフローシステム</div>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                  <div class="rankingBox-moreRanking"><a
-                      class="js-track js-track-si-categoryLink-mainRanking btn-read-more-round"
-                      href="/sc-workflow/?_via=si-categoryLink-mainRanking">
-                      <div class="inner-text">続きを見る</div><i class="far fa-chevron-double-right inner-icon"></i>
-                    </a></div>
-                </div>
-                <div class="rankingBox">
-                  <div class="rankingBox-title"><a class="js-track js-track-si-categoryLink-mainRanking"
-                      href="/sc-personnel_evaluation/?_via=si-categoryLink-mainRanking">人事評価システム</a></div><a
-                    class="rankingBox-service-wrapper js-track js-track-si-serviceLink-mainRanking"
-                    href="/service/3166/?_via=si-serviceLink-mainRanking">
-                    <div class="i-serviceBlock rankingBox-service flex">
-                      <div class="rankingBox-service-top-ranking"><i class="fas fa-crown ranking-crown no-1"></i></div>
-                      <div class="service-logo-top-recommend"><img alt="カオナビ" class="service-logo-image" loading="lazy"
-                          src="https://boxil.jp/attachments/files/images/eyJpZCI6IjIzOWEzYWM1MDgwZGY1MzBmMjFiMzdjYzIyODI0ZmRmLnBuZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX2xvZ28iLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQxMC0xMjgxNy1nMTZvMmoucG5nIiwic2l6ZSI6MjYwNiwibWltZV90eXBlIjpudWxsfX0" />
-                      </div>
-                      <div class="i-service-details">
-                        <div class="i-service-details-serviceName text-overflow-ellipsis"><span
-                            class="text-overflow-ellipsis">カオナビ</span></div>
-                        <div class="i-service-details-serviceReview"><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-black-400 "
-                            style="margin-right: 0px;"></i><span class="average">3.99</span><span
-                            class="number">（226件）</span></div>
-                        <div class="i-service-details-serviceCategory">
-                          <div class="i-service-details-serviceCategory-tag text-overflow-ellipsis">人事評価システム</div>
-                        </div>
-                      </div>
-                    </div>
-                  </a><a class="rankingBox-service-wrapper js-track js-track-si-serviceLink-mainRanking"
-                    href="/service/4599/?_via=si-serviceLink-mainRanking">
-                    <div class="i-serviceBlock rankingBox-service flex">
-                      <div class="rankingBox-service-top-ranking"><i class="fas fa-crown ranking-crown no-2"></i></div>
-                      <div class="service-logo-top-recommend"><img alt="HRBrain" class="service-logo-image"
-                          loading="lazy"
-                          src="https://boxil.jp/attachments/files/images/eyJpZCI6IjJhY2Q2Mjk4NDk2YWMxY2E1YmQ2MjdmNTMwYTA3ODBkLnBuZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX2xvZ28iLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQxMC0xMzM5Mi0xMGN2aml3LnBuZyIsInNpemUiOjIxMzIsIm1pbWVfdHlwZSI6bnVsbH19" />
-                      </div>
-                      <div class="i-service-details">
-                        <div class="i-service-details-serviceName text-overflow-ellipsis"><span
-                            class="text-overflow-ellipsis">HRBrain</span></div>
-                        <div class="i-service-details-serviceReview"><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-black-400 "
-                            style="margin-right: 0px;"></i><span class="average">4.23</span><span
-                            class="number">（60件）</span></div>
-                        <div class="i-service-details-serviceCategory">
-                          <div class="i-service-details-serviceCategory-tag text-overflow-ellipsis">人事評価システム</div>
-                        </div>
-                      </div>
-                    </div>
-                  </a><a class="rankingBox-service-wrapper js-track js-track-si-serviceLink-mainRanking"
-                    href="/service/4292/?_via=si-serviceLink-mainRanking">
-                    <div class="i-serviceBlock rankingBox-service flex">
-                      <div class="rankingBox-service-top-ranking"><i class="fas fa-crown ranking-crown no-3"></i></div>
-                      <div class="service-logo-top-recommend"><img alt="サイレコ" class="service-logo-image" loading="lazy"
-                          src="https://boxil.jp/attachments/files/images/eyJpZCI6ImQyMjYwYmRjNGQ1MzU4NjI2N2U3Yzg5Y2FmYmU1MzY5LmpwZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX2xvZ28iLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQxMC0xMzM5Mi04bW9iOWUuanBnIiwic2l6ZSI6MTk3NCwibWltZV90eXBlIjpudWxsfX0" />
-                      </div>
-                      <div class="i-service-details">
-                        <div class="i-service-details-serviceName text-overflow-ellipsis"><span
-                            class="text-overflow-ellipsis">サイレコ</span></div>
-                        <div class="i-service-details-serviceReview"><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-black-400 "
-                            style="margin-right: 0px;"></i><span class="average">3.86</span><span
-                            class="number">（7件）</span></div>
-                        <div class="i-service-details-serviceCategory">
-                          <div class="i-service-details-serviceCategory-tag text-overflow-ellipsis">人事評価システム</div>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                  <div class="rankingBox-moreRanking"><a
-                      class="js-track js-track-si-categoryLink-mainRanking btn-read-more-round"
-                      href="/sc-personnel_evaluation/?_via=si-categoryLink-mainRanking">
-                      <div class="inner-text">続きを見る</div><i class="far fa-chevron-double-right inner-icon"></i>
-                    </a></div>
-                </div>
-                <div class="rankingBox">
-                  <div class="rankingBox-title"><a class="js-track js-track-si-categoryLink-mainRanking"
-                      href="/sc-employee_satisfaction_survey/?_via=si-categoryLink-mainRanking">従業員満足度調査</a></div><a
-                    class="rankingBox-service-wrapper js-track js-track-si-serviceLink-mainRanking"
-                    href="/service/1432/?_via=si-serviceLink-mainRanking">
-                    <div class="i-serviceBlock rankingBox-service flex">
-                      <div class="rankingBox-service-top-ranking"><i class="fas fa-crown ranking-crown no-1"></i></div>
-                      <div class="service-logo-top-recommend"><img alt="タレントパレット" class="service-logo-image"
-                          loading="lazy"
-                          src="https://boxil.jp/attachments/files/images/eyJpZCI6Ijc4ZTRjOWJjZTNhNjVhZDJjMGFhNzgxYjc4NTgxOWNlLmpwZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX2xvZ28iLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQxMC0xMDItMWtueHM0MS5qcGciLCJzaXplIjozNTA5LCJtaW1lX3R5cGUiOm51bGx9fQ" />
-                      </div>
-                      <div class="i-service-details">
-                        <div class="i-service-details-serviceName text-overflow-ellipsis"><span
-                            class="text-overflow-ellipsis">タレントパレット</span></div>
-                        <div class="i-service-details-serviceReview"><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-black-400 "
-                            style="margin-right: 0px;"></i><span class="average">4.03</span><span
-                            class="number">（69件）</span></div>
-                        <div class="i-service-details-serviceCategory">
-                          <div class="i-service-details-serviceCategory-tag text-overflow-ellipsis">従業員満足度調査</div>
-                        </div>
-                      </div>
-                    </div>
-                  </a><a class="rankingBox-service-wrapper js-track js-track-si-serviceLink-mainRanking"
-                    href="/service/7071/?_via=si-serviceLink-mainRanking">
-                    <div class="i-serviceBlock rankingBox-service flex">
-                      <div class="rankingBox-service-top-ranking"><i class="fas fa-crown ranking-crown no-2"></i></div>
-                      <div class="service-logo-top-recommend"><img alt="いっと" class="service-logo-image" loading="lazy"
-                          src="https://boxil.jp/attachments/files/images/eyJpZCI6IjYwN2M5YjI5OTkwZTIwNmYxYWUwYmU3YWU3N2RiZDdhLnBuZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX2xvZ28iLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQxMC0xMTUtMXBwaTdibi5wbmciLCJzaXplIjo0MTEzLCJtaW1lX3R5cGUiOm51bGx9fQ" />
-                      </div>
-                      <div class="i-service-details">
-                        <div class="i-service-details-serviceName text-overflow-ellipsis"><span
-                            class="text-overflow-ellipsis">いっと</span></div>
-                        <div class="i-service-details-serviceReview"><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><span class="average">5.0</span><span
-                            class="number">（1件）</span></div>
-                        <div class="i-service-details-serviceCategory">
-                          <div class="i-service-details-serviceCategory-tag text-overflow-ellipsis">従業員満足度調査</div>
-                        </div>
-                      </div>
-                    </div>
-                  </a><a class="rankingBox-service-wrapper js-track js-track-si-serviceLink-mainRanking"
-                    href="/service/4354/?_via=si-serviceLink-mainRanking">
-                    <div class="i-serviceBlock rankingBox-service flex">
-                      <div class="rankingBox-service-top-ranking"><i class="fas fa-crown ranking-crown no-3"></i></div>
-                      <div class="service-logo-top-recommend"><img alt="ラフールサーベイ" class="service-logo-image"
-                          loading="lazy"
-                          src="https://boxil.jp/attachments/files/images/eyJpZCI6IjFmYmU4YTE2OGE2YmZlNjJjYmZkNjI3NzBiMDMzMDUyLnBuZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX2xvZ28iLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQxMC0xMzM5Mi01MXdyMGkucG5nIiwic2l6ZSI6MTcxNSwibWltZV90eXBlIjpudWxsfX0" />
-                      </div>
-                      <div class="i-service-details">
-                        <div class="i-service-details-serviceName text-overflow-ellipsis"><span
-                            class="text-overflow-ellipsis">ラフールサーベイ</span></div>
-                        <div class="i-service-details-serviceReview"><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-black-400 "
-                            style="margin-right: 0px;"></i><span class="average">4.42</span><span
-                            class="number">（19件）</span></div>
-                        <div class="i-service-details-serviceCategory">
-                          <div class="i-service-details-serviceCategory-tag text-overflow-ellipsis">従業員満足度調査</div>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                  <div class="rankingBox-moreRanking"><a
-                      class="js-track js-track-si-categoryLink-mainRanking btn-read-more-round"
-                      href="/sc-employee_satisfaction_survey/?_via=si-categoryLink-mainRanking">
-                      <div class="inner-text">続きを見る</div><i class="far fa-chevron-double-right inner-icon"></i>
-                    </a></div>
-                </div>
-                <div class="rankingBox">
-                  <div class="rankingBox-title"><a class="js-track js-track-si-categoryLink-mainRanking"
-                      href="/sc-customer_success/?_via=si-categoryLink-mainRanking">カスタマーサクセス</a></div><a
-                    class="rankingBox-service-wrapper js-track js-track-si-serviceLink-mainRanking"
-                    href="/service/7409/?_via=si-serviceLink-mainRanking">
-                    <div class="i-serviceBlock rankingBox-service flex">
-                      <div class="rankingBox-service-top-ranking"><i class="fas fa-crown ranking-crown no-1"></i></div>
-                      <div class="service-logo-top-recommend"><img alt="テックタッチ" class="service-logo-image"
-                          loading="lazy"
-                          src="https://boxil.jp/attachments/files/images/eyJpZCI6IjIwM2ViYmRjNmYwNDQyNWNjZWQ0ODBhZTNhYmIwYzg1LmpwZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX2xvZ28iLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQxMC0xMTUtMWdxeWd2dS5qcGciLCJzaXplIjoxMDQ4LCJtaW1lX3R5cGUiOm51bGx9fQ" />
-                      </div>
-                      <div class="i-service-details">
-                        <div class="i-service-details-serviceName text-overflow-ellipsis"><span
-                            class="text-overflow-ellipsis">テックタッチ</span></div>
-                        <div class="i-service-details-serviceReview"><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><span class="average">5.0</span><span
-                            class="number">（1件）</span></div>
-                        <div class="i-service-details-serviceCategory">
-                          <div class="i-service-details-serviceCategory-tag text-overflow-ellipsis">カスタマーサクセス</div>
-                        </div>
-                      </div>
-                    </div>
-                  </a><a class="rankingBox-service-wrapper js-track js-track-si-serviceLink-mainRanking"
-                    href="/service/5448/?_via=si-serviceLink-mainRanking">
-                    <div class="i-serviceBlock rankingBox-service flex">
-                      <div class="rankingBox-service-top-ranking"><i class="fas fa-crown ranking-crown no-2"></i></div>
-                      <div class="service-logo-top-recommend"><img alt="commmune" class="service-logo-image"
-                          loading="lazy"
-                          src="https://boxil.jp/attachments/files/images/eyJpZCI6IjM1ODBlNjhhMmExYTI0NjQ2ZjE0OGZmYjBkMTY1NDM4LnBuZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX2xvZ28iLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDUxOC0yNC1yMHk0d3MucG5nIiwic2l6ZSI6NDEyMCwibWltZV90eXBlIjpudWxsfX0" />
-                      </div>
-                      <div class="i-service-details">
-                        <div class="i-service-details-serviceName text-overflow-ellipsis"><span
-                            class="text-overflow-ellipsis">commmune</span></div>
-                        <div class="i-service-details-serviceReview"><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><span class="average">5.0</span><span
-                            class="number">（1件）</span></div>
-                        <div class="i-service-details-serviceCategory">
-                          <div class="i-service-details-serviceCategory-tag text-overflow-ellipsis">カスタマーサクセス</div>
-                        </div>
-                      </div>
-                    </div>
-                  </a><a class="rankingBox-service-wrapper js-track js-track-si-serviceLink-mainRanking"
-                    href="/service/5040/?_via=si-serviceLink-mainRanking">
-                    <div class="i-serviceBlock rankingBox-service flex">
-                      <div class="rankingBox-service-top-ranking"><i class="fas fa-crown ranking-crown no-3"></i></div>
-                      <div class="service-logo-top-recommend"><img alt="新ビジネス導入支援" class="service-logo-image"
-                          loading="lazy"
-                          src="https://boxil.jp/attachments/files/images/eyJpZCI6IjMwNzIzNTI4YTExZDgyZGE2NGYwMDAyZDI2NGM5ZWE5LnBuZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX2xvZ28iLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQxMC0yNjE0Ny0xc3dmMmVpLnBuZyIsInNpemUiOjQ5MTcsIm1pbWVfdHlwZSI6bnVsbH19" />
-                      </div>
-                      <div class="i-service-details">
-                        <div class="i-service-details-serviceName text-overflow-ellipsis"><span
-                            class="text-overflow-ellipsis">新ビジネス導入支援</span></div>
-                        <div class="i-service-details-serviceReview"><i class="fa fa-yellow fa-star text-black-400 "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-black-400 "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-black-400 "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-black-400 "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-black-400 "
-                            style="margin-right: 0px;"></i><span class="average">0.0</span><span
-                            class="number">（0件）</span></div>
-                        <div class="i-service-details-serviceCategory">
-                          <div class="i-service-details-serviceCategory-tag text-overflow-ellipsis">カスタマーサクセス</div>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                  <div class="rankingBox-moreRanking"><a
-                      class="js-track js-track-si-categoryLink-mainRanking btn-read-more-round"
-                      href="/sc-customer_success/?_via=si-categoryLink-mainRanking">
-                      <div class="inner-text">続きを見る</div><i class="far fa-chevron-double-right inner-icon"></i>
-                    </a></div>
-                </div>
-                <div class="rankingBox">
-                  <div class="rankingBox-title"><a class="js-track js-track-si-categoryLink-mainRanking"
-                      href="/sc-multifaceted_evaluation/?_via=si-categoryLink-mainRanking">360度評価・多面評価システム</a></div><a
-                    class="rankingBox-service-wrapper js-track js-track-si-serviceLink-mainRanking"
-                    href="/service/3166/?_via=si-serviceLink-mainRanking">
-                    <div class="i-serviceBlock rankingBox-service flex">
-                      <div class="rankingBox-service-top-ranking"><i class="fas fa-crown ranking-crown no-1"></i></div>
-                      <div class="service-logo-top-recommend"><img alt="カオナビ" class="service-logo-image" loading="lazy"
-                          src="https://boxil.jp/attachments/files/images/eyJpZCI6IjIzOWEzYWM1MDgwZGY1MzBmMjFiMzdjYzIyODI0ZmRmLnBuZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX2xvZ28iLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQxMC0xMjgxNy1nMTZvMmoucG5nIiwic2l6ZSI6MjYwNiwibWltZV90eXBlIjpudWxsfX0" />
-                      </div>
-                      <div class="i-service-details">
-                        <div class="i-service-details-serviceName text-overflow-ellipsis"><span
-                            class="text-overflow-ellipsis">カオナビ</span></div>
-                        <div class="i-service-details-serviceReview"><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-black-400 "
-                            style="margin-right: 0px;"></i><span class="average">3.99</span><span
-                            class="number">（226件）</span></div>
-                        <div class="i-service-details-serviceCategory">
-                          <div class="i-service-details-serviceCategory-tag text-overflow-ellipsis">360度評価・多面評価システム
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </a><a class="rankingBox-service-wrapper js-track js-track-si-serviceLink-mainRanking"
-                    href="/service/1267/?_via=si-serviceLink-mainRanking">
-                    <div class="i-serviceBlock rankingBox-service flex">
-                      <div class="rankingBox-service-top-ranking"><i class="fas fa-crown ranking-crown no-2"></i></div>
-                      <div class="service-logo-top-recommend"><img alt="あしたのチーム" class="service-logo-image"
-                          loading="lazy"
-                          src="https://boxil.jp/attachments/files/images/eyJpZCI6IjUwNTBmMTMxYzAwZjAwYTgwMTI0YTlhMzQ3YzY2MzUzLmpwZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX2xvZ28iLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQxMC0xMDItMXY2NjhtZC5qcGciLCJzaXplIjoyMDE4MSwibWltZV90eXBlIjpudWxsfX0" />
-                      </div>
-                      <div class="i-service-details">
-                        <div class="i-service-details-serviceName text-overflow-ellipsis"><span
-                            class="text-overflow-ellipsis">あしたのチーム</span></div>
-                        <div class="i-service-details-serviceReview"><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-black-400 "
-                            style="margin-right: 0px;"></i><span class="average">3.73</span><span
-                            class="number">（22件）</span></div>
-                        <div class="i-service-details-serviceCategory">
-                          <div class="i-service-details-serviceCategory-tag text-overflow-ellipsis">360度評価・多面評価システム
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </a><a class="rankingBox-service-wrapper js-track js-track-si-serviceLink-mainRanking"
-                    href="/service/4544/?_via=si-serviceLink-mainRanking">
-                    <div class="i-serviceBlock rankingBox-service flex">
-                      <div class="rankingBox-service-top-ranking"><i class="fas fa-crown ranking-crown no-3"></i></div>
-                      <div class="service-logo-top-recommend"><img alt="あしたのクラウドHR" class="service-logo-image"
-                          loading="lazy"
-                          src="https://boxil.jp/attachments/files/images/eyJpZCI6IjVlM2JhNTg0OWM2ZGY5MDYwZmRlYmY4OTQxNzg5MjZjLnBuZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX2xvZ28iLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQxMC0xMzM5Mi04cXY5d2oucG5nIiwic2l6ZSI6NDc2OCwibWltZV90eXBlIjpudWxsfX0" />
-                      </div>
-                      <div class="i-service-details">
-                        <div class="i-service-details-serviceName text-overflow-ellipsis"><span
-                            class="text-overflow-ellipsis">あしたのクラウドHR</span></div>
-                        <div class="i-service-details-serviceReview"><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-black-400 "
-                            style="margin-right: 0px;"></i><span class="average">4.19</span><span
-                            class="number">（37件）</span></div>
-                        <div class="i-service-details-serviceCategory">
-                          <div class="i-service-details-serviceCategory-tag text-overflow-ellipsis">360度評価・多面評価システム
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                  <div class="rankingBox-moreRanking"><a
-                      class="js-track js-track-si-categoryLink-mainRanking btn-read-more-round"
-                      href="/sc-multifaceted_evaluation/?_via=si-categoryLink-mainRanking">
-                      <div class="inner-text">続きを見る</div><i class="far fa-chevron-double-right inner-icon"></i>
-                    </a></div>
-                </div>
-                <div class="rankingBox">
-                  <div class="rankingBox-title"><a class="js-track js-track-si-categoryLink-mainRanking"
-                      href="/sc-invoice-receipt/?_via=si-categoryLink-mainRanking">請求書受領サービス</a></div><a
-                    class="rankingBox-service-wrapper js-track js-track-si-serviceLink-mainRanking"
-                    href="/service/6583/?_via=si-serviceLink-mainRanking">
-                    <div class="i-serviceBlock rankingBox-service flex">
-                      <div class="rankingBox-service-top-ranking"><i class="fas fa-crown ranking-crown no-1"></i></div>
-                      <div class="service-logo-top-recommend"><img alt="バクラク請求書" class="service-logo-image"
-                          loading="lazy"
-                          src="https://boxil.jp/attachments/files/images/eyJpZCI6ImI4ZDgyYjM0MWU4ZTQzNTMxNjJiYzdmYWU3ZGViYzlhLnBuZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX2xvZ28iLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQxMC0yNzgyNy0xZzlyOWlwLnBuZyIsInNpemUiOjE2NjIsIm1pbWVfdHlwZSI6bnVsbH19" />
-                      </div>
-                      <div class="i-service-details">
-                        <div class="i-service-details-serviceName text-overflow-ellipsis"><span
-                            class="text-overflow-ellipsis">バクラク請求書</span></div>
-                        <div class="i-service-details-serviceReview"><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><span class="average">4.63</span><span
-                            class="number">（8件）</span></div>
-                        <div class="i-service-details-serviceCategory">
-                          <div class="i-service-details-serviceCategory-tag text-overflow-ellipsis">請求書受領サービス</div>
-                        </div>
-                      </div>
-                    </div>
-                  </a><a class="rankingBox-service-wrapper js-track js-track-si-serviceLink-mainRanking"
-                    href="/service/3548/?_via=si-serviceLink-mainRanking">
-                    <div class="i-serviceBlock rankingBox-service flex">
-                      <div class="rankingBox-service-top-ranking"><i class="fas fa-crown ranking-crown no-2"></i></div>
-                      <div class="service-logo-top-recommend"><img alt="Concur Invoice" class="service-logo-image"
-                          loading="lazy"
-                          src="https://boxil.jp/attachments/files/images/eyJpZCI6IjRkNDk2ZmI2MDY4YWViMjhkNzViZjkyMGEzY2I2MTU2LmpwZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX2xvZ28iLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQxMC0xMjgxNy0zaGtxaHkuanBnIiwic2l6ZSI6MjAyOTksIm1pbWVfdHlwZSI6bnVsbH19" />
-                      </div>
-                      <div class="i-service-details">
-                        <div class="i-service-details-serviceName text-overflow-ellipsis"><span
-                            class="text-overflow-ellipsis">Concur Invoice</span></div>
-                        <div class="i-service-details-serviceReview"><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-black-400 "
-                            style="margin-right: 0px;"></i><span class="average">4.48</span><span
-                            class="number">（31件）</span></div>
-                        <div class="i-service-details-serviceCategory">
-                          <div class="i-service-details-serviceCategory-tag text-overflow-ellipsis">請求書受領サービス</div>
-                        </div>
-                      </div>
-                    </div>
-                  </a><a class="rankingBox-service-wrapper js-track js-track-si-serviceLink-mainRanking"
-                    href="/service/8439/?_via=si-serviceLink-mainRanking">
-                    <div class="i-serviceBlock rankingBox-service flex">
-                      <div class="rankingBox-service-top-ranking"><i class="fas fa-crown ranking-crown no-3"></i></div>
-                      <div class="service-logo-top-recommend"><img alt="Oneplat" class="service-logo-image"
-                          loading="lazy"
-                          src="https://boxil.jp/attachments/files/images/eyJpZCI6IjU1ZGMzNTRjZDM0ZjZlNWY1ZGU3ODk4NjY1ZDE4Y2ZhLnBuZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX2xvZ28iLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQxMC0zNzQwLWtscjYzdC5wbmciLCJzaXplIjoxNTEwLCJtaW1lX3R5cGUiOm51bGx9fQ" />
-                      </div>
-                      <div class="i-service-details">
-                        <div class="i-service-details-serviceName text-overflow-ellipsis"><span
-                            class="text-overflow-ellipsis">Oneplat</span></div>
-                        <div class="i-service-details-serviceReview"><i class="fa fa-yellow fa-star text-black-400 "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-black-400 "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-black-400 "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-black-400 "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-black-400 "
-                            style="margin-right: 0px;"></i><span class="average">0.0</span><span
-                            class="number">（0件）</span></div>
-                        <div class="i-service-details-serviceCategory">
-                          <div class="i-service-details-serviceCategory-tag text-overflow-ellipsis">請求書受領サービス</div>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                  <div class="rankingBox-moreRanking"><a
-                      class="js-track js-track-si-categoryLink-mainRanking btn-read-more-round"
-                      href="/sc-invoice-receipt/?_via=si-categoryLink-mainRanking">
-                      <div class="inner-text">続きを見る</div><i class="far fa-chevron-double-right inner-icon"></i>
-                    </a></div>
-                </div>
-                <div class="rankingBox">
-                  <div class="rankingBox-title"><a class="js-track js-track-si-categoryLink-mainRanking"
-                      href="/sc-prevention-of-turnover/?_via=si-categoryLink-mainRanking">離職防止ツール</a></div><a
-                    class="rankingBox-service-wrapper js-track js-track-si-serviceLink-mainRanking"
-                    href="/service/8269/?_via=si-serviceLink-mainRanking">
-                    <div class="i-serviceBlock rankingBox-service flex">
-                      <div class="rankingBox-service-top-ranking"><i class="fas fa-crown ranking-crown no-1"></i></div>
-                      <div class="service-logo-top-recommend"><img alt="ラフールサーベイ" class="service-logo-image"
-                          loading="lazy"
-                          src="https://boxil.jp/attachments/files/images/eyJpZCI6ImQ0MzNkMWViMGMwMTZiNDE4ODViMGJmMjMxYzQ2M2QzLnBuZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX2xvZ28iLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQxMC0zNzQwLXpjZWhsNi5wbmciLCJzaXplIjoxNzE1LCJtaW1lX3R5cGUiOm51bGx9fQ" />
-                      </div>
-                      <div class="i-service-details">
-                        <div class="i-service-details-serviceName text-overflow-ellipsis"><span
-                            class="text-overflow-ellipsis">ラフールサーベイ</span></div>
-                        <div class="i-service-details-serviceReview"><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-black-400 "
-                            style="margin-right: 0px;"></i><span class="average">4.42</span><span
-                            class="number">（19件）</span></div>
-                        <div class="i-service-details-serviceCategory">
-                          <div class="i-service-details-serviceCategory-tag text-overflow-ellipsis">離職防止ツール</div>
-                        </div>
-                      </div>
-                    </div>
-                  </a><a class="rankingBox-service-wrapper js-track js-track-si-serviceLink-mainRanking"
-                    href="/service/8459/?_via=si-serviceLink-mainRanking">
-                    <div class="i-serviceBlock rankingBox-service flex">
-                      <div class="rankingBox-service-top-ranking"><i class="fas fa-crown ranking-crown no-2"></i></div>
-                      <div class="service-logo-top-recommend"><img alt="TeamUp" class="service-logo-image"
-                          loading="lazy"
-                          src="https://boxil.jp/attachments/files/images/eyJpZCI6IjAyY2JjNmU5ZWE2ZTNjMzcxZTczNTI0MjVkZmJhODYxLnBuZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX2xvZ28iLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQxMC0zNzQwLXVoenYway5wbmciLCJzaXplIjoxODIyLCJtaW1lX3R5cGUiOm51bGx9fQ" />
-                      </div>
-                      <div class="i-service-details">
-                        <div class="i-service-details-serviceName text-overflow-ellipsis"><span
-                            class="text-overflow-ellipsis">TeamUp</span></div>
-                        <div class="i-service-details-serviceReview"><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><span class="average">4.57</span><span
-                            class="number">（7件）</span></div>
-                        <div class="i-service-details-serviceCategory">
-                          <div class="i-service-details-serviceCategory-tag text-overflow-ellipsis">離職防止ツール</div>
-                        </div>
-                      </div>
-                    </div>
-                  </a><a class="rankingBox-service-wrapper js-track js-track-si-serviceLink-mainRanking"
-                    href="/service/6932/?_via=si-serviceLink-mainRanking">
-                    <div class="i-serviceBlock rankingBox-service flex">
-                      <div class="rankingBox-service-top-ranking"><i class="fas fa-crown ranking-crown no-3"></i></div>
-                      <div class="service-logo-top-recommend"><img alt="SmartHR" class="service-logo-image"
-                          loading="lazy"
-                          src="https://boxil.jp/attachments/files/images/eyJpZCI6ImQwMDVkNmNjMDIzMmMxZjRlNTRmNDMyMzdjOGJmZWIzLnBuZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX2xvZ28iLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQxMC0yNzgyNy0xOThxd205LnBuZyIsInNpemUiOjIyODMsIm1pbWVfdHlwZSI6bnVsbH19" />
-                      </div>
-                      <div class="i-service-details">
-                        <div class="i-service-details-serviceName text-overflow-ellipsis"><span
-                            class="text-overflow-ellipsis">SmartHR</span></div>
-                        <div class="i-service-details-serviceReview"><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-black-400 "
-                            style="margin-right: 0px;"></i><span class="average">4.35</span><span
-                            class="number">（223件）</span></div>
-                        <div class="i-service-details-serviceCategory">
-                          <div class="i-service-details-serviceCategory-tag text-overflow-ellipsis">離職防止ツール</div>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                  <div class="rankingBox-moreRanking"><a
-                      class="js-track js-track-si-categoryLink-mainRanking btn-read-more-round"
-                      href="/sc-prevention-of-turnover/?_via=si-categoryLink-mainRanking">
-                      <div class="inner-text">続きを見る</div><i class="far fa-chevron-double-right inner-icon"></i>
-                    </a></div>
-                </div> -->
               </div>
             </div>
             <div class="servicesIndex-categoryDocument-block" id="servicesIndex-categoryDocument">
               <div class="servicesIndex-topPageTitle">
                 <h2 class="heading-2">
-                  <div class="heading-2-icon-wrapper"><i class="fas fa-pennant heading-2-icon"></i></div>お役立ちガイド
+                  <div class="heading-2-icon-wrapper">
+                    <i class="fas fa-pennant heading-2-icon"></i>
+                  </div>
+                  お役立ちガイド
                 </h2>
                 <div class="sub-text"></div>
               </div>
@@ -1321,95 +699,26 @@
               </div>
               <div class="servicesIndex-categoryDocument-document-all">
                 <a class="btn-go-to-category-documents"
-                  href="/category_documents/">
+                  href="{{route('category_documents')}}">
                   <div class="inner-text">お役立ちガイド一覧を見る</div>
                   <i class="far fa-chevron-double-right inner-icon"></i>
                 </a>
               </div>
               <div class="servicesIndex-categoryDocument-wrapper">
+                @foreach($guides as $guide)
                 <label class="checkbox servicesIndex-categoryDocument">
                   <div class="servicesIndex-categoryDocument-block-img">
-                    <img alt="お役立ちガイド画像"
-                      src="https://slides.boxil.jp/category/slides/e4c6736449243e59f6a7084e5da89799e273b9542b8fe4113eb78b3fd5c2/s3-0.jpg" />
-                    <div class="servicesIndex-categoryDocument-checkbox new-checkbox-input-filled boxil-checkbox"><input
-                        class="boxil-checkbox-input check-categoryDocument-1122" id="category_document_1122"
-                        name="category_document" type="checkbox" value="1122" /><label class="new-checkbox"
-                        for="category_document_1122"></label></div>
+                    <img alt="{{$guide->title}}" src="{{asset($guide->image)}}" />
+                    <div class="servicesIndex-categoryDocument-checkbox new-checkbox-input-filled boxil-checkbox">
+                      <input class="boxil-checkbox-input check-categoryDocument-1122" id="{{$guide->id}}"
+                        name="category_document" type="checkbox" value="{{$guide->id}}" />
+                      <label class="new-checkbox"  for="{{$guide->id}}"></label>
+                    </div>
                   </div>
-                  <div class="servicesIndex-categoryDocument-block-title">SaaS業界レポート2022</div>
-                </label><label class="checkbox servicesIndex-categoryDocument">
-                  <div class="servicesIndex-categoryDocument-block-img"><img alt="お役立ちガイド画像"
-                      src="https://slides.boxil.jp/category/slides/bada2aaad9154d2709e51219f2186aa1d53beb53bb90ae497ef14e2cdfab/s3-0.jpg" />
-                    <div class="servicesIndex-categoryDocument-checkbox new-checkbox-input-filled boxil-checkbox"><input
-                        class="boxil-checkbox-input check-categoryDocument-42" id="category_document_42"
-                        name="category_document" type="checkbox" value="42" /><label class="new-checkbox"
-                        for="category_document_42"></label></div>
-                  </div>
-                  <div class="servicesIndex-categoryDocument-block-title">経費精算システム選び方ガイド</div>
-                </label><label class="checkbox servicesIndex-categoryDocument">
-                  <div class="servicesIndex-categoryDocument-block-img"><img alt="お役立ちガイド画像"
-                      src="https://slides.boxil.jp/category/slides/0c18139e900f6d6d4287dee988cd5b8fa86e18528ee077f4824e04fcb9b9/s3-0.jpg" />
-                    <div class="servicesIndex-categoryDocument-checkbox new-checkbox-input-filled boxil-checkbox"><input
-                        class="boxil-checkbox-input check-categoryDocument-23" id="category_document_23"
-                        name="category_document" type="checkbox" value="23" /><label class="new-checkbox"
-                        for="category_document_23"></label></div>
-                  </div>
-                  <div class="servicesIndex-categoryDocument-block-title">ERP(基幹システム)選び方ガイド</div>
-                </label><label class="checkbox servicesIndex-categoryDocument">
-                  <div class="servicesIndex-categoryDocument-block-img"><img alt="お役立ちガイド画像"
-                      src="" />
-                    <div class="servicesIndex-categoryDocument-checkbox new-checkbox-input-filled boxil-checkbox"><input
-                        class="boxil-checkbox-input check-categoryDocument-45" id="category_document_45"
-                        name="category_document" type="checkbox" value="45" /><label class="new-checkbox"
-                        for="category_document_45"></label></div>
-                  </div>
-                  <div class="servicesIndex-categoryDocument-block-title">請求書発行システム選び方ガイド</div>
-                </label><label class="checkbox servicesIndex-categoryDocument">
-                  <div class="servicesIndex-categoryDocument-block-img"><img alt="お役立ちガイド画像"
-                      src="" />
-                    <div class="servicesIndex-categoryDocument-checkbox new-checkbox-input-filled boxil-checkbox"><input
-                        class="boxil-checkbox-input check-categoryDocument-77" id="category_document_77"
-                        name="category_document" type="checkbox" value="77" /><label class="new-checkbox"
-                        for="category_document_77"></label></div>
-                  </div>
-                  <div class="servicesIndex-categoryDocument-block-title">労務管理システム選び方ガイド</div>
-                </label><label class="checkbox servicesIndex-categoryDocument">
-                  <div class="servicesIndex-categoryDocument-block-img"><img alt="お役立ちガイド画像"
-                      src="https://slides.boxil.jp/category/slides/c80716f98969f3f81ca8fd8456bdd6d01f7335b7dd8d6bbd7573105c788d/s3-0.jpg" />
-                    <div class="servicesIndex-categoryDocument-checkbox new-checkbox-input-filled boxil-checkbox"><input
-                        class="boxil-checkbox-input check-categoryDocument-334" id="category_document_334"
-                        name="category_document" type="checkbox" value="334" /><label class="new-checkbox"
-                        for="category_document_334"></label></div>
-                  </div>
-                  <div class="servicesIndex-categoryDocument-block-title">電子契約システム選び方ガイド</div>
-                </label><label class="checkbox servicesIndex-categoryDocument">
-                  <div class="servicesIndex-categoryDocument-block-img"><img alt="お役立ちガイド画像"
-                      src="https://slides.boxil.jp/category/slides/a029147f9f31f36e8beeb458c8e6eefce42017f93615d0affe5ad0fa33fe/s3-0.jpg" />
-                    <div class="servicesIndex-categoryDocument-checkbox new-checkbox-input-filled boxil-checkbox"><input
-                        class="boxil-checkbox-input check-categoryDocument-67" id="category_document_67"
-                        name="category_document" type="checkbox" value="67" /><label class="new-checkbox"
-                        for="category_document_67"></label></div>
-                  </div>
-                  <div class="servicesIndex-categoryDocument-block-title">人事評価システム選び方ガイド</div>
-                </label><label class="checkbox servicesIndex-categoryDocument">
-                  <div class="servicesIndex-categoryDocument-block-img"><img alt="お役立ちガイド画像"
-                      src="https://slides.boxil.jp/category/slides/e01605a07d52471db739a3b3f8c7122c.pdf/s3-0.jpg" />
-                    <div class="servicesIndex-categoryDocument-checkbox new-checkbox-input-filled boxil-checkbox"><input
-                        class="boxil-checkbox-input check-categoryDocument-17" id="category_document_17"
-                        name="category_document" type="checkbox" value="17" /><label class="new-checkbox"
-                        for="category_document_17"></label></div>
-                  </div>
-                  <div class="servicesIndex-categoryDocument-block-title">採用管理システム選び方ガイド</div>
-                </label><label class="checkbox servicesIndex-categoryDocument">
-                  <div class="servicesIndex-categoryDocument-block-img"><img alt="お役立ちガイド画像"
-                      src="https://slides.boxil.jp/category/slides/956bc8ec2e8558dc1dd8009e5e7879d31be0a7a30b9a5f5e72c8e8a0bda7/s3-0.jpg" />
-                    <div class="servicesIndex-categoryDocument-checkbox new-checkbox-input-filled boxil-checkbox"><input
-                        class="boxil-checkbox-input check-categoryDocument-51" id="category_document_51"
-                        name="category_document" type="checkbox" value="51" /><label class="new-checkbox"
-                        for="category_document_51"></label></div>
-                  </div>
-                  <div class="servicesIndex-categoryDocument-block-title">文書管理システム選び方ガイド</div>
-                </label></div>
+                  <div class="servicesIndex-categoryDocument-block-title">{{$guide->title}}</div>
+                </label>
+                @endforeach
+              </div>
               <div class="serviceIndex-categoryDocument-download-button-wrapper">
                 <div class="categoryDocument-download-button">
                   <form class="boxil-checkbox-form" target="_top" action="/downloads/confirm/" accept-charset="UTF-8"
@@ -1448,114 +757,9 @@
             </div>
           </div>
         </main>
-        <aside class="bw-sub">
-          <div class="sub-inner">
-            <div class="sideMenu-panel">
-              <div class="sideMenuBannerMainBlock"><a
-                  class="track-recommend-non js-track js-track-si-bannerLink-recommendTop" target="_blank"
-                  rel="noopener" href="https://boxil.jp/eejanaika/">
-                  <div><img alt="バナー: ITツール情報番組「ええじゃない課Biz」にレギュラー出演中"
-                      src="https://store.boxil.jp/boxil_banner/images/uploads/banner/image/19/thumb.jpg" width="260" />
-                  </div>
-                  <p class="sideMenuBannerMainTitleBlock">ITツール情報番組「ええじゃない課Biz」にレギュラー出演中</p>
-                </a><a class="track-recommend-non js-track js-track-si-bannerLink-recommendTop" target="_blank"
-                  rel="noopener"
-                  href="https://boxil.smartcamp.co.jp/?utm_source=boxil&amp;utm_medium=referral&amp;utm_campaign=boxil_banner">
-                  <div><img alt="バナー: BOXIL掲載はこちら"
-                      src="https://store.boxil.jp/boxil_banner/images/uploads/banner/image/26/thumb.jpg" width="260" />
-                  </div>
-                  <p class="sideMenuBannerMainTitleBlock">BOXIL掲載はこちら</p>
-                </a><a class="track-recommend-non js-track js-track-si-bannerLink-recommendTop" target="_blank"
-                  rel="noopener" href="https://boxil.jp/reputations/lps/5/?_via=top_bottom_banner">
-                  <div><img alt="バナー: 口コミ投稿はこちら"
-                      src="https://store.boxil.jp/boxil_banner/images/uploads/banner/image/67/thumb.jpg" width="260" />
-                  </div>
-                  <p class="sideMenuBannerMainTitleBlock">口コミ投稿はこちら</p>
-                </a></div>
-            </div>
-            <div class="sideMenu-panel">
-              <div class="sideMenu-panel-title">編集部のおすすめ記事</div>
-              <div class="sideMenu-articles-main"><a
-                  class="text-link-mag js-track js-track-as-editor-recommended-boxiltop-side"
-                  href="https://boxil.jp/mag/a172/?_via=as-editor-recommended-boxiltop-side">
-                  <div class="i-articleBlock">
-                    <div class="flex"><img class="i-eyecatch object-fit" alt=""
-                        src="https://store.boxil.jp/media/images/uploads/media_image/media_image/44842/thumb.jpg" />
-                      <div class="i-title">【2023年】勤怠管理システムを徹底比較！機能・選び方を解説</div>
-                    </div>
-                    <div class="i-publishTime">2023-05-19</div>
-                  </div>
-                </a><a class="text-link-mag js-track js-track-as-editor-recommended-boxiltop-side"
-                  href="https://boxil.jp/mag/a1420/?_via=as-editor-recommended-boxiltop-side">
-                  <div class="i-articleBlock">
-                    <div class="flex"><img class="i-eyecatch object-fit" alt=""
-                        src="https://store.boxil.jp/media/images/uploads/media_image/media_image/52530/thumb.jpg" />
-                      <div class="i-title">【2023年最新】 経費精算システムおすすめ比較！価格・機能・クラウド対応一覧</div>
-                    </div>
-                    <div class="i-publishTime">2023-05-11</div>
-                  </div>
-                </a><a class="text-link-mag js-track js-track-as-editor-recommended-boxiltop-side"
-                  href="https://boxil.jp/mag/a1487/?_via=as-editor-recommended-boxiltop-side">
-                  <div class="i-articleBlock">
-                    <div class="flex"><img class="i-eyecatch object-fit" alt=""
-                        src="https://store.boxil.jp/media/images/uploads/media_image/media_image/44377/thumb.jpg" />
-                      <div class="i-title">【2023年】見積書作成ソフト比較18選！無料あり・おすすめクラウドシステム</div>
-                    </div>
-                    <div class="i-publishTime">2023-05-22</div>
-                  </div>
-                </a><a class="text-link-mag js-track js-track-as-editor-recommended-boxiltop-side"
-                  href="https://boxil.jp/mag/a1612/?_via=as-editor-recommended-boxiltop-side">
-                  <div class="i-articleBlock">
-                    <div class="flex"><img class="i-eyecatch object-fit" alt=""
-                        src="https://store.boxil.jp/media/images/uploads/media_image/media_image/45694/thumb.jpg" />
-                      <div class="i-title">【2023年最新】人事評価システムおすすめ比較！機能や価格、導入目的別の選び方</div>
-                    </div>
-                    <div class="i-publishTime">2023-05-22</div>
-                  </div>
-                </a><a class="text-link-mag js-track js-track-as-editor-recommended-boxiltop-side"
-                  href="https://boxil.jp/mag/a70/?_via=as-editor-recommended-boxiltop-side">
-                  <div class="i-articleBlock">
-                    <div class="flex"><img class="i-eyecatch object-fit" alt=""
-                        src="https://store.boxil.jp/media/images/uploads/media_image/media_image/44839/thumb.jpg" />
-                      <div class="i-title">【2023年】BIツール比較おすすめ19選 | 機能・料金比較表</div>
-                    </div>
-                    <div class="i-publishTime">2023-04-25</div>
-                  </div>
-                </a><a class="text-link-mag js-track js-track-as-editor-recommended-boxiltop-side"
-                  href="https://boxil.jp/mag/a7155/?_via=as-editor-recommended-boxiltop-side">
-                  <div class="i-articleBlock">
-                    <div class="flex"><img class="i-eyecatch object-fit" alt=""
-                        src="https://store.boxil.jp/media/images/uploads/media_image/media_image/46642/thumb.jpg" />
-                      <div class="i-title">専任担当不在でもセキュリティ確保しやすく - 総務省がテレワーク向けチェックリスト</div>
-                    </div>
-                    <div class="i-publishTime">2020-09-17</div>
-                  </div>
-                </a></div>
-            </div>
-          </div>
-        </aside>
       </div>
-      <!-- <div>
-        <div class="topBannerWrapper">
-          <div class="topBanner"><a target="_blank" rel="noopener" href="https://lp.boxil.jp/saasreport/2022"><img
-                width="260px" height="70px" alt="バナー: SaaS業界レポート2022"
-                src="https://store.boxil.jp/boxil_banner/images/uploads/banner/image/60/thumb.jpg" /></a></div>
-          <div class="topBanner"><a target="_blank" rel="noopener" href="https://boxil.jp/awards/2023-spring/"><img
-                width="260px" height="70px" alt="バナー: BOXIL SaaS AWARD Spring 2023"
-                src="https://store.boxil.jp/boxil_banner/images/uploads/banner/image/65/thumb.jpg" /></a></div>
-          <div class="topBanner"><a target="_blank" rel="noopener"
-              href="https://boxil.jp/reputations/lps/5/?_via=top_bottom_banner"><img width="260px" height="70px"
-                alt="バナー: 口コミ投稿はこちら"
-                src="https://store.boxil.jp/boxil_banner/images/uploads/banner/image/66/thumb.jpg" /></a></div>
-          <div class="topBanner"><a target="_blank" rel="noopener"
-              href="https://boxil.jp/awards/2023/?_via=top_bottom_banner"><img width="260px" height="70px"
-                alt="バナー: BOXIL SaaS AWARD 2023"
-                src="https://store.boxil.jp/boxil_banner/images/uploads/banner/image/70/thumb.jpg" /></a></div>
-        </div>
-      </div> -->
     </div>
   </div>
-  <!-- <script src="https://d-cache.microad.jp/js/td_bx_access.js"></script> -->
 
   <div id="js-overlap-hidden-target">
     <div id="corporate-lp-banner">
