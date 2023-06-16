@@ -735,11 +735,17 @@
                           <span class="text-overflow-ellipsis">{{$service->title}}</span>
                         </div>
                         <div class="i-service-details-serviceReview">
+                          @if((int)$service->reviews_avg_score != 0)
+                            @for ($i = 0; $i < ((int)$service->reviews_avg_score); $i++)
+                              <i class="fa fa-yellow fa-star text-yellow "  style="margin-right: 0px;"></i>
+                            @endfor
+                            @for ($i = 0; $i < (5-(int)$service->reviews_avg_score); $i++)
+                              <i class="fa fa-yellow fa-star text-black-400 "  style="margin-right: 0px;"></i>
+                            @endfor
+                          @endif
+                          <!-- <i class="fa fa-yellow fa-star text-yellow "  style="margin-right: 0px;"></i>
                           <i class="fa fa-yellow fa-star text-yellow "  style="margin-right: 0px;"></i>
-                          <i class="fa fa-yellow fa-star text-yellow "  style="margin-right: 0px;"></i>
-                          <i class="fa fa-yellow fa-star text-yellow "  style="margin-right: 0px;"></i>
-                          <i class="fa fa-yellow fa-star text-yellow "  style="margin-right: 0px;"></i>
-                          <i class="fa fa-yellow fa-star text-black-400 " style="margin-right: 0px;"></i>
+                          <i class="fa fa-yellow fa-star text-yellow "  style="margin-right: 0px;"></i> -->
                           <span class="average">{{$service->reviews_avg_score?(int)$service->reviews_avg_score:'レビューはありません'}}</span>
                           <span class="number">({{$service->reviews_count?$service->reviews_count:0}}件)</span>
                         </div>
