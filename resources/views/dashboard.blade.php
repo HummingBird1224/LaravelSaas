@@ -711,88 +711,50 @@
                 <div class="sub-text"></div>
               </div>
               <div class="servicesIndex-boxilRankingContent">
+                @foreach($categories as $category)
                 <div class="rankingBox">
-                  <div class="rankingBox-title"><a class="js-track js-track-si-categoryLink-mainRanking"
-                      href="/sc-inbound_call_center/?_via=si-categoryLink-mainRanking">コールセンターシステム（インバウンド）</a></div><a
-                    class="rankingBox-service-wrapper js-track js-track-si-serviceLink-mainRanking"
-                    href="/service/4803/?_via=si-serviceLink-mainRanking">
+                  <div class="rankingBox-title">
+                    <a class="js-track js-track-si-categoryLink-mainRanking"
+                      href="{{route('service_view', $category->id)}}">
+                      {{$category->title}}
+                    </a>
+                  </div>
+                  @foreach($category->services as $service)
+                  <a class="rankingBox-service-wrapper js-track js-track-si-serviceLink-mainRanking"
+                    href="{{route('service_view', $service->id)}}">
                     <div class="i-serviceBlock rankingBox-service flex">
-                      <div class="rankingBox-service-top-ranking"><i class="fas fa-crown ranking-crown no-1"></i></div>
-                      <div class="service-logo-top-recommend"><img alt="MiiTel" class="service-logo-image"
-                          loading="lazy"
-                          src="https://boxil.jp/attachments/files/images/eyJpZCI6Ijk3NGJmZjhkOWQwZDk2ODIxZmFhOWRlN2U5NzYzYWYxLmpwZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX2xvZ28iLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQxMC0xMzM5Mi0xNzlveGZwLmpwZyIsInNpemUiOjk2NiwibWltZV90eXBlIjpudWxsfX0" />
+                      <div class="rankingBox-service-top-ranking">
+                        <i class="fas fa-crown ranking-crown no-1"></i>
+                      </div>
+                      <div class="service-logo-top-recommend">
+                        <img alt="{{$service->title}}" class="service-logo-image" loading="lazy"
+                          src="{{asset($service->logo)}}" />
                       </div>
                       <div class="i-service-details">
-                        <div class="i-service-details-serviceName text-overflow-ellipsis"><span
-                            class="text-overflow-ellipsis">MiiTel</span></div>
-                        <div class="i-service-details-serviceReview"><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-black-400 "
-                            style="margin-right: 0px;"></i><span class="average">4.31</span><span
-                            class="number">（64件）</span></div>
-                        <div class="i-service-details-serviceCategory">
-                          <div class="i-service-details-serviceCategory-tag text-overflow-ellipsis">コールセンターシステム（インバウンド）
-                          </div>
+                        <div class="i-service-details-serviceName text-overflow-ellipsis">
+                          <span class="text-overflow-ellipsis">{{$service->title}}</span>
                         </div>
-                      </div>
-                    </div>
-                  </a><a class="rankingBox-service-wrapper js-track js-track-si-serviceLink-mainRanking"
-                    href="/service/646/?_via=si-serviceLink-mainRanking">
-                    <div class="i-serviceBlock rankingBox-service flex">
-                      <div class="rankingBox-service-top-ranking"><i class="fas fa-crown ranking-crown no-2"></i></div>
-                      <div class="service-logo-top-recommend"><img alt="BIZTEL コールセンター" class="service-logo-image"
-                          loading="lazy"
-                          src="https://boxil.jp/attachments/files/images/eyJpZCI6IjYwMzQxMWIxNTJkZjk3YTVjOTJlYzE0NjFkMWRlYWJlLnBuZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX2xvZ28iLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQxMC01NzAtZm5pbXM5LnBuZyIsInNpemUiOjE2MDYsIm1pbWVfdHlwZSI6bnVsbH19" />
-                      </div>
-                      <div class="i-service-details">
-                        <div class="i-service-details-serviceName text-overflow-ellipsis"><span
-                            class="text-overflow-ellipsis">BIZTEL コールセンター</span></div>
-                        <div class="i-service-details-serviceReview"><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-black-400 "
-                            style="margin-right: 0px;"></i><span class="average">4.4</span><span
-                            class="number">（10件）</span></div>
-                        <div class="i-service-details-serviceCategory">
-                          <div class="i-service-details-serviceCategory-tag text-overflow-ellipsis">コールセンターシステム（インバウンド）
-                          </div>
+                        <div class="i-service-details-serviceReview">
+                          <i class="fa fa-yellow fa-star text-yellow "  style="margin-right: 0px;"></i>
+                          <i class="fa fa-yellow fa-star text-yellow "  style="margin-right: 0px;"></i>
+                          <i class="fa fa-yellow fa-star text-yellow "  style="margin-right: 0px;"></i>
+                          <i class="fa fa-yellow fa-star text-yellow "  style="margin-right: 0px;"></i>
+                          <i class="fa fa-yellow fa-star text-black-400 " style="margin-right: 0px;"></i>
+                          <span class="average">{{$service->reviews_avg_score?(int)$service->reviews_avg_score:'レビューはありません'}}</span>
+                          <span class="number">({{$service->reviews_count?$service->reviews_count:0}}件)</span>
                         </div>
-                      </div>
-                    </div>
-                  </a><a class="rankingBox-service-wrapper js-track js-track-si-serviceLink-mainRanking"
-                    href="/service/7319/?_via=si-serviceLink-mainRanking">
-                    <div class="i-serviceBlock rankingBox-service flex">
-                      <div class="rankingBox-service-top-ranking"><i class="fas fa-crown ranking-crown no-3"></i></div>
-                      <div class="service-logo-top-recommend"><img alt="カイクラ" class="service-logo-image" loading="lazy"
-                          src="https://boxil.jp/attachments/files/images/eyJpZCI6Ijk2ZjhiOGE2ZWFiYjk4NjczMDg3Y2E2N2Q0NjllOWQwLnBuZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX2xvZ28iLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQxMC0xMTUtMXdhZjdmay5wbmciLCJzaXplIjoyNTQ3LCJtaW1lX3R5cGUiOm51bGx9fQ" />
-                      </div>
-                      <div class="i-service-details">
-                        <div class="i-service-details-serviceName text-overflow-ellipsis"><span
-                            class="text-overflow-ellipsis">カイクラ</span></div>
-                        <div class="i-service-details-serviceReview"><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><i class="fa fa-yellow fa-star text-yellow "
-                            style="margin-right: 0px;"></i><span class="average">4.5</span><span
-                            class="number">（14件）</span></div>
                         <div class="i-service-details-serviceCategory">
-                          <div class="i-service-details-serviceCategory-tag text-overflow-ellipsis">コールセンターシステム（インバウンド）
+                          <div class="i-service-details-serviceCategory-tag text-overflow-ellipsis">
+                            {{$category->title}}
                           </div>
                         </div>
                       </div>
                     </div>
                   </a>
-                  <div class="rankingBox-moreRanking"><a
-                      class="js-track js-track-si-categoryLink-mainRanking btn-read-more-round"
-                      href="/sc-inbound_call_center/?_via=si-categoryLink-mainRanking">
-                      <div class="inner-text">続きを見る</div><i class="far fa-chevron-double-right inner-icon"></i>
-                    </a></div>
+                  @endforeach
                 </div>
-                <div class="rankingBox">
+                @endforeach
+                <!-- <div class="rankingBox">
                   <div class="rankingBox-title"><a class="js-track js-track-si-categoryLink-mainRanking"
                       href="/sc-workflow/?_via=si-categoryLink-mainRanking">ワークフローシステム</a></div><a
                     class="rankingBox-service-wrapper js-track js-track-si-serviceLink-mainRanking"
@@ -1343,7 +1305,7 @@
                       href="/sc-prevention-of-turnover/?_via=si-categoryLink-mainRanking">
                       <div class="inner-text">続きを見る</div><i class="far fa-chevron-double-right inner-icon"></i>
                     </a></div>
-                </div>
+                </div> -->
               </div>
             </div>
             <div class="servicesIndex-categoryDocument-block" id="servicesIndex-categoryDocument">
