@@ -23,6 +23,13 @@ class Category extends Model
         'issue_id',
     ];
 
+     public function scopeAvgscore($query)
+    {
+        return  $query->with('reviews')
+                ->where('status', 'approved')
+                ->avg('score');
+    } 
+    
     public function large_category() {
         return $this->belongsTo(
             LargeCategory::class,

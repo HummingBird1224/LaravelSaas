@@ -18,9 +18,11 @@ class Service extends Model
         'recommended'
     ];
 
-     public function scopeAvgScore($query)
+    public function scopeAvgscore($query)
     {
-        return $query->with('reviews');
+        return  $query->with('reviews')
+                ->where('status', 'approved')
+                ->avg('score');
     }    
 
 
