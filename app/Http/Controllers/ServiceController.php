@@ -56,9 +56,10 @@ class ServiceController extends Controller
      * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function show(Service $service)
+    public function show($id)
     {
-        //
+        $service=Service::findOrFail($id);
+        return view('services.show', ['service'=>$service]);
     }
 
     /**
