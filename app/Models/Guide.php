@@ -12,24 +12,25 @@ class Guide extends Model
     protected $fillable = [
         'title',
         'description',
-        'for_id',
         'data',
         'image',
         'recommended',
-        'for',
         'free'
     ];
 
     public function category(){
         return $this->belongsTo(
             Category::class,
-            'category_id'
+            'id',
+            'guide_id'
         );
     }
 
-    public function services(){
-        return $this->hasMany(
+    public function service(){
+        return $this->belongsTo(
             Service::class,
+            'id',
+            'guide_id'
         );
     }
 

@@ -9,6 +9,8 @@ class ServiceUI extends Model
 {
     use HasFactory;
 
+    protected $table='service_uis';
+
     protected $fillable=[
         'service_id',
         'portfolio',

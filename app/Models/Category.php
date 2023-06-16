@@ -40,7 +40,7 @@ class Category extends Model
     public function guide() {
         return $this->hasOne(
             Guide::class,
-            'guide_id'
+            'for_id'
         );
     }
 

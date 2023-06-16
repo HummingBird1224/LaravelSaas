@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\DashboardController;
+
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 
@@ -19,7 +21,7 @@ use App\Http\Controllers\ReviewController ;
 use App\Http\Controllers\Admin\GuideController as CategoryDocumentController;
 
 // Default Route
-Route::view('/', 'dashboard')->name('dashboard');
+Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 // Authentication Routes
 Route::get('/signup/{role?}', [RegisterController::class, 'index']);
@@ -33,11 +35,13 @@ Route::get('reset_pwd', function() { return view('auth.reset'); });
 Route::post('update_password', [LoginController::class, 'updatePwd'])->name('password.update');
 
 //Category Routes
+Route::get('/lc/{id}',[CategoryController::class,'lc_view'])->name('lc_view');
 Route::prefix('categories')->group(function(){
 	Route::get('/', [CategoryController::class, 'index'])->name('categories');
 	Route::get('/{id}', [CategoryController::class, 'show'])->name('category_view');
 });
-Route::get('/lc/{id}',[CategoryController::class,'lc_view'])->name('lc_view');
+
+Route::get('/services/{id}',[ServiceController::class,'show'])->name('service_view');
 
 // Guide Routes
 Route::prefix('category_documents')->group(function() {

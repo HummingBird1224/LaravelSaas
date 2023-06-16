@@ -10,20 +10,13 @@ class Service extends Model
     use HasFactory;
         protected $fillable = [
         'user_id',
-        'company_id',
         'title',
         'description',
         'logo',
         'category_id',
         'guide_id',
+        'recommended'
     ];
-
-    public function company(){
-        return $this->belongsTo(
-            Company::class,
-            'company_id'
-        );
-    }
 
     public function user(){
         return $this->belongsTo(
@@ -40,8 +33,9 @@ class Service extends Model
     }
 
     public function guide(){
-        return $this->belongsTo(
+        return $this->hasOne(
             Guide::class,
+            'id',
             'guide_id'
         );
     }

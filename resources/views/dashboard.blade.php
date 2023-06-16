@@ -11,14 +11,14 @@
                 <img alt="No.1 Site Logo" src="https://assets.boxil.jp/images/toppage/top-emblem.png" />
               </div>
             </div> -->
-            <div class="boxilTop__copyMain">SaaSとの最適な出会いを。</div>
+            <div class="boxilTop__copyMain">建設業界に100万人分の労働力を創る</div>
             <ul class="boxilTop__copySub">
-              <li>勤怠管理・顧客管理・経費精算など煩雑な業務を自動化。</li>
-              <li>売上アップや組織の見える化に貢献し、明日の生産性を向上させる。</li>
-              <li>口コミ・資料から比較し最適なサービスに出会う、SaaSマーケティングプラットフォーム。</li>
-              <li class="boxilTop__emblemSource">
+              <li>私たちが日々取り組んでいることの全ては、「建設業界に100万人分の労働力を創る」に通じています。</li>
+              <li>それは、労働力不足が顕著な課題となっている建設業界に人的労働力を増やすだけでなく、人的労働力に変わる新たな価値を創造することです。</li>
+              <li>自分たちが行っている取り組みが正しいと信じて、追求していくことで、建設業界の繁栄に貢献していきます。</li>
+              <!-- <li class="boxilTop__emblemSource">
                 ※第1位・・・2020年9月実施 株式会社ショッパーズアイ「SaaS比較メディアに関するイメージ調査」より
-              </li>
+              </li> -->
             </ul>
           </div>
           <!-- <div class="boxilTop__searchBox">
@@ -32,15 +32,17 @@
         </div>
         <div class="boxilTop__logosWrapper">
           <div class="boxilTop__logos">
-            @for($i=1;$i<=50;$i++)             
-            <div class="boxilTop__logoWrapper top_fv_service_4888">
-              <div class="boxilTop__logo">
-                <a href="/service/4888/?_via=si-fvServiceLink-main">
-                  <img alt="WAN-Sign" class="service-logo-image" loading="auto"
-                    src="{{asset('uploads/services/logos/logo2.png')}}" />
-                </a>
+            @for($i=1;$i<=4;$i++)   
+              @foreach($services as $service)          
+              <div class="boxilTop__logoWrapper top_fv_service_4888">
+                <div class="boxilTop__logo">
+                  <a href="{{route('service_view', $service->id)}}">
+                    <img alt="WAN-Sign" class="service-logo-image" loading="auto"
+                      src="{{asset($service->logo)}}" />
+                  </a>
+                </div>
               </div>
-            </div>
+              @endforeach
             @endfor
           </div>
           <!-- <div class="boxilTop__logos">
@@ -531,12 +533,12 @@
       <div class="boxilTopPr">
         <div class="boxilTopPrTitle">
           <i class="fas fa-lightbulb heading-2-icon">
-            <span>[PR] BOXILおすすめのサービス</span>
+            <span>[PR] ツクノビおすすめのサービス</span>
           </i>
         </div>
         <div class="boxilTopPrImgWrapper">
           <a target="_blank" rel="noopener" class="boxilTopPrImg"
-            href="https://boxil.jp/service/4965/?_via=sef-resultLink-main">
+            href="">
             <div class="banner">
               <div class="pr">PR</div>
               <img alt="バナー: LegalForce"
