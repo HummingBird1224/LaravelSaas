@@ -47,6 +47,7 @@
       color: #222222;
     }
   </style>
+  <link rel="stylesheet" media="all" href="{{ asset('assets/vendor/css/service.css') }}" />
 @endsection
 
 @section('content')
