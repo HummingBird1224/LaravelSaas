@@ -1632,6 +1632,7 @@
           $('.departmentCategoryGroups').addClass('js-department-shrinked');
         }
       })
+      console.log(aaa);
     });
   </script>
 @endsection
