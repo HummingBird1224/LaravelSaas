@@ -37,19 +37,21 @@ Route::post('update_password', [LoginController::class, 'updatePwd'])->name('pas
 //Category Routes
 Route::get('/lc/{id}',[CategoryController::class,'lc_view'])->name('lc_view');
 Route::get('/issues',[CategoryController::class,'issues'])->name('issues');
-
 Route::prefix('categories')->group(function(){
 	Route::get('/', [CategoryController::class, 'index'])->name('categories');
 	Route::get('/{id}', [CategoryController::class, 'show'])->name('category_view');
 });
-
-Route::get('/services/{id}',[ServiceController::class,'show'])->name('service_view');
 
 // Guide Routes
 Route::prefix('category_documents')->group(function() {
 	Route::get('/', [GuideController::class, 'index'])->name('category_documents');
 	Route::get('/search', [GuideController::class, 'search'])->name('category_documents_search');	
 });
+
+//Service Routes
+Route::get('/services/{id}',[ServiceController::class,'show'])->name('service_view');
+
+
 
 Route::get('/categories/{parent}/{id}',[CategoryController::class, 'categories_by_parent'])->name('categories_by_parent');
 // Route::get('/issue/categories/{id}',[CategoryController::class, 'categories_by_issue'])->name('categories_by_issue');
