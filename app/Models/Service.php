@@ -18,6 +18,12 @@ class Service extends Model
         'recommended'
     ];
 
+     public function scopeAvgScore($query)
+    {
+        return $query->with('reviews');
+    }    
+
+
     public function user(){
         return $this->belongsTo(
             User::class,
