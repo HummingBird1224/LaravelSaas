@@ -1621,3 +1621,17 @@
     </div>
   </div>
 @endsection('content')
+
+@section('additional_script')
+  <script>
+    $(document).ready(function () {
+      $('.js-department-more').on('click', function() {
+        if ($('.departmentCategoryGroups').hasClass('js-department-shrinked')) {
+          $('.departmentCategoryGroups').removeClass('js-department-shrinked');
+        } else {
+          $('.departmentCategoryGroups').addClass('js-department-shrinked');
+        }
+      })
+    });
+  </script>
+@endsection
