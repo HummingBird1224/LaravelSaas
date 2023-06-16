@@ -30,7 +30,7 @@ $user=Auth::user();
   @yield('additional_style')
 </head>
 
-<body class="services index" id="">
+<body class="services index show layout_v2" id="">
   
   <div id="fb-root"></div>
 
