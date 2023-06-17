@@ -69,7 +69,7 @@ $user=Auth::user();
     </div>
     <div class="v2Navbar">
       <div class="v2NavbarItem">
-        <div class="v2NavbarItem__title"><span>WEB会議システム</span>の関連情報</div>
+        <div class="v2NavbarItem__title"><span>{{$category->title}}システム</span>の関連情報</div>
         <div class="v2NavbarItem__button">
           <form class="" target="_top" action="/downloads/confirm/" accept-charset="UTF-8" method="get">
             <input type="hidden" name="type" value="category">
@@ -80,7 +80,7 @@ $user=Auth::user();
           </form>
         </div>
       </div>
-      <div class="v2NavbarLink">
+      <!-- <div class="v2NavbarLink">
         <div class="relatedArticleLinksWrapper">
           <ul class="relatedArticleLinksPc">
             <li class="relatedArticleLinks__item">
@@ -113,7 +113,7 @@ $user=Auth::user();
             </table>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
     <div class="v2Layout">
       <div class="categoryV2">
@@ -124,8 +124,8 @@ $user=Auth::user();
             <div class="categoryV2Item">
 
               <div class="categoryV2BasicKnowledge">
-                <div class="categoryV2Section">
-                  <h2 class="categoryV2Section__title">どうやってWEB会議システムを選べばいいの？</h2>
+                <!-- <div class="categoryV2Section">
+                  <h2 class="categoryV2Section__title">どうやって{{$category->title}}システムを選べばいいの？</h2>
                   <div class="categoryV2Section__content">
                     WEB会議システムを選定するために、まず必要な要件を洗い出す必要があります。その後比較表でサービスを絞り込んで、試験的に導入する流れがおすすめです。具体的な比較方法は、こちらの記事にまとめています。
                     <div class="categoryV2BasicKnowledge__card">
@@ -145,36 +145,30 @@ $user=Auth::user();
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <div class="categoryV2Section">
-                  <h2 class="categoryV2Section__title">WEB会議システムとは</h2>
-                  <div class="categoryV2Section__content">WEB会議システムは、オンラインで離れた場所にいる相手と会議ができるシステムです。WEBカメラ越しで通話をしながら、適宜資料を共有したり映像を録画したりできます。1対1でのミーティングはもちろん、複数の参加メンバーに対してプレゼンテーションをするのにも役立ちます。<br>
-                    <br>
-                    インターネットを通じて他者と通話できるシステムは、もともとSkypeを中心に、個人が友人・知人などと会話できるアプリとして広まりました。それが徐々にビジネスシーンでも利用されるようになり、近年は専用のWEB会議システムが続々とリリースされています。<br>
-                    <br>
-                    社内での利用はもちろん、WEB会議システムを用いて会社説明会や商談などをするケースも多く、とりわけコロナ禍で外出制限が課せられた時期から、盛んに利用されるようになりました。
+                  <h2 class="categoryV2Section__title">{{$category->title}}システムとは</h2>
+                  <div class="categoryV2Section__content">
+                    @foreach(explode('。',$category->description) as $sentence)
+                      {{$sentence}}<br/><br/>
+                    @endforeach
                   </div>
                 </div>
                 <div class="categoryV2Section">
-                  <h2 class="categoryV2Section__title">WEB会議システムはなぜ必要か？</h2>
-                  <div class="categoryV2Section__content"><b>【テレワークやリモートワークの普及によるニーズの増加】</b><br>
-                    <br>
-                    政府による働き方改革の推進を受けて、多くの企業が社員の多様な働き方を認めはじめており、その一環としてテレワークやリモートワークなどを推進するようになりました。テレワークやリモートワークでは、一人ひとりの社員がオフィス以外の場所で勤務するため、業務上のやり取りは、基本的にチャットツールを利用するのが一般的です。<br>
-                    <br>
-                    しかし、相手と面と向かって会話をする必要もあることから、社員同士がWEB会議ツールを用いてミーティングしたり、相談し合ったりする企業も増えてきました。<br>
-                    <br>
-                    WEB会議ならば、場所を選ばず必要な相手と視覚的にコミュニケーションが取れるため、テレワークのみならず、出張で外出の多い社員同士の情報のやり取りにも使われています。<br>
-                    <br>
-                    <b>【新型コロナウイルスの感染拡大の影響】</b><br>
-                    <br>
-                    ここ数年は新型コロナウイルスの影響により、多くの企業が対面営業からオンラインでの営業にシフトしているほか、オフィス内でも社員同士が密な接触を避ける傾向があります。上記のようにテレワークを積極的に推進する企業も増えており、できるだけ密な空間を作らずに、業務を遂行できる環境が求められるようになりました。<br>
-                    <br>
-                    WEB会議システムは1対1でのコミュニケーションはもちろん、1対多のやり取りにも対応可能で、非常に汎用性が高いことから、コロナ禍をきっかけに導入する企業が急増しています。
+                  <h2 class="categoryV2Section__title">{{$category->title}}システムはなぜ必要か？</h2>
+                  <div class="categoryV2Section__content">
+                    @foreach($category->necessary_points as $n_p)
+                      <b>【{{$n_p->title}}】</b><br/>
+                      @foreach(explode('。',$n_p->contents) as $content)
+                        <br/>{{$content}}<br/>
+                      @endforeach
+                    @endforeach 
                   </div>
                 </div>
                 <div class="categoryV2Section">
-                  <h2 class="categoryV2Section__title">WEB会議システムを導入するメリット</h2>
-                  <div class="categoryV2Section__content"><b>【インターネット環境があれば自由に会議を開ける】</b><br>
+                  <h2 class="categoryV2Section__title">{{$category->title}}システムを導入するメリット</h2>
+                  <div class="categoryV2Section__content">
+                    <b>【インターネット環境があれば自由に会議を開ける】</b><br>
                     <br>
                     WEB会議システムは、インターネットさえ利用できる環境であれば、場所に縛られず自由に会議の開催が可能です。相手が遠隔地にいる場合はもちろん、海外の拠点にいる人々との通話もできます。<br>
                     <br>

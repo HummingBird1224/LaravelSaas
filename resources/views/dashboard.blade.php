@@ -631,14 +631,14 @@
               <div class="servicesIndex-boxilRankingContent">
                 @foreach($categories as $category)
                   @if(count($category->services)>0)
-                  <div class="rankingBox">
-                    <div class="rankingBox-title">
-                      <a class="js-track js-track-si-categoryLink-mainRanking"
-                        href="{{route('category_view', $category->id)}}">
-                        {{$category->title}}
-                      </a>
-                    </div>
-                    @foreach($category->services as $service)                  
+                    <div class="rankingBox">
+                      <div class="rankingBox-title">
+                        <a class="js-track js-track-si-categoryLink-mainRanking"
+                          href="{{route('category_view', $category->id)}}">
+                          {{$category->title}}
+                        </a>
+                      </div>
+                      @foreach($category->services as $service)
                     <a class="rankingBox-service-wrapper js-track js-track-si-serviceLink-mainRanking"
                       href="{{route('service_view', $service->id)}}">
                       <div class="i-serviceBlock rankingBox-service flex">
@@ -654,11 +654,14 @@
                             <span class="text-overflow-ellipsis">{{$service->title}}</span>
                           </div>
                           <div class="i-service-details-serviceReview">
-                            <i class="fa fa-yellow fa-star text-yellow "  style="margin-right: 0px;"></i>
-                            <i class="fa fa-yellow fa-star text-yellow "  style="margin-right: 0px;"></i>
-                            <i class="fa fa-yellow fa-star text-yellow "  style="margin-right: 0px;"></i>
-                            <i class="fa fa-yellow fa-star text-yellow "  style="margin-right: 0px;"></i>
-                            <i class="fa fa-yellow fa-star text-black-400 " style="margin-right: 0px;"></i>
+                            @if((int)$service->reviews_avg_score != 0)
+                              @for ($i = 0; $i < ((int)$service->reviews_avg_score); $i++)
+                                <i class="fa fa-yellow fa-star text-yellow "  style="margin-right: 0px;"></i>
+                              @endfor
+                              @for ($i = 0; $i < (5-(int)$service->reviews_avg_score); $i++)
+                                <i class="fa fa-yellow fa-star text-black-400 "  style="margin-right: 0px;"></i>
+                              @endfor
+                            @endif
                             <span class="average">{{$service->reviews_avg_score?(int)$service->reviews_avg_score:'レビューはありません'}}</span>
                             <span class="number">({{$service->reviews_count?$service->reviews_count:0}}件)</span>
                           </div>
@@ -670,48 +673,10 @@
                         </div>
                       </div>
                     </a>
-                    @endforeach
-                  </div>
-                  @foreach($category->services as $service)
-                  <a class="rankingBox-service-wrapper js-track js-track-si-serviceLink-mainRanking"
-                    href="{{route('service_view', $service->id)}}">
-                    <div class="i-serviceBlock rankingBox-service flex">
-                      <div class="rankingBox-service-top-ranking">
-                        <i class="fas fa-crown ranking-crown no-1"></i>
-                      </div>
-                      <div class="service-logo-top-recommend">
-                        <img alt="{{$service->title}}" class="service-logo-image" loading="lazy"
-                          src="{{asset($service->logo)}}" />
-                      </div>
-                      <div class="i-service-details">
-                        <div class="i-service-details-serviceName text-overflow-ellipsis">
-                          <span class="text-overflow-ellipsis">{{$service->title}}</span>
-                        </div>
-                        <div class="i-service-details-serviceReview">
-                          @if((int)$service->reviews_avg_score != 0)
-                            @for ($i = 0; $i < ((int)$service->reviews_avg_score); $i++)
-                              <i class="fa fa-yellow fa-star text-yellow "  style="margin-right: 0px;"></i>
-                            @endfor
-                            @for ($i = 0; $i < (5-(int)$service->reviews_avg_score); $i++)
-                              <i class="fa fa-yellow fa-star text-black-400 "  style="margin-right: 0px;"></i>
-                            @endfor
-                          @endif
-                          <!-- <i class="fa fa-yellow fa-star text-yellow "  style="margin-right: 0px;"></i>
-                          <i class="fa fa-yellow fa-star text-yellow "  style="margin-right: 0px;"></i>
-                          <i class="fa fa-yellow fa-star text-yellow "  style="margin-right: 0px;"></i> -->
-                          <span class="average">{{$service->reviews_avg_score?(int)$service->reviews_avg_score:'レビューはありません'}}</span>
-                          <span class="number">({{$service->reviews_count?$service->reviews_count:0}}件)</span>
-                        </div>
-                        <div class="i-service-details-serviceCategory">
-                          <div class="i-service-details-serviceCategory-tag text-overflow-ellipsis">
-                            {{$category->title}}
-                          </div>
-                        </div>
-                      </div>
+                    @endforeach 
                     </div>
-                  </a>
-                  @endforeach
-                </div>
+                    
+                  @endif
                 @endforeach
               </div>
             </div>
@@ -741,7 +706,7 @@
                   <div class="servicesIndex-categoryDocument-block-img">
                     <img alt="{{$guide->title}}" src="{{asset($guide->image)}}" />
                     <div class="servicesIndex-categoryDocument-checkbox new-checkbox-input-filled boxil-checkbox">
-                      <input class="boxil-checkbox-input check-categoryDocument-1122" id="{{$guide->id}}"
+                      <input class="checkbox-input check-categoryDocument-1122" id="{{$guide->id}}"
                         name="category_document" type="checkbox" value="{{$guide->id}}" />
                       <label class="new-checkbox"  for="{{$guide->id}}"></label>
                     </div>
@@ -752,13 +717,14 @@
               </div>
               <div class="serviceIndex-categoryDocument-download-button-wrapper">
                 <div class="categoryDocument-download-button">
-                  <form class="boxil-checkbox-form" target="_top" action="/downloads/confirm/" accept-charset="UTF-8"
-                    method="get"><input type="hidden" name="type" value="category_document" /><input type="hidden"
-                      name="_via" value="si-wpAllDL-mainTop" /><input type="hidden" name="is_comparison"
-                      value="false" /><button name="button" type="submit"
-                      class="btn btn-dl-document-sm btn-categoryDocument-download-all js-track js-track-si-wpAllDL-mainTop">
+                  <form class="boxil-checkbox-form" target="_top" action="/downloads/confirm/" accept-charset="UTF-8" method="get" onclick="downloadClick(event)">
+                    <input type="hidden" name="type" value="category_document" />
+                    <input type="hidden" name="_via" value="si-wpAllDL-mainTop" />
+                    <input type="hidden" name="is_comparison" value="false" />
+                    <button name="button" type="submit" class="btn btn-dl-document-sm btn-categoryDocument-download-all js-track js-track-si-wpAllDL-mainTop">
                       <div class="buttonText">選択中のガイドをダウンロード</div>
-                    </button></form>
+                    </button>
+                  </form>
                 </div>
               </div>
             </div>
@@ -830,7 +796,22 @@
           $('.departmentCategoryGroups').addClass('js-department-shrinked');
         }
       })
-      console.log(aaa);
+      let checkboxes = document.getElementsByClassName("checkbox-input");
+      downloadClick = (event) => {
+        event.preventDefault();
+        let docs = [];
+        for (let i = 0; i < checkboxes.length; i++) {
+          if (checkboxes[i].checked) {
+            docs = [...docs, checkboxes[i].value];
+          }
+        }
+        if(docs.length==0){
+          toastr.error('ガイドを選択する必要があります。');
+        }
+        if (docs.length > 0) {
+          location.href = '/downloads/confirm?checked_docs=' + docs;
+        }
+      }
     });
   </script>
 @endsection

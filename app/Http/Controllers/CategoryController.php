@@ -31,7 +31,7 @@ class CategoryController extends Controller
 
 	public function show($id)
 	{
-		$category=Category::findOrFail($id);
+		$category=Category::with('necessary_points')->with('good_bad_points')->findOrFail($id);
 		return view('category.show', ['category'=>$category]);
 	}
 
