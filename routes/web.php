@@ -156,13 +156,15 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
 		Route::get('/category_issues', [AdminController::class, 'category_issues'])->name('admin_category_issues');
 		Route::get('/service_managing', [ServiceController::class, 'service_managing'])->name('admin_service_managing');
 		Route::get('/client_managing', [ClientController::class, 'client_managing'])->name('admin_client_managing');
+
+		Route::post('/lc_edit', [CategoryController::class, 'lc_edit'])->name('lc_edit');
 	});
 
 });
 
 Route::group(['middleware' => ['auth', 'client']], function() {
 	Route::get('/downloads/confirm', [GuideController::class, 'download_confirm'])->name('download_confirm');
-	
+
 	Route::prefix('client')->group(function() {
 		Route::get('/client_tools', [ClientController::class, 'client_tools'])->name('client_tools');
 		Route::get('/client_reports', [ClientController::class, 'client_reports'])->name('client_reports');
