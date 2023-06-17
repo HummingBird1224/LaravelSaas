@@ -47,6 +47,7 @@ Route::prefix('category_documents')->group(function() {
 	Route::get('/', [GuideController::class, 'index'])->name('category_documents');
 	Route::get('/search', [GuideController::class, 'search'])->name('category_documents_search');	
 });
+Route::get('/downloads/confirm', [GuideController::class, 'download_confirm'])->name('download_confirm');
 
 //Service Routes
 Route::get('/services/{id}',[ServiceController::class,'show'])->name('service_view');
@@ -56,18 +57,7 @@ Route::get('/services/{id}',[ServiceController::class,'show'])->name('service_vi
 Route::get('/categories/{parent}/{id}',[CategoryController::class, 'categories_by_parent'])->name('categories_by_parent');
 // Route::get('/issue/categories/{id}',[CategoryController::class, 'categories_by_issue'])->name('categories_by_issue');
 
-Route::get('/downloads/confirm', [GuideController::class, 'download_confirm'])->name('download_confirm');
 
-// Route::get('/categories', [CategoryController::class, 'category_view'])->name('categories');
-	
-	// Route::view('/sc/{id}','logs.index')->name('sc');
-	// Route::view('/sc/{id}','logs.index')->name('sc');
-
-	// Route::prefix('log')->group(function() {
-	// 	Route::view('/', 'logs.index')->name('log');
-	// 	Route::view('/service', 'logs.service')->name('log_service');
-	// });
-	// Route::get('/service/{id}', [ServiceController::class, 'get_service'] )->name('service');
 	
 // Main Routes
 Route::group(['middleware' => ['auth']], function() {
@@ -171,6 +161,8 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
 });
 
 Route::group(['middleware' => ['auth', 'client']], function() {
+	Route::get('/downloads/confirm', [GuideController::class, 'download_confirm'])->name('download_confirm');
+	
 	Route::prefix('client')->group(function() {
 		Route::get('/client_tools', [ClientController::class, 'client_tools'])->name('client_tools');
 		Route::get('/client_reports', [ClientController::class, 'client_reports'])->name('client_reports');

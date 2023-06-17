@@ -24,8 +24,10 @@ $user=Auth::user();
   <script async="" crossorigin="anonymous" src="{{ asset('assets/js/fontawesome.js') }}"></script>
   <link rel="stylesheet" media="all" href="{{ asset('assets/vendor/css/dashboard-1.css') }}" />
   <link rel="stylesheet" media="all" href="{{ asset('assets/vendor/css/dashboard-responsive.css') }}" />
-
-  <script src="{{ asset('assets/js/dashboard-index.js') }}"></script>
+	<link rel="stylesheet" href="{{ asset('assets/toastr/toastr.min.css') }}" />
+  
+  <script src="{{ asset('assets/js/dashboard-index.js') }}"></script>  
+  <script src="{{ asset('assets/toastr/toastr.min.js') }}"></script>
   
   @yield('additional_style')
 </head>
