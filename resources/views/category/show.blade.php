@@ -168,136 +168,50 @@ $user=Auth::user();
                 <div class="categoryV2Section">
                   <h2 class="categoryV2Section__title">{{$category->title}}システムを導入するメリット</h2>
                   <div class="categoryV2Section__content">
-                    <b>【インターネット環境があれば自由に会議を開ける】</b><br>
-                    <br>
-                    WEB会議システムは、インターネットさえ利用できる環境であれば、場所に縛られず自由に会議の開催が可能です。相手が遠隔地にいる場合はもちろん、海外の拠点にいる人々との通話もできます。<br>
-                    <br>
-                    スペースの縛りを受けず複数人でのコミュニケーションが可能なので、さまざまなビジネスシーンで活用できるのが最大の強みといえるでしょう。<br>
-                    <br>
-                    ただし、システムによって同時に接続できるアカウント数に限りがあるため、大人数で会議を開く際には、ミーティングルームや会議室同士をつなぐといった工夫が必要です。<br>
-                    <br>
-                    <b>【移動に要する時間や費用を節約できる】</b><br>
-                    <br>
-                    会議の参加者に移動してもらわずに済むのも、WEB会議システムを導入するメリットの一つです。<br>
-                    <br>
-                    会議や商談などのため、参加者に特定の場所に移動してもらう場合、スケジュールの調整に手間がかかるほか、参加者にしてみれば移動時間や交通費も考慮しなければいけません。<br>
-                    <br>
-                    一方、WEB会議システムを利用したリモート面談ならば、各人が自宅やオフィスから参加できるので、時間や費用の節約になります。相手が遠隔地にいるほどメリットが大きいでしょう。
+                   @foreach($category->good_bad_points as $g_p)
+                    @if($g_p->status==1)
+                      <b>【{{$g_p->title}}】</b><br/>
+                      @foreach(explode('。',$g_p->contents) as $content)
+                        <br/>{{$content}}<br/>
+                      @endforeach
+                    @endif
+                   @endforeach
                   </div>
                 </div>
                 <div class="categoryV2Section">
-                  <h2 class="categoryV2Section__title">WEB会議システム導入するデメリット</h2>
-                  <div class="categoryV2Section__content"><b>【通信状況がインターネット回線に依存する】</b><br>
-                    <br>
-                    WEB会議システムはインターネットを介して通話をするため、通信状況が回線に依存してしまい、場合によっては途中で通話が切断されてしまう恐れがあります。利用している回線によっては通信が安定せず、音声や画質が乱れてしまう場合もあるでしょう。<br>
-                    <br>
-                    通信が不安定なインターネット回線を使用している場合は、契約するプロバイダを見直すことをおすすめします。会議や商談の前には、必ず接続テストもしておきましょう。<br>
-                    <br>
-                    <b>【参加者の雰囲気や感情などを読み取りづらい】</b><br>
-                    <br>
-                    カメラ越しに表情は確認できるものの、WEB会議では相手の雰囲気や感情を正確に読み取るのが難しくなります。<br>
-                    <br>
-                    顧客をはじめ日常的に接する機会の少ない相手と通話する場合、何を考えているのか推し量るのは困難でしょう。適宜質問や問いかけをしながら、相手の状況を把握する工夫が求められます。<br>
-                    <br>
-                    また、こちらの話が伝わりにくい状況も考えられるので、身振りや手振り、ジャスチャーなどで話の内容を補足しつつ、WEB会議システムの画像や資料の共有機能も積極的に活用しましょう。
+                  <h2 class="categoryV2Section__title">{{$category->title}}システム導入するデメリット</h2>
+                  <div class="categoryV2Section__content">
+                    @foreach($category->good_bad_points as $b_p)
+                      @if($b_p->status==0)
+                        <b>【{{$b_p->title}}】</b><br/>
+                        @foreach(explode('。',$b_p->contents) as $content)
+                          <br/>{{$content}}<br/>
+                        @endforeach
+                      @endif
+                   @endforeach
                   </div>
                 </div>
                 <div class="categoryV2Section">
-                  <h2 class="categoryV2Section__title">WEB会議システムの比較ポイント</h2>
-                  <div class="categoryV2Section__content"><b>【同時に接続できるアカウント数で選ぶ】</b><br>
-                    <br>
-                    WEB会議システムによって、同時に接続できる人数（アカウント数）に違いがあります。<br>
-                    <br>
-                    一般的には接続できるアカウント数で料金プランが変わってくるので、前もって利用する人数を明らかにしておき、ユーザー数に見合った製品や料金プランを選択しましょう。<br>
-                    <br>
-                    大規模な会議やウェビナーなどに対応している製品は運用コストが高めですが、日常的に大人数で会議を開く場合、導入は必須でしょう。利用する目的に応じて、利用人数を多めに想定する必要があります。<br>
-                    <br>
-                    <b>【映像や音声の質と安定性で選ぶ】</b><br>
-                    <br>
-                    安定した通信が可能なシステムであるのはもちろん、映像や音声も一定の質を維持できるWEB会議システムを選びましょう。<br>
-                    <br>
-                    通信の安定性はインターネット回線に依存するものの、システムによって映像・音声の質は変わってくるので、無料版が利用できる製品やサービスならば、事前にテスト配信をして品質をチェックしましょう。<br>
-                    <br>
-                    ただし、WEB会議システムを利用しているパソコン・スマートフォンなどのデバイスのスペックによっては、映像や音声の処理速度が遅くなる可能性があります。大人数のWEB会議でも、問題なく稼働するデバイスを選ぶことも大事です。
+                  <h2 class="categoryV2Section__title">{{$category->title}}システムの比較ポイント</h2>
+                  <div class="categoryV2Section__content">
+                     @foreach($category->comparison_points as $c_p)
+                      <b>【{{$c_p->title}}】</b><br/>
+                      @foreach(explode('。',$c_p->contents) as $content)
+                        <br/>{{$content}}<br/>
+                      @endforeach
+                    @endforeach 
                   </div>
                 </div>
                 <div class="categoryV2Section">
-                  <h2 class="categoryV2Section__title">WEB会議システムの導入に失敗しない方法は？成功するためのポイント</h2>
-                  <div class="categoryV2Section__content">WEB会議システムを導入する前に、具体的な利用シーンを想定しておきましょう。<br>
-                    <br>
-                    上記のようにシステムが同時に接続できるアカウント数は、製品・サービスによって変わります。さらに十分なスペックの通信デバイスに加えて、映像と音声を届けるためのWEBカメラやマイクなども必要です。<br>
-                    <br>
-                    どのデバイスでWEB会議を開くのか、同時に何拠点と通信するのかなど、利用シーンを具体的に想定し、それに見合ったシステムを選ばなければいけません。必要な備品も、拠点ごとにそろえておきましょう。<br>
-                    <br>
-                    また、WEB会議で機密情報をやり取りする可能性もあるので、通信場所や共有する資料などについて、しっかりとレギュレーションを設定することが大事です。守るべきルールを定めて、しっかりと共有しておきましょう。
+                  <h2 class="categoryV2Section__title">{{$category->title}}システムの導入に失敗しない方法は？成功するためのポイント</h2>
+                  <div class="categoryV2Section__content">
+                    @foreach(explode('。',$category->success_method) as $content)
+                      <br/>{{$content}}<br/>
+                    @endforeach
                   </div>
                 </div>
               </div>
-
             </div>
-            <div class="categoryV2Item">
-              <h2 class="recommended-articles-title">WEB会議システムの関連記事</h2>
-              <div class="recommended-articles">
-                <a class="recommended-articles-panel" href="https://boxil.jp/mag/a208/">
-                  <div class="recommended-articles-panel__image">
-                    <img alt="【2023年】Web会議システム比較21選！選び方・テレワークにおすすめのツール" class="lazy" data-original="https://store.boxil.jp/media/images/uploads/media_image/media_image/44843/thumb.jpg" src="https://store.boxil.jp/media/images/uploads/media_image/media_image/44843/thumb.jpg" style="display: block;">
-                  </div>
-                  <div class="recommended-articles-panel__body">
-                    <div class="recommended-articles-panel__body-title trunk8-recommended-article-title">【2023年】Web会議システム比較21選！選び方・テレワークにおすすめのツール</div>
-                    <div class="recommended-articles-panel__body-footer">最終更新日: 2023-06-06</div>
-                  </div>
-                </a>
-                <a class="recommended-articles-panel" href="https://boxil.jp/mag/a7255/">
-                  <div class="recommended-articles-panel__image">
-                    <img alt="テレワークのWeb会議のポイント・進め方のコツ！おすすめツールを紹介" class="lazy" data-original="https://store.boxil.jp/media/images/uploads/media_image/media_image/47846/thumb.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAP//////zCH5BAEHAAAALAAAAAABAAEAAAICRAEAOw==">
-                  </div>
-                  <div class="recommended-articles-panel__body">
-                    <div class="recommended-articles-panel__body-title trunk8-recommended-article-title">テレワークのWeb会議のポイント・進め方のコツ！おすすめツールを紹介</div>
-                    <div class="recommended-articles-panel__body-footer">最終更新日: 2022-11-02</div>
-                  </div>
-                </a>
-                <a class="recommended-articles-panel" href="https://boxil.jp/mag/a7703/">
-                  <div class="recommended-articles-panel__image">
-                    <img alt="Web会議システムのシェア・市場規模を解説！一番選ばれている人気サービスは？" class="lazy" data-original="https://store.boxil.jp/media/images/uploads/media_image/media_image/51536/thumb.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAP//////zCH5BAEHAAAALAAAAAABAAEAAAICRAEAOw==">
-                  </div>
-                  <div class="recommended-articles-panel__body">
-                    <div class="recommended-articles-panel__body-title trunk8-recommended-article-title">Web会議システムのシェア・市場規模を解説！一番選ばれている人気サービスは？</div>
-                    <div class="recommended-articles-panel__body-footer">最終更新日: 2022-10-24</div>
-                  </div>
-                </a>
-                <a class="recommended-articles-panel" href="https://boxil.jp/mag/a865/">
-                  <div class="recommended-articles-panel__image">
-                    <img alt="無料で使えるおすすめのWeb会議システム6選！ツールの特徴と選ぶ際のポイントを解説！" class="lazy" data-original="https://store.boxil.jp/media/images/uploads/media_image/media_image/47527/thumb.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAP//////zCH5BAEHAAAALAAAAAABAAEAAAICRAEAOw==">
-                  </div>
-                  <div class="recommended-articles-panel__body">
-                    <div class="recommended-articles-panel__body-title trunk8-recommended-article-title">無料で使えるおすすめのWeb会議システム6選！ツールの特徴と選ぶ際のポイントを解説！</div>
-                    <div class="recommended-articles-panel__body-footer">最終更新日: 2022-12-06</div>
-                  </div>
-                </a>
-                <a class="recommended-articles-panel" href="https://boxil.jp/mag/a6230/">
-                  <div class="recommended-articles-panel__image">
-                    <img alt="Skype×Zoom×Whereby徹底比較 - 目的別おすすめWeb会議ツール" class="lazy" data-original="https://store.boxil.jp/media/images/uploads/media_image/media_image/41396/thumb.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAP//////zCH5BAEHAAAALAAAAAABAAEAAAICRAEAOw==">
-                  </div>
-                  <div class="recommended-articles-panel__body">
-                    <div class="recommended-articles-panel__body-title trunk8-recommended-article-title">Skype×Zoom×Whereby徹底比較 - 目的別おすすめWeb会議ツール</div>
-                    <div class="recommended-articles-panel__body-footer">最終更新日: 2022-04-21</div>
-                  </div>
-                </a>
-                <a class="recommended-articles-panel" href="https://boxil.jp/mag/a6907/">
-                  <div class="recommended-articles-panel__image">
-                    <img alt="bellFaceがクラウドサイン・Slackと連携、契約手続きや社内共有をスムーズに" class="lazy" data-original="https://store.boxil.jp/media/images/uploads/media_image/media_image/42674/thumb.jpg" src="data:image/gif;base64,R0lGODlhAQABAIAAAP//////zCH5BAEHAAAALAAAAAABAAEAAAICRAEAOw==">
-                  </div>
-                  <div class="recommended-articles-panel__body">
-                    <div class="recommended-articles-panel__body-title trunk8-recommended-article-title">bellFaceがクラウドサイン・Slackと連携、契約手続きや社内共有をスムーズに</div>
-                    <div class="recommended-articles-panel__body-footer">最終更新日: 2020-02-27</div>
-                  </div>
-                </a>
-                <div class="recommended-articles__category-link">
-                  <a class="recommended-articles__category-link__link" href="/sc-web_conference/articles/">WEB会議システムの記事一覧<i class="far fa-angle-right m-l-5" aria-hidden="true"></i></a>
-                </div>
-              </div>
-            </div>
-
           </div>
         </div>
       </div>

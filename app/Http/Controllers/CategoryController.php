@@ -31,7 +31,7 @@ class CategoryController extends Controller
 
 	public function show($id)
 	{
-		$category=Category::with('necessary_points')->with('good_bad_points')->findOrFail($id);
+		$category=Category::with('necessary_points')->with('good_bad_points')->with('comparison_points')->findOrFail($id);
 		return view('category.show', ['category'=>$category]);
 	}
 
@@ -47,6 +47,16 @@ class CategoryController extends Controller
 	// 	$categories=Category::where('issue', $id);
 	// 	return $categories;
 	// }
+
+	public function lc_edit(Request $request)
+	{
+		// $lc=LargeCategory::findOrFail($request->lc_id)->update(['title'=>$request->lc_title]);
+		$lc=LargeCategory::updateOrCreate(
+			['id'=>$request->lc_id],
+			['title'=>$request->lc_title]
+		);
+		return redirect()->route('admin_category_issues');
+	}
 
 	public function create(Request $request)
 	{
