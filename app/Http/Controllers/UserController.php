@@ -199,4 +199,9 @@ class UserController extends Controller
         }
         return back()->withInput();
     }
+
+    public function client_managing()
+    {
+        
+    }
 }

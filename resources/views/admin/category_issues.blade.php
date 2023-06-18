@@ -194,7 +194,7 @@ table th,table td {
                     </div>
                     <div class="col-8">
                         <textarea
-                            class="form-control"
+                            class="form-control summernote"
                             type="text"
                             id="c_description"
                             name="c_description"
@@ -300,13 +300,12 @@ table th,table td {
                     </div>
                     <div class="col-8">
                         <textarea
-                            class="form-control"
+                            class="form-control summernote"
                             type="text"
-                            name="g_description"
                             id="g_description"
+                            name="g_description"
                             value=""
-                            required>
-                        </textarea>
+                            required></textarea>
                     </div>
                 </div>
 
@@ -528,14 +527,14 @@ table th,table td {
             $('#categoryForm').attr('action', '/admin/category_edit');
             $('#c_id').val(categoryData.id);
             $('#c_title').val(categoryData.title);
-            $('#c_description').val(categoryData.description);
+            $('#c_description').summernote('code',categoryData.description);
             $('#n_point').summernote('code',categoryData.necessary_points);
             $('#g_point').summernote('code',categoryData.good_points);
             $('#b_point').summernote('code',categoryData.bad_points);
             $('#c_point').summernote('code',categoryData.comparison_points);
             $('#s_point').summernote('code',categoryData.success_method);
             $('#g_title').val(categoryData.guide.title);
-            $('#g_description').val(categoryData.guide.description);
+            $('#g_description').summernote('code',categoryData.guide.description);;
             $('#image_preview')[0].src='/'+categoryData.guide.image;
             $('#g_recommended')[0].checked=categoryData.guide.recommended;
             $('#g_free')[0].checked=categoryData.guide.free;

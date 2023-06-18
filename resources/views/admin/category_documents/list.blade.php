@@ -65,7 +65,8 @@
 												<span
 													data-category={{ $guide }}
 													data-bs-toggle="modal"
-													data-bs-target="#categoryModal">
+													data-bs-target="#categoryModal"
+												>
 													<i class='bx bxs-edit text-primary'></i>
 												</span>
 												<span

@@ -86,11 +86,12 @@ $user = Auth::user();
           <div class="card info-card sales-card">
             <div class="card-body ">
               <div class="row">
-                @for($i=1; $i<=4; $i++) <div class="col-sm-6 col-md-3 text-center">
+                @foreach($r_guides as $r_guide) 
+                <div class="col-sm-6 col-md-3 text-center">
                   <label class="checkbox document-wrapper active">
                     <div class="guide">
                       <div class="guide-img">
-                        <img alt="SaaS Industry Report 2022.pdf" src="{{asset('assets/img/tsukubnobi/guide1.png')}}"
+                        <img alt="SaaS Industry Report 2022.pdf" src="{{asset($r_guide->image)}}"
                           data-xblocker="passed" style="visibility: visible;" width="100%">
                         <div class="guide-checkbox">
                           <div class="checker">
@@ -103,12 +104,12 @@ $user = Auth::user();
                         </div>
                       </div>
                       <div class="guide-name">
-                        <p style="vertical-align: inherit;">SaaS業界レポート2022</p>
+                        <p style="vertical-align: inherit;">{{$r_guide->title}}</p>
                       </div>
                     </div>
                   </label>
               </div>
-              @endfor
+              @endforeach
             </div>
 
             <div class="guide-bottom">
@@ -223,8 +224,20 @@ $user = Auth::user();
 
 @section('script')
 <script>
-downloadConfirm = () => {
-  location.href = "/download/confirm";
-}
+  let checkboxes = document.getElementsByClassName("checkbox-input");
+  downloadClick = () => {
+    let docs = [];
+    for (let i = 0; i < checkboxes.length; i++) {
+      if (checkboxes[i].checked) {
+        docs = [...docs, checkboxes[i].value];
+      }
+    }
+    if(docs.length==0){
+      toastr.error('ガイドを選択する必要があります。');
+    }
+    if (docs.length > 0) {
+      location.href = '/downloads/confirm?checked_docs=' + docs;
+    }
+  }
 </script>
 @endsection

@@ -202,17 +202,6 @@ $('#search').keydown(function(event) {
   }
 });
 
-imgClick = (event) => {
-
-  // event.preventDefault();
-  // for(let i = 0; i<checkboxes.length; i++){
-  //   if(checkboxes[i].checked){
-  //     docs=[...docs, checkboxes[i].value];
-  //   }
-  // }
-  console.log('img')
-}
-
 inputClick = () => {
   console.log('input')
 }
@@ -228,16 +217,6 @@ downloadClick = () => {
     toastr.error('ガイドを選択する必要があります。');
   }
   if (docs.length > 0) {
-    // $.ajax({
-    //   url:'/category_documents/download/confirm',
-    //   method:'POST',
-    //   data:{
-    //     checked_docs:docs,
-    //   },
-    //   catch:function(err){
-    //     console.log(err);
-    //   }
-    // })
     location.href = '/downloads/confirm?checked_docs=' + docs;
   }
 }
