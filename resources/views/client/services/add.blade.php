@@ -246,6 +246,7 @@ public_path('company_profile.json')
 
   const add_image = () => {
     $('#add_image').click(function () {
+      console.log('123');
       var _html = '';
       _html += `<div class="col-4"></div>
                 <div class="col-8 row">
