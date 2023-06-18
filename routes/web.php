@@ -153,11 +153,14 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
 		});
 
 		Route::get('/service_activities', [ServiceController::class, 'service_activities'])->name('admin_service_activities');
-		Route::get('/category_issues', [AdminController::class, 'category_issues'])->name('admin_category_issues');
+		Route::get('/category_issues', [CategoryController::class, 'category_issues'])->name('admin_category_issues');
 		Route::get('/service_managing', [ServiceController::class, 'service_managing'])->name('admin_service_managing');
 		Route::get('/client_managing', [ClientController::class, 'client_managing'])->name('admin_client_managing');
 
 		Route::post('/lc_edit', [CategoryController::class, 'lc_edit'])->name('lc_edit');
+		Route::post('/issue_edit', [CategoryController::class, 'issue_edit'])->name('issue_edit');
+		Route::post('/category_add', [CategoryController::class, 'create'])->name('category_add');
+		Route::post('/category_edit', [CategoryController::class, 'edit'])->name('category_edit');
 	});
 
 });

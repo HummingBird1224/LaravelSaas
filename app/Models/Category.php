@@ -21,6 +21,10 @@ class Category extends Model
         'success_method',
         'large_category_id',
         'issue_id',
+        'necessary_points',
+        'good_points',
+        'bad_points',
+        'comparison_points',
     ];
 
      public function scopeAvgscore($query)
@@ -47,25 +51,8 @@ class Category extends Model
     public function guide() {
         return $this->hasOne(
             Guide::class,
-            'for_id'
-        );
-    }
-
-    public function comparison_points() {
-        return $this->hasMany(
-            CategoryComparisonPoint::class,
-        );
-    }
-
-    public function good_bad_points() {
-        return $this->hasMany(
-            CategoryGoodBadPoint::class,
-        );
-    }
-
-    public function necessary_points() {
-        return $this->hasMany(
-            CategoryNecessaryPoint::class,
+            'id',
+            'guide_id'
         );
     }
 

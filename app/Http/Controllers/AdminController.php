@@ -29,10 +29,5 @@ class AdminController extends Controller
 		$user->save();
 	}
 
-	public function category_issues()
-	{
-		$lcs=LargeCategory::with('categories')->get();
-		$issues=Issue::with('categories')->get();
-		return view('admin.category_issues', ['lcs'=>$lcs, 'issues'=>$issues]);
-	}
+
 }
