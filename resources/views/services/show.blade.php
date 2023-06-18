@@ -125,7 +125,6 @@
       <script type="application/ld+json">{"@context":"https://schema.org/","@type":"Product","@id":"Zoom","name":"Zoom","description":"Zoomは、クラウドのビデオ会議とウェブ会議、およびグループメッセージングを使いやすく統合したプラットフォーム。Windows、Mac、iOS、Android、Blackberry、Zoom Rooms、およびH.323 / SIPルームシステムで最高のビデオ、オーディオ、およびスクリーン共有体験を提供。","logo":"/attachments/files/images/eyJpZCI6IjYzNGExYmFiN2E2YmE3NGM3NDRmY2Q0MTJlZGI5MjgzLnBuZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX2xvZ28iLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQxMC0xMjgxNy0xdDBva3IyLnBuZyIsInNpemUiOjU4NjUsIm1pbWVfdHlwZSI6bnVsbH19","image":"/attachments/files/images/eyJpZCI6IjYzNGExYmFiN2E2YmE3NGM3NDRmY2Q0MTJlZGI5MjgzLnBuZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX2xvZ28iLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQxMC0xMjgxNy0xdDBva3IyLnBuZyIsInNpemUiOjU4NjUsIm1pbWVfdHlwZSI6bnVsbH19","brand":{"@type":"Brand","name":"企業情報未登録"},"aggregateRating":{"@type":"AggregateRating","bestRating":5,"worstRating":0,"ratingValue":"4.43","ratingCount":1591}}</script>
       <script type="application/ld+json">{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"BOXIL","item":"https://boxil.jp/"},{"@type":"ListItem","position":2,"name":"【2023年】Web会議システム比較21選！選び方・テレワークにおすすめのツール","item":"https://boxil.jp/mag/a208/"},{"@type":"ListItem","position":3,"name":"WEB会議システム","item":"https://boxil.jp/sc-web_conference/"},{"@type":"ListItem","position":4,"name":"Zoom","item":"https://boxil.jp/service/3558/"}]}</script>
       <div class="servicesV2">
-
         <div class="servicesV2Contents">
           <div class="boxil-wrappar">
             <main class="mainContents">
@@ -136,7 +135,7 @@
                       <div class="service-content-left">
                         <div class="service_show_overview__download_wrapper__logoService">
                           <div class="serviceLogo">
-                            <img alt="Zoom" class="service-logo-image" loading="lazy" src="/attachments/files/images/eyJpZCI6ImE0MDlmZTc0N2UyOWQ3OGRmMDQ5YzQ1NjM3MmQxMjAzLnBuZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX2xvZ28iLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQxMC0xMjgxNy16OWhtM2kucG5nIiwic2l6ZSI6NDI1MiwibWltZV90eXBlIjpudWxsfX0">
+                            <img alt="{{ $service->title }}" class="service-logo-image" loading="lazy" src="{{ asset($service->logo) }}">
                           </div>
                         </div>
                       </div>
@@ -145,7 +144,7 @@
                           <div class="service_show_overview__header__main__content">
                             <h1 class="service_show_overview__header__main__content__header">
                               <div class="service_show_overview__header__main__content__header__title-container">
-                                <div class="service_show_overview__header__main__content__header__title-container-title">Zoom</div>
+                                <div class="service_show_overview__header__main__content__header__title-container-title">{{$service->title}}</div>
                               </div>
                               <div class="service_show_overview__header__main__content__catchphrase">の評判・口コミ・料金・機能・導入事例</div>
                             </h1>
@@ -186,7 +185,7 @@
                       <div class="service_show_overview__description__description">
                         <div class="servicesShowContentWrapper">
                           <div class="servicesShowContentWrapper__detailHidden servicesShowContentWrapper__detailText">
-                            <p>Zoomは、クラウドのビデオ会議とウェブ会議、およびグループメッセージングを使いやすく統合したプラットフォーム。Windows、Mac、iOS、Android、Blackberry、Zoom Rooms、およびH.323 / SIPルームシステムで最高のビデオ、オーディオ、およびスクリーン共有体験を提供。</p>
+                            <p>{{ $service->description }}</p>
                           </div>
                         </div>
                         <div class="serviceShowCard__footer" id="ss-content-readmore" style="display: none;">
@@ -235,6 +234,75 @@
         <div class="servicesV2Contents">
           <div class="boxil-wrappar">
 
+            <div class="mainContents__subView serviceShowCard">
+              <div id="ss-screenshots">
+                <h2 class="ServicesShow-main-block-title">サービス画面 / UI</h2>
+                <div class="ServicesShow-main-block-contents">
+                  <div class="screenShotsWrapper">
+                    <div class="screenShotsWrapper__container">
+                      <div class="screenShotsWrapper__leftItem">
+                        <div class="screenShotLarge">
+                          <img alt="タレントパレットのスクリーンショット1" is-lazyload="true" data-src="/attachments/files/images/eyJpZCI6IjgzODkwNzNjN2U4NTU4ZTRlZWJiOWZhZGRmMTFlM2I5LmpwZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQwNy00NDYtMTVpOXJ6Ni5qcGciLCJzaXplIjo1MDg3MCwibWltZV90eXBlIjpudWxsfX0" src="/attachments/files/images/eyJpZCI6IjgzODkwNzNjN2U4NTU4ZTRlZWJiOWZhZGRmMTFlM2I5LmpwZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQwNy00NDYtMTVpOXJ6Ni5qcGciLCJzaXplIjo1MDg3MCwibWltZV90eXBlIjpudWxsfX0">
+                          <i class="fas fa-search screenShotLarge__zoomIcon" aria-hidden="true">
+                            <a data-lightbox="screenshot" data-toggle="lightbox" href="/attachments/files/images/eyJpZCI6Ijc3ZTkxNDMyNjUxMWY5ODBkNDhmY2IwNTY5MGQ1NTUyMDRjODFkMjgxM2Q3M2VlN2Y3N2UyZDUwOTBlMiIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6IuOCv-ODrOODs-ODiOODkeODrOODg-ODiOODiOODg-ODl-eUuy5qcGciLCJzaXplIjo2OTY2NjEsIm1pbWVfdHlwZSI6ImltYWdlL2pwZWcifX0">
+                              <div class="ScreenShotHoverBlock"></div>
+                            </a>
+                          </i>
+                        </div>
+                        <div class="screenShotLarge" style="display: none;">
+                          <img alt="タレントパレットのスクリーンショット2" is-lazyload="true" data-src="/attachments/files/images/eyJpZCI6ImQzZmQwYjIwOGQyNThjY2Q4Nzg3NjZjYzc3ZTQwNDQ5LmpwZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQwNy00NDYtdmppOXk0LmpwZyIsInNpemUiOjYwOTk5LCJtaW1lX3R5cGUiOm51bGx9fQ" src="">
+                          <i class="fas fa-search screenShotLarge__zoomIcon" aria-hidden="true">
+                            <a data-lightbox="screenshot" data-toggle="lightbox" href="/attachments/files/images/eyJpZCI6IjliZDkyMTE3ODc3OWQ4NWMwNjk4MTAyNzRmNmExMTcwMTQyNDNhYTU4ZDY5MDJiNjk2ZmU4Zjc4OTJlZSIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6IuOCv-ODrOODs-ODiOODkeODrOODg-ODiOODiOODg-ODl-eUuzIuanBnIiwic2l6ZSI6MTY0MDI4LCJtaW1lX3R5cGUiOiJpbWFnZS9qcGVnIn19">
+                              <div class="ScreenShotHoverBlock"></div>
+                            </a>
+                          </i>
+                        </div>
+                        <div class="screenShotLarge" style="display: none;">
+                          <img alt="タレントパレットのスクリーンショット3" is-lazyload="true" data-src="/attachments/files/images/eyJpZCI6ImI1ODczOTk5OTM5ZTFiM2UyZTllOGQxMzFhYmE3ZjExLmpwZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQwNy00NDYtMWltYjlvNC5qcGciLCJzaXplIjo4MDg2MywibWltZV90eXBlIjpudWxsfX0" src="">
+                          <i class="fas fa-search screenShotLarge__zoomIcon" aria-hidden="true">
+                            <a data-lightbox="screenshot" data-toggle="lightbox" href="/attachments/files/images/eyJpZCI6ImJmZjUzNmI0NmFiOWMyZTU2ZDY5NGVjNTNkZThjYWYwMWJhZjYxM2RiYTgyNjY0ZGI0NDUzNGFlYmFjMiIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6IjIwMTgwMTI2ZGFzaGJvYXJkMXZ2LmpwZyIsInNpemUiOjIzOTMzOCwibWltZV90eXBlIjoiaW1hZ2UvanBlZyJ9fQ">
+                              <div class="ScreenShotHoverBlock"></div>
+                            </a>
+                          </i>
+                        </div>
+                        <div class="screenShotLarge" style="display: none;">
+                          <img alt="タレントパレットのスクリーンショット4" is-lazyload="true" data-src="/attachments/files/images/eyJpZCI6IjYxOTMwMDVhZWQxOTY3ZmNlYmZkZjE4MjRmZmI0ZTgzLmpwZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQwNy00NDYtZWpmeWJ6LmpwZyIsInNpemUiOjYyMDQxLCJtaW1lX3R5cGUiOm51bGx9fQ" src="">
+                          <i class="fas fa-search screenShotLarge__zoomIcon" aria-hidden="true">
+                            <a data-lightbox="screenshot" data-toggle="lightbox" href="/attachments/files/images/eyJpZCI6IjdjZjhmMTZhMDczZDBhOTA1NGJkZTI4ZDM3NDZiNWQ3YzM1NjgyMjFjOGRhYTQ3ZmRjNTExMzE3OTQwYyIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6IuOCv-ODrOODs-ODiOODkeODrOODg-ODiOODiOODg-ODl-eUuzMuanBnIiwic2l6ZSI6MTY5NDQ3LCJtaW1lX3R5cGUiOiJpbWFnZS9qcGVnIn19">
+                              <div class="ScreenShotHoverBlock"></div>
+                            </a>
+                          </i>
+                        </div>
+                      </div>
+                      <div class="screenShotsWrapper__leftItem-bottom">
+                        <div class="screenShotTexts"></div>
+                        <div class="screenShotTexts" style="display: none;"></div>
+                        <div class="screenShotTexts" style="display: none;"></div>
+                        <div class="screenShotTexts" style="display: none;"></div>
+                      </div>
+                    </div>
+                    <div class="screenShotsWrapper__rightItem">
+                      <div class="screenShotsWrapper__rightItem-top">
+                        <div class="screenShotSmall" id="screenshot-2136">
+                          <img alt="タレントパレットのスクリーンショット1" is-lazyload="true" data-src="/attachments/files/images/eyJpZCI6ImM4NDFkYzA2ZjcxYjVjMDNlMzMyYzg2ZTIzMWQ0ZjA4LmpwZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQwNy00NDYteXZpMWJ3LmpwZyIsInNpemUiOjE1OTMyLCJtaW1lX3R5cGUiOm51bGx9fQ" src="/attachments/files/images/eyJpZCI6ImM4NDFkYzA2ZjcxYjVjMDNlMzMyYzg2ZTIzMWQ0ZjA4LmpwZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQwNy00NDYteXZpMWJ3LmpwZyIsInNpemUiOjE1OTMyLCJtaW1lX3R5cGUiOm51bGx9fQ" style="opacity: 0.5;">
+                        </div>
+                        <div class="screenShotSmall" id="screenshot-2137">
+                          <img alt="タレントパレットのスクリーンショット2" is-lazyload="true" data-src="/attachments/files/images/eyJpZCI6ImEwM2RjMjg1Yjg3MGMzOTM4YzRkOTk0NzQwY2VjMTAyLmpwZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQwNy00NDYtN2tlNWprLmpwZyIsInNpemUiOjIwMzk2LCJtaW1lX3R5cGUiOm51bGx9fQ" src="/attachments/files/images/eyJpZCI6ImEwM2RjMjg1Yjg3MGMzOTM4YzRkOTk0NzQwY2VjMTAyLmpwZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQwNy00NDYtN2tlNWprLmpwZyIsInNpemUiOjIwMzk2LCJtaW1lX3R5cGUiOm51bGx9fQ" style="opacity: 0.5;">
+                        </div>
+                        <div class="screenShotSmall" id="screenshot-2138">
+                          <img alt="タレントパレットのスクリーンショット3" is-lazyload="true" data-src="/attachments/files/images/eyJpZCI6ImJiYjc2NzI2NTA3ZTIwNTdiZDg2YmFiOWIyYTk3NzA3LmpwZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQwNy00NDYtMTJxazVhei5qcGciLCJzaXplIjoyNTY4NywibWltZV90eXBlIjpudWxsfX0" src="/attachments/files/images/eyJpZCI6ImJiYjc2NzI2NTA3ZTIwNTdiZDg2YmFiOWIyYTk3NzA3LmpwZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQwNy00NDYtMTJxazVhei5qcGciLCJzaXplIjoyNTY4NywibWltZV90eXBlIjpudWxsfX0" style="opacity: 0.5;">
+                        </div>
+                        <div class="screenShotSmall" id="screenshot-2139">
+                          <img alt="タレントパレットのスクリーンショット4" is-lazyload="true" data-src="/attachments/files/images/eyJpZCI6IjBkNzUxNDllMzFjNTY2Njc4YWIzYTBhMzk4NjU4YjcyLmpwZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQwNy00NDYtMThmM2kyZi5qcGciLCJzaXplIjoxOTUxNCwibWltZV90eXBlIjpudWxsfX0" src="/attachments/files/images/eyJpZCI6IjBkNzUxNDllMzFjNTY2Njc4YWIzYTBhMzk4NjU4YjcyLmpwZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQwNy00NDYtMThmM2kyZi5qcGciLCJzaXplIjoxOTUxNCwibWltZV90eXBlIjpudWxsfX0" style="opacity: 0.5;">
+                        </div>
+                      </div>
+                      <div class="note">画像をクリックすると左側に表示されます</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div class="mainContents__subView serviceShowCustomers">
               <div id="ss-customerLogos">
                 <h2 class="ServicesShow-main-block-title">導入実績</h2>
@@ -266,8 +334,61 @@
                   <div class="ServicesShow-main-block-contents">
                     <div class="serviceFreePlans"></div>
                     <div class="servicePlanBox">
+                      @foreach ($service->prices as $plan)
+                        <div id="sep-{{ $loop->iteration }}"></div>
+                        <div class="servicePlan">
+                          <div class="servicePlan__headerWrapper">
+                            <div class="servicePlan__center">
+                              <div class="servicePlan__headerWrapper-content">{{ $plan->title }}</div>
+                            </div>
+                          </div>
+                          <div class="servicePlan__priceWrapper">
+                            <div>
+                              <div class="servicePlan__texts-nomal servicePlan__priceWrapper-texts">プラン価格</div>
+                              <div class="servicePlan__texts-price servicePlan__priceWrapper-texts">
+                                <span class="i-num">{{ $plan->price }}</span>
+                                <span class="i-unit">円-</span>
+                                <span class="i-unit">/年</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="servicePlan__rows servicePlan__rows-type1">
+                            <div class="servicePlan__columns">
+                              <div class="servicePlan__texts-nomal servicePlan__columns-start">月額/ユーザー</div>
+                              <div class="servicePlan__texts-bold servicePlan__columns-end">{{ $plan->monthly }}<span class="unit">円-</span></div>
+                            </div>
+                          </div>
+                          <div class="servicePlan__rows servicePlan__rows-type2">
+                            <div class="servicePlan__columns">
+                              <div class="servicePlan__texts-nomal servicePlan__columns-start">初期費用</div>
+                              <div class="servicePlan__texts-bold servicePlan__columns-end">
+                                <span class="text-gray">{{ $plan->initial }}</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="servicePlan__rows servicePlan__rows-type1">
+                            <div class="servicePlan__columns">
+                              <div class="servicePlan__texts-nomal servicePlan__columns-start">最低利用人数</div>
+                              <div class="servicePlan__texts-bold servicePlan__columns-end">
+                                <span class="text-gray">{{ $plan->min_user }}</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="servicePlan__rows servicePlan__rows-type2">
+                            <div class="servicePlan__columns">
+                              <div class="servicePlan__texts-nomal servicePlan__columns-start">最低利用期間</div>
+                              <div class="servicePlan__texts-bold servicePlan__columns-end"><span class="text-gray">{{ $plan->min_usage }}</span></div>
+                            </div>
+                          </div>
+                          <div class="servicePlan__descriptionWrapper m-t-16">
+                            <div class="servicePlan__descriptionWrapper-description">
+                              <p>※{{ $plan->description }}</p>
+                            </div>
+                          </div>
+                        </div>
+                      @endforeach
 
-                      <div id="sep-0"></div>
+                      <!-- <div id="sep-0"></div>
                       <div class="servicePlan">
                         <div class="servicePlan__headerWrapper">
                           <div class="servicePlan__center">
@@ -411,7 +532,8 @@
                             <p>※初年度20%OFFにてご提供<br>※こちらはZoom社ではなく、弊社（スマートキャンプ）独自のキャンペーンとなります</p>
                           </div>
                         </div>
-                      </div>
+                      </div> -->
+
                     </div>
                   </div>
                 </div>
@@ -820,7 +942,7 @@
             <div class="ss-reviews" id="ss-basic-info-tabs">
               <div class="serviceMetrics__item">
 
-                <h2 class="ServicesShow-main-block-title">Zoomの口コミ・評判</h2>
+                <h2 class="ServicesShow-main-block-title">{{ $service->title }}の口コミ・評判</h2>
                 <div class="reviewOverviewCard__contents">
                   <div class="serviceReputationMetricsContainerV2">
                     <div class="serviceReputationMetricsReputationBlock">

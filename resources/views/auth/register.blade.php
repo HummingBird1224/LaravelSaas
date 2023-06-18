@@ -2,7 +2,9 @@
 <html lang="ja" prefix="og: http://ogp.me/ns#">
 
 @php
-$user=Auth::user();
+$data=json_decode(file_get_contents(
+public_path('company_profile.json')
+));
 @endphp
 
 <head>
@@ -426,54 +428,11 @@ $user=Auth::user();
                   <div class="flex align-center">
                     <select class="form-control placeholder-no-fix registration-initial-boxcolor" name="prefecture" id="user_corporation_attributes_prefecture">
                       <option value="">選択してください</option>
-                      <option value="1">北海道</option>
-                      <option value="2">青森県</option>
-                      <option value="3">岩手県</option>
-                      <option value="4">宮城県</option>
-                      <option value="5">秋田県</option>
-                      <option value="6">山形県</option>
-                      <option value="7">福島県</option>
-                      <option value="8">茨城県</option>
-                      <option value="9">栃木県</option>
-                      <option value="10">群馬県</option>
-                      <option value="11">埼玉県</option>
-                      <option value="12">千葉県</option>
-                      <option value="13">東京都</option>
-                      <option value="14">神奈川県</option>
-                      <option value="15">新潟県</option>
-                      <option value="16">富山県</option>
-                      <option value="17">石川県</option>
-                      <option value="18">福井県</option>
-                      <option value="19">山梨県</option>
-                      <option value="20">長野県</option>
-                      <option value="21">岐阜県</option>
-                      <option value="22">静岡県</option>
-                      <option value="23">愛知県</option>
-                      <option value="24">三重県</option>
-                      <option value="25">滋賀県</option>
-                      <option value="26">京都府</option>
-                      <option value="27">大阪府</option>
-                      <option value="28">兵庫県</option>
-                      <option value="29">奈良県</option>
-                      <option value="30">和歌山県</option>
-                      <option value="31">鳥取県</option>
-                      <option value="32">島根県</option>
-                      <option value="33">岡山県</option>
-                      <option value="34">広島県</option>
-                      <option value="35">山口県</option>
-                      <option value="36">徳島県</option>
-                      <option value="37">香川県</option>
-                      <option value="38">愛媛県</option>
-                      <option value="39">高知県</option>
-                      <option value="40">福岡県</option>
-                      <option value="41">佐賀県</option>
-                      <option value="42">長崎県</option>
-                      <option value="43">熊本県</option>
-                      <option value="44">大分県</option>
-                      <option value="45">宮崎県</option>
-                      <option value="46">鹿児島県</option>
-                      <option value="47">沖縄県</option>
-                      <option value="99">海外</option>
+                      @foreach($data->prefectures as $prefecture)
+
+                      <option value="{{$prefecture->value}}">{{$prefecture->value}}</option>
+                      
+                      @endforeach
                     </select>
                     <div class="reg-icon-wrapper">
                       <div class="reg-success-icon">
@@ -511,17 +470,11 @@ $user=Auth::user();
                   <div class="flex align-center">
                     <select class="form-control placeholder-no-fix registration-initial-boxcolor" name="business_type" id="user_corporation_attributes_type_of_business">
                       <option value="">選択してください</option>
-                      <option value="1">不動産/建設/設備系</option>
-                      <option value="2">メーカー/製造系</option>
-                      <option value="3">エネルギー/環境/リサイクル系</option>
-                      <option value="4">IT/通信/インターネット系</option>
-                      <option value="5">輸送/交通/物流/倉庫系</option>
-                      <option value="6">小売/流通/商社系</option>
-                      <option value="7">金融/保険系</option>
-                      <option value="8">サービス/外食/レジャー系</option>
-                      <option value="9">コンサルティング・専門サービス</option>
-                      <option value="10">マスコミ/広告/デザイン/ゲーム/エンターテイメント系</option>
-                      <option value="11">医療系</option>
+                      @foreach($data->industries as $industry)
+
+                      <option value="{{$industry->id}}">{{$industry->value}}</option>
+                      
+                      @endforeach
                     </select>
                     <div class="reg-icon-wrapper">
                       <div class="reg-success-icon">
@@ -545,16 +498,11 @@ $user=Auth::user();
                   <div class="flex align-center">
                     <select class="form-control placeholder-no-fix registration-initial-boxcolor" name="corporation_scale" id="user_corporation_attributes_scale">
                       <option value="">選択してください</option>
-                      <option value="no_employee">1人</option>
-                      <option value="very_small">2～10人</option>
-                      <option value="smaller">11～30人</option>
-                      <option value="small">31～50人</option>
-                      <option value="medium">51～100人</option>
-                      <option value="large">101～200人</option>
-                      <option value="small_large">201～300人</option>
-                      <option value="medium_large">301～500人</option>
-                      <option value="very_large">501～1000人</option>
-                      <option value="over_thousand">1000人以上</option>
+                      @foreach($data->employee_numbers as $employee_number)
+
+                      <option value="{{$employee_number->id}}">{{$employee_number->value}}</option>
+                      
+                      @endforeach
                     </select>
                     <div class="reg-icon-wrapper">
                       <div class="reg-success-icon">
@@ -578,14 +526,11 @@ $user=Auth::user();
                   <div class="flex align-center">
                     <select class="form-control placeholder-no-fix registration-initial-boxcolor" name="department" id="user_profile_attributes_department">
                       <option value="">選択してください</option>
-                      <option value="infomation_system">情報システム部門</option>
-                      <option value="marketing">マーケティング部門</option>
-                      <option value="sales">営業・販売部門</option>
-                      <option value="corporate_planning">経営企画部門</option>
-                      <option value="public_relations">広報・PR部門</option>
-                      <option value="human_resources">人事部門</option>
-                      <option value="general_or_leagal">総務・法務部門</option>
-                      <option value="accounting">経理・財務部門</option>
+                      @foreach($data->departments as $department)
+
+                      <option value="{{$department->id}}">{{$department->value}}</option>
+
+                      @endforeach
                     </select>
                     <div class="reg-icon-wrapper">
                       <div class="reg-success-icon">
@@ -602,13 +547,11 @@ $user=Auth::user();
                   <div class="flex align-center">
                     <select class="form-control placeholder-no-fix registration-initial-boxcolor" name="official_position" id="user_profile_attributes_position">
                       <option value="">選択してください</option>
-                      <option value="executive">経営者</option>
-                      <option value="officer">役員（取締役）</option>
-                      <option value="division_manager">事業部長・工場長クラス</option>
-                      <option value="manager">部長・課長クラス</option>
-                      <option value="assistant_manager">係長・主任クラス</option>
-                      <option value="general_staff">一般社員・職員</option>
-                      <option value="temporary_worker">契約・派遣・委託</option>
+                      @foreach($data->jobs as $job)
+
+                      <option value="{{$job->id}}">{{$job->value}}</option>
+                      
+                      @endforeach
                     </select>
                     <div class="reg-icon-wrapper">
                       <div class="reg-success-icon">
