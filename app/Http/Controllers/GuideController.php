@@ -50,6 +50,22 @@ class GuideController extends Controller
         return view('guides.download_confirm',['requested_guides'=>$doc_arr] );
     }
 
+    public function post_mail(Request $request) {
+        // $data = "";
+		// $filename = "Download File";
+		// $data .= "This is download file.\n";
+        // $data .= "First Name: " . $request->first_name . "\n";
+        // $data .= "Last Name: " . $request->last_name . "\n";
+        // $data .= "Kana Name: " . $request->kana_first . " " . $request->kana_last . "\n";
+        // $data .= "Email Address: " . $request->email . "\n";
+
+        // header('Content-Type: application/txt');
+		// header('Content-Disposition: attachment; filename="' . $filename . "_" . date("Y-m-d") . '.txt"');
+		// echo $data;
+		// exit();
+        return redirect()->route('category_documents');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

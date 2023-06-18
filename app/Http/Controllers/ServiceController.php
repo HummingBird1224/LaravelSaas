@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Service;
 use App\Models\Guide;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ServiceController extends Controller
 {
@@ -24,9 +25,25 @@ class ServiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function add_view()
     {
-        return view('client.services.add', ['guide_id'=>$id]);
+        return view('client.services.add');
+    }
+
+    public function add_service(Request $request) {
+        $service = new Service;
+
+		$service->user_id = Auth::id();
+		$service->title = $request->title;
+		$service->description = $request->description;
+		$service->logo = $request->logo;
+		// $service->secret_key = $request->secret_key;
+		// $service->partner_tag = $request->partner_tag;
+
+		$service->save();
+        $service_id = 16;
+
+		return redirect()->route('service_view', ['id' => $service_id]);
     }
 
     /**

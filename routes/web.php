@@ -47,7 +47,7 @@ Route::prefix('category_documents')->group(function() {
 	Route::get('/', [GuideController::class, 'index'])->name('category_documents');
 	Route::get('/search', [GuideController::class, 'search'])->name('category_documents_search');	
 });
-Route::get('/downloads/confirm', [GuideController::class, 'download_confirm'])->name('download_confirm');
+// Route::get('/downloads/confirm', [GuideController::class, 'download_confirm'])->name('download_confirm');
 
 //Service Routes
 Route::get('/services/{id}',[ServiceController::class,'show'])->name('service_view');
@@ -167,6 +167,7 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
 
 Route::group(['middleware' => ['auth', 'client']], function() {
 	Route::get('/downloads/confirm', [GuideController::class, 'download_confirm'])->name('download_confirm');
+	Route::post('/downloads/post_mail', [GuideController::class, 'post_mail'])->name('post_mail');
 
 	Route::prefix('client')->group(function() {
 		Route::get('/client_tools', [ClientController::class, 'client_tools'])->name('client_tools');
@@ -177,7 +178,8 @@ Route::group(['middleware' => ['auth', 'client']], function() {
 		Route::prefix('/services')->group(function(){
 			Route::get('/', [ServiceController::class, 'index'])->name('service_list');
 			Route::get('/delete/{id}', [ServiceController::class, 'delete'])->name('delete_service');
-			Route::get('/add/{id}', [ServiceController::class, 'create'])->name('add_service');
+			Route::get('/add', [ServiceController::class, 'add_view']);
+			Route::post('/add_service', [ServiceController::class, 'add_service'])->name('add_service');
 			Route::post('/store', [ServiceController::class, 'store'])->name('store_service');
 		});
 	});
