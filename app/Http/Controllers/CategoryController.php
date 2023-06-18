@@ -35,7 +35,7 @@ class CategoryController extends Controller
 
 	public function show($id)
 	{
-		$category=Category::with('necessary_points')->with('good_bad_points')->with('comparison_points')->findOrFail($id);
+		$category=Category::findOrFail($id);
 		return view('category.show', ['category'=>$category]);
 	}
 
@@ -45,12 +45,6 @@ class CategoryController extends Controller
 		$categories=Category::where($parent, $id)->with('guide')->get();
 		return $categories;
 	}
-
-	// public function categories_by_issue($id)
-	// {
-	// 	$categories=Category::where('issue', $id);
-	// 	return $categories;
-	// }
 
 	public function lc_edit(Request $request)
 	{

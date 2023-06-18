@@ -63,7 +63,7 @@ Route::get('/categories/{parent}/{id}',[CategoryController::class, 'categories_b
 Route::group(['middleware' => ['auth']], function() {
 
 	Route::prefix('mypage')->group(function(){
-		Route::view('/', 'mypage.dashboard')->name('mypage');
+		Route::get('/', [MypageController::class, 'index'])->name('mypage');
 		Route::get('/reputation_answers',[ReviewController::class, 'repuation_answers'] )->name('reputation_answers');
 		Route::get('/delete_review/{id}',[ReviewController::class, 'destroy'] )->name('delete_review');
 		Route::view('/requested_materials', 'mypage.requested_materials')->name('requested_materials');
@@ -155,7 +155,7 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
 		Route::get('/service_activities', [ServiceController::class, 'service_activities'])->name('admin_service_activities');
 		Route::get('/category_issues', [CategoryController::class, 'category_issues'])->name('admin_category_issues');
 		Route::get('/service_managing', [ServiceController::class, 'service_managing'])->name('admin_service_managing');
-		Route::get('/client_managing', [ClientController::class, 'client_managing'])->name('admin_client_managing');
+		Route::get('/client_managing', [UserController::class, 'client_managing'])->name('admin_client_managing');
 
 		Route::post('/lc_edit', [CategoryController::class, 'lc_edit'])->name('lc_edit');
 		Route::post('/issue_edit', [CategoryController::class, 'issue_edit'])->name('issue_edit');
