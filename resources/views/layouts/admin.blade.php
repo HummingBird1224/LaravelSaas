@@ -35,6 +35,8 @@
   <link rel="stylesheet" href="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
   <link rel="stylesheet" href="{{ asset('assets/toastr/toastr.min.css') }}" />
   <link rel="stylesheet" href="{{ asset('assets/vendor/loader-4.css') }}" />
+  <link rel="stylesheet" href="{{ asset('assets/summernote/summernote-lite.min.css') }}" />
+
 
   <!-- Page CSS -->
 
@@ -185,6 +187,7 @@
 
   <!-- Page JS -->
   <script src="{{ asset('assets/toastr/toastr.min.js') }}"></script>
+  <script src="{{ asset('assets/summernote/summernote-lite.min.js') }}"></script>
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>

@@ -131,6 +131,7 @@ class UserController extends Controller
     }
 
     public function profile_edit(Request $request){
+        dd($request);
         $file=$request->file('avatar');
         $user = User::updateOrCreate(
             [

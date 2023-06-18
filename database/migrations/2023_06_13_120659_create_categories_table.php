@@ -19,7 +19,7 @@ class CreateCategoriesTable extends Migration
             $table->text('description')->nullable();
             $table->text('disadvantage')->nullable();
             $table->text('success_method')->nullable();
-            $table->integer('large_category_id');
+            $table->integer('large_category_id')->nullable();
             $table->integer('issue_id')->nullable();
             $table->timestamps();
         });
