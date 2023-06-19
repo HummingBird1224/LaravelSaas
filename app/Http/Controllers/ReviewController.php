@@ -27,6 +27,10 @@ class ReviewController extends Controller
         //
     }
 
+    public function review_edit($id) {
+        return view('reviews.add_review', ['service_id'=>$id]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

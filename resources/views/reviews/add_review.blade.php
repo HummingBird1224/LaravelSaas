@@ -119,7 +119,7 @@ public_path('company_profile.json')
                     enctype="multipart/form-data" action="{{ route('create_review') }}" accept-charset="UTF-8"
                     method="post">
                     @csrf
-                    <input type="hidden" name="service_id" value="{{ $service_id = '1' }}">
+                    <input type="hidden" name="service_id" value="{{ $service_id }}">
                     <div class="form-group">
                       <label class="col-sm-3 control-label select required">タイトル</label>
                       <div class="col-sm-8 flex m-l-20">
