@@ -156,7 +156,7 @@ public_path('company_profile.json')
                             <div class="tab-pane active">
                               <!-- <form class="simple_form form-horizontal margin-top-30" id="edit_user_272951" enctype="multipart/form-data" action="/account/edit_company_profile/" accept-charset="UTF-8" method="post">
                                 @csrf -->
-                                <input type="hidden" name="authenticity_token" value="LgeuzujFUlMVxzWPs26P9g8koraSjDZKRE+USK717pQ40HiHN2bvAzWCdUipB063Np91mxyCPC7frPCgdvX4rg==">
+                                <!-- <input type="hidden" name="authenticity_token" value="LgeuzujFUlMVxzWPs26P9g8koraSjDZKRE+USK717pQ40HiHN2bvAzWCdUipB063Np91mxyCPC7frPCgdvX4rg=="> -->
                                 <input value="true" type="hidden" name="user[first_create]" id="user_first_create">
 
                                 <div class="form-group row m-b-30">
@@ -225,7 +225,7 @@ public_path('company_profile.json')
                                   <label class="col-sm-3 control-label string required">メールアドレス</label>
                                   <div class="col-sm-6 flex m-l-20">
                                     <input class="form-control string required w-300px" required="required"
-                                      aria-required="true" placeholder="ビジネス利用の電話番号を入力" type="text" name="email"
+                                      aria-required="true" placeholder="ビジネス用メールアドレスを入力してください" type="email" name="email"
                                       id="email" value="{{$user?$user->email:''}}" />
                                   </div>
                                   <button type="button" name="commit" value="更新する"
