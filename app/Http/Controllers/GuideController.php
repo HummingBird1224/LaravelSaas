@@ -72,9 +72,10 @@ class GuideController extends Controller
         }
         else if($type=='category'){
             $c_id=$request->query('id');
-            $services=Category::findOrFail($c_id)->guide->services;
-            dd($services);
-            return view('guides.download_confirm',['services'=>$services, 'type'=>'category']);
+            $category=Category::findOrFail($c_id);
+            $services=$category->guide->services;
+            
+            return view('guides.download_confirm',['services'=>$services,'c_title'=>$category->title, 'type'=>'category']);
         }
     }
 

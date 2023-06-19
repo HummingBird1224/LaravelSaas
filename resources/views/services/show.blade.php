@@ -61,11 +61,9 @@
       <div class="v2NavbarItem">
         <div class="v2NavbarItem__title"><span>{{$service->guide->category->title}}</span>の関連情報</div>
         <div class="v2NavbarItem__button">
-          <form class="" target="_top" action="/downloads/confirm/" accept-charset="UTF-8" method="get">
+          <form class="" target="_top" action="/downloads/confirm" accept-charset="UTF-8" method="get">
             <input type="hidden" name="type" value="category">
-            <input type="hidden" name="ids[]" value="467">
-            <input type="hidden" name="_via" value="cs-categoryDL-header">
-            <input type="hidden" name="is_comparison" value="false">
+            <input type="hidden" name="id" value="{{$service->guide->category->id}}">
             <button name="button" type="submit" class="cvButton v2NavbarItem__button js-track js-track-cs-categoryDL-header">無料で一括資料ダウンロード</button>
           </form>
         </div>
@@ -151,6 +149,15 @@
                               <div class="service_show_overview__header__main__content__i-bottom-right">
                                 <div class="service_show_overview__header__main__content__i-bottom-updatedAt">最終更新日 : 2023年04月30日 20:42<time datetime="2023-04-30T20:42:19+09:00" itemprop="dateModified"></time></div>
                               </div>
+                              @if($service->data)
+                              <div class="v2NavbarItem__button m-t-30">
+                                <form class="" target="_top" action="/downloads/confirm" accept-charset="UTF-8" method="get">
+                                  <input type="hidden" name="type" value="document">
+                                  <input type="hidden" name="id" value="{{$service->id}}">
+                                  <button name="button" type="submit" class="cvButton v2NavbarItem__button js-track js-track-cs-categoryDL-header">無料で一括資料ダウンロード</button>
+                                </form>
+                              </div>
+                              @endif
                             </div>
                             <div class="show_PC_view"></div>
                           </div>
