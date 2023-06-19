@@ -107,32 +107,32 @@ Route::group(['middleware' => ['auth']], function() {
 		Route::post('/edit_company_profile', [UserController::class, 'company_profile_edit']);
 	});
 
-	Route::view('/noitfy', 'logs.notify')->name('notify_list');
+	// Route::view('/noitfy', 'logs.notify')->name('notify_list');
 	
-	Route::get('/mypage/register_tracking', [MypageController::class, 'register_tracking'])->name('register_tracking');
-	Route::get('/mypage/update_tracking', [MypageController::class, 'update_tracking'])->name('update_tracking');
-	Route::get('/mypage/shop_list/{id}', [MypageController::class, 'shop_list'])->name('shop_list');
-	Route::post('/mypage/get_allitems', [MypageController::class, 'get_allitems'])->name('get_allitems');
-	Route::get('/mypage/edit_track', [MypageController::class, 'edit_track'])->name('edit_track');
-	Route::get('/mypage/search', [MypageController::class, 'search'])->name('search');
-	Route::get('/mypage/individual', [MypageController::class, 'regTrack'])->name('reg');
-	Route::get('/mypage/change_percent', [MypageController::class, 'change_percent'])->name('change_percent');
-	Route::get('/mypage/set_registering_state', [MypageController::class, 'set_state'])->name('set_state');
-	Route::get('/mypage/get_registering_state', [MypageController::class, 'get_state'])->name('get_state');
-	Route::get('/mypage/save_name_index', [MypageController::class, 'save_name_index'])->name('save_name_index');
+	// Route::get('/mypage/register_tracking', [MypageController::class, 'register_tracking'])->name('register_tracking');
+	// Route::get('/mypage/update_tracking', [MypageController::class, 'update_tracking'])->name('update_tracking');
+	// Route::get('/mypage/shop_list/{id}', [MypageController::class, 'shop_list'])->name('shop_list');
+	// Route::post('/mypage/get_allitems', [MypageController::class, 'get_allitems'])->name('get_allitems');
+	// Route::get('/mypage/edit_track', [MypageController::class, 'edit_track'])->name('edit_track');
+	// Route::get('/mypage/search', [MypageController::class, 'search'])->name('search');
+	// Route::get('/mypage/individual', [MypageController::class, 'regTrack'])->name('reg');
+	// Route::get('/mypage/change_percent', [MypageController::class, 'change_percent'])->name('change_percent');
+	// Route::get('/mypage/set_registering_state', [MypageController::class, 'set_state'])->name('set_state');
+	// Route::get('/mypage/get_registering_state', [MypageController::class, 'get_state'])->name('get_state');
+	// Route::get('/mypage/save_name_index', [MypageController::class, 'save_name_index'])->name('save_name_index');
 
-	// register yahoo and amazon token
-	Route::post('/mypage/register_yahoo', [MypageController::class, 'register_yahoo'])->name('register_yahoo');
-	Route::post('/mypage/register_amazon', [MypageController::class, 'register_amazon'])->name('register_amazon');
-	Route::post('/mypage/register_exhibition', [MypageController::class, 'register_exhibition'])->name('register_exhibition');
+	// // register yahoo and amazon token
+	// Route::post('/mypage/register_yahoo', [MypageController::class, 'register_yahoo'])->name('register_yahoo');
+	// Route::post('/mypage/register_amazon', [MypageController::class, 'register_amazon'])->name('register_amazon');
+	// Route::post('/mypage/register_exhibition', [MypageController::class, 'register_exhibition'])->name('register_exhibition');
 
-	// send a alert message to the client with eamil
-	Route::get('/mypage/update_alert', [MypageController::class, 'updateAlert'])->name('alert');
+	// // send a alert message to the client with eamil
+	// Route::get('/mypage/update_alert', [MypageController::class, 'updateAlert'])->name('alert');
 	
-	//download zip file
-	Route::get('/mypage/ext_download', [MypageController::class, 'extDownload'])->name('extDownload');
+	// //download zip file
+	// Route::get('/mypage/ext_download', [MypageController::class, 'extDownload'])->name('extDownload');
 
-	Route::view('/custom', 'layouts.main');
+	// Route::view('/custom', 'layouts.main');
 });
 
 // Admin Routes
@@ -174,15 +174,15 @@ Route::group(['middleware' => ['auth', 'client']], function() {
 		Route::prefix('/services')->group(function(){
 			Route::get('/', [ServiceController::class, 'index'])->name('service_list');
 			Route::get('/delete/{id}', [ServiceController::class, 'delete'])->name('delete_service');
-			Route::get('/add', [ServiceController::class, 'add_view']);
-			Route::post('/add_service', [ServiceController::class, 'add_service'])->name('add_service');
+			Route::get('/add', [ServiceController::class, 'add'])->name('add_service');
 			Route::post('/store', [ServiceController::class, 'store'])->name('store_service');
+			// Route::post('/store', [ServiceController::class, 'store'])->name('store_service');
 		});
 	});
 		
-	Route::prefix('review')->group(function(){
-		Route::view('/add_review','reviews.add_review')->name('add_review');
-		Route::post('/add_review', [ReviewController::class, 'create'])->name('create_review');
+	Route::prefix('reviews')->group(function(){
+		Route::get('/add/{service_id}',[ReviewController::class, 'add'])->name('add_review');
+		Route::post('/create', [ReviewController::class, 'create'])->name('create_review');
 	});
 
 });

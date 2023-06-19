@@ -28,12 +28,12 @@ class Service extends Model
 
     public function up_user()
     {
-        return $this->belongsToMany(User::class)->wherePivot('action', 'up');
+        return $this->belongsToMany(User::class)->wherePivot('action', 'up')->withTimestamps();
     }
 
     public function down_users()
     {
-        return $this->belongsToMany(User::class)->wherePivot('action', 'down');
+        return $this->belongsToMany(User::class)->wherePivot('action', 'down')->withTimestamps();
     }
 
     public function guide(){

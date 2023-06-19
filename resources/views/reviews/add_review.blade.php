@@ -123,19 +123,19 @@ public_path('company_profile.json')
                     <div class="form-group">
                       <label class="col-sm-3 control-label select required">タイトル</label>
                       <div class="col-sm-8 flex m-l-20">
-                        <input type="text" class="form-control select required w-400px" name="title" required="required" aria-required="true">
+                        <input type="text" class="form-control select required " name="title" required="required" aria-required="true">
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-3 control-label select required">説明</label>
                       <div class="col-sm-8 flex m-l-20">
-                        <textarea class="form-control select required w-400px" name="description" required="required" aria-required="true"></textarea>
+                        <textarea class="form-control select required " name="description" required="required" aria-required="true"></textarea>
                       </div>
                     </div>
                     <div class="form-group">
                       <label class="col-sm-3 control-label select required">導入後効果</label>
                       <div class="col-sm-8 flex m-l-20">
-                        <textarea class="form-control select required w-400px" name="effect_after_implementation" required="required" aria-required="true"></textarea>
+                        <textarea class="form-control select required" name="effect_after_implementation" required="required" aria-required="true"></textarea>
                       </div>
                     </div>
                     <div class="form-group">
@@ -176,19 +176,19 @@ public_path('company_profile.json')
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class="col-sm-3 control-label select required">良い点</label>
+                      <label class="col-sm-3 control-label select required">メリット</label>
                       <div class="col-sm-8 flex m-l-20">
-                        <textarea class="form-control select required w-400px" name="good_point" required="required" aria-required="true" placeholder="文章単位でEnter区切り入力してください。"></textarea>
+                        <textarea class="form-control select required w-400px summernote" name="good_point" required="required" aria-required="true" placeholder="文章単位でEnter区切り入力してください。"></textarea>
                       </div>
                     </div>
                     <div class="form-group">
-                      <label class="col-sm-3 control-label select required">改善点</label>
+                      <label class="col-sm-3 control-label select required">デメリット</label>
                       <div class="col-sm-8 flex m-l-20">
-                        <textarea class="form-control select required w-400px" name="bad_point" required="required" aria-required="true" placeholder="文章単位でEnter区切り入力してください。"></textarea>
+                        <textarea class="form-control select required w-400px summernote" name="bad_point" required="required" aria-required="true" placeholder="文章単位でEnter区切り入力してください。"></textarea>
                       </div>
                     </div>
                     <div class="middle-button text-center m-t-15">
-                      <button type="submit" value="投稿" class="btn green-button button btn-raised btn-orange-md submit_btn">投稿</button>
+                      <button type="submit" value="投稿" class="btn btn-orange-md green-button ">投稿</button>
                     </div>
                   </form>
                 </div>
@@ -206,5 +206,8 @@ public_path('company_profile.json')
 
 @section('script')
 <script>
+  $(".summernote").summernote({ 
+    height:200
+  });
 </script>
 @endsection
