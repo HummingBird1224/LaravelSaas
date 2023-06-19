@@ -185,7 +185,7 @@ public_path('company_profile.json')
               <div class="rg-form-block">
                 <div class="rg-form" id="last-name">
                   <div class="flex align-center">
-                    <input class="form-control placeholder-no-fix registration-initial-boxcolor" placeholder="名字" maxlength="200" size="200" type="text" name="last_name" id="user_profile_attributes_last_name" required>
+                    <input class="form-control placeholder-no-fix registration-initial-boxcolor" placeholder="名字" maxlength="200" size="200" type="text" name="first_name" id="user_profile_attributes_first_name" required>
                     <div class="reg-icon-wrapper">
                       <div class="reg-success-icon">
                         <i class="fa fa-check-circle" aria-hidden="true"></i>
@@ -199,7 +199,7 @@ public_path('company_profile.json')
                 </div>
                 <div class="rg-form" id="first-name">
                   <div class="flex align-center">
-                    <input class="form-control placeholder-no-fix registration-initial-boxcolor" placeholder="名前" maxlength="200" size="200" type="text" name="first_name" id="user_profile_attributes_first_name" required>
+                    <input class="form-control placeholder-no-fix registration-initial-boxcolor" placeholder="名前" maxlength="200" size="200" type="text" name="last_name" id="user_profile_attributes_last_name" required>
                     <div class="reg-icon-wrapper">
                       <div class="reg-success-icon">
                         <i class="fa fa-check-circle" aria-hidden="true"></i>
@@ -430,7 +430,7 @@ public_path('company_profile.json')
                       <option value="">選択してください</option>
                       @foreach($data->prefectures as $prefecture)
 
-                      <option value="{{$prefecture->value}}">{{$prefecture->value}}</option>
+                      <option value="{{$prefecture->id}}">{{$prefecture->value}}</option>
                       
                       @endforeach
                     </select>

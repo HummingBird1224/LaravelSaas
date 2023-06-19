@@ -16,10 +16,15 @@ class UserGuideFactory extends Factory
      */ 
     public function definition()
     {
+        // return [
+        //     'user_id'=>$this->faker->randomElement(User::where('role', 'client')->pluck('id')->toArray()),
+        //     'guide_id'=>$this->faker->randomElement(Guide::pluck('id')->toArray()),
+        //     'status'=>'down'
+        // ];
         return [
-            'user_id'=>$this->faker->randomElement(User::where('role', 'client')->pluck('id')->toArray()),
-            'guide_id'=>$this->faker->randomElement(Guide::pluck('id')->toArray()),
-            'status'=>'down'
+            'user_id'=>$this->faker->randomElement(User::pluck('id')->toArray()),
+            'service_id'=>$this->faker->randomElement(Guide::pluck('id')->toArray()),
+            'action'=>$this->faker->randomElement(['up', 'down'])
         ];
     }
 }

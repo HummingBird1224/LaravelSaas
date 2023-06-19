@@ -21,14 +21,14 @@ class Guide extends Model
     public function category(){
         return $this->belongsTo(
             Category::class,
+            'id',
+            'guide_id'
         );
     }
 
-    public function service(){
-        return $this->belongsTo(
+    public function services(){
+        return $this->hasMany(
             Service::class,
-            'id',
-            'guide_id'
         );
     }
 

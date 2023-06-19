@@ -2,7 +2,6 @@
 
 @php
 $user=Auth::user();
-$company=$user->company;
 $data=json_decode(file_get_contents(
 public_path('company_profile.json')
 ));
@@ -112,14 +111,14 @@ public_path('company_profile.json')
   }
 </style>
 <div class="">
-  <div class="container-xxl flex-grow-1 container-p-y">
+  <div class="container small-container flex-grow-1 container-p-y">
     <main id="main" class="main">
 
-      <section class="section change_profile">
+      <section class="section documents">
         <form id="download-form" action="{{ route('post_mail') }}" accept-charset="UTF-8" method="post">
           @csrf
           <div class="row">
-            <div class="col-lg-8">
+            <div class="col-lg-7">
               @if(is_null($user))
               <div class="card-section m-b-10">
                 <div class="card info-card sales-card guide-download-wrapper">
@@ -135,16 +134,16 @@ public_path('company_profile.json')
                   </div>
                 </div>
               </div>
-              @else
+              @endif
               <div class="card-section">
                 <div class="card info-card sales-card">
                   <div class="card-body ">
-                    <h2 class="card-title">
+                    <h4 class="card-title">
                       お客様情報の確認
-                    </h2>
-                    <h5>
+                    </h4>
+                    <h6>
                       以下の情報で資料請求が完了します
-                    </h5>
+                    </h6>
                     <div class="portlet-body">
                       <div class="clearfix">
                         <div class="tabbable-custom">
@@ -160,7 +159,7 @@ public_path('company_profile.json')
                                 <input type="hidden" name="authenticity_token" value="LgeuzujFUlMVxzWPs26P9g8koraSjDZKRE+USK717pQ40HiHN2bvAzWCdUipB063Np91mxyCPC7frPCgdvX4rg==">
                                 <input value="true" type="hidden" name="user[first_create]" id="user_first_create">
 
-                                <div class="form-group  user_profile_phone row">
+                                <div class="form-group row m-b-30">
                                   <label class="col-sm-3 control-label tel required">お名前</label>
                                   <div class="col-sm-8 display-flex-sm">
                                     <span class="m-l-20">
@@ -186,7 +185,7 @@ public_path('company_profile.json')
                                   </div>
                                 </div>
 
-                                <div class="form-group  user_profile_phone row">
+                                <div class="form-group  m-b-30 row">
                                   <label class="col-sm-3 control-label tel required">お名前（カナ）</label>
                                   <div class="col-sm-8 display-flex-sm">
                                     <span class="m-l-20">
@@ -212,7 +211,7 @@ public_path('company_profile.json')
                                   </div>
                                 </div>
 
-                                <div class="form-group string required user_corporation_company_name">
+                                <div class="form-group string required m-b-30">
                                   <label class="col-sm-3 control-label string required">電話番号</label>
                                   <div class="col-sm-8 flex m-l-20">
                                     <input class="form-control string required w-300px" required="required"
@@ -222,7 +221,7 @@ public_path('company_profile.json')
                                   </div>
                                 </div>
 
-                                <div class="form-group string required user_corporation_company_name">
+                                <div class="form-group string required m-b-30">
                                   <label class="col-sm-3 control-label string required">メールアドレス</label>
                                   <div class="col-sm-6 flex m-l-20">
                                     <input class="form-control string required w-300px" required="required"
@@ -238,7 +237,7 @@ public_path('company_profile.json')
                                   
                                 </div> -->
 
-                                <div class="form-group select required user_profile_department">
+                                <div class="form-group select required m-b-30">
                                   <label class="col-sm-3 control-label select required"
                                     for="user_profile_attributes_department">部署 / 役職</label>
                                   <div class="col-sm-8 display-flex-sm">
@@ -247,11 +246,11 @@ public_path('company_profile.json')
                                         aria-required="true" name="department" id="department">
                                         <option value="">選択してください</option>
                                         @foreach($data->departments as $department)
-                                        @if($company&&$department->id==$user->department)
-                                        <option value="{{$department->id}}" selected>{{$department->value}}</option>
-                                        @else
-                                        <option value="{{$department->id}}">{{$department->value}}</option>
-                                        @endif
+                                          @if($department->id==$user->department)
+                                          <option value="{{$department->id}}" selected>{{$department->value}}</option>
+                                          @else
+                                          <option value="{{$department->id}}">{{$department->value}}</option>
+                                          @endif
                                         @endforeach
                                       </select>
                                     </spin>
@@ -260,11 +259,11 @@ public_path('company_profile.json')
                                         aria-required="true" name="job_title" id="job_title">
                                         <option value="">選択してください</option>
                                         @foreach($data->jobs as $job)
-                                        @if($company&&$job->id==$user->official_position)
-                                        <option value="{{$job->id}}" selected>{{$job->value}}</option>
-                                        @else
-                                        <option value="{{$job->id}}">{{$job->value}}</option>
-                                        @endif
+                                          @if($job->id==$user->official_position)
+                                          <option value="{{$job->id}}" selected>{{$job->value}}</option>
+                                          @else
+                                          <option value="{{$job->id}}">{{$job->value}}</option>
+                                          @endif
                                         @endforeach
                                       </select>
                                     </spin>
@@ -273,16 +272,16 @@ public_path('company_profile.json')
 
                                 <div class="m-t-15"></div>
 
-                                <div class="form-group string required user_corporation_company_name">
+                                <div class="form-group string required m-b-30">
                                   <label class="col-sm-3 control-label string required">会社名（必須）</label>
                                   <div class="col-sm-8 flex m-l-20">
                                     <input class="form-control string required w-300px" required="required"
                                       aria-required="true" placeholder="所属している会社名を入力して検索" type="text" name="company_name"
-                                      id="company_name" <?php if($company) echo 'value="'.$company->name.'"' ?> />
+                                      id="company_name"value="{{$user->company_name}}"/>
                                   </div>
                                 </div>
 
-                                <div class="string required w-full form-group ">
+                                <div class="string required w-full form-group m-b-30">
                                   <label class="string required col-sm-3 control-label">所在地</label>
                                   <div class="col-sm-7 display-flex-sm">
                                     <span class="m-l-20">
@@ -294,12 +293,12 @@ public_path('company_profile.json')
                                             id="user_corporation_attributes_prefecture">
                                             <option value="">選択してください</option>
                                             @foreach($data->prefectures as $prefecture)
-                                            @if($company&&$prefecture->id==$user->prefecture)
-                                            <option value="{{$prefecture->id}}" selected>{{$prefecture->value}}
-                                            </option>
-                                            @else
-                                            <option value="{{$prefecture->id}}">{{$prefecture->value}}</option>
-                                            @endif
+                                              @if($prefecture->id==$user->prefecture)
+                                              <option value="{{$prefecture->id}}" selected>{{$prefecture->value}}
+                                              </option>
+                                              @else
+                                              <option value="{{$prefecture->id}}">{{$prefecture->value}}</option>
+                                              @endif
                                             @endforeach
                                           </select>
                                         </div>
@@ -312,14 +311,14 @@ public_path('company_profile.json')
                                             class="string required form-control w-300px form-control-for-corporations"
                                             required="required" aria-required="true" placeholder="港区三田3-13-16 三田43MTビル13F"
                                             type="text" name="address" id="user_corporation_attributes_address"
-                                            <?php if($company) echo 'value="'.$company->address.'"' ?> />
+                                            value="{{$user->address}}" />
                                         </div>
                                       </div>
                                     </span>
                                   </div>
                                 </div>
 
-                                <div class="form-group select required user_corporation_type_of_business">
+                                <div class="form-group select required m-b-30">
                                   <label class="col-sm-3 control-label select required"
                                     for="user_corporation_attributes_type_of_business">業種</label>
                                   <div class="col-sm-8 flex m-l-20">
@@ -328,17 +327,17 @@ public_path('company_profile.json')
                                       id="user_corporation_attributes_type_of_business">
                                       <option value="">選択してください</option>
                                       @foreach($data->industries as $industry)
-                                      @if($company&&$industry->id==$user->business_type)
-                                      <option value="{{$industry->id}}" selected>{{$industry->value}}</option>
-                                      @else
-                                      <option value="{{$industry->id}}">{{$industry->value}}</option>
-                                      @endif
+                                        @if($industry->id==$user->business_type)
+                                        <option value="{{$industry->id}}" selected>{{$industry->value}}</option>
+                                        @else
+                                        <option value="{{$industry->id}}">{{$industry->value}}</option>
+                                        @endif
                                       @endforeach
                                     </select>
                                   </div>
                                 </div>
 
-                                <div class="form-group select required user_corporation_scale">
+                                <div class="form-group select required m-b-30">
                                   <label class="col-sm-3 control-label select required"
                                     for="user_corporation_attributes_scale">従業員規模</label>
                                   <div class="col-sm-8 flex m-l-20">
@@ -346,11 +345,11 @@ public_path('company_profile.json')
                                       aria-required="true" name="employee_number" id="user_corporation_attributes_scale">
                                       <option value="">選択してください</option>
                                       @foreach($data->employee_numbers as $e_num)
-                                      @if($company&&$e_num->id==$user->corporation_scale)
-                                      <option value="{{$e_num->id}}" selected>{{$e_num->value}}</option>
-                                      @else
-                                      <option value="{{$e_num->id}}">{{$e_num->value}}</option>
-                                      @endif
+                                        @if($e_num->id==$user->corporation_scale)
+                                        <option value="{{$e_num->id}}" selected>{{$e_num->value}}</option>
+                                        @else
+                                        <option value="{{$e_num->id}}">{{$e_num->value}}</option>
+                                        @endif
                                       @endforeach
                                     </select>
                                   </div>
@@ -364,23 +363,96 @@ public_path('company_profile.json')
                   </div>
                 </div>
               </div>
-              @endif
             </div>
 
-            <div class="col-lg-4">
+            <div class="col-lg-5">
               <div class="card-section">
                 <div class="card info-card sales-card">
                   <div class="card-body ">
-                    <h2 class="card-title">
+                    <h4 class="card-title">
                       請求資料一覧
-                    </h2>
+                    </h4>
+                    @if($type=='document')
                     <div class="selected-docs">
-                      <div class="selected_num float-right">資料数 <spin> {{count($requested_guides)}} </spin> 件</div>
+                      <div class="selected_num float-right">資料数 <span class="number"> 1 </span> 件</div>
+                      <div class="selected-services" id="selected_services">
+                        <div class="m-t-30 ">
+                          <div class="m-t-15 selected-doc display-flex">
+                            <input type="checkbox" checked />
+                            <div class="display-flex service-info-wrapper">
+                              <div class="service-logo-wrapper">
+                                <img src="{{ asset($service->logo) }}" alt="{{$service->data_title}}" width="52px"
+                                    height="52px" />
+                              </div>
+                              <div class="service-info">
+                                <h6><b>{{$service->data_title?$service->data_title:$service->title}}</b></h6>
+                                <p>{{$service->up_user[0]->company_name}}</p>
+                                <div class="i-service-details-serviceReview">
+                                  @if((int)$service->reviews_avg_score != 0)
+                                    @for ($i = 0; $i < ((int)$service->reviews_avg_score); $i++)
+                                      <i class="bx bxs-star text-yellow "  style="margin-right: 0px;"></i>
+                                    @endfor
+                                    @for ($i = 0; $i < (5-(int)$service->reviews_avg_score); $i++)
+                                      <i class="bx bxs-star  text-black-400 "  style="margin-right: 0px;"></i>
+                                    @endfor
+                                    <span><?php echo $service->reviews_avg_score+0 ?></span><span><?php echo $service->reviews_avg_score+0 ?></span>
+                                  @endif
+                                  <span >(口コミ{{$service->reviews_count?$service->reviews_count:0}}件)</span>
+                                  <p>{{$service->description}}</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="divider">
+                        このサービスとよく比較される製品
+                      </div>
+                      <div class="compared-services">
+                        @foreach($c_services as $c_service)
+                        <div class="m-t-30 display-flex" id="c_service_{{$c_service->id}}">
+                          <div class="m-t-15 selected-doc display-flex">
+                            <div class="display-flex service-info-wrapper">
+                              <div class="service-logo-wrapper">
+                                <img src="{{ asset($c_service->logo) }}" alt="{{$c_service->data_title}}" width="52px"
+                                    height="52px" />
+                              </div>
+                              <div class="service-info">
+                                <h6><b>{{$c_service->data_title?$c_service->data_title:$c_service->title}}</b></h6>
+                                <p>{{$c_service->up_user[0]->company_name}}</p>
+                                <div class="i-service-details-serviceReview">
+                                  @if((int)$c_service->reviews_avg_score != 0)
+                                    @for ($i = 0; $i < ((int)$c_service->reviews_avg_score); $i++)
+                                      <i class="bx bxs-star text-yellow "  style="margin-right: 0px;"></i>
+                                    @endfor
+                                    @for ($i = 0; $i < (5-(int)$c_service->reviews_avg_score); $i++)
+                                      <i class="bx bxs-star  text-black-400 "  style="margin-right: 0px;"></i>
+                                    @endfor
+                                    <span><?php echo $c_service->reviews_avg_score+0 ?></span>
+                                  @endif
+                                  <span >(口コミ{{$c_service->reviews_count?$c_service->reviews_count:0}}件)</span>
+                                  <p>{{$c_service->description}}</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="sevice-button-wrapper">
+                            <button type="button" onclick="serviceAdd({{$c_service->id}})" class="button green-border-button">
+                              追加
+                            </button>
+                          </div>
+                        </div>
+                        @endforeach
+                      </div>
+                    </div>
+                    @elseif($type='category_document')
+                    <div class="selected-docs">
+                      <div class="selected_num float-right">資料数 <span class="number"> {{count($requested_guides)}} </span> 件</div>
                       <div class="m-t-30 ">
                         @foreach($requested_guides as $r_guide)
-                        <div class="m-t-15 selected-doc">
-                          <div class="display-flex ">
-                            <input type="checkbox" checked />
+                        <div class="m-t-15 selected-doc display-flex">
+                          <input type="checkbox" checked />
+                          <div class="display-flex ">                            
                             <img src="{{ asset($r_guide->image) }}" alt="{{$r_guide->title}}" width="52px"
                               height="52px" />
                             <p>{{$r_guide->title}}</p>
@@ -399,81 +471,12 @@ public_path('company_profile.json')
                         @endforeach
                       </div>
                     </div>
+                    @endif
+                    
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          <div class="row">
-            <!-- <div class="col-lg-2"></div> -->
-            <div class="col-lg-12">
-              <div class="card-section">
-                <div class="card info-card sales-card">
-                  <div class="card-body container">
-                    <!-- <h5 class="card-title" style="text-align: center;">
-                      請求資料一覧
-                    </h5> -->
-                    <!-- <div class="selected-docs">
-                      <div class="selected_num float-right">資料数 <spin> {{count($requested_guides)}} </spin> 件</div>
-                      <div class="m-t-30 ">
-                        @foreach($requested_guides as $r_guide)
-                        <div class="m-t-15 selected-doc">
-                          <div class="display-flex ">
-                            <input type="checkbox" checked />
-                            <img src="{{ asset($r_guide->image) }}" alt="{{$r_guide->title}}" width="52px"
-                              height="52px" />
-                            <p>{{$r_guide->title}}</p>
-                          </div>
-                          <div class="related-services">
-                            <p>資料には以下のサービス情報が含まれます（2件）</p>
-                          </div>
-                          <a class="text-center service-add-button" href="{{route('add_service', $r_guide->id)}}">
-                            <div class="middle-button" style="width:50%">
-                              <div class="orange-button button">
-                                サービスの追加
-                              </div>
-                            </div>
-                          </a>
-                        </div>
-                        @endforeach
-                      </div>
-                    </div> -->
-                    <div class="agreement-wrapper" style="width: 70%; margin: 0 auto;">
-                      <div class="title">
-                        <h5 class="card-title" style="text-align: center;">請求資料一覧</h5>
-                      </div>
-                      <div class="separator" style="border-bottom: 3px solid #30B0B0; width: 70px; margin: auto; margin-bottom: 5%;"></div>
-                      <div class="list">
-                        <ol><li>より良いご提案のため、資料ダウンロード後に、当該資料に含まれるSaaS提供会社（以下「SaaS提供会社」）からご案内を差し上げる場合があります。</li><li>上記ご案内のため、BOXILにご登録いただいた会員情報を、当社からSaaS提供会社に対して電子ファイルにて提供いたします。</li><li>競合調査やいたずらでの資料請求はご遠慮ください。</li></ol>
-                      </div>
-                      <div class="user-agreement"style=" text-align: center;">
-                        <!-- <input name="user[agreement]" type="hidden" value="0"> -->
-                        <input required="required" class="checkbox-large js-user-agreement" type="checkbox" value="1" name="user[agreement]" id="user_agreement">
-                        <label class="checkbox-large-label" for="user_agreement">「<a class="text-link" target="_blank" href="https://smartcamp.co.jp/handling_of_privacy">個人情報の取扱いについて</a>」、「<a class="text-link" target="_blank" href="/terms/">利用規約</a>」、及び上記確認事項に同意の上</label>
-                      </div>
-                      <div id="tooltip-wrapper">
-                        <!-- <div class="tooltip hide" id="tooltip-block">
-                          <div class="user-agreement-tooltip hide">
-                            <div class="user-agreement-tooltip__inner">
-                              <p class="user-agreement-tooltip__inner__user-aggrement">お客様情報をご入力の上、同意のチェックを入れてください</p>
-                              <p class="user-agreement-tooltip__inner__checked-count hide">請求する資料を少なくとも1つ選択して下さい</p>
-                            </div>
-                          </div>
-                        </div> -->
-                        <div class="download-button-wrapper" style="text-align: center; padding-top: 3%;">
-                          <!-- <form id="download-form" action="/downloads/post_mail/" accept-charset="UTF-8" method="post"> -->
-                            <!-- <input type="hidden" name="authenticity_token" value="tJ8ImqDXRL1ru+A/92dhjCFm0xYA9DeLtHMlttvJezPUdxxsEsk8iIcAjCa96Xctini9wKqYXE87a3p9EP9oqQ=="> -->
-                            <button type="submit" class="btn js-download-btn btn-raised btn-orange-lg" data-disable-with="ダウンロード中" disabled="disabled">資料をダウンロード</button>
-                          <!-- </form> -->
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- <div class="col-lg-2"></div> -->
           </div>
 
         </form>
@@ -490,6 +493,42 @@ public_path('company_profile.json')
     $.ajax({
       url: '/login',
       method: 'GET',
+    })
+  }
+
+  serviceAdd=(id)=>{
+    $.ajax({
+      url:'/downloads/service_add/'+id,
+      method:'get',
+      success:function(service){
+        var add_service=`<div class="m-t-30 ">
+                          <div class="m-t-15 selected-doc display-flex">
+                            <input type="checkbox" checked />
+                            <div class="display-flex service-info-wrapper">
+                              <div class="service-logo-wrapper">
+                                <img src="/${service.logo}" alt="${service.data_title}" width="52px"
+                                    height="52px" />
+                              </div>
+                              <div class="service-info">
+                                <h6><b>${service.data_title?service.data_title:service.title}</b></h6>
+                                <p>${service.up_user[0].company_name}</p>
+                                <div class="i-service-details-serviceReview">`;
+        if(parseInt(service.reviews_avg_score) != 0){for (var i = 0; i < parseInt(service.reviews_avg_score); i++){
+          add_service+= `<i class="bx bxs-star text-yellow "  style="margin-right: 0px;"></i>`;
+        };
+        for (var j = 0; j < (5-parseInt(service.reviews_avg_score)); j++){
+          add_service+=`<i class="bx bxs-star  text-black-400 "  style="margin-right: 0px;"></i>`;
+        }};
+        add_service+=`<span >(口コミ${service.reviews_count?service.reviews_count:0}件)</span>
+                                <p>${service.description}</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>`;
+        $('#selected_services').append(add_service);
+        $(`#c_service_${service.id}`).remove();
+      }
     })
   }
 

@@ -13,38 +13,35 @@ class Service extends Model
         'title',
         'description',
         'logo',
-        'category_id',
         'guide_id',
-        'recommended'
+        'recommended',
+        'data',
+        'data_title'
     ];
 
-    public function scopeAvgscore($query)
+    public function scopeReviewAvgCount($query)
     {
-        return  $query->with('reviews')
-                ->where('status', 'approved')
-                ->avg('score');
+        return  
+            $query  -> withCount(['reviews'=>function($query){$query->where('status', 'approved');}])
+                    -> withAvg(['reviews'=>function($query){$query->where('status', 'approved');}],  'score');
     }    
 
 
-    public function user(){
-        return $this->belongsTo(
-            User::class,
-            'user_id'
-        );
+    public function up_user()
+    {
+        return $this->belongsToMany(User::class)->wherePivot('action', 'up');
     }
 
-    public function category(){
-        return $this->belongsTo(
-            Category::class,
-            'category_id'
-        );
+    public function down_users()
+    {
+        return $this->belongsToMany(User::class)->wherePivot('action', 'down');
     }
 
     public function guide(){
-        return $this->hasOne(
+        return $this->belongsTo(
             Guide::class,
-            'id',
-            'guide_id'
+            'guide_id',
+            'id'
         );
     }
 
