@@ -17,8 +17,8 @@ class ReviewController extends Controller
 
     public function repuation_answers()
 	{
-		$publishing = Review :: where('user_id', Auth::id())->where('status', 'publishing')->orWhere('status', 'rejected')->with('service')->paginate(5);
-		$approved = Review :: where('user_id', Auth::id())->where('status', 'approved')->with('service')->paginate(5);
+		$publishing = Review :: where('user_id', Auth::id())->where('status','!=','approved')->with('service')->get();
+		$approved = Review :: where('user_id', Auth::id())->where('status', 'approved')->with('service')->get();
 		return view('mypage.reputation_answers', ['publishing_reviews'=>$publishing, 'approved_reviews'=>$approved]);
 	}
 

@@ -55,25 +55,11 @@
   <div class="container" style="padding-top: 4rem;">
 
     <div class="serviceShowWrapper" id="top" itemtype="https://schema.org/WebPage" itemid="https://boxil.jp/service/3558/" itemscope="" style="padding-bottom: 0">
-      <div class="pageHeader breadcrumb-v2">
-        <div class="breadcrumb-boxil-wrapper">
-          <div>
-            <ul>
-              <li class="p-t-7"><a href="https://boxil.jp/"><span class="m-l-5">BOXIL</span></a></li>
-              <li class="p-t-7"><i class="far fa-angle-right m-l-10" aria-hidden="true"></i></li>
-              <li class="p-t-7"><a href="https://boxil.jp/mag/a208/"><span class="m-l-5">【2023年】Web会議システム比較21選！選び方・テレワークにおすすめのツール</span></a></li>
-              <li class="p-t-7"><i class="far fa-angle-right m-l-10" aria-hidden="true"></i></li>
-              <li class="p-t-7"><a href="https://boxil.jp/sc-web_conference/"><span class="m-l-5">WEB会議システム</span></a></li>
-              <li class="p-t-7"><i class="far fa-angle-right m-l-10" aria-hidden="true"></i></li>
-              <li class="p-t-7"><span class="m-l-5">Zoom</span></li>
-            </ul>
-          </div>
-        </div>
-      </div>
+
     </div>
     <div class="v2Navbar">
       <div class="v2NavbarItem">
-        <div class="v2NavbarItem__title"><span>WEB会議システム</span>の関連情報</div>
+        <div class="v2NavbarItem__title"><span>{{$service->title}}</span>の関連情報</div>
         <div class="v2NavbarItem__button">
           <form class="" target="_top" action="/downloads/confirm/" accept-charset="UTF-8" method="get">
             <input type="hidden" name="type" value="category">
@@ -86,7 +72,7 @@
       </div>
       <div class="v2NavbarLink">
         <div class="relatedArticleLinksWrapper">
-          <ul class="relatedArticleLinksPc">
+          <!-- <ul class="relatedArticleLinksPc">
             <li class="relatedArticleLinks__item">
               <div class="relatedArticleLinks__link"><a href="https://boxil.jp/mag/a208/">おすすめ比較</a></div>
             </li>
@@ -99,7 +85,7 @@
             <li class="relatedArticleLinks__item">
               <div class="relatedArticleLinks__link"><a href="https://boxil.jp/mag/a865/">無料サービス</a></div>
             </li>
-          </ul>
+          </ul> -->
           <div class="relatedArticleLinksMobile">
             <table class="relatedArticleLinks--mobile">
               <tbody>
@@ -120,9 +106,6 @@
       </div>
     </div>
     <div class="v2Layout">
-      <script type="application/ld+json">{"@context":"http://schema.org","@id":"https://boxil.jp/service/3558/","@type":"WebPage","dateModified":"2023-04-30T20:42:19+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://boxil.jp/service/3558/"}}</script>
-      <script type="application/ld+json">{"@context":"https://schema.org/","@type":"Product","@id":"Zoom","name":"Zoom","description":"Zoomは、クラウドのビデオ会議とウェブ会議、およびグループメッセージングを使いやすく統合したプラットフォーム。Windows、Mac、iOS、Android、Blackberry、Zoom Rooms、およびH.323 / SIPルームシステムで最高のビデオ、オーディオ、およびスクリーン共有体験を提供。","logo":"/attachments/files/images/eyJpZCI6IjYzNGExYmFiN2E2YmE3NGM3NDRmY2Q0MTJlZGI5MjgzLnBuZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX2xvZ28iLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQxMC0xMjgxNy0xdDBva3IyLnBuZyIsInNpemUiOjU4NjUsIm1pbWVfdHlwZSI6bnVsbH19","image":"/attachments/files/images/eyJpZCI6IjYzNGExYmFiN2E2YmE3NGM3NDRmY2Q0MTJlZGI5MjgzLnBuZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX2xvZ28iLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQxMC0xMjgxNy0xdDBva3IyLnBuZyIsInNpemUiOjU4NjUsIm1pbWVfdHlwZSI6bnVsbH19","brand":{"@type":"Brand","name":"企業情報未登録"},"aggregateRating":{"@type":"AggregateRating","bestRating":5,"worstRating":0,"ratingValue":"4.43","ratingCount":1591}}</script>
-      <script type="application/ld+json">{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"BOXIL","item":"https://boxil.jp/"},{"@type":"ListItem","position":2,"name":"【2023年】Web会議システム比較21選！選び方・テレワークにおすすめのツール","item":"https://boxil.jp/mag/a208/"},{"@type":"ListItem","position":3,"name":"WEB会議システム","item":"https://boxil.jp/sc-web_conference/"},{"@type":"ListItem","position":4,"name":"Zoom","item":"https://boxil.jp/service/3558/"}]}</script>
       <div class="servicesV2">
         <div class="servicesV2Contents">
           <div class="boxil-wrappar">

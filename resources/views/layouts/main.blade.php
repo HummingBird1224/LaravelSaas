@@ -131,12 +131,12 @@
             </a>
           </li>
 
-          @if (Auth::user()->role != 'user')
+          @if (Auth::user()->role == 'client'||Auth::user()->role == 'admin')
           <li <?php if (strpos(url()->current(), "client/client_tools")) echo 'class="menu-item active"';
 								else echo 'class="menu-item"'; ?>>
             <a href="{{ route('client_tools') }}" class="menu-link">
               <i class="menu-icon tf-icons bx bxs-user-account"></i>
-              <div>クライアントパネル</div>
+              <div>クライアントページ</div>
             </a>
           </li>
           @endif
@@ -146,7 +146,7 @@
 								else echo 'class="menu-item"'; ?>>
             <a href="{{ route('category_documents_list') }}" class="menu-link">
               <i class="menu-icon tf-icons bx bxs-user-detail"></i>
-              <div>管理パネル</div>
+              <div>管理者ページ</div>
             </a>
           </li>
           @endif

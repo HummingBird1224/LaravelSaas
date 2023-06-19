@@ -235,7 +235,7 @@ $user = Auth::user();
       toastr.error('ガイドを選択する必要があります。');
     }
     if (docs.length > 0) {
-      location.href = '/downloads/confirm?checked_docs=' + docs;
+      location.href = '/downloads/confirm?type=category_documents&&id=' + docs;
     }
   }
 </script>

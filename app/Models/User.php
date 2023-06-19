@@ -37,6 +37,7 @@ class User extends Authenticatable
         'address',
         'department',
         'official_position',
+        'rejected_reason'
     ];
 
     /**
@@ -70,7 +71,7 @@ class User extends Authenticatable
         return $this->belongsToMany(Service::class)->wherePivot('action', 'up');
     }
 
-    public function down_service()
+    public function down_services()
     {
         return $this->belongsToMany(Service::class)->wherePivot('action', 'down');
     }
