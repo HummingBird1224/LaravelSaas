@@ -62,4 +62,8 @@ class Service extends Model
             ServicePricePlan::class,
         );
     }
+
+    public function score_count($score, $service_id) {
+        return Review::where('score', $score)->where('service_id', $service_id)->where('status', 'approved')->count();
+    }
 }

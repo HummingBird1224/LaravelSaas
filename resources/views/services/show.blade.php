@@ -151,15 +151,22 @@
                               <div class="service_show_overview__header__main__content__i-bottom-left">
                                 <div class="service_show_overview__header__main__content__i-bottom-review">
                                   <div class="text-no-spacing">
+                                    @for ($i = 1; $i < 6; $i++)
+                                      @if ($i <= $service->reviews_avg_score)
+                                        <i class="fa fa-yellow fa-star text-yellow fa-lg" style="margin-right: 4px;" aria-hidden="true"></i>
+                                      @else
+                                        <i class="fa fa-yellow fa-star text-black-400 fa-lg" style="margin-right: 4px;" aria-hidden="true"></i>
+                                      @endif
+                                    @endfor
+                                    <!-- <i class="fa fa-yellow fa-star text-yellow fa-lg" style="margin-right: 4px;" aria-hidden="true"></i>
                                     <i class="fa fa-yellow fa-star text-yellow fa-lg" style="margin-right: 4px;" aria-hidden="true"></i>
                                     <i class="fa fa-yellow fa-star text-yellow fa-lg" style="margin-right: 4px;" aria-hidden="true"></i>
                                     <i class="fa fa-yellow fa-star text-yellow fa-lg" style="margin-right: 4px;" aria-hidden="true"></i>
-                                    <i class="fa fa-yellow fa-star text-yellow fa-lg" style="margin-right: 4px;" aria-hidden="true"></i>
-                                    <i class="fa fa-yellow fa-star text-black-400 fa-lg" style="margin-right: 4px;" aria-hidden="true"></i>
+                                    <i class="fa fa-yellow fa-star text-black-400 fa-lg" style="margin-right: 4px;" aria-hidden="true"></i> -->
                                   </div>
-                                  <div class="service_show_overview__header__main__content__i-bottom-review-score">4.43</div>
+                                  <div class="service_show_overview__header__main__content__i-bottom-review-score"></div>
                                   <div class="service_show_overview__header__main__content__i-bottom-review-count">
-                                    <a class="service_show_overview__header__main__content__i-bottom-review-link" href="/service/3558/reviews/">1593件の口コミ </a>
+                                    <a class="service_show_overview__header__main__content__i-bottom-review-link" href="/service/3558/reviews/">{{ $service->reviews_count }}件の口コミ </a>
                                   </div>
                                 </div>
                               </div>
@@ -536,7 +543,7 @@
               <div class="container_feature">
                 <h2 class="ServicesShow-main-block-title">機能ごとの評価</h2>
                 <div class="ServicesShow-main-block-contents">
-                  <div class="featuresWrapper">
+                  <!-- <div class="featuresWrapper">
                     <div class="featuresColumn">
                       <div class="featuresColumn__text">iPhone</div>
                       <i class="far fa-circle featuresColumn__icon" aria-hidden="true"></i>
@@ -553,7 +560,7 @@
                       <div class="featuresColumn__text">日本語対応</div>
                       <i class="far fa-circle featuresColumn__icon" aria-hidden="true"></i>
                     </div>
-                  </div>
+                  </div> -->
                   <div class="featuresRatings">
                     <h3 class="featuresRatings__innerTitle">機能ごとの口コミ評価</h3>
                     <div class="featuresRatings__title">
@@ -941,13 +948,20 @@
                       <div class="serviceReputationMetricsStarTextBlock">
                         <div class="serviceReputationMetricsStarBlock">
                           <div class="serviceReputationMetricsStarBlock__star">
+                            @for ($i = 1; $i < 6; $i++)
+                              @if ($i <= $service->reviews_avg_score)
+                              <i class="fa fa-yellow fa-star text-yellow fa-lg" style="margin-right: 4px;" aria-hidden="true"></i>
+                              @else
+                              <i class="fa fa-yellow fa-star text-black-400 fa-lg" style="margin-right: 4px;" aria-hidden="true"></i>
+                              @endif
+                            @endfor
+                            <!-- <i class="fa fa-yellow fa-star text-yellow fa-lg" style="margin-right: 4px;" aria-hidden="true"></i>
                             <i class="fa fa-yellow fa-star text-yellow fa-lg" style="margin-right: 4px;" aria-hidden="true"></i>
                             <i class="fa fa-yellow fa-star text-yellow fa-lg" style="margin-right: 4px;" aria-hidden="true"></i>
                             <i class="fa fa-yellow fa-star text-yellow fa-lg" style="margin-right: 4px;" aria-hidden="true"></i>
-                            <i class="fa fa-yellow fa-star text-yellow fa-lg" style="margin-right: 4px;" aria-hidden="true"></i>
-                            <i class="fa fa-yellow fa-star text-black-400 fa-lg" style="margin-right: 4px;" aria-hidden="true"></i>
+                            <i class="fa fa-yellow fa-star text-black-400 fa-lg" style="margin-right: 4px;" aria-hidden="true"></i> -->
                           </div>
-                          <div class="serviceReputationMetricsRateBlock">      4.43</div>
+                          <div class="serviceReputationMetricsRateBlock"> {{ $service->reviews_avg_score != 0 ? round($service->reviews_avg_score, 2, PHP_ROUND_HALF_UP) : '0.00' }}</div>
                         </div>
                       </div>
                     </div>
@@ -955,20 +969,48 @@
                       <div class="serviceReputationMetricsBarCahrtV2">
                         <div class="serviceReputationMetricsBarContainerTop bar_first">
                           <div class="serviceReputationMetricsBarContainerText">レビュー分布</div>
-                          <div class="serviceReputationMetricsBarBlock">
-                            <div class="serviceReputationMetricsBarBlock__rate">
-                              <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                              <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                              <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                              <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                              <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
+                          @for ($i = 1; $i < 6; $i++)
+                            <div class="serviceReputationMetricsBarBlock">
+                              <div class="serviceReputationMetricsBarBlock__rate">
+                                @if ($i == 1)
+                                <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
+                                <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
+                                <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
+                                <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
+                                <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
+                                @elseif ($i == 2)
+                                <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
+                                <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
+                                <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
+                                <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
+                                <i class="fa fa-yellow fa-star text-black-400 fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
+                                @elseif ($i == 3)
+                                <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
+                                <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
+                                <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
+                                <i class="fa fa-yellow fa-star text-black-400 fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
+                                <i class="fa fa-yellow fa-star text-black-400 fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
+                                @elseif ($i == 4)
+                                <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
+                                <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
+                                <i class="fa fa-yellow fa-star text-black-400 fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
+                                <i class="fa fa-yellow fa-star text-black-400 fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
+                                <i class="fa fa-yellow fa-star text-black-400 fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
+                                @else
+                                <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
+                                <i class="fa fa-yellow fa-star text-black-400 fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
+                                <i class="fa fa-yellow fa-star text-black-400 fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
+                                <i class="fa fa-yellow fa-star text-black-400 fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
+                                <i class="fa fa-yellow fa-star text-black-400 fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
+                                @endif
+                              </div>
+                              <div class="serviceReputationMetricsBarBlock__bar">
+                                <div class="serviceReputationMetricsBarBlock__progress bar_star_5" style="width: {{ ($reviews[$i] / $service->reviews_count) * 100 }}%"></div>
+                              </div>
+                              <div class="serviceReputationMetricsBarBlock__count">(<a href="/service/3558/reviews/?review_rate=5">{{ $reviews[$i] }}</a>)</div>
                             </div>
-                            <div class="serviceReputationMetricsBarBlock__bar">
-                              <div class="serviceReputationMetricsBarBlock__progress bar_star_5" style="width:50.21998742928976%"></div>
-                            </div>
-                            <div class="serviceReputationMetricsBarBlock__count">(<a href="/service/3558/reviews/?review_rate=5">799</a>)</div>
-                          </div>
-                          <div class="serviceReputationMetricsBarBlock">
+                          @endfor
+                          <!-- <div class="serviceReputationMetricsBarBlock">
                             <div class="serviceReputationMetricsBarBlock__rate">
                               <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
                               <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
@@ -1019,7 +1061,7 @@
                               <div class="serviceReputationMetricsBarBlock__progress bar_star_1" style="width:0.06285355122564425%"></div>
                             </div>
                             <div class="serviceReputationMetricsBarBlock__count">(<a href="/service/3558/reviews/?review_rate=1">1</a>)</div>
-                          </div>
+                          </div> -->
                         </div>
                         <div class="serviceReputationMetricsBarContainerTop bar_second">
                           <div class="serviceReputationMetricsBarContainerText">従業員規模</div>
