@@ -131,7 +131,7 @@
             </a>
           </li>
 
-          @if (Auth::user()->role != 'user')
+          @if (Auth::user()->role == 'client'||Auth::user()->role == 'admin')
           <li <?php if (strpos(url()->current(), "client/client_tools")) echo 'class="menu-item active"';
 								else echo 'class="menu-item"'; ?>>
             <a href="{{ route('client_tools') }}" class="menu-link">
