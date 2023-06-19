@@ -59,7 +59,7 @@
     </div>
     <div class="v2Navbar">
       <div class="v2NavbarItem">
-        <div class="v2NavbarItem__title"><span>{{$service->title}}</span>の関連情報</div>
+        <div class="v2NavbarItem__title"><span>{{$service->guide->category->title}}</span>の関連情報</div>
         <div class="v2NavbarItem__button">
           <form class="" target="_top" action="/downloads/confirm/" accept-charset="UTF-8" method="get">
             <input type="hidden" name="type" value="category">
@@ -141,15 +141,10 @@
                                         <i class="fa fa-yellow fa-star text-black-400 fa-lg" style="margin-right: 4px;" aria-hidden="true"></i>
                                       @endif
                                     @endfor
-                                    <!-- <i class="fa fa-yellow fa-star text-yellow fa-lg" style="margin-right: 4px;" aria-hidden="true"></i>
-                                    <i class="fa fa-yellow fa-star text-yellow fa-lg" style="margin-right: 4px;" aria-hidden="true"></i>
-                                    <i class="fa fa-yellow fa-star text-yellow fa-lg" style="margin-right: 4px;" aria-hidden="true"></i>
-                                    <i class="fa fa-yellow fa-star text-yellow fa-lg" style="margin-right: 4px;" aria-hidden="true"></i>
-                                    <i class="fa fa-yellow fa-star text-black-400 fa-lg" style="margin-right: 4px;" aria-hidden="true"></i> -->
                                   </div>
                                   <div class="service_show_overview__header__main__content__i-bottom-review-score"></div>
                                   <div class="service_show_overview__header__main__content__i-bottom-review-count">
-                                    <a class="service_show_overview__header__main__content__i-bottom-review-link" href="/service/3558/reviews/">{{ $service->reviews_count }}件の口コミ </a>
+                                    <a class="service_show_overview__header__main__content__i-bottom-review-link" href="">{{ $service->reviews_count }}件の口コミ </a>
                                   </div>
                                 </div>
                               </div>
@@ -988,63 +983,11 @@
                                 @endif
                               </div>
                               <div class="serviceReputationMetricsBarBlock__bar">
-                                <div class="serviceReputationMetricsBarBlock__progress bar_star_5" style="width: {{ ($reviews[$i] / $service->reviews_count) * 100 }}%"></div>
+                                <div class="serviceReputationMetricsBarBlock__progress bar_star_5" style="width: {{$service->reviews_count?($reviews[$i] / $service->reviews_count) * 100:0 }}%"></div>
                               </div>
                               <div class="serviceReputationMetricsBarBlock__count">(<a href="/service/3558/reviews/?review_rate=5">{{ $reviews[$i] }}</a>)</div>
                             </div>
                           @endfor
-                          <!-- <div class="serviceReputationMetricsBarBlock">
-                            <div class="serviceReputationMetricsBarBlock__rate">
-                              <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                              <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                              <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                              <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                              <i class="fa fa-yellow fa-star text-black-400 fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                            </div>
-                            <div class="serviceReputationMetricsBarBlock__bar">
-                              <div class="serviceReputationMetricsBarBlock__progress bar_star_4" style="width:42.74041483343809%"></div>
-                            </div>
-                            <div class="serviceReputationMetricsBarBlock__count">(<a href="/service/3558/reviews/?review_rate=4">680</a>)</div>
-                          </div>
-                          <div class="serviceReputationMetricsBarBlock">
-                            <div class="serviceReputationMetricsBarBlock__rate">
-                              <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                              <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                              <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                              <i class="fa fa-yellow fa-star text-black-400 fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                              <i class="fa fa-yellow fa-star text-black-400 fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                            </div>
-                            <div class="serviceReputationMetricsBarBlock__bar">
-                              <div class="serviceReputationMetricsBarBlock__progress bar_star_3" style="width:6.536769327467002%"></div>
-                            </div>
-                            <div class="serviceReputationMetricsBarBlock__count">(<a href="/service/3558/reviews/?review_rate=3">104</a>)</div>
-                          </div>
-                          <div class="serviceReputationMetricsBarBlock">
-                            <div class="serviceReputationMetricsBarBlock__rate">
-                              <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                              <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                              <i class="fa fa-yellow fa-star text-black-400 fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                              <i class="fa fa-yellow fa-star text-black-400 fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                              <i class="fa fa-yellow fa-star text-black-400 fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                            </div>
-                            <div class="serviceReputationMetricsBarBlock__bar">
-                              <div class="serviceReputationMetricsBarBlock__progress bar_star_2" style="width:0.43997485857950974%"></div>
-                            </div>
-                            <div class="serviceReputationMetricsBarBlock__count">(<a href="/service/3558/reviews/?review_rate=2">7</a>)</div>
-                          </div>
-                          <div class="serviceReputationMetricsBarBlock">
-                            <div class="serviceReputationMetricsBarBlock__rate">
-                              <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                              <i class="fa fa-yellow fa-star text-black-400 fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                              <i class="fa fa-yellow fa-star text-black-400 fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                              <i class="fa fa-yellow fa-star text-black-400 fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                              <i class="fa fa-yellow fa-star text-black-400 fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                            </div>
-                            <div class="serviceReputationMetricsBarBlock__bar">
-                              <div class="serviceReputationMetricsBarBlock__progress bar_star_1" style="width:0.06285355122564425%"></div>
-                            </div>
-                            <div class="serviceReputationMetricsBarBlock__count">(<a href="/service/3558/reviews/?review_rate=1">1</a>)</div>
-                          </div> -->
                         </div>
                         <div class="serviceReputationMetricsBarContainerTop bar_second">
                           <div class="serviceReputationMetricsBarContainerText">従業員規模</div>
@@ -1226,24 +1169,6 @@
             <div class="ss-post-review">
               <a class="serviceReputationMetricsButton fullWidth " href="{{ route('add_review', $service->id)}}">このサービスの口コミを書く</a>
             </div>
-          </div>
-        </div>
-        <div class="v2Sidebar__title">プロが教える後悔しない選び方</div>
-        <div class="v2Sidebar__content">
-          <div class="v2Sidebar__wp--thumb">
-            <div class="wpThumb">
-              <img alt="" width="300" height="232" src="https://assets.boxil.jp/images/article-whitepaper-bg.svg">
-              <img class="wp_thumb__image" alt="WEB会議システム選び方ガイド_20230420.pptx.pdf" src="https://slides.boxil.jp/category/slides/778742c6dfc46af7c527838e11256ee6.pdf/s3-0.jpg">
-            </div>
-          </div>
-          <div class="v2Sidebar__buttons">
-            <form class="" target="_top" action="/downloads/confirm/" accept-charset="UTF-8" method="get">
-              <input type="hidden" name="type" value="category_document">
-              <input type="hidden" name="ids[]" value="416">
-              <input type="hidden" name="_via" value="ss-wpDL-side">
-              <input type="hidden" name="is_comparison" value="false">
-              <button name="button" type="submit" class="cvButton v2Sidebar__button js-track js-track-ss-wpDL-side">無料で資料ダウンロード</button>
-            </form>
           </div>
         </div>
         <div class="v2SidebarItem element_scroll js-scrolltofixed-menu" id="js-overlap-hidden" style="z-index: auto; top: 94px; position: sticky;">
@@ -1484,38 +1409,5 @@
 
     </div>
 
-  </div>
-
-  <div id="js-overlap-hidden-target">
-    <div id="corporate-lp-banner">
-      <div class="clb-wrappar">
-        <div class="container">
-          <div class="clb-title">
-            <div>御社のサービスを</div>
-            <div>ボクシルに掲載しませんか？</div>
-          </div>
-          <div class="clb-content">
-            <div class="clb-content-box">
-              <div class="i-element">
-                <span class="i-element-star">★</span>
-                <span class="i-element-unit">累計掲載実績</span>
-                <span class="i-element-text">700</span>
-                <span class="i-element-unit">社超</span>
-              </div>
-              <div class="i-element">
-                <span class="i-element-star">★</span>
-                <span class="i-element-unit">BOXIL会員数</span>
-                <span class="i-element-text">130,000</span>
-                <span class="i-element-unit">人超</span>
-              </div>
-            </div>
-          </div>
-          <div class="clb-content">見込み客獲得や認知度向上をしたいサービスをお持ちの方は是非サービスをご掲載ください。</div>
-          <div class="clb-button">
-            <a class="btn btn-link-special" target="_blank" rel="noopener" href="https://boxil.smartcamp.co.jp/?utm_source=boxil&amp;utm_medium=referral&amp;utm_campaign=footer_banner">サービス掲載申し込み</a>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 @endsection

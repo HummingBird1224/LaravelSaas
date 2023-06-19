@@ -20,7 +20,7 @@ class ServiceController extends Controller
     public function index()
     {
         $services=Service::get();
-        return view('client.services.list', ['services'=>$services]);
+        return view('services.list', ['services'=>$services]);
     }
 
     /**
@@ -28,12 +28,12 @@ class ServiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function add_view()
+    public function add()
     {
-        return view('client.services.add');
+        return view('services.add');
     }
 
-    public function add_service(Request $request) {
+    public function store(Request $request) {
         // dd($request->all());
         // dd($request);
         $service = new Service;
@@ -86,6 +86,8 @@ class ServiceController extends Controller
             $service_plans->save();
         }
 
+        $service->up_user()->attach(Auth::id());
+
 		return redirect()->route('service_view', ['id' => $service->id]);
     }
 
@@ -95,10 +97,10 @@ class ServiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        dd($request);
-    }
+    // public function store(Request $request)
+    // {
+    //     dd($request);
+    // }
 
     public function requested_materials()
     {
@@ -125,7 +127,6 @@ class ServiceController extends Controller
     public function show($id)
     {
         $service=Service::reviewAvgCount()->findOrFail($id);
-
         $reviews = [];
         for($i = 1; $i < 6; $i++){
             $reviews[$i] = $service->score_count($i, $service->id);

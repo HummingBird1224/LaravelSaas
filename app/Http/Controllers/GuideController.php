@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Guide;
 use App\Models\Service;
 use App\Models\Company;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Mail;
@@ -47,6 +48,7 @@ class GuideController extends Controller
     public function download_confirm(Request $request)
     {
         $type=$request->query('type');
+        // dd($type);
         if($type=='document'){
             $service=Service::with('up_user')->reviewavgcount()->findOrFail($request->query('id'));
             $c_services=Service::where('guide_id', $service->guide_id)
@@ -57,7 +59,7 @@ class GuideController extends Controller
                 'type'=>'document',
             ]); 
         }
-        else if($type='category_documents'){
+        else if($type=='category_documents'){
             $docs=$request->query('id');
             $doc_arr=array();
             foreach(explode(',', $docs) as $i){
@@ -68,7 +70,12 @@ class GuideController extends Controller
             }
             return view('guides.download_confirm',['requested_guides'=>$doc_arr, 'type'=>'category_documents'] );
         }
-        
+        else if($type=='category'){
+            $c_id=$request->query('id');
+            $services=Category::findOrFail($c_id)->guide->services;
+            dd($services);
+            return view('guides.download_confirm',['services'=>$services, 'type'=>'category']);
+        }
     }
 
     public function service_add($id)
