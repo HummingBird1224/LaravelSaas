@@ -14,17 +14,23 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $recommended_services=Service::where('recommended', 1)->with('category')->with('guide')->get();
+        $recommended_services=Service::where('recommended', 1)->with(['guide'=>function($query){
+            $query->with('category');
+        }])->get();
         $services=Service::get();
         $lcs=LargeCategory::with('categories')->get();
         $issues=Issue::get();
-        $categories=Category::with(['services'=>function($query){
-            $query->withCount(['reviews'=>function($query){
-              $query->where('status', 'approved');
-             }])->withAvg(['reviews'=>function($query){
-              $query->where('status', 'approved');
-             }],  'score');
+        $categories=Category::with(['guide'=>function($query){
+            $query->with(['services'=>function($query){
+                $query->withCount(['reviews'=>function($query){
+                    $query->where('status', 'approved');
+                }])->withAvg(['reviews'=>function($query){
+                    $query->where('status', 'approved');
+                }],  'score');
+            }]);
         }])->get();
+        // dd($categories[14]->guide->services);
+        
         $guides=Guide::where('free',1)->limit(8)->get();
         return view('dashboard', [
             'r_services'=>$recommended_services, 

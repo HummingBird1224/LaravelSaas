@@ -47,12 +47,18 @@ $user=Auth::user();
     </div>
     <div class="block-header">MENU</div>
     <ul>
+      @if(!$user)
       <li class="drawermenu-list sign">
         <a class="drawermenu-inner" href="/register/">無料会員登録</a>
       </li>
       <li class="drawermenu-list sign">
-        <a class="drawermenu-inner" data-signin="true" data-target="#modal-signin" data-toggle="modal" href="/login">ログイン</a>
+        <a class="drawermenu-inner"  href="/login">ログイン</a>
       </li>
+      @else
+      <li class="drawermenu-list sign">
+        <a class="drawermenu-inner" href="/logout">ログアウト</a>
+      </li>
+      @endif
       <li class="drawermenu-list">
         <a class="drawermenu-inner" href="/categories/">カテゴリから探す</a>
       </li>

@@ -55,10 +55,4 @@ class Category extends Model
             'guide_id'
         );
     }
-
-    public function services(){
-        return $this->hasMany(
-            Service::class,
-        );
-    }
 }

@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Guide;
+use App\Models\Service;
+use App\Models\Company;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Auth;
 
 class GuideController extends Controller
 {
@@ -41,13 +45,33 @@ class GuideController extends Controller
 
     public function download_confirm(Request $request)
     {
-        $docs=$request->query('checked_docs');
-        $doc_arr=array();
-        foreach(explode(',', $docs) as $i){
-            $doc=Guide::findOrFail($i);
-            array_push($doc_arr, $doc);
+        $type=$request->query('type');
+        if($type=='document'){
+            $service=Service::with('up_user')->reviewavgcount()->findOrFail($request->query('id'));
+            $c_services=Service::where('guide_id', $service->guide_id)
+                        ->where('id','!=', $service->id)->with('up_user')->reviewavgcount()->get();
+            return view('guides.download_confirm', [
+                'service'=>$service, 
+                'c_services'=>$c_services, 
+                'type'=>'document',
+            ]); 
         }
-        return view('guides.download_confirm',['requested_guides'=>$doc_arr] );
+        else if($type='category_documents'){
+            $docs=$request->query('id');
+            $doc_arr=array();
+            foreach(explode(',', $docs) as $i){
+                $doc=Guide::with('services')->findOrFail($i);
+                array_push($doc_arr, $doc);
+            }
+            return view('guides.download_confirm',['requested_guides'=>$doc_arr, 'type'=>'category_documents'] );
+        }
+        
+    }
+
+    public function service_add($id)
+    {
+        $service=Service::with('up_user')->reviewavgcount()->findOrFail($id);
+        return $service;
     }
 
     public function post_mail(Request $request) {

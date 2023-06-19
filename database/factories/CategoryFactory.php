@@ -21,8 +21,12 @@ class CategoryFactory extends Factory
         return [
             'title'=>$faker->realText(10),
             'description'=>$faker->realText(300),
-            // 'guide_id'=>random_int(1, 20),
+            'guide_id'=>random_int(35, 44),
             'success_method'=>$faker->realText(400),
+            'necessary_points'=>$faker->realText(200),
+            'comparison_points'=>$faker->realText(150),
+            'good_points'=>$faker->realText(150),
+            'bad_points'=>$faker->realText(100),
             'large_category_id'=>$faker->randomElement(LargeCategory::pluck('id')->toArray()),
             'issue_id'=>$faker->randomElement(Issue::pluck('id')->toArray()),
         ];

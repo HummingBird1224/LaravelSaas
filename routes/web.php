@@ -47,6 +47,11 @@ Route::prefix('category_documents')->group(function() {
 	Route::get('/', [GuideController::class, 'index'])->name('category_documents');
 	Route::get('/search', [GuideController::class, 'search'])->name('category_documents_search');	
 });
+Route::prefix('downloads')->group(function(){
+	Route::get('/confirm', [GuideController::class, 'download_confirm'])->name('download_confirm');
+	Route::get('/service_add/{id}', [GuideController::class, 'service_add'])->name('download_service_add');
+});
+
 // Route::get('/downloads/confirm', [GuideController::class, 'download_confirm'])->name('download_confirm');
 
 //Service Routes
@@ -166,7 +171,7 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
 });
 
 Route::group(['middleware' => ['auth', 'client']], function() {
-	Route::get('/downloads/confirm', [GuideController::class, 'download_confirm'])->name('download_confirm');
+	
 	Route::post('/downloads/post_mail', [GuideController::class, 'post_mail'])->name('post_mail');
 
 	Route::prefix('client')->group(function() {
