@@ -65,10 +65,14 @@ class User extends Authenticatable
         );
     }
 
-    public function services(){
-        return $this->hasMany(
-            Service::class
-        );
+    public function up_service()
+    {
+        return $this->belongsToMany(Service::class)->wherePivot('action', 'up');
+    }
+
+    public function down_service()
+    {
+        return $this->belongsToMany(Service::class)->wherePivot('action', 'down');
     }
 
     public function guides()

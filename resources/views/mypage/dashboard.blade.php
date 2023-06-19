@@ -86,16 +86,17 @@ $user = Auth::user();
           <div class="card info-card sales-card">
             <div class="card-body ">
               <div class="row">
-                @for($i=1; $i<=4; $i++) <div class="col-sm-6 col-md-3 text-center">
+                @foreach($r_guides as $r_guide) 
+                <div class="col-sm-6 col-md-3 text-center">
                   <label class="checkbox document-wrapper active">
                     <div class="guide">
                       <div class="guide-img">
-                        <img alt="SaaS Industry Report 2022.pdf" src="{{asset('assets/img/tsukubnobi/guide1.png')}}"
+                        <img alt="SaaS Industry Report 2022.pdf" src="{{asset($r_guide->image)}}"
                           data-xblocker="passed" style="visibility: visible;" width="100%">
                         <div class="guide-checkbox">
                           <div class="checker">
                             <span class="checked">
-                              <input class="checkbox-input" name="category_document" type="checkbox" value="1122"
+                              <input class="checkbox-input" name="category_document" type="checkbox" value="{{$r_guide->id}}"
                                 style="display: inline-block;">
                             </span>
                           </div>
@@ -103,17 +104,17 @@ $user = Auth::user();
                         </div>
                       </div>
                       <div class="guide-name">
-                        <p style="vertical-align: inherit;">SaaS業界レポート2022</p>
+                        <p style="vertical-align: inherit;">{{$r_guide->title}}</p>
                       </div>
                     </div>
                   </label>
               </div>
-              @endfor
+              @endforeach
             </div>
 
             <div class="guide-bottom">
               <div class="middle-button">
-                <button class="green-button button" onclick="downloadConfirm()">
+                <button class="green-button button" onclick="downloadClick()">
                   <div class="button-text">
                     選択中のガイドをダウンロード
                   </div>
@@ -140,40 +141,39 @@ $user = Auth::user();
     <div class="card info-card sales-card">
       <div class="card-body ">
         <div class="row">
-          @for($i=1; $i<=6; $i++) <div class="col-sm-6  service-block">
+          @foreach($r_services as $r_service) 
+          <div class="col-sm-6  service-block">
             <div class="service-content">
-              <a class="service-logo" href="#">
-                <img alt="logo name" src="{{asset('assets/img/tsukubnobi/service1.png')}}" data-xblocker="passed"
+              <a class="service-logo" href="{{route('service_view', $r_service->id)}}">
+                <img alt="logo name" src="{{asset($r_service->logo)}}" data-xblocker="passed"
                   style="visibility: visible;" width="100%" height="100%">
               </a>
               <div class="service-info">
                 <div class="service-title">
-                  <a href="#">
-                    <h6> Sansan</h6>
+                  <a href="{{route('service_view', $r_service->id)}}">
+                    <h6> {{$r_service->title}}</h6>
                   </a>
                 </div>
-                <div class="service-description">
+                <a class="service-description" href="{{route('service_view', $r_service->id)}}">
                   <p>
-                    名刺管理から、働き方を変える
-                    Sansanは社内の名刺を一括管理することで、
-                    企業の成長を後押しす…
+                    {{$r_service->description}}
                   </p>
-                </div>
+                </a>
               </div>
             </div>
-            <div class="middle-button service-button">
-              <button class="green-button button">
-                <div class="button-text">
+            <a class="middle-button " href="/downloads/confirm?type=document&&id={{$r_service->id}}">
+              <button class="green-button button service-button" >
+                <div class="button-text" >
                   資料請求
                 </div>
               </button>
-            </div>
+            </a>
+          </div>
+          @endforeach
         </div>
-        @endfor
       </div>
     </div>
   </div>
-</div>
 <!-- End さんにおすすめのサービス -->
 
 <!-- 資料請求したサービス -->
@@ -223,8 +223,20 @@ $user = Auth::user();
 
 @section('script')
 <script>
-downloadConfirm = () => {
-  location.href = "/download/confirm";
-}
+  let checkboxes = document.getElementsByClassName("checkbox-input");
+  downloadClick = () => {
+    let docs = [];
+    for (let i = 0; i < checkboxes.length; i++) {
+      if (checkboxes[i].checked) {
+        docs = [...docs, checkboxes[i].value];
+      }
+    }
+    if(docs.length==0){
+      toastr.error('ガイドを選択する必要があります。');
+    }
+    if (docs.length > 0) {
+      location.href = '/downloads/confirm?checked_docs=' + docs;
+    }
+  }
 </script>
 @endsection

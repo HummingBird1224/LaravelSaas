@@ -47,6 +47,11 @@ Route::prefix('category_documents')->group(function() {
 	Route::get('/', [GuideController::class, 'index'])->name('category_documents');
 	Route::get('/search', [GuideController::class, 'search'])->name('category_documents_search');	
 });
+Route::prefix('downloads')->group(function(){
+	Route::get('/confirm', [GuideController::class, 'download_confirm'])->name('download_confirm');
+	Route::get('/service_add/{id}', [GuideController::class, 'service_add'])->name('download_service_add');
+});
+
 // Route::get('/downloads/confirm', [GuideController::class, 'download_confirm'])->name('download_confirm');
 
 //Service Routes
@@ -63,7 +68,7 @@ Route::get('/categories/{parent}/{id}',[CategoryController::class, 'categories_b
 Route::group(['middleware' => ['auth']], function() {
 
 	Route::prefix('mypage')->group(function(){
-		Route::view('/', 'mypage.dashboard')->name('mypage');
+		Route::get('/', [MypageController::class, 'index'])->name('mypage');
 		Route::get('/reputation_answers',[ReviewController::class, 'repuation_answers'] )->name('reputation_answers');
 		Route::get('/delete_review/{id}',[ReviewController::class, 'destroy'] )->name('delete_review');
 		Route::view('/requested_materials', 'mypage.requested_materials')->name('requested_materials');
@@ -153,17 +158,20 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
 		});
 
 		Route::get('/service_activities', [ServiceController::class, 'service_activities'])->name('admin_service_activities');
-		Route::get('/category_issues', [AdminController::class, 'category_issues'])->name('admin_category_issues');
+		Route::get('/category_issues', [CategoryController::class, 'category_issues'])->name('admin_category_issues');
 		Route::get('/service_managing', [ServiceController::class, 'service_managing'])->name('admin_service_managing');
-		Route::get('/client_managing', [ClientController::class, 'client_managing'])->name('admin_client_managing');
+		Route::get('/client_managing', [UserController::class, 'client_managing'])->name('admin_client_managing');
 
 		Route::post('/lc_edit', [CategoryController::class, 'lc_edit'])->name('lc_edit');
+		Route::post('/issue_edit', [CategoryController::class, 'issue_edit'])->name('issue_edit');
+		Route::post('/category_add', [CategoryController::class, 'create'])->name('category_add');
+		Route::post('/category_edit', [CategoryController::class, 'edit'])->name('category_edit');
 	});
 
 });
 
 Route::group(['middleware' => ['auth', 'client']], function() {
-	Route::get('/downloads/confirm', [GuideController::class, 'download_confirm'])->name('download_confirm');
+	
 	Route::post('/downloads/post_mail', [GuideController::class, 'post_mail'])->name('post_mail');
 
 	Route::prefix('client')->group(function() {

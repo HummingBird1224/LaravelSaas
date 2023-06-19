@@ -14,7 +14,7 @@ class AddStatusFieldInCategoryGoodBadPointsTable extends Migration
     public function up()
     {
         Schema::table('category_good_bad_points', function (Blueprint $table) {
-            $table->boolean('status')->default(1);
+            $table->boolean('status');
         });
     }
 

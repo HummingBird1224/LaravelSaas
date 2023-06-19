@@ -538,7 +538,7 @@
                 src="{{asset($r_service->guide->image)}}" />
               <div class="bannerContent">
                 <div class="serviceName">{{$r_service->title}}</div>
-                <div class="categoryName">{{$r_service->category->title}}</div>
+                <div class="categoryName">{{$r_service->guide->category->title}}</div>
               </div>
             </div>
           </a>
@@ -630,7 +630,7 @@
               </div>
               <div class="servicesIndex-boxilRankingContent">
                 @foreach($categories as $category)
-                  @if(count($category->services)>0)
+                  @if(isset($category->guide) && count($category->guide->services)>0)
                     <div class="rankingBox">
                       <div class="rankingBox-title">
                         <a class="js-track js-track-si-categoryLink-mainRanking"
@@ -638,44 +638,43 @@
                           {{$category->title}}
                         </a>
                       </div>
-                      @foreach($category->services as $service)
-                    <a class="rankingBox-service-wrapper js-track js-track-si-serviceLink-mainRanking"
-                      href="{{route('service_view', $service->id)}}">
-                      <div class="i-serviceBlock rankingBox-service flex">
-                        <div class="rankingBox-service-top-ranking">
-                          <i class="fas fa-crown ranking-crown no-1"></i>
-                        </div>
-                        <div class="service-logo-top-recommend">
-                          <img alt="{{$service->title}}" class="service-logo-image" loading="lazy"
-                            src="{{asset($service->logo)}}" />
-                        </div>
-                        <div class="i-service-details">
-                          <div class="i-service-details-serviceName text-overflow-ellipsis">
-                            <span class="text-overflow-ellipsis">{{$service->title}}</span>
+                      @foreach($category->guide->services as $service)
+                      <a class="rankingBox-service-wrapper js-track js-track-si-serviceLink-mainRanking"
+                        href="{{route('service_view', $service->id)}}">
+                        <div class="i-serviceBlock rankingBox-service flex">
+                          <div class="rankingBox-service-top-ranking">
+                            <i class="fas fa-crown ranking-crown no-1"></i>
                           </div>
-                          <div class="i-service-details-serviceReview">
-                            @if((int)$service->reviews_avg_score != 0)
-                              @for ($i = 0; $i < ((int)$service->reviews_avg_score); $i++)
-                                <i class="fa fa-yellow fa-star text-yellow "  style="margin-right: 0px;"></i>
-                              @endfor
-                              @for ($i = 0; $i < (5-(int)$service->reviews_avg_score); $i++)
-                                <i class="fa fa-yellow fa-star text-black-400 "  style="margin-right: 0px;"></i>
-                              @endfor
-                            @endif
-                            <span class="average">{{$service->reviews_avg_score?(int)$service->reviews_avg_score:'レビューはありません'}}</span>
-                            <span class="number">({{$service->reviews_count?$service->reviews_count:0}}件)</span>
+                          <div class="service-logo-top-recommend">
+                            <img alt="{{$service->title}}" class="service-logo-image" loading="lazy"
+                              src="{{asset($service->logo)}}" />
                           </div>
-                          <div class="i-service-details-serviceCategory">
-                            <div class="i-service-details-serviceCategory-tag text-overflow-ellipsis">
-                              {{$category->title}}
+                          <div class="i-service-details">
+                            <div class="i-service-details-serviceName text-overflow-ellipsis">
+                              <span class="text-overflow-ellipsis">{{$service->title}}</span>
+                            </div>
+                            <div class="i-service-details-serviceReview">
+                              @if((int)$service->reviews_avg_score != 0)
+                                @for ($i = 0; $i < ((int)$service->reviews_avg_score); $i++)
+                                  <i class="fa fa-yellow fa-star text-yellow "  style="margin-right: 0px;"></i>
+                                @endfor
+                                @for ($i = 0; $i < (5-(int)$service->reviews_avg_score); $i++)
+                                  <i class="fa fa-yellow fa-star text-black-400 "  style="margin-right: 0px;"></i>
+                                @endfor
+                              @endif
+                              <span class="average">{{$service->reviews_avg_score?(int)$service->reviews_avg_score:'レビューはありません'}}</span>
+                              <span class="number">({{$service->reviews_count?$service->reviews_count:0}}件)</span>
+                            </div>
+                            <div class="i-service-details-serviceCategory">
+                              <div class="i-service-details-serviceCategory-tag text-overflow-ellipsis">
+                                {{$category->title}}
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </a>
-                    @endforeach 
-                    </div>
-                    
+                      </a>
+                      @endforeach 
+                    </div>                    
                   @endif
                 @endforeach
               </div>

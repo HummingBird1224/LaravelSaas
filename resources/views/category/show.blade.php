@@ -46,7 +46,7 @@ $user=Auth::user();
     .categoryV2Section .categoryV2Section__content {
       margin-top: 24px;
       font-weight: 400;
-      font-size: 16px;
+      font-size: 15px;
       line-height: 24px;
       color: #222222;
     }
@@ -149,65 +149,37 @@ $user=Auth::user();
                 <div class="categoryV2Section">
                   <h2 class="categoryV2Section__title">{{$category->title}}システムとは</h2>
                   <div class="categoryV2Section__content">
-                    @foreach(explode('。',$category->description) as $sentence)
-                      {{$sentence}}<br/><br/>
-                    @endforeach
+                    <?php echo $category->description ?>
                   </div>
                 </div>
                 <div class="categoryV2Section">
                   <h2 class="categoryV2Section__title">{{$category->title}}システムはなぜ必要か？</h2>
                   <div class="categoryV2Section__content">
-                    @foreach($category->necessary_points as $n_p)
-                      <b>【{{$n_p->title}}】</b><br/>
-                      @foreach(explode('。',$n_p->contents) as $content)
-                        <br/>{{$content}}<br/>
-                      @endforeach
-                    @endforeach 
+                    <?php echo $category->necessary_points ?>
                   </div>
                 </div>
                 <div class="categoryV2Section">
                   <h2 class="categoryV2Section__title">{{$category->title}}システムを導入するメリット</h2>
                   <div class="categoryV2Section__content">
-                   @foreach($category->good_bad_points as $g_p)
-                    @if($g_p->status==1)
-                      <b>【{{$g_p->title}}】</b><br/>
-                      @foreach(explode('。',$g_p->contents) as $content)
-                        <br/>{{$content}}<br/>
-                      @endforeach
-                    @endif
-                   @endforeach
+                    <?php echo $category->good_points ?>
                   </div>
                 </div>
                 <div class="categoryV2Section">
                   <h2 class="categoryV2Section__title">{{$category->title}}システム導入するデメリット</h2>
                   <div class="categoryV2Section__content">
-                    @foreach($category->good_bad_points as $b_p)
-                      @if($b_p->status==0)
-                        <b>【{{$b_p->title}}】</b><br/>
-                        @foreach(explode('。',$b_p->contents) as $content)
-                          <br/>{{$content}}<br/>
-                        @endforeach
-                      @endif
-                   @endforeach
+                    <?php echo $category->bad_points ?>
                   </div>
                 </div>
                 <div class="categoryV2Section">
                   <h2 class="categoryV2Section__title">{{$category->title}}システムの比較ポイント</h2>
                   <div class="categoryV2Section__content">
-                     @foreach($category->comparison_points as $c_p)
-                      <b>【{{$c_p->title}}】</b><br/>
-                      @foreach(explode('。',$c_p->contents) as $content)
-                        <br/>{{$content}}<br/>
-                      @endforeach
-                    @endforeach 
+                    <?php echo $category->comparison_points ?>
                   </div>
                 </div>
                 <div class="categoryV2Section">
                   <h2 class="categoryV2Section__title">{{$category->title}}システムの導入に失敗しない方法は？成功するためのポイント</h2>
                   <div class="categoryV2Section__content">
-                    @foreach(explode('。',$category->success_method) as $content)
-                      <br/>{{$content}}<br/>
-                    @endforeach
+                    <?php echo $category->success_method ?>
                   </div>
                 </div>
               </div>

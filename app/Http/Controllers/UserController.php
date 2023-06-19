@@ -131,6 +131,7 @@ class UserController extends Controller
     }
 
     public function profile_edit(Request $request){
+        dd($request);
         $file=$request->file('avatar');
         $user = User::updateOrCreate(
             [
@@ -197,5 +198,10 @@ class UserController extends Controller
             $company->save();
         }
         return back()->withInput();
+    }
+
+    public function client_managing()
+    {
+        
     }
 }

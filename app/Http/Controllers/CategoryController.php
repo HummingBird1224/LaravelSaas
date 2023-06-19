@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Category;
 use App\Models\LargeCategory;
 use App\Models\Issue;
+use App\Models\Guide;
+use App\Models\CategoryNecessaryPoint;
+use App\Models\CategoryComparisonPoint;
+use App\Models\CategoryGoodBadPoint;
 
 class CategoryController extends Controller
 {
@@ -31,26 +35,19 @@ class CategoryController extends Controller
 
 	public function show($id)
 	{
-		$category=Category::with('necessary_points')->with('good_bad_points')->with('comparison_points')->findOrFail($id);
+		$category=Category::findOrFail($id);
 		return view('category.show', ['category'=>$category]);
 	}
 
 
 	public function categories_by_parent($parent,$id)
 	{
-		$categories=Category::where($parent, $id)->get();
+		$categories=Category::where($parent, $id)->with('guide')->get();
 		return $categories;
 	}
 
-	// public function categories_by_issue($id)
-	// {
-	// 	$categories=Category::where('issue', $id);
-	// 	return $categories;
-	// }
-
 	public function lc_edit(Request $request)
 	{
-		// $lc=LargeCategory::findOrFail($request->lc_id)->update(['title'=>$request->lc_title]);
 		$lc=LargeCategory::updateOrCreate(
 			['id'=>$request->lc_id],
 			['title'=>$request->lc_title]
@@ -58,43 +55,105 @@ class CategoryController extends Controller
 		return redirect()->route('admin_category_issues');
 	}
 
+	public function issue_edit(Request $request)
+	{
+		$image=$request->file('i_image');
+		$issue=Issue::updateOrCreate(
+			['id'=>$request->i_id],
+			['title'=>$request->i_title]
+		);
+		if($image) {
+			$issue->image = $image->storeAs(
+			'uploads/issue_logos/', time().'_'.$image->getClientOriginalName(), 'public'
+			);
+			$issue->save();
+		}
+		return back()->withInput();
+	}
+
+	public function category_issues()
+	{
+		$lcs=LargeCategory::get();
+		$issues=Issue::get();
+		return view('admin.category_issues', ['lcs'=>$lcs, 'issues'=>$issues]);
+	}
+
 	public function create(Request $request)
 	{
-		$req = json_decode($request['postData']);
+		$image=$request->file('g_image');
+    $data=$request->file('g_data');
+		$category=Category::create([
+			'title'=>$request->c_title,
+			'description'=>$request->c_description,
+			'large_category_id'=>$request->lc_id,
+			'issue_id'=>$request->i_id,
+			'success_method'=>$request->s_point,
+			'necessary_points'=>$request->n_point,
+			'good_points'=>$request->g_point,
+			'bad_points'=>$request->b_point,
+			'comparison_points'=>$request->c_point,
+		]);		
 
-		$category = new Category;
-
-		$category->user_id = Auth::id();
-		$category->name = $req->name;
-		$category->access_key = $req->access_key;
-		$category->secret_key = $req->secret_key;
-		$category->partner_tag = $req->partner_tag;
-		$category->yahoo_id = $req->yahoo_id;
-		$category->target_price = $req->target_price;
-		$category->fall_pro = $req->fall_pro;
-		$category->web_hook = $req->web_hook;
+		$guide= Guide::create([
+			'title'=>$request->g_title,
+			'description'=>$request->g_description,			
+      'recommended'=>$request->g_recommended=='on'?1:0,
+			'free'=>$request->g_free=='on'?1:0,
+		]);
+		if($data) {
+			$guide->data = $data->storeAs(
+			'uploads/guides/materials', time().'_'.$data->getClientOriginalName(), 'public'
+			);
+			$guide->save();
+		}
+		if($image) {
+			$guide->image = $image->storeAs(
+			'uploads/guides/images', time().'_'.$image->getClientOriginalName(), 'public'
+			);
+			$guide->save();
+		}
+		$category->guide_id=$guide->id;
 		$category->save();
-
-		return $category;
+		return back()->withInput();
 	}
 
 	public function edit(Request $request)
 	{
-		$req = json_decode($request['postData']);
-
-		$category = Category::find($req->id);
-
-		$category->name = $req->name;
-		$category->access_key = $req->access_key;
-		$category->secret_key = $req->secret_key;
-		$category->partner_tag = $req->partner_tag;
-		$category->yahoo_id = $req->yahoo_id;
-		$category->target_price = $req->target_price;
-		$category->fall_pro = $req->fall_pro;
-		$category->web_hook = $req->web_hook;
+		$category = Category::find($request->c_id);
+		$category->title = $request->c_title;
+		$category->description = $request->c_description;
+		$category->large_category_id = $request->lc_id;
+		$category->success_method = $request->s_point;
+		$category->necessary_points = $request->n_point;
+		$category->good_points = $request->g_point;
+		$category->bad_points = $request->b_point;
+		$category->comparison_points = $request->c_point;
 		$category->save();
 
-		return $category;
+		$guide=Guide::find($category->guide_id);
+		$guide->title=$request->g_title;
+		$guide->description=$request->g_description;
+		$guide->recommended=$request->g_recommended=='on'?1:0;
+		$guide->free=$request->g_free=='on'?1:0;
+		$guide->save();
+
+		$image=$request->file('g_image');
+    $data=$request->file('g_data');
+
+		if($data) {
+			$guide->data = $data->storeAs(
+			'uploads/guides/materials', time().'_'.$data->getClientOriginalName(), 'public'
+			);
+			$guide->save();
+		}
+		if($image) {
+			$guide->image = $image->storeAs(
+			'uploads/guides/images', time().'_'.$image->getClientOriginalName(), 'public'
+			);
+			$guide->save();
+		}
+
+		return back()->withInput();
 	}
 
 	public function delete(Request $request, $id)

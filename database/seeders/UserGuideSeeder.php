@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-use App\Models\UserGuide;
+use App\Models\ServiceUser;
 
 class UserGuideSeeder extends Seeder
 {
@@ -15,6 +15,6 @@ class UserGuideSeeder extends Seeder
      */
     public function run()
     {
-        UserGuide::factory()->count(15)->create();
+        ServiceUser::factory()->count(15)->create();
     }
 }
