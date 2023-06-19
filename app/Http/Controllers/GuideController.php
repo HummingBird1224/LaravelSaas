@@ -7,6 +7,7 @@ use App\Models\Service;
 use App\Models\Company;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
 
 class GuideController extends Controller
@@ -89,6 +90,12 @@ class GuideController extends Controller
 		// header('Content-Disposition: attachment; filename="' . $filename . "_" . date("Y-m-d") . '.txt"');
 		// echo $data;
 		// exit();
+        $details = [];
+        $details['mail_address'] = 'moonrider.crowdworks@gmail.com';
+
+        Mail::to($details['mail_address'])
+				->send(new \App\Mail\UpdateMail($details));
+
         return redirect()->route('category_documents');
     }
 

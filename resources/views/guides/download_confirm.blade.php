@@ -156,7 +156,7 @@ public_path('company_profile.json')
                             <div class="tab-pane active">
                               <!-- <form class="simple_form form-horizontal margin-top-30" id="edit_user_272951" enctype="multipart/form-data" action="/account/edit_company_profile/" accept-charset="UTF-8" method="post">
                                 @csrf -->
-                                <input type="hidden" name="authenticity_token" value="LgeuzujFUlMVxzWPs26P9g8koraSjDZKRE+USK717pQ40HiHN2bvAzWCdUipB063Np91mxyCPC7frPCgdvX4rg==">
+                                <!-- <input type="hidden" name="authenticity_token" value="LgeuzujFUlMVxzWPs26P9g8koraSjDZKRE+USK717pQ40HiHN2bvAzWCdUipB063Np91mxyCPC7frPCgdvX4rg=="> -->
                                 <input value="true" type="hidden" name="user[first_create]" id="user_first_create">
 
                                 <div class="form-group row m-b-30">
@@ -225,7 +225,7 @@ public_path('company_profile.json')
                                   <label class="col-sm-3 control-label string required">メールアドレス</label>
                                   <div class="col-sm-6 flex m-l-20">
                                     <input class="form-control string required w-300px" required="required"
-                                      aria-required="true" placeholder="ビジネス利用の電話番号を入力" type="text" name="email"
+                                      aria-required="true" placeholder="ビジネス用メールアドレスを入力してください" type="email" name="email"
                                       id="email" value="{{$user?$user->email:''}}" />
                                   </div>
                                   <button type="button" name="commit" value="更新する"
@@ -509,6 +509,35 @@ public_path('company_profile.json')
             </div>
           </div>
 
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="card-section">
+                <div class="card info-card sales-card">
+                  <div class="card-body container">
+                    <div class="agreement-wrapper" style="width: 70%; margin: 0 auto;">
+                      <div class="title">
+                        <h5 class="card-title" style="text-align: center;">請求資料一覧</h5>
+                      </div>
+                      <div class="separator" style="border-bottom: 3px solid #30B0B0; width: 70px; margin: auto; margin-bottom: 5%;"></div>
+                      <div class="list">
+                        <ol><li>より良いご提案のため、資料ダウンロード後に、当該資料に含まれるSaaS提供会社（以下「SaaS提供会社」）からご案内を差し上げる場合があります。</li><li>上記ご案内のため、BOXILにご登録いただいた会員情報を、当社からSaaS提供会社に対して電子ファイルにて提供いたします。</li><li>競合調査やいたずらでの資料請求はご遠慮ください。</li></ol>
+                      </div>
+                      <div class="user-agreement"style=" text-align: center;">
+                        <input required="required" class="checkbox-large js-user-agreement" type="checkbox" value="1" name="user[agreement]" id="user_agreement">
+                        <label class="checkbox-large-label" for="user_agreement">「<a class="text-link" target="_blank" href="https://smartcamp.co.jp/handling_of_privacy">個人情報の取扱いについて</a>」、「<a class="text-link" target="_blank" href="/terms/">利用規約</a>」、及び上記確認事項に同意の上</label>
+                      </div>
+                      <div id="tooltip-wrapper">
+                        <div class="download-button-wrapper" style="text-align: center; padding-top: 3%;">
+                          <button type="submit" class="btn js-download-btn btn-raised btn-orange-lg" data-disable-with="ダウンロード中" disabled="disabled">資料をダウンロード</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </form>
       </section>
 
@@ -588,7 +617,6 @@ public_path('company_profile.json')
       } else {
         $('.js-download-btn').removeAttr('disabled');
       }
-      console.log(btn_check);
     });
   });
 </script>
