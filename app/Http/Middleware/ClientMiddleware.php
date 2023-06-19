@@ -17,7 +17,7 @@ class ClientMiddleware
     public function handle(Request $request, Closure $next)
     {
         if ($request->user()->role == 'user') {
-            return redirect('/');
+            return redirect()->route('company_profile');
         }
         return $next($request);
     }
