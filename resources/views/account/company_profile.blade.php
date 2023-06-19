@@ -10,14 +10,6 @@ $data=json_decode(file_get_contents(
 <div class="content-wrapper">
   <div class="container-xxl flex-grow-1 container-p-y">
     <main id="main" class="main">
-      <div class="pagetitle">
-        <nav>
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Yahoo</a></li>
-            <li class="breadcrumb-item active">企業プロフィール</li>
-          </ol>
-        </nav>
-      </div><!-- End Page Title -->
       <section class="section change_profile">
         <!-- 編集中の口コミ -->
         <div class="row card-section">

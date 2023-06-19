@@ -9,6 +9,7 @@
 
 					<div class="card-body">
 						<div class="row">
+							<h5>適用ユーザー</h5>
 							<div id="table-wrapper" class="col-12">
 								<table class="table table-bordered" style="width: 100%;" id="item-table">
 									<!-- <thead>
@@ -28,13 +29,13 @@
 									</thead> -->
 
 									<tbody id="item-table-body">
-										@for($i=1; $i<=6; $i++)
-										<tr id={{ "client". $i }} >											
-											<td>client{{$i}}</td>
-											<td>リード無効化申請館</td>
+										@foreach($w_users as $w_user)
+										<tr id="client_{{$w_user->id}}" >											
+											<td>{{$w_user->full_name}}</td>
+											<td>{{$w_user->email}}</td>
 											<td style="min-width: 90px; padding:20px;cursor:pointer">
                         <span
-                          data-id={{ $i}}
+                          data-id="{{ $w_user->id}}"
                           data-bs-toggle="modal" 
                           data-bs-target="#confirmModal"
                           class="purple-button button"
@@ -43,7 +44,7 @@
                         </span>
                         <span class="m-l-15 m-r-15">/</span>
                         <span
-                          data-id={{ $i }}
+                          data-id="{{ $w_user->id }}"
                           data-bs-toggle="modal"
                           data-bs-target="#categoryModal"
                           class="purple-button button"
@@ -52,7 +53,7 @@
                         </span>
 											</td>
 										</tr>
-										@endfor
+										@endforeach
 									</tbody>
 								</table>
 							</div>
@@ -124,7 +125,7 @@
 		$('#confirmModal').on('shown.bs.modal', function(e) {
 			var target = e.relatedTarget.dataset;
 			$('#btns').html(
-				`<button type="button" class="btn btn-primary" onclick="category.delete(${target.id})">承認</button>
+				`<button type="button" class="btn btn-primary" onclick="category.permit(${target.id})">承認</button>
 				<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">キャンセル</button>`
 			);
 		}).on('hidden.bs.modal', function(e) {
@@ -136,61 +137,34 @@
 				$('#user_id').val(`${e.relatedTarget.dataset.id}`);
 				$('#reason').val('');
 
-				$('#button-container').html('<button type="button" class="btn btn-primary" onclick="category.add()">追加</button>');
+				$('#button-container').html('<button type="button" class="btn btn-primary" onclick="category.reject()">拒否</button>');
 			
 		}).on('hidden.bs.modal', function(e) {
 
 		});
 		
 		const category = {
-			add: function () {
-				var categoryData = {
-					reason: $('#reason').val(),
-					
-				};
-
+			reject: function () {
 				$.ajax({
-					url: "{{ route('add_category') }}",
+					url: "/admin/client_reject/"+$('#user_id').val(),
 					type: "post",
 					headers: {
 						'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')
 					},
 					data: {
-						postData: JSON.stringify(categoryData)
+						reason: $('#reason').val(),
 					},
 					beforeSend: function (xhr, opts) {
-						if ($('#c_name').val() == '') {
-							toastr.error('カテゴリー名は必須です。');
+						if ($('#reason').val() == '') {
+							toastr.error('拒否の理由は必須です。');
 							xhr.abort();
 							return false;
 						}
 					},
 					success: function (res) {
 						$('#categoryModal').modal('hide');
-
-						toastr.success('カテゴリーが正常に追加されました。');
-
-						location.reload();
-						let newCategory =
-							`<tr id="category${res.id}">
-								<td style="min-width: 90px;">
-									<span class="text-primary"
-										data-category=${res}
-										data-bs-toggle="modal"
-										data-bs-target="#categoryModal">
-										<i class='bx bxs-edit'></i>
-									</span>
-									<span class="text-danger" onclick="category.delete(${res.id})">
-										<i class='bx bxs-trash'></i>
-									</span>
-								</td>
-								<td>${res.name}</td>
-								<td>${res.fall_pro}</td>
-								<td>${res.target_price}</td>
-								<td style="max-width: 300px;">${res.web_hook}</td>
-							</tr>`;
-
-						$('#item-table-body').html(newCategory + $('#item-table-body').html());
+						toastr.success('クライアント要求が拒否されました。');
+						$('#client_' + res.id).remove();
 					}
 				});
 			},
@@ -208,7 +182,7 @@
 				};
 
 				$.ajax({
-					url: "{{ route('edit_category') }}",
+					url: "",
 					type: "post",
 					headers: {
 						'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')
@@ -250,16 +224,14 @@
 					}
 				});
 			},
-			delete: function (id) {
+			permit: function (id) {
 				$.ajax({
-					url: "/category/delete/" + id,
+					url: "/admin/client_permit/" + id,
 					type: "get",
 					success: function (res) {
 						$('#confirmModal').modal('hide');
-						toastr.success('カテゴリーが正常に削除されました。');
-
-						location.reload();
-						$('#category' + res).remove();
+						toastr.success('クライアントは許可されました。');
+						$('#client_' + res.id).remove();
 					}
 				});
 			},

@@ -46,7 +46,7 @@
                             <td>{{$p_r->status}}</td>
                             <td style="min-width: 90px;">
                               <span
-                                data-category={{ $publishing_review->id }}
+                                data-category={{ $p_r->id }}
                                 data-bs-toggle="modal"
                                 data-bs-target="#categoryModal"
                               >
@@ -87,7 +87,6 @@
                         <th>投稿日時</th>
                         <th>サービス名</th>
                         <th>ステータス</th>
-                        <th>編集</th>
                       </tr>
                     </thead>
 
@@ -98,22 +97,6 @@
                             <td>{{ \Carbon\Carbon::parse($a_r->updated_at)->format('Y年m月d日 H:i')}}</td>
                             <td>{{$a_r->service->title}}</td>
                             <td>{{$a_r->status}}</td>
-                            <td style="min-width: 90px;">
-                              <span
-                                data-category={{ $a_r->id }}
-                                data-bs-toggle="modal"
-                                data-bs-target="#categoryModal"
-                              >
-                                <i class='bx bxs-edit text-primary'></i>
-                              </span>
-                              <span
-                                data-id={{ $a_r->id }}
-                                data-bs-toggle="modal" 
-                                data-bs-target="#confirmModal"
-                              >
-                              <i class='bx bxs-trash text-danger'></i>
-                              </span>
-                            </td>
                           </tr>
                         @endforeach
                       @else 

@@ -716,7 +716,7 @@
               </div>
               <div class="serviceIndex-categoryDocument-download-button-wrapper">
                 <div class="categoryDocument-download-button">
-                  <form class="boxil-checkbox-form" target="_top" action="/downloads/confirm/" accept-charset="UTF-8" method="get" onclick="downloadClick(event)">
+                  <form class="boxil-checkbox-form" target="_top" action="" accept-charset="UTF-8" method="get" onclick="downloadClick(event)">
                     <input type="hidden" name="type" value="category_document" />
                     <input type="hidden" name="_via" value="si-wpAllDL-mainTop" />
                     <input type="hidden" name="is_comparison" value="false" />
@@ -808,7 +808,7 @@
           toastr.error('ガイドを選択する必要があります。');
         }
         if (docs.length > 0) {
-          location.href = '/downloads/confirm?checked_docs=' + docs;
+          location.href = '/downloads/confirm?type=category_document&&id=' + docs;
         }
       }
     });

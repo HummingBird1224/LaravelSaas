@@ -437,7 +437,7 @@ public_path('company_profile.json')
                             </div>
                           </div>
                           <div class="sevice-button-wrapper">
-                            <button type="button" onclick="serviceAdd({{$c_service->id}})" class="button green-border-button">
+                            <button type="button" onclick="serviceAdd({{$c_service->id}}, 'document')" class="button green-border-button">
                               追加
                             </button>
                           </div>
@@ -448,26 +448,56 @@ public_path('company_profile.json')
                     @elseif($type='category_document')
                     <div class="selected-docs">
                       <div class="selected_num float-right">資料数 <span class="number"> {{count($requested_guides)}} </span> 件</div>
-                      <div class="m-t-30 ">
+                      <div class="m-t-30 " id="selected_guides">
                         @foreach($requested_guides as $r_guide)
-                        <div class="m-t-15 selected-doc display-flex">
+                        <div class="m-t-15 selected-doc display-flex" >
                           <input type="checkbox" checked />
-                          <div class="display-flex ">                            
-                            <img src="{{ asset($r_guide->image) }}" alt="{{$r_guide->title}}" width="52px"
-                              height="52px" />
-                            <p>{{$r_guide->title}}</p>
-                          </div>
-                          <div class="related-services">
-                            <p>資料には以下のサービス情報が含まれます（2件）</p>
-                          </div>
-                          <a class="text-center service-add-button" href="{{route('add_service', $r_guide->id)}}">
-                            <div class="middle-button" style="width:50%">
-                              <div class="orange-button button">
-                                サービスの追加
+                          <div class=" service-info">
+                            <div class="display-flex">
+                              <div class="service-logo-wrapper">
+                                <img src="{{ asset($r_guide->image) }}" alt="{{$r_guide->title}}" width="52px"
+                                    height="52px" />
+                              </div>
+                              <div class="service-info">
+                                <h6><b>{{$r_guide->title}}</b></h6>                                
                               </div>
                             </div>
-                          </a>
+                            <p class="m-t-15"> 資料には以下のサービス情報が含まれます（{{count($r_guide->services)}}件) </p>
+                            <div class="guide-services-wrapper m-t-15">
+                              @foreach($r_guide->services as $service)
+                                <p class="">{{$service->title}}|{{$service->up_user[0]->company_name}}</p>
+                              @endforeach
+                            </div>
+                          </div>
                         </div>
+                        @endforeach
+                      </div>
+                      <div class="divider">
+                        同じカテゴリの製品
+                      </div>
+                      <div class="compared-services">
+                        @foreach($requested_guides as $r_guide)
+                          @foreach($r_guide->services as $g_service)
+                          <div class="m-t-30 display-flex justify-content-between" id="g_service_{{$g_service->id}}">
+                            <div class="m-t-15 selected-doc display-flex">
+                              <div class="display-flex">
+                                <div class="service-logo-wrapper">
+                                  <img src="{{ asset($g_service->logo) }}" alt="{{$g_service->data_title}}" width="52px"
+                                      height="52px" />
+                                </div>
+                                <div class="service-info">
+                                  <h6><b>{{$g_service->data_title?$g_service->data_title:$g_service->title}}</b></h6>
+                                  <p>{{$g_service->up_user[0]->company_name}}</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="sevice-button-wrapper">
+                              <button type="button" onclick="serviceAdd({{$g_service->id}}, 'category_document')" class="button green-border-button">
+                                追加
+                              </button>
+                            </div>
+                          </div>
+                          @endforeach
                         @endforeach
                       </div>
                     </div>
@@ -496,38 +526,59 @@ public_path('company_profile.json')
     })
   }
 
-  serviceAdd=(id)=>{
+  serviceAdd=(id, type)=>{
     $.ajax({
       url:'/downloads/service_add/'+id,
       method:'get',
       success:function(service){
-        var add_service=`<div class="m-t-30 ">
-                          <div class="m-t-15 selected-doc display-flex">
-                            <input type="checkbox" checked />
-                            <div class="display-flex service-info-wrapper">
-                              <div class="service-logo-wrapper">
-                                <img src="/${service.logo}" alt="${service.data_title}" width="52px"
-                                    height="52px" />
-                              </div>
-                              <div class="service-info">
-                                <h6><b>${service.data_title?service.data_title:service.title}</b></h6>
-                                <p>${service.up_user[0].company_name}</p>
-                                <div class="i-service-details-serviceReview">`;
-        if(parseInt(service.reviews_avg_score) != 0){for (var i = 0; i < parseInt(service.reviews_avg_score); i++){
-          add_service+= `<i class="bx bxs-star text-yellow "  style="margin-right: 0px;"></i>`;
-        };
-        for (var j = 0; j < (5-parseInt(service.reviews_avg_score)); j++){
-          add_service+=`<i class="bx bxs-star  text-black-400 "  style="margin-right: 0px;"></i>`;
-        }};
-        add_service+=`<span >(口コミ${service.reviews_count?service.reviews_count:0}件)</span>
-                                <p>${service.description}</p>
+        if(type=='document'){
+          var add_service=`<div class="m-t-30 ">
+                            <div class="m-t-15 selected-doc display-flex">
+                              <input type="checkbox" checked />
+                              <div class="display-flex service-info-wrapper">
+                                <div class="service-logo-wrapper">
+                                  <img src="/${service.logo}" alt="${service.data_title}" width="52px"
+                                      height="52px" />
+                                </div>
+                                <div class="service-info">
+                                  <h6><b>${service.data_title?service.data_title:service.title}</b></h6>
+                                  <p>${service.up_user[0].company_name}</p>
+                                  <div class="i-service-details-serviceReview">`;
+          if(parseInt(service.reviews_avg_score) != 0){for (var i = 0; i < parseInt(service.reviews_avg_score); i++){
+            add_service+= `<i class="bx bxs-star text-yellow "  style="margin-right: 0px;"></i>`;
+          };
+          for (var j = 0; j < (5-parseInt(service.reviews_avg_score)); j++){
+            add_service+=`<i class="bx bxs-star  text-black-400 "  style="margin-right: 0px;"></i>`;
+          }};
+          add_service+=`<span >(口コミ${service.reviews_count?service.reviews_count:0}件)</span>
+                                  <p>${service.description}</p>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </div>`;
-        $('#selected_services').append(add_service);
-        $(`#c_service_${service.id}`).remove();
+                        </div>`;
+          $('#selected_services').append(add_service);
+          $(`#c_service_${service.id}`).remove();
+        }
+        else if(type=='category_document'){
+          var add_guide=`<div class="m-t-30 display-flex justify-content-between" >
+                            <div class="m-t-15 selected-doc display-flex">
+                              <input type="checkbox" checked />
+                              <div class="display-flex">
+                                <div class="service-logo-wrapper">
+                                  <img src="/${service.logo}" alt="${service.data_title}" width="52px"
+                                      height="52px" />
+                                </div>
+                                <div class="service-info">
+                                  <h6><b>${service.data_title?service.data_title:service.title}}</b></h6>
+                                  <p>${service.up_user[0].company_name}</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>`;
+          $('#selected_guides').append(add_guide);
+          $(`#g_service_${service.id}`).remove();
+        }
       }
     })
   }

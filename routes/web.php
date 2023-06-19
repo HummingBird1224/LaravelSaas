@@ -71,7 +71,7 @@ Route::group(['middleware' => ['auth']], function() {
 		Route::get('/', [MypageController::class, 'index'])->name('mypage');
 		Route::get('/reputation_answers',[ReviewController::class, 'repuation_answers'] )->name('reputation_answers');
 		Route::get('/delete_review/{id}',[ReviewController::class, 'destroy'] )->name('delete_review');
-		Route::view('/requested_materials', 'mypage.requested_materials')->name('requested_materials');
+		Route::get('/requested_materials', [ServiceController::class, 'requested_materials'])->name('requested_materials');
 	});
 	
 
@@ -143,12 +143,8 @@ Route::group(['middleware' => ['auth']], function() {
 // Admin Routes
 Route::group(['middleware' => ['auth', 'admin']], function() {
 	Route::prefix('admin')->group(function() {
-
-		Route::get('/account', [AdminController::class, 'list_account'])->name('list_account');
-
-		Route::get('/delete', [AdminController::class, 'delete_account'])->name('delete_account');
-
-		Route::get('/permit', [AdminController::class, 'permit_account'])->name('permit_account');
+		Route::get('/client_permit/{id}', [UserController::class, 'client_permit'])->name('client_permit');
+		Route::post('/client_reject/{id}', [UserController::class, 'client_reject'])->name('client_reject');
 
 		Route::prefix('/category_documents')->group(function(){
 			Route::get('/', [GuideController::class, 'guide_list'])->name('category_documents_list');

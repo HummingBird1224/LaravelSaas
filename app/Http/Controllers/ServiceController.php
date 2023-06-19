@@ -100,6 +100,12 @@ class ServiceController extends Controller
         dd($request);
     }
 
+    public function requested_materials()
+    {
+        $requested_services=Auth::user()->down_services;
+        return view('mypage.requested_materials', ['r_services'=>$requested_services]);
+    }
+
     public function service_activities()
     {
         return view('admin.service_activities');

@@ -60,7 +60,9 @@ class GuideController extends Controller
             $docs=$request->query('id');
             $doc_arr=array();
             foreach(explode(',', $docs) as $i){
-                $doc=Guide::with('services')->findOrFail($i);
+                $doc=Guide::with(['services'=>function($query){
+                    $query->with('up_user');
+                }])->findOrFail($i);
                 array_push($doc_arr, $doc);
             }
             return view('guides.download_confirm',['requested_guides'=>$doc_arr, 'type'=>'category_documents'] );
