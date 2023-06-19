@@ -173,6 +173,7 @@ class UserController extends Controller
     }
 
     public function company_profile_edit(Request $request){
+        $user=Auth::user();
         $file=$request->file('logo');
         $company=Company::updateOrCreate(
                 [
@@ -197,11 +198,34 @@ class UserController extends Controller
             );
             $company->save();
         }
+        if($user->role=='user'){
+            $user->role='waiting';
+            $user->save();
+        }
         return back()->withInput();
     }
 
     public function client_managing()
     {
-        
+        $waiting_users=User::where('role', 'waiting')->get();
+        // dd($waiting_users);
+        return view('admin.client_managing', ['w_users'=>$waiting_users]);
+    }
+
+    public function client_permit($id)
+    {
+        $user=User::findOrFail($id);
+        $user->role="client";
+        $user->save();
+        return $user;
+    }
+
+    public function client_reject(Request $request,$id)
+    {
+        $user=User::findOrFail($id);
+        $user->role="rejected";
+        $user->rejected_reason=$request->reason;
+        $user->save();
+        return $user;
     }
 }
