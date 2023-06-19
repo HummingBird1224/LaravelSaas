@@ -26,13 +26,6 @@ class Service extends Model
                     -> withAvg(['reviews'=>function($query){$query->where('status', 'approved');}],  'score');
     }    
 
-    public function scopeUpUser($query)
-    {
-        return $query->with(['services'=>function($query){
-            $query->with('up_user');
-        }]);
-    }
-
     public function up_user()
     {
         return $this->belongsToMany(User::class)->wherePivot('action', 'up');

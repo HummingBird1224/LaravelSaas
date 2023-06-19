@@ -115,26 +115,26 @@ public_path('company_profile.json')
     <main id="main" class="main">
 
       <section class="section documents">
+        @if(is_null($user))
+        <div class="card-section m-b-10">
+          <div class="card info-card sales-card guide-download-wrapper">
+            <div class="card-body">
+              <h4 class="card-title">会員の方はこちら</h4>
+              <div class=" text-center">
+                <button class="green-button button" onclick="loginClick()">
+                  <div class="button-text">
+                    会員の方はこちら
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        @endif
         <form id="download-form" action="{{ route('post_mail') }}" accept-charset="UTF-8" method="post">
           @csrf
           <div class="row">
-            <div class="col-lg-7">
-              @if(is_null($user))
-              <div class="card-section m-b-10">
-                <div class="card info-card sales-card guide-download-wrapper">
-                  <div class="card-body">
-                    <h2 class="card-title">会員の方はこちら</h2>
-                    <div class="green-button text-center">
-                      <button class="orange-button button" onclick="loginClick()">
-                        <div class="button-text">
-                          会員の方はこちら
-                        </div>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              @endif
+            <div class="col-lg-7">              
               <div class="card-section">
                 <div class="card info-card sales-card">
                   <div class="card-body ">
@@ -168,7 +168,7 @@ public_path('company_profile.json')
                                           <input
                                             class="string required form-control w-300px form-control-for-corporations"
                                             required="required" aria-required="true" placeholder="名字" type="text"
-                                            name="first_name" id="first_name" value="{{$user->first_name}}" />
+                                            name="first_name" id="first_name" value="{{$user?$user->first_name:''}}" />
                                         </div>
                                       </div>
                                     </span>
@@ -178,7 +178,7 @@ public_path('company_profile.json')
                                           <input
                                             class="string required form-control w-300px form-control-for-corporations"
                                             required="required" aria-required="true" placeholder="名前" type="text"
-                                            name="last_name" id="last_name" value="{{$user->last_name}}" />
+                                            name="last_name" id="last_name" value="{{$user?$user->last_name:''}}" />
                                         </div>
                                       </div>
                                     </span>
@@ -194,7 +194,7 @@ public_path('company_profile.json')
                                           <input
                                             class="string required form-control w-300px form-control-for-corporations"
                                             required="required" aria-required="true" placeholder="ミョウジ" type="text"
-                                            name="kana_first" id="kana_first" value="{{$user->kana_first}}" />
+                                            name="kana_first" id="kana_first" value="{{$user?$user->kana_first:''}}" />
                                         </div>
                                       </div>
                                     </span>
@@ -204,7 +204,7 @@ public_path('company_profile.json')
                                           <input
                                             class="string required form-control w-300px form-control-for-corporations"
                                             required="required" aria-required="true" placeholder="ナマエ" type="text"
-                                            name="kana_last" id="kana_last" value="{{$user->kana_last}}" />
+                                            name="kana_last" id="kana_last" value="{{$user?$user->kana_last:''}}" />
                                         </div>
                                       </div>
                                     </span>
@@ -216,7 +216,7 @@ public_path('company_profile.json')
                                   <div class="col-sm-8 flex m-l-20">
                                     <input class="form-control string required w-300px" required="required"
                                       aria-required="true" placeholder="ビジネス利用の電話番号を入力" type="text" name="phone_number"
-                                      id="phone_number" value="{{$user->phone_number}}" />
+                                      id="phone_number" value="{{$user?$user->phone_number:''}}" />
                                     <p>※ 日中に繋がる番号を入力してください</p>
                                   </div>
                                 </div>
@@ -226,7 +226,7 @@ public_path('company_profile.json')
                                   <div class="col-sm-6 flex m-l-20">
                                     <input class="form-control string required w-300px" required="required"
                                       aria-required="true" placeholder="ビジネス利用の電話番号を入力" type="text" name="email"
-                                      id="email" value="{{$user->email}}" />
+                                      id="email" value="{{$user?$user->email:''}}" />
                                   </div>
                                   <button type="button" name="commit" value="更新する"
                                     class="btn orange-button button btn-raised btn-orange-md" data-disable-with="送信中...">
@@ -246,7 +246,7 @@ public_path('company_profile.json')
                                         aria-required="true" name="department" id="department">
                                         <option value="">選択してください</option>
                                         @foreach($data->departments as $department)
-                                          @if($department->id==$user->department)
+                                          @if($user&&$department->id==$user->department)
                                           <option value="{{$department->id}}" selected>{{$department->value}}</option>
                                           @else
                                           <option value="{{$department->id}}">{{$department->value}}</option>
@@ -259,7 +259,7 @@ public_path('company_profile.json')
                                         aria-required="true" name="job_title" id="job_title">
                                         <option value="">選択してください</option>
                                         @foreach($data->jobs as $job)
-                                          @if($job->id==$user->official_position)
+                                          @if($user&&$job->id==$user->official_position)
                                           <option value="{{$job->id}}" selected>{{$job->value}}</option>
                                           @else
                                           <option value="{{$job->id}}">{{$job->value}}</option>
@@ -277,7 +277,7 @@ public_path('company_profile.json')
                                   <div class="col-sm-8 flex m-l-20">
                                     <input class="form-control string required w-300px" required="required"
                                       aria-required="true" placeholder="所属している会社名を入力して検索" type="text" name="company_name"
-                                      id="company_name"value="{{$user->company_name}}"/>
+                                      id="company_name"value="{{$user?$user->company_name:''}}"/>
                                   </div>
                                 </div>
 
@@ -293,7 +293,7 @@ public_path('company_profile.json')
                                             id="user_corporation_attributes_prefecture">
                                             <option value="">選択してください</option>
                                             @foreach($data->prefectures as $prefecture)
-                                              @if($prefecture->id==$user->prefecture)
+                                              @if($user&&$prefecture->id==$user->prefecture)
                                               <option value="{{$prefecture->id}}" selected>{{$prefecture->value}}
                                               </option>
                                               @else
@@ -311,7 +311,7 @@ public_path('company_profile.json')
                                             class="string required form-control w-300px form-control-for-corporations"
                                             required="required" aria-required="true" placeholder="港区三田3-13-16 三田43MTビル13F"
                                             type="text" name="address" id="user_corporation_attributes_address"
-                                            value="{{$user->address}}" />
+                                            value="{{$user?$user->address:''}}" />
                                         </div>
                                       </div>
                                     </span>
@@ -327,7 +327,7 @@ public_path('company_profile.json')
                                       id="user_corporation_attributes_type_of_business">
                                       <option value="">選択してください</option>
                                       @foreach($data->industries as $industry)
-                                        @if($industry->id==$user->business_type)
+                                        @if($user&&$industry->id==$user->business_type)
                                         <option value="{{$industry->id}}" selected>{{$industry->value}}</option>
                                         @else
                                         <option value="{{$industry->id}}">{{$industry->value}}</option>
@@ -345,7 +345,7 @@ public_path('company_profile.json')
                                       aria-required="true" name="employee_number" id="user_corporation_attributes_scale">
                                       <option value="">選択してください</option>
                                       @foreach($data->employee_numbers as $e_num)
-                                        @if($e_num->id==$user->corporation_scale)
+                                        @if($user&&$e_num->id==$user->corporation_scale)
                                         <option value="{{$e_num->id}}" selected>{{$e_num->value}}</option>
                                         @else
                                         <option value="{{$e_num->id}}">{{$e_num->value}}</option>
@@ -520,10 +520,7 @@ public_path('company_profile.json')
 @section('script')
 <script>
   loginClick = () => {
-    $.ajax({
-      url: '/login',
-      method: 'GET',
-    })
+    location.href='/login';
   }
 
   serviceAdd=(id, type)=>{

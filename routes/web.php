@@ -76,14 +76,14 @@ Route::group(['middleware' => ['auth']], function() {
 	
 
 	// Item Routes
-	Route::prefix('item')->group(function() {
-		Route::get('/add/{id}', [ItemController::class, 'add_item'])->name('add_item');
-		Route::get('/list/{id}', [ItemController::class, 'list'])->name('item_list');
-		Route::get('/item_datatable', [ItemController::class, 'item_datatable'])->name('item_datatable');
-		Route::post('/delete', [ItemController::class, 'delete_item'])->name('delete_item');
-		Route::post('/save', [ItemController::class, 'save_item'])->name('save_item');
-		Route::get('/csv/{id}', [ItemController::class, 'csv_download'])->name('csv');
-	});
+	// Route::prefix('item')->group(function() {
+	// 	Route::get('/add/{id}', [ItemController::class, 'add_item'])->name('add_item');
+	// 	Route::get('/list/{id}', [ItemController::class, 'list'])->name('item_list');
+	// 	Route::get('/item_datatable', [ItemController::class, 'item_datatable'])->name('item_datatable');
+	// 	Route::post('/delete', [ItemController::class, 'delete_item'])->name('delete_item');
+	// 	Route::post('/save', [ItemController::class, 'save_item'])->name('save_item');
+	// 	Route::get('/csv/{id}', [ItemController::class, 'csv_download'])->name('csv');
+	// });
 
 	// Category Routes
 	// Route::prefix('category')->group(function() {
@@ -105,11 +105,6 @@ Route::group(['middleware' => ['auth']], function() {
 		Route::post('/edit_email', [UserController::class, 'email_edit']);
 		Route::get('/company_profile', [UserController::class, 'company_profile_view'])->name('company_profile');
 		Route::post('/edit_company_profile', [UserController::class, 'company_profile_edit']);
-	});
-	
-	Route::prefix('review')->group(function(){
-		Route::get('/add_review/{service_id}', [ReviewController::class, 'review_edit'])->name('add_review');
-		Route::post('/add_review', [ReviewController::class, 'create'])->name('create_review');
 	});
 
 	Route::view('/noitfy', 'logs.notify')->name('notify_list');
@@ -183,6 +178,11 @@ Route::group(['middleware' => ['auth', 'client']], function() {
 			Route::post('/add_service', [ServiceController::class, 'add_service'])->name('add_service');
 			Route::post('/store', [ServiceController::class, 'store'])->name('store_service');
 		});
+	});
+		
+	Route::prefix('review')->group(function(){
+		Route::view('/add_review','reviews.add_review')->name('add_review');
+		Route::post('/add_review', [ReviewController::class, 'create'])->name('create_review');
 	});
 
 });
