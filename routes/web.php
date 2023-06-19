@@ -108,7 +108,7 @@ Route::group(['middleware' => ['auth']], function() {
 	});
 	
 	Route::prefix('review')->group(function(){
-		Route::view('/add_review','reviews.add_review')->name('add_review');
+		Route::get('/add_review/{service_id}', [ReviewController::class, 'review_edit'])->name('add_review');
 		Route::post('/add_review', [ReviewController::class, 'create'])->name('create_review');
 	});
 

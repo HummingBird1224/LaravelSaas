@@ -627,3 +627,12 @@ public_path('company_profile.json')
 </body>
 
 </html>
+
+@if ($errors->any())
+  @foreach ($errors->all() as $error)
+    <script>
+        alert('{{ $error }}');
+    </script>
+  @endforeach
+@endif
+

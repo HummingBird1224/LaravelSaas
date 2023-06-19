@@ -1123,7 +1123,7 @@
                   </div>
                   <div class="reveiwButton">
                     <div class="ss-post-review">
-                      <a class="serviceReputationMetricsButton fullWidth " href="/registration/?redirect_path_after_sign_in=%2Freputations%2F%3Fservice_id%3D3558&amp;redirect_path_after_sign_up=%2Fconfirm_completed%2F%3Flink_to%3D%252Freputations%252F%253Fservice_id%253D3558">このサービスの口コミを書く</a>
+                      <a class="serviceReputationMetricsButton fullWidth " href="{{ route('add_review', $service->id)}}">このサービスの口コミを書く</a>
                     </div>
                   </div>
                 </div>
@@ -1241,7 +1241,7 @@
           </div>
           <div class="v2Sidebar__buttons">
             <div class="ss-post-review">
-              <a class="serviceReputationMetricsButton fullWidth " href="/registration/?redirect_path_after_sign_in=%2Freputations%2F%3Fservice_id%3D3558&amp;redirect_path_after_sign_up=%2Fconfirm_completed%2F%3Flink_to%3D%252Freputations%252F%253Fservice_id%253D3558">このサービスの口コミを書く</a>
+              <a class="serviceReputationMetricsButton fullWidth " href="{{ route('add_review', $service->id)}}">このサービスの口コミを書く</a>
             </div>
           </div>
         </div>
