@@ -617,7 +617,6 @@ public_path('company_profile.json')
       } else {
         $('.js-download-btn').removeAttr('disabled');
       }
-      console.log(btn_check);
     });
   });
 </script>
