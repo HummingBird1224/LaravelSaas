@@ -120,7 +120,6 @@
       </div>
     </div>
     <div class="v2Layout">
-
       <script type="application/ld+json">{"@context":"http://schema.org","@id":"https://boxil.jp/service/3558/","@type":"WebPage","dateModified":"2023-04-30T20:42:19+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://boxil.jp/service/3558/"}}</script>
       <script type="application/ld+json">{"@context":"https://schema.org/","@type":"Product","@id":"Zoom","name":"Zoom","description":"Zoomは、クラウドのビデオ会議とウェブ会議、およびグループメッセージングを使いやすく統合したプラットフォーム。Windows、Mac、iOS、Android、Blackberry、Zoom Rooms、およびH.323 / SIPルームシステムで最高のビデオ、オーディオ、およびスクリーン共有体験を提供。","logo":"/attachments/files/images/eyJpZCI6IjYzNGExYmFiN2E2YmE3NGM3NDRmY2Q0MTJlZGI5MjgzLnBuZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX2xvZ28iLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQxMC0xMjgxNy0xdDBva3IyLnBuZyIsInNpemUiOjU4NjUsIm1pbWVfdHlwZSI6bnVsbH19","image":"/attachments/files/images/eyJpZCI6IjYzNGExYmFiN2E2YmE3NGM3NDRmY2Q0MTJlZGI5MjgzLnBuZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX2xvZ28iLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQxMC0xMjgxNy0xdDBva3IyLnBuZyIsInNpemUiOjU4NjUsIm1pbWVfdHlwZSI6bnVsbH19","brand":{"@type":"Brand","name":"企業情報未登録"},"aggregateRating":{"@type":"AggregateRating","bestRating":5,"worstRating":0,"ratingValue":"4.43","ratingCount":1591}}</script>
       <script type="application/ld+json">{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"BOXIL","item":"https://boxil.jp/"},{"@type":"ListItem","position":2,"name":"【2023年】Web会議システム比較21選！選び方・テレワークにおすすめのツール","item":"https://boxil.jp/mag/a208/"},{"@type":"ListItem","position":3,"name":"WEB会議システム","item":"https://boxil.jp/sc-web_conference/"},{"@type":"ListItem","position":4,"name":"Zoom","item":"https://boxil.jp/service/3558/"}]}</script>
@@ -242,14 +241,14 @@
                     <div class="screenShotsWrapper__container">
                       <div class="screenShotsWrapper__leftItem">
                         <div class="screenShotLarge">
-                          <img alt="タレントパレットのスクリーンショット1" is-lazyload="true" data-src="/attachments/files/images/eyJpZCI6IjgzODkwNzNjN2U4NTU4ZTRlZWJiOWZhZGRmMTFlM2I5LmpwZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQwNy00NDYtMTVpOXJ6Ni5qcGciLCJzaXplIjo1MDg3MCwibWltZV90eXBlIjpudWxsfX0" src="/attachments/files/images/eyJpZCI6IjgzODkwNzNjN2U4NTU4ZTRlZWJiOWZhZGRmMTFlM2I5LmpwZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQwNy00NDYtMTVpOXJ6Ni5qcGciLCJzaXplIjo1MDg3MCwibWltZV90eXBlIjpudWxsfX0">
+                          <img alt="{{ $service->uis[0]->description }}" is-lazyload="true" src="{{ asset($service->uis[0]->portfolio) }}">
                           <i class="fas fa-search screenShotLarge__zoomIcon" aria-hidden="true">
                             <a data-lightbox="screenshot" data-toggle="lightbox" href="/attachments/files/images/eyJpZCI6Ijc3ZTkxNDMyNjUxMWY5ODBkNDhmY2IwNTY5MGQ1NTUyMDRjODFkMjgxM2Q3M2VlN2Y3N2UyZDUwOTBlMiIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6IuOCv-ODrOODs-ODiOODkeODrOODg-ODiOODiOODg-ODl-eUuy5qcGciLCJzaXplIjo2OTY2NjEsIm1pbWVfdHlwZSI6ImltYWdlL2pwZWcifX0">
                               <div class="ScreenShotHoverBlock"></div>
                             </a>
                           </i>
                         </div>
-                        <div class="screenShotLarge" style="display: none;">
+                        <!-- <div class="screenShotLarge" style="display: none;">
                           <img alt="タレントパレットのスクリーンショット2" is-lazyload="true" data-src="/attachments/files/images/eyJpZCI6ImQzZmQwYjIwOGQyNThjY2Q4Nzg3NjZjYzc3ZTQwNDQ5LmpwZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQwNy00NDYtdmppOXk0LmpwZyIsInNpemUiOjYwOTk5LCJtaW1lX3R5cGUiOm51bGx9fQ" src="">
                           <i class="fas fa-search screenShotLarge__zoomIcon" aria-hidden="true">
                             <a data-lightbox="screenshot" data-toggle="lightbox" href="/attachments/files/images/eyJpZCI6IjliZDkyMTE3ODc3OWQ4NWMwNjk4MTAyNzRmNmExMTcwMTQyNDNhYTU4ZDY5MDJiNjk2ZmU4Zjc4OTJlZSIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6IuOCv-ODrOODs-ODiOODkeODrOODg-ODiOODiOODg-ODl-eUuzIuanBnIiwic2l6ZSI6MTY0MDI4LCJtaW1lX3R5cGUiOiJpbWFnZS9qcGVnIn19">
@@ -272,7 +271,7 @@
                               <div class="ScreenShotHoverBlock"></div>
                             </a>
                           </i>
-                        </div>
+                        </div> -->
                       </div>
                       <div class="screenShotsWrapper__leftItem-bottom">
                         <div class="screenShotTexts"></div>
@@ -283,18 +282,11 @@
                     </div>
                     <div class="screenShotsWrapper__rightItem">
                       <div class="screenShotsWrapper__rightItem-top">
-                        <div class="screenShotSmall" id="screenshot-2136">
-                          <img alt="タレントパレットのスクリーンショット1" is-lazyload="true" data-src="/attachments/files/images/eyJpZCI6ImM4NDFkYzA2ZjcxYjVjMDNlMzMyYzg2ZTIzMWQ0ZjA4LmpwZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQwNy00NDYteXZpMWJ3LmpwZyIsInNpemUiOjE1OTMyLCJtaW1lX3R5cGUiOm51bGx9fQ" src="/attachments/files/images/eyJpZCI6ImM4NDFkYzA2ZjcxYjVjMDNlMzMyYzg2ZTIzMWQ0ZjA4LmpwZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQwNy00NDYteXZpMWJ3LmpwZyIsInNpemUiOjE1OTMyLCJtaW1lX3R5cGUiOm51bGx9fQ" style="opacity: 0.5;">
+                        @foreach ( $service->uis as $u )
+                        <div class="screenShotSmall" id="screenshot-{{ $u->id }}">
+                          <img alt="{{ $u->description }}" is-lazyload="true" src="{{ asset($u->portfolio) }}" data-src="" style="opacity: 0.5;">
                         </div>
-                        <div class="screenShotSmall" id="screenshot-2137">
-                          <img alt="タレントパレットのスクリーンショット2" is-lazyload="true" data-src="/attachments/files/images/eyJpZCI6ImEwM2RjMjg1Yjg3MGMzOTM4YzRkOTk0NzQwY2VjMTAyLmpwZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQwNy00NDYtN2tlNWprLmpwZyIsInNpemUiOjIwMzk2LCJtaW1lX3R5cGUiOm51bGx9fQ" src="/attachments/files/images/eyJpZCI6ImEwM2RjMjg1Yjg3MGMzOTM4YzRkOTk0NzQwY2VjMTAyLmpwZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQwNy00NDYtN2tlNWprLmpwZyIsInNpemUiOjIwMzk2LCJtaW1lX3R5cGUiOm51bGx9fQ" style="opacity: 0.5;">
-                        </div>
-                        <div class="screenShotSmall" id="screenshot-2138">
-                          <img alt="タレントパレットのスクリーンショット3" is-lazyload="true" data-src="/attachments/files/images/eyJpZCI6ImJiYjc2NzI2NTA3ZTIwNTdiZDg2YmFiOWIyYTk3NzA3LmpwZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQwNy00NDYtMTJxazVhei5qcGciLCJzaXplIjoyNTY4NywibWltZV90eXBlIjpudWxsfX0" src="/attachments/files/images/eyJpZCI6ImJiYjc2NzI2NTA3ZTIwNTdiZDg2YmFiOWIyYTk3NzA3LmpwZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQwNy00NDYtMTJxazVhei5qcGciLCJzaXplIjoyNTY4NywibWltZV90eXBlIjpudWxsfX0" style="opacity: 0.5;">
-                        </div>
-                        <div class="screenShotSmall" id="screenshot-2139">
-                          <img alt="タレントパレットのスクリーンショット4" is-lazyload="true" data-src="/attachments/files/images/eyJpZCI6IjBkNzUxNDllMzFjNTY2Njc4YWIzYTBhMzk4NjU4YjcyLmpwZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQwNy00NDYtMThmM2kyZi5qcGciLCJzaXplIjoxOTUxNCwibWltZV90eXBlIjpudWxsfX0" src="/attachments/files/images/eyJpZCI6IjBkNzUxNDllMzFjNTY2Njc4YWIzYTBhMzk4NjU4YjcyLmpwZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQwNy00NDYtMThmM2kyZi5qcGciLCJzaXplIjoxOTUxNCwibWltZV90eXBlIjpudWxsfX0" style="opacity: 0.5;">
-                        </div>
+                        @endforeach
                       </div>
                       <div class="note">画像をクリックすると左側に表示されます</div>
                     </div>
@@ -1182,7 +1174,6 @@
 
               </div>
             </div>
-
 
           </div>
         </div>

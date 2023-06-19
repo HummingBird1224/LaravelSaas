@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Review;
 use App\Models\Service;
 use App\Models\Guide;
+use App\Models\ServiceUI;
+use App\Models\ServicePricePlan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -31,19 +34,59 @@ class ServiceController extends Controller
     }
 
     public function add_service(Request $request) {
+        // dd($request->all());
+        // dd($request);
         $service = new Service;
 
-		$service->user_id = Auth::id();
-		$service->title = $request->title;
-		$service->description = $request->description;
-		$service->logo = $request->logo;
-		// $service->secret_key = $request->secret_key;
-		// $service->partner_tag = $request->partner_tag;
+		$service->user_id       =   Auth::id();
+		$service->guide_id      =   $request->guide_id;
+		$service->title         =   $request->title;
+		$service->description   =   $request->description;
 
+        $data = $request->file('data');
+        $logo = $request->file('logo_img');
+        if($data && $logo) {
+            $service->data = $data->storeAs(
+                'uploads/services/datas', time().'_'.$data->getClientOriginalName(), 'public'
+            );
+            $service->logo = $logo->storeAs(
+                'uploads/services/logos', time().'_'.$logo->getClientOriginalName(), 'public'
+            );
+        }
 		$service->save();
-        $service_id = 16;
 
-		return redirect()->route('service_view', ['id' => $service_id]);
+        for ($i = 0; $i < count($request->uis); $i++) {
+            $service_uis = new ServiceUI;
+
+            $service_uis->service_id    =   $service->id;
+            $service_uis->description   =   $request->uis[$i]['description'];
+
+            $uis    =   $request->file('uis');
+            if($uis) {
+                $service_uis->portfolio = $uis[$i]['img']->storeAs(
+                    'uploads/services/uis', time().'_'.$uis[$i]['img']->getClientOriginalName(), 'public'
+                );
+            }
+
+            $service_uis->save();
+        }
+
+        foreach ($request->plans as $plan) {
+            $service_plans = new ServicePricePlan;
+
+            $service_plans->service_id  =   $service->id;
+            $service_plans->title       =   $plan['title'];
+            $service_plans->price       =   $plan['year'];
+            $service_plans->monthly     =   $plan['month'];
+            $service_plans->initial     =   $plan['initial_price'];
+            $service_plans->min_user    =   $plan['min_user'];
+            $service_plans->min_usage   =   $plan['min_usage'];
+            $service_plans->description =   $plan['description'];
+
+            $service_plans->save();
+        }
+
+		return redirect()->route('service_view', ['id' => $service->id]);
     }
 
     /**
@@ -76,7 +119,9 @@ class ServiceController extends Controller
     public function show($id)
     {
         $service=Service::findOrFail($id);
-        return view('services.show', ['service'=>$service]);
+
+        // $review = Review :: where('service_id', $id)->where('status', 'publishing')->get();
+        return view('services.show', ['service'=>$service, 'review'=>$review]);
     }
 
     /**
