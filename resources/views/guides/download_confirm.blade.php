@@ -445,13 +445,13 @@ public_path('company_profile.json')
                         @endforeach
                       </div>
                     </div>
-                    @elseif($type='category_document')
+                    @elseif($type=='category_document')
                     <div class="selected-docs">
                       <div class="selected_num float-right">資料数 <span class="number"> {{count($requested_guides)}} </span> 件</div>
                       <div class="m-t-30 " id="selected_guides">
                         @foreach($requested_guides as $r_guide)
                         <div class="m-t-15 selected-doc display-flex" >
-                          <input type="checkbox" checked />
+                          <input type="checkbox" checked name="guide[]" value="{{$r_guide->id}}"/>
                           <div class=" service-info">
                             <div class="display-flex">
                               <div class="service-logo-wrapper">
@@ -484,6 +484,7 @@ public_path('company_profile.json')
                                 <div class="service-logo-wrapper">
                                   <img src="{{ asset($g_service->logo) }}" alt="{{$g_service->data_title}}" width="52px"
                                       height="52px" />
+                                  <input type="hidden"  name="service[]" value="{{$g_service->id}}"/>
                                 </div>
                                 <div class="service-info">
                                   <h6><b>{{$g_service->data_title?$g_service->data_title:$g_service->title}}</b></h6>
@@ -516,7 +517,7 @@ public_path('company_profile.json')
                   <div class="card-body container">
                     <div class="agreement-wrapper" style="width: 70%; margin: 0 auto;">
                       <div class="title">
-                        <h5 class="card-title" style="text-align: center;">請求資料一覧</h5>
+                        <h5 class="card-title" style="text-align: center;">ご確認ください</h5>
                       </div>
                       <div class="separator" style="border-bottom: 3px solid #30B0B0; width: 70px; margin: auto; margin-bottom: 5%;"></div>
                       <div class="list">

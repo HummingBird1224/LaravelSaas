@@ -66,7 +66,7 @@ class GuideController extends Controller
                 }])->findOrFail($i);
                 array_push($doc_arr, $doc);
             }
-            return view('guides.download_confirm',['requested_guides'=>$doc_arr, 'type'=>'category_documents'] );
+            return view('guides.download_confirm',['requested_guides'=>$doc_arr, 'type'=>'category_document'] );
         }
         
     }
@@ -78,6 +78,7 @@ class GuideController extends Controller
     }
 
     public function post_mail(Request $request) {
+        dd($request);
         // $data = "";
 		// $filename = "Download File";
 		// $data .= "This is download file.\n";
@@ -91,7 +92,7 @@ class GuideController extends Controller
 		// echo $data;
 		// exit();
         $details = [];
-        $details['mail_address'] = 'moonrider.crowdworks@gmail.com';
+        $details['mail_address'] = 'oksanashuhaliia@gmail.com';
 
         Mail::to($details['mail_address'])
 				->send(new \App\Mail\UpdateMail($details));
