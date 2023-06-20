@@ -612,7 +612,7 @@ public_path('company_profile.json')
 
   $(document).ready(function() {
     $('.checkbox-large-label').click(function (e) {
-      var btn_check = $('#user_agreement')[0].checked;
+      var btn_check = $('#user_agreement')[0].checked; console.log(btn_check);
       if (btn_check == true) {
         $('.js-download-btn').attr('disabled', 'disabled');
       } else {
