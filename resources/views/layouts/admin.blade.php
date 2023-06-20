@@ -134,6 +134,14 @@
             </a>
           </li>
 
+          <li <?php if (strpos(url()->current(), "admin/review_managing")) echo 'class="menu-item active"';
+								else echo 'class="menu-item"'; ?>>
+            <a href="{{ route('admin_review_managing') }}" class="menu-link">
+              <i class="menu-icon tf-icons bx bx-message-rounded"></i>
+              <div>レビュー無効化申請管理</div>
+            </a>
+          </li>
+
           <li class="menu-item">
             <a href="{{ route('logout') }}" class="menu-link">
               <i class='menu-icon tf-icons bx bx-log-out'></i>

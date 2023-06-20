@@ -208,7 +208,6 @@ class UserController extends Controller
     public function client_managing()
     {
         $waiting_users=User::where('role', 'waiting')->get();
-        // dd($waiting_users);
         return view('admin.client_managing', ['w_users'=>$waiting_users]);
     }
 
