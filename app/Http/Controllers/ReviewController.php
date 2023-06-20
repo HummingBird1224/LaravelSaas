@@ -62,10 +62,18 @@ class ReviewController extends Controller
         return view('admin.review_managing', ['reviews'=>$reviews]);
     }
 
-    public function review_permit($id)
+    public function review_permit(Request $request)
     {
-        $review=Review::findOrFail($id);
+        $review=Review::findOrFail($request->id);
         $review->status='approved';
+        $review->save();
+        return $review;
+    }
+
+    public function review_reject(Request $request) {
+        $review = Review::findOrFail($request->id);
+        $review->rejected_reason = $request->reason;
+        $review->status = 'rejected';
         $review->save();
         return $review;
     }
