@@ -2,56 +2,48 @@
 
 @section('content')
 <div class="content-wrapper">
-	<div class="container-xxl flex-grow-1 container-p-y admin-managing">
+	<div class="container-xxl flex-grow-1 container-p-y">
 		<div class="content" style="padding-top: 0.5rem;">
 			<div class="col-12">
 				<div class="card card-info card-outline">
 
 					<div class="card-body">
 						<div class="row">
-							<h5>適用ユーザー</h5>
+							<h5>編集中の口コミ</h5>
 							<div id="table-wrapper" class="col-12">
 								<table class="table table-bordered" style="width: 100%;" id="item-table">
-									<!-- <thead>
-										<tr>
-											<th style="min-width: 90px;">
-												<span class="text-primary"
-													data-bs-toggle="modal" 
-													data-bs-target="#categoryModal">
-													<i class='bx bxs-plus-circle'></i>
-												</span>
-											</th>
-											<th>カテゴリー名</th>
-											<th>下落(%)</th>
-											<th>目標価格</th>
-											<th style="max-width: 300px;">WEB HOOK</th>
-										</tr>
-									</thead> -->
-
 									<tbody id="item-table-body">
-										@foreach($w_users as $w_user)
-										<tr id="client_{{$w_user->id}}" >	
-											<td>{{$w_user->id}}</td>								
-											<td>{{$w_user->full_name}}</td>
-											<td>{{$w_user->company->name}}</td>
-											<td>{{$w_user->email}}</td>
-											<td  class="button-wrapper">
+										@foreach($reviews as $review)
+										<tr id="review_{{$review->id}}"
+												data-review="{{$review}}"
+												data-bs-toggle="modal"
+												data-bs-target="#categoryModal"
+												style="cursor:pointer"
+										>											
+											@if($review->user->company)
+											<td>{{$review->user->company->name}}</td>
+											@else
+											<td>{{$review->user->full_name}}</td>
+											@endif
+											<td>{{$review->service->title}}</td>
+											<td>{{\Carbon\Carbon::parse($review->updated_at)->format('Y年m月d日 H:i')}}</td>
+											<td style="min-width: 90px; padding:20px;cursor:pointer">
                         <span
-                          data-id="{{ $w_user->id}}"
+                          data-id="{{ $review->id}}"
                           data-bs-toggle="modal" 
                           data-bs-target="#confirmModal"
-                          class=" m-b-15"
+                          class="purple-button button"
                         >
-                          <img src="{{asset('assets/img/tsukubnobi/hand-thumbs-up-custom.svg')}}" alt="thumbsup" width="20px"/>
+                          承認
                         </span>
-                        <!-- <span class="m-l-15 m-r-15">/</span> -->
+                        <span class="m-l-15 m-r-15">/</span>
                         <span
-                          data-id="{{ $w_user->id }}"
+                          data-id="{{ $review->id }}"
                           data-bs-toggle="modal"
                           data-bs-target="#categoryModal"
-                          class="m-b-15"
+                          class="purple-button button"
                         >
-                          <img src="{{asset('assets/img/tsukubnobi/hand-thumbs-down-custom.svg')}}" alt="thumbsup" width="20px"/>
+                          拒否(理由)
                         </span>
 											</td>
 										</tr>
@@ -74,19 +66,26 @@
 
 			<!-- Modal Header -->
 			<div class="modal-header bg-primary">
-				<h4 class="modal-title text-white">拒否(理由)</h4>
+				<h4 class="modal-title text-white">レビュー管理</h4>
 				<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
 			</div>
 
 			<!-- Modal body -->
-			<div class="modal-body m-4">
+			<div class="modal-body m-4 review-modal">
 				<div class="row mt-2">
-					<div class="col-4">
-						<strong>理由</strong>
+					<div class="col-6 display-flex ">
+						<img src="{{asset('assets/img/tsukubnobi/no_logo.png')}}" id="s_logo"/>
+						<div class="info-wrapper">
+							<strong id="s_name"></strong>
+							<p id="s_company_name"></p>
+						</div>						
 					</div>
-					<div class="col-8">
-						<textarea class="form-control" type="text" id="reason" name="reason" value="" required ></textarea>
-						<input class="form-control" type="hidden" id="user_id" name="user_id" value="" />
+					<div class="col-6 display-flex">
+						<img src="{{asset('assets/img/tsukubnobi/default.png')}}" id="u_avatar"/>
+						<div class="info-wrapper">
+							<strong id="u_name"></strong>
+							<p id="u_company_name"></p>
+						</div>						
 					</div>
 				</div>	
 			</div>
@@ -123,7 +122,6 @@
 	
 @section("script")
 	<script>
-
 		$('#confirmModal').on('shown.bs.modal', function(e) {
 			var target = e.relatedTarget.dataset;
 			$('#btns').html(
@@ -135,9 +133,9 @@
 		});
 
 		$('#categoryModal').on('shown.bs.modal', function(e) {
-
-				$('#user_id').val(`${e.relatedTarget.dataset.id}`);
-				$('#reason').val('');
+			let review=e.relatedTarget.dataset.review;
+			console.log(review.user);
+			$('#')
 
 				$('#button-container').html('<button type="button" class="btn btn-primary" onclick="category.reject()">拒否</button>');
 			
@@ -148,7 +146,7 @@
 		const category = {
 			reject: function () {
 				$.ajax({
-					url: "/admin/client_reject/"+$('#user_id').val(),
+					url: "/admin/review_reject/"+$('#user_id').val(),
 					type: "post",
 					headers: {
 						'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')
@@ -172,12 +170,12 @@
 			},
 			permit: function (id) {
 				$.ajax({
-					url: "/admin/client_permit/" + id,
+					url: "/admin/review_permit/" + id,
 					type: "get",
 					success: function (res) {
 						$('#confirmModal').modal('hide');
-						toastr.success('クライアントは許可されました。');
-						$('#client_' + res.id).remove();
+						toastr.success('あなたのレビューは承認されました。');
+						$('#review_' + res.id).remove();
 					}
 				});
 			},

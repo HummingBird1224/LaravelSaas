@@ -1178,7 +1178,7 @@
             </div>
           </div>
         </div>
-        <div class="v2SidebarItem element_scroll js-scrolltofixed-menu" id="js-overlap-hidden" style="z-index: auto; top: 94px; position: sticky;">
+        <!-- <div class="v2SidebarItem element_scroll js-scrolltofixed-menu" id="js-overlap-hidden" style="z-index: auto; top: 94px; position: sticky;">
           <div class="v2Sidebar__title">
             <div class="v2Sidebar__title--text">かんたん30秒！一括資料請求</div>
           </div>
@@ -1410,7 +1410,7 @@
               </form>
             </div>
           </div>
-        </div>
+        </div> -->
         <div style="display: block; width: 336px; height: 598px; float: none;"></div>
       </div>
 

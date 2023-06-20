@@ -56,6 +56,20 @@ class ReviewController extends Controller
         // return ;
     }
 
+    public function review_managing()
+    {
+        $reviews=Review::where('status', 'publishing')->with('service')->with('user')->get();
+        return view('admin.review_managing', ['reviews'=>$reviews]);
+    }
+
+    public function review_permit($id)
+    {
+        $review=Review::findOrFail($id);
+        $review->status='approved';
+        $review->save();
+        return $review;
+    }
+
     /**
      * Store a newly created resource in storage.
      *

@@ -17,7 +17,7 @@ class AdminCheck
     public function handle(Request $request, Closure $next)
     {
         if ($request->user()->role !== 'admin') {
-            return redirect('item_list');
+            return redirect()->route('mypage');
         }
 
         return $next($request);

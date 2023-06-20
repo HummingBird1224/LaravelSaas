@@ -46,13 +46,6 @@
                             <td>{{$p_r->status}}</td>
                             <td style="min-width: 90px;">
                               <span
-                                data-category={{ $p_r->id }}
-                                data-bs-toggle="modal"
-                                data-bs-target="#categoryModal"
-                              >
-                                <i class='bx bxs-edit text-primary'></i>
-                              </span>
-                              <span
                                 data-id={{ $p_r->id }}
                                 data-bs-toggle="modal" 
                                 data-bs-target="#confirmModal"
@@ -120,7 +113,7 @@
             <div class="modal-body">
               <div class="row">
                 <div class="col-12 mb-3 text-center">
-                  <h4>本当にデータを削除しますか?</h4>
+                  <h4>本当にレビューを削除しますか?</h4>
                 </div>
               </div>
             </div>
@@ -149,11 +142,11 @@
   const reviews = {
     delete: function (id) {
       $.ajax({
-        url: "/mypage/delete_review/"+id,
+        url: "/reviews/delete/"+id,
         type: "get",
         success: function (res) {
           $('#confirmModal').modal('hide');
-          toastr.success('ガイドが正常に削除されました。');
+          toastr.success('レビューが正常に削除されました。');
 
           // location.reload();
           $('#review' + res).remove();

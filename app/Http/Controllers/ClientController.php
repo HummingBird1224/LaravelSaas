@@ -6,11 +6,14 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 
+use App\Models\Service;
+
 class ClientController extends Controller
 {
     public function client_tools(){
         // $user=Auth::user();
-        return view('client.tools');
+        $services=Service::where('user_id', Auth::id())->get();
+        return view('client.tools', ['services'=>$services]);
     }
 
     public function client_reports(){
