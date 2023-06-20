@@ -2,7 +2,9 @@
 
 @php
 $user = Auth::user();
-$guides=$user->guides;
+$data=json_decode(file_get_contents(
+  public_path('company_profile.json')
+));
 @endphp
 
 @php
@@ -129,27 +131,30 @@ $schedules=['できる限り早く', '1ヶ月以内', '3ヶ月以内', '半年�
                           @foreach($services as $service)
                             @if(count($service->down_users)>0)
                               @foreach($service->down_users as $user)
-                              <tr id={{ "guide". $guide->id }}>
-                                <td><input type="checkbox" id="select_data_{{$guide->id}}"></td>
-                                <td>{{$guide['id']}}</td>
-                                <td>{{ \Carbon\Carbon::parse($guide->updated_at)->format('Y年m月d日 H:i')}}</td>
+                              <tr id="data_{{$user->pivot->id }}">
+                                <td><input type="checkbox" id="select_data_{{$user->pivot->id}}"></td>
+                                <td>{{$user->pivot->id}}</td>
+                                <td>{{ \Carbon\Carbon::parse($user->pivot->updated_at)->format('Y年m月d日 H:i')}}</td>
                                 <td>
-                                  <img src="{{ asset($guide->image) }}" class="nitaco-logo"
+                                  <img src="{{ asset($service->logo) }}" class="nitaco-logo"
                                     width="33px" height="33px" />
-                                  {{$guide->title}}
+                                  
                                 </td>
                                 <td>
-                                  {{$user['full_name']}}
-                                  {{$user['phone_number']}}
+                                  {{$user['full_name']}}<br/>
+                                  {{$user['phone_number']}}<br/>
                                   {{$user['email']}}
                                 </td>
                                 <td>
-                                  {{$user['company_name']}}
-                                  {{$user['department']}}
+                                  {{$user['company_name']}}<br/>
+                                  {{$user['department']}} <br/>
                                   {{$user['official_position']}}
                                 </td>
-                                <td>{{$user['corporation_scale']}}</td>
-                                <td>できる限り早く</td>
+                                <td>
+                                  {{$user['corporation_scale']}}<br/>
+                                  {{$user['business_type']}}
+                                </td>
+                                <!-- <td>できる限り早く</td> -->
                                 <td>なし</td>
                                 <td>
                                   <div class="status valid">
@@ -163,7 +168,7 @@ $schedules=['できる限り早く', '1ヶ月以内', '3ヶ月以内', '半年�
                                 
                               </tr>
                               @endforeach
-                            @elseif
+                            @endif
                           @endforeach
                         @else
                         <tr>データなし</tr>

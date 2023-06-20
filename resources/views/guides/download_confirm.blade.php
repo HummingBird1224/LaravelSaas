@@ -502,6 +502,29 @@ public_path('company_profile.json')
                         @endforeach
                       </div>
                     </div>
+                    @elseif($type=='category')
+                    <div class="selected-docs">
+                      <div class="selected_num float-right">資料数 <span class="number"> {{count($services)}} </span> 件</div>
+                      <div class="m-t-30 " id="selected_guides">
+                        @foreach($services as $service)
+                        <div class="m-t-30 display-flex" id="service_{{$service->id}}">
+                          <div class="m-t-15 selected-doc display-flex">
+                            <input type="checkbox" checked />
+                            <div class="display-flex ">
+                              <div class="service-logo-wrapper">
+                                <img src="{{ asset($service->logo) }}" alt="{{$service->data_title}}" width="52px"
+                                    height="52px" />
+                              </div>
+                              <div class="service-info">
+                                <h6><b>{{$service->data_title}}</b></h6>
+                                <p>{{$service->title}}|{{$service->up_user[0]->company_name}}</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        @endforeach
+                      </div>
+                    </div>
                     @endif
                     
                   </div>
