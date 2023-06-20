@@ -32,7 +32,7 @@ class UpdateMail extends Mailable
     {
         $bccAry = [];
         return $this->subject('パスワード変更のご連絡')
-                    ->from($address = 'info@kis.xsrv.jp', $name = 'sniper')
+                    ->from($address = 'info@xs786968.xsrv.jp', $name = 'sniper')
                     ->bcc($bccAry)
                     ->view('emails.download_url');
     }

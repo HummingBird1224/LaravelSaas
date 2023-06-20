@@ -7,20 +7,21 @@
 <body>
   
     <br>
-     Hello Fatty!<br>    
+     Hello Elen !<br>    
     <br>
     Contact to {{ $details['mail_address'] }}
     <br>
-    いつもヤフカリをご利用いただき、誠にありがとうございます。<br>
-    パスワードの再設定は下記のURLよりお願いいたします。<br>
+    (-_-)😴 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I am very Sleepy. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 😴(-_-)
+    <br>
+    (^_-) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; But it's okay. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 😉
+    <br>
+    Let's do our best.
     <br>
     -------------------------------------------------------------<br>
     <br>
-    今後ともヤフカリをよろしくお願いいたします。<br>
-    ご利用いただくなかでお困りごとがございましたらお気軽にご連絡ください。<br>
-    https://gies0315.com/contact-2/<br>
+    Let's do our best.
     <br>
-    <a href="https://boxil.com">This is download URL.</a>
+    <a href="http://but.jp/i/don't/make/download/url/yet?Are_you_ok?">This is download URL.</a>
 
 </body>
 </html>
