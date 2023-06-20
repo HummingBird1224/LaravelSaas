@@ -7,8 +7,6 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 
-use App\Http\Controllers\AdminController;
-
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MypageController;
@@ -70,7 +68,6 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::prefix('mypage')->group(function(){
 		Route::get('/', [MypageController::class, 'index'])->name('mypage');
 		Route::get('/reputation_answers',[ReviewController::class, 'repuation_answers'] )->name('reputation_answers');
-		Route::get('/delete_review/{id}',[ReviewController::class, 'destroy'] )->name('delete_review');
 		Route::get('/requested_materials', [ServiceController::class, 'requested_materials'])->name('requested_materials');
 	});
 	
@@ -141,6 +138,9 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
 		Route::get('/client_permit/{id}', [UserController::class, 'client_permit'])->name('client_permit');
 		Route::post('/client_reject/{id}', [UserController::class, 'client_reject'])->name('client_reject');
 
+				Route::get('/review_permit/{id}', [ReviewController::class, 'review_permit'])->name('review_permit');
+		Route::post('/client_reject/{id}', [UserController::class, 'client_reject'])->name('client_reject');
+
 		Route::prefix('/category_documents')->group(function(){
 			Route::get('/', [GuideController::class, 'guide_list'])->name('category_documents_list');
 			Route::get('/delete/{id}', [CategoryDocumentController::class, 'delete'])->name('delete_category_documents');
@@ -152,6 +152,7 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
 		Route::get('/category_issues', [CategoryController::class, 'category_issues'])->name('admin_category_issues');
 		Route::get('/service_managing', [ServiceController::class, 'service_managing'])->name('admin_service_managing');
 		Route::get('/client_managing', [UserController::class, 'client_managing'])->name('admin_client_managing');
+		Route::get('/review_managing', [ReviewController::class, 'review_managing'])->name('admin_review_managing');
 
 		Route::post('/lc_edit', [CategoryController::class, 'lc_edit'])->name('lc_edit');
 		Route::post('/issue_edit', [CategoryController::class, 'issue_edit'])->name('issue_edit');
@@ -183,6 +184,7 @@ Route::group(['middleware' => ['auth', 'client']], function() {
 	Route::prefix('reviews')->group(function(){
 		Route::get('/add/{service_id}',[ReviewController::class, 'add'])->name('add_review');
 		Route::post('/create', [ReviewController::class, 'create'])->name('create_review');
+		Route::get('/delete/{id}',[ReviewController::class, 'destroy'] )->name('delete_review');
 	});
 
 });

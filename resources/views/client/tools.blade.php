@@ -118,48 +118,52 @@ $schedules=['できる限り早く', '1ヶ月以内', '3ヶ月以内', '半年�
                           <th>請求者情報</th>
                           <th>会社・部署・役職</th>
                           <th>規模・業種</th>
-                          <th>導入予定</th>
+                          <!-- <th>導入予定</th> -->
                           <th>備考</th>
                           <th>ステータス</th>
                         </tr>
                       </thead>
 
                       <tbody id="item-table-body">
-                        @if(count($guides)>0)
-                          @foreach($guides as $guide)
-                          <tr id={{ "guide". $guide->id }}>
-                            <td><input type="checkbox" id="select_data_{{$guide->id}}"></td>
-                            <td>{{$guide['id']}}</td>
-                            <td>{{ \Carbon\Carbon::parse($guide->updated_at)->format('Y年m月d日 H:i')}}</td>
-                            <td>
-                              <img src="{{ asset($guide->image) }}" class="nitaco-logo"
-                                width="33px" height="33px" />
-                              {{$guide->title}}
-                            </td>
-                            <td>
-                              {{$user['full_name']}}
-                              {{$user['phone_number']}}
-                              {{$user['email']}}
-                            </td>
-                            <td>
-                              {{$user['company_name']}}
-                              {{$user['department']}}
-                              {{$user['official_position']}}
-                            </td>
-                            <td>{{$user['corporation_scale']}}</td>
-                            <td>できる限り早く</td>
-                            <td>なし</td>
-                            <td>
-                              <div class="status valid">
-                                <div class="status-circle"></div>
-                                有効
-                              </div>
-                              <span>
-                                無効申請
-                              </span>
-                            </td>
-                            
-                          </tr>
+                        @if(count($services)>0)
+                          @foreach($services as $service)
+                            @if(count($service->down_users)>0)
+                              @foreach($service->down_users as $user)
+                              <tr id={{ "guide". $guide->id }}>
+                                <td><input type="checkbox" id="select_data_{{$guide->id}}"></td>
+                                <td>{{$guide['id']}}</td>
+                                <td>{{ \Carbon\Carbon::parse($guide->updated_at)->format('Y年m月d日 H:i')}}</td>
+                                <td>
+                                  <img src="{{ asset($guide->image) }}" class="nitaco-logo"
+                                    width="33px" height="33px" />
+                                  {{$guide->title}}
+                                </td>
+                                <td>
+                                  {{$user['full_name']}}
+                                  {{$user['phone_number']}}
+                                  {{$user['email']}}
+                                </td>
+                                <td>
+                                  {{$user['company_name']}}
+                                  {{$user['department']}}
+                                  {{$user['official_position']}}
+                                </td>
+                                <td>{{$user['corporation_scale']}}</td>
+                                <td>できる限り早く</td>
+                                <td>なし</td>
+                                <td>
+                                  <div class="status valid">
+                                    <div class="status-circle"></div>
+                                    有効
+                                  </div>
+                                  <span>
+                                    無効申請
+                                  </span>
+                                </td>
+                                
+                              </tr>
+                              @endforeach
+                            @elseif
                           @endforeach
                         @else
                         <tr>データなし</tr>

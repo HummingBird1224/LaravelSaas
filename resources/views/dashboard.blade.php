@@ -757,32 +757,6 @@
     </div>
   </div>
 
-  <div id="js-overlap-hidden-target">
-    <div id="corporate-lp-banner">
-      <div class="clb-wrappar">
-        <div class="container">
-          <div class="clb-title">
-            <div>御社のサービスを</div>
-            <div>ボクシルに掲載しませんか？</div>
-          </div>
-          <div class="clb-content">
-            <div class="clb-content-box">
-              <div class="i-element"><span class="i-element-star">★</span><span
-                  class="i-element-unit">累計掲載実績</span><span class="i-element-text">700</span><span
-                  class="i-element-unit">社超</span></div>
-              <div class="i-element"><span class="i-element-star">★</span><span
-                  class="i-element-unit">BOXIL会員数</span><span class="i-element-text">130,000</span><span
-                  class="i-element-unit">人超</span></div>
-            </div>
-          </div>
-          <div class="clb-content">見込み客獲得や認知度向上をしたいサービスをお持ちの方は是非サービスをご掲載ください。</div>
-          <div class="clb-button"><a class="btn btn-link-special" target="_blank" rel="noopener"
-              href="https://boxil.smartcamp.co.jp/?utm_source=boxil&amp;utm_medium=referral&amp;utm_campaign=footer_banner">サービス掲載申し込み</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 @endsection('content')
 
 @section('additional_script')

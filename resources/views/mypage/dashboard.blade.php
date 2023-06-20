@@ -202,9 +202,9 @@ $user = Auth::user();
           </p>
           <div class="middle-button text-center">
             <button class="green-button button">
-              <div class="button-text">
+              <a class="button-text text-white" href="{{route('add_service')}}">
                 ボクシルにサービスを掲載
-              </div>
+              </a>
             </button>
           </div>
         </div>
