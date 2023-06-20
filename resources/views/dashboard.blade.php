@@ -721,7 +721,7 @@
                     <input type="hidden" name="_via" value="si-wpAllDL-mainTop" />
                     <input type="hidden" name="is_comparison" value="false" />
                     <button name="button" type="submit" class="btn btn-dl-document-sm btn-categoryDocument-download-all js-track js-track-si-wpAllDL-mainTop">
-                      <div class="buttonText">選択中のガイドをダウンロード</div>
+                      <div class="buttonText" >選択中のガイドをダウンロード</div>
                     </button>
                   </form>
                 </div>
@@ -759,7 +759,7 @@
 
 @endsection('content')
 
-@section('additional_script')
+@section('script')
   <script>
     $(document).ready(function () {
       $('.js-department-more').on('click', function() {
@@ -782,7 +782,7 @@
           toastr.error('ガイドを選択する必要があります。');
         }
         if (docs.length > 0) {
-          location.href = '/downloads/confirm?type=category_document&&id=' + docs;
+          location.href = '/downloads/confirm?type=category_documents&&id=' + docs;
         }
       }
     });

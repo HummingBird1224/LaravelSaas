@@ -46,13 +46,13 @@ $user = Auth::user();
                       <div class="guide-img-thumbnail-wrapper">
                         <div class="guide-img">
                           <img alt="{{$r_guide->title}}" src="{{ asset($r_guide->image) }}" data-xblocker="passed"
-                            style="visibility: visible;" width="100%" onclick="imgClick(event)">
+                            style="visibility: visible;" width="100%" >
                           <div class="guide-checkbox">
                             <div class="checker">
                               <span class="checked">
                                 <input class="checkbox-input" id="{{$r_guide->id}}" name="category_document"
                                   type="checkbox" value="{{$r_guide->id}}" style="display: inline-block;"
-                                  onclick="inputClick(event)">
+                                  >
                               </span>
                             </div>
                             <span class="lever-sm"></span>
@@ -201,10 +201,6 @@ $('#search').keydown(function(event) {
     })
   }
 });
-
-inputClick = () => {
-  console.log('input')
-}
 
 downloadClick = () => {
   let docs = [];
