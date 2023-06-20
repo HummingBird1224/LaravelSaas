@@ -55,7 +55,7 @@ $user=Auth::user();
 
 @section('content')
   <div class="container" style="padding-top: 4rem;">
-
+<!-- 
     <div class="breadcrumb-boxil-wrapper">
       <div>
         <ul>
@@ -66,16 +66,14 @@ $user=Auth::user();
           <li class="p-t-7"><span class="m-l-5">WEB会議システム</span></li>
         </ul>
       </div>
-    </div>
+    </div> -->
     <div class="v2Navbar">
       <div class="v2NavbarItem">
         <div class="v2NavbarItem__title"><span>{{$category->title}}システム</span>の関連情報</div>
         <div class="v2NavbarItem__button">
-          <form class="" target="_top" action="/downloads/confirm/" accept-charset="UTF-8" method="get">
+          <form class="" target="_top" action="/downloads/confirm" accept-charset="UTF-8" method="get">
             <input type="hidden" name="type" value="category">
-            <input type="hidden" name="ids[]" value="467">
-            <input type="hidden" name="_via" value="cs-categoryDL-header">
-            <input type="hidden" name="is_comparison" value="false">
+            <input type="hidden" name="id" value="{{$category->id}}">
             <button name="button" type="submit" class="cvButton v2NavbarItem__button js-track js-track-cs-categoryDL-header">無料で一括資料ダウンロード</button>
           </form>
         </div>
@@ -187,60 +185,7 @@ $user=Auth::user();
           </div>
         </div>
       </div>
-      <div class="v2Sidebar">
-        <div class="v2Sidebar__title">プロが教える後悔しない選び方</div>
-        <div class="v2Sidebar__content">
-          <div class="v2Sidebar__wp--thumb">
-            <div class="wpThumb">
-              <img alt="" width="300" height="232" src="https://assets.boxil.jp/images/article-whitepaper-bg.svg">
-              <img class="wp_thumb__image" alt="WEB会議システム選び方ガイド_20230420.pptx.pdf" src="https://slides.boxil.jp/category/slides/778742c6dfc46af7c527838e11256ee6.pdf/s3-0.jpg">
-            </div>
-          </div>
-          <div class="v2Sidebar__buttons">
-            <form class="" target="_top" action="/downloads/confirm/" accept-charset="UTF-8" method="get">
-              <input type="hidden" name="type" value="category_document">
-              <input type="hidden" name="ids[]" value="416">
-              <input type="hidden" name="_via" value="cs-wpDL-side">
-              <input type="hidden" name="is_comparison" value="false">
-              <button name="button" type="submit" class="cvButton v2Sidebar__button js-track js-track-cs-wpDL-side">無料で資料ダウンロード</button>
-            </form>
-          </div>
-        </div>
-      </div>
     </div>
 
-  </div>
-
-  <div id="js-overlap-hidden-target">
-    <div id="corporate-lp-banner">
-      <div class="clb-wrappar">
-        <div class="container">
-          <div class="clb-title">
-            <div>御社のサービスを</div>
-            <div>ボクシルに掲載しませんか？</div>
-          </div>
-          <div class="clb-content">
-            <div class="clb-content-box">
-              <div class="i-element">
-                <span class="i-element-star">★</span>
-                <span class="i-element-unit">累計掲載実績</span>
-                <span class="i-element-text">700</span>
-                <span class="i-element-unit">社超</span>
-              </div>
-              <div class="i-element">
-                <span class="i-element-star">★</span>
-                <span class="i-element-unit">BOXIL会員数</span>
-                <span class="i-element-text">130,000</span>
-                <span class="i-element-unit">人超</span>
-              </div>
-            </div>
-          </div>
-          <div class="clb-content">見込み客獲得や認知度向上をしたいサービスをお持ちの方は是非サービスをご掲載ください。</div>
-          <div class="clb-button">
-            <a class="btn btn-link-special" target="_blank" rel="noopener" href="https://boxil.smartcamp.co.jp/?utm_source=boxil&amp;utm_medium=referral&amp;utm_campaign=footer_banner">サービス掲載申し込み</a>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 @endsection

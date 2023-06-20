@@ -68,12 +68,12 @@ class User extends Authenticatable
 
     public function up_service()
     {
-        return $this->belongsToMany(Service::class)->wherePivot('action', 'up');
+        return $this->belongsToMany(Service::class)->wherePivot('action', 'up')->withTimestamps();
     }
 
     public function down_services()
     {
-        return $this->belongsToMany(Service::class)->wherePivot('action', 'down');
+        return $this->belongsToMany(Service::class)->wherePivot('action', 'down')->withTimestamps();
     }
 
     public function guides()

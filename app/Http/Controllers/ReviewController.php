@@ -27,8 +27,8 @@ class ReviewController extends Controller
         //
     }
 
-    public function review_edit($id) {
-        return view('reviews.add_review', ['service_id'=>$id]);
+    public function add($service_id) {
+        return view('reviews.add_review', ['service_id'=>$service_id]);
     }
 
     /**
@@ -38,13 +38,10 @@ class ReviewController extends Controller
      */
     public function create(Request $request)
     {
-        // dd($request);
-        $company_id = Company::select('id')->where('user_id', Auth::id())->get();
 		$create_review = new Review;
 
 		$create_review->user_id = Auth::id();
-        $create_review->service_id = 1;
-        $create_review->company_id = $company_id[0]->id;
+        $create_review->service_id = $request->service_id;
 		$create_review->title = $request->title;
 		$create_review->description = $request->description;
 		$create_review->effect_after_implementation = $request->effect_after_implementation;
@@ -52,11 +49,10 @@ class ReviewController extends Controller
 		$create_review->good_point = $request->good_point;
 		$create_review->bad_point = $request->bad_point;
 		$create_review->save();
+
+        // return redirect(session('links')[2]);
         
-        // $good = explode("\n", $request->good_point);
-        // var_dump($good);
-        
-        return redirect()->route('dashboard');
+        return redirect()->route('service_view', $request->service_id);
         // return ;
     }
 
