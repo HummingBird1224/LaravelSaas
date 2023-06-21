@@ -138,8 +138,8 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
 		Route::get('/client_permit/{id}', [UserController::class, 'client_permit'])->name('client_permit');
 		Route::post('/client_reject/{id}', [UserController::class, 'client_reject'])->name('client_reject');
 
-				Route::get('/review_permit/{id}', [ReviewController::class, 'review_permit'])->name('review_permit');
-		Route::post('/client_reject/{id}', [UserController::class, 'client_reject'])->name('client_reject');
+		Route::post('/review_permit', [ReviewController::class, 'review_permit'])->name('review_permit');
+		Route::post('/review_reject', [ReviewController::class, 'review_reject'])->name('review_reject');
 
 		Route::prefix('/category_documents')->group(function(){
 			Route::get('/', [GuideController::class, 'guide_list'])->name('category_documents_list');
