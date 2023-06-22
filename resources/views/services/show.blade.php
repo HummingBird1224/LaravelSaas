@@ -957,7 +957,13 @@
                           @for ($i = 1; $i < 6; $i++)
                             <div class="serviceReputationMetricsBarBlock">
                               <div class="serviceReputationMetricsBarBlock__rate">
-                                @if ($i == 1)
+                                @for ($j = 0; $j < (6 - $i); $j++)
+                                <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
+                                @endfor
+                                @for ($k = 0; $k < ($i - 1); $k++)
+                                <i class="fa fa-yellow fa-star text-black-400 fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
+                                @endfor
+                                <!-- @if ($i == 1)
                                 <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
                                 <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
                                 <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
@@ -987,12 +993,12 @@
                                 <i class="fa fa-yellow fa-star text-black-400 fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
                                 <i class="fa fa-yellow fa-star text-black-400 fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
                                 <i class="fa fa-yellow fa-star text-black-400 fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                                @endif
+                                @endif -->
                               </div>
                               <div class="serviceReputationMetricsBarBlock__bar">
-                                <div class="serviceReputationMetricsBarBlock__progress bar_star_5" style="width: {{$service->reviews_count?($reviews[$i] / $service->reviews_count) * 100:0 }}%"></div>
+                                <div class="serviceReputationMetricsBarBlock__progress bar_star_5" style="width: <?php echo ( $service->reviews_count ? ($reviews[(6 - $i)] / $service->reviews_count) * 100 : 0 ); ?>%"></div>   <!-- {{-- $service->reviews_count ? ($reviews[(6 - $i)] / $service->reviews_count) * 100 : 0 --}} -->
                               </div>
-                              <div class="serviceReputationMetricsBarBlock__count">(<a href="/service/3558/reviews/?review_rate=5">{{ $reviews[$i] }}</a>)</div>
+                              <div class="serviceReputationMetricsBarBlock__count">(<a href="/service/3558/reviews/?review_rate=5">{{ $reviews[(6 - $i)] }}</a>)</div>
                             </div>
                           @endfor
                         </div>

@@ -13,13 +13,16 @@ use App\Http\Controllers\MypageController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GuideController;
-use App\Http\Controllers\ServiceController ;
-use App\Http\Controllers\ReviewController ;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\ReviewController;
 
 use App\Http\Controllers\Admin\GuideController as CategoryDocumentController;
 
 // Default Route
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+Route::view('/web', 'web')				->name('web_lp');
+Route::view('/servicer', 'servicer')	->name('servicer_lp');
+Route::view('/komon', 'komon')			->name('komon_lp');
 
 // Authentication Routes
 Route::get('/signup/{role?}', [RegisterController::class, 'index']);
