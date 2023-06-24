@@ -2,7 +2,7 @@
 <html lang="ja">
 
 <head> <!-- Google Tag Manager -->
-    <script> (function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-MH99Z2M'); </script>
+    <!-- <script> (function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-MH99Z2M'); </script> -->
     <!-- End Google Tag Manager -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,60 +12,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta name="msapplication-TileColor" content="#2a375e">
     <meta name="theme-color" content="#2a375e">
-    <link rel="pingback" href="https://tsukunobi.com/sys/xmlrpc.php">
-    <link rel='stylesheet' href='https://tsukunobi.com/sys/wp-content/themes/sango-theme-child/tsukunobi.com.css'
-        type='text/css' /> <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+    <!-- <link rel="pingback" href="https://tsukunobi.com/sys/xmlrpc.php"> -->
+    <!-- <link rel='stylesheet' href='https://tsukunobi.com/sys/wp-content/themes/sango-theme-child/tsukunobi.com.css' type='text/css' /> <link rel="preconnect" href="https://fonts.googleapis.com"> -->
     <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
     <!-- <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap" rel="stylesheet"> -->
-    <style>
-        @font-face {
-            font-display: swap;
-            font-weight: 300;
-            font-style: normal;
-            font-family: 'Noto Sans JP';
-            src: url('https://tsukunobi.com/sys/wp-content/themes/sango-theme/fonts/notosansjp-light.ttf') format('truetype');
-        }
-
-        @font-face {
-            font-display: swap;
-            font-weight: 400;
-            font-style: normal;
-            font-family: 'Noto Sans JP';
-            src: url('https://tsukunobi.com/sys/wp-content/themes/sango-theme/fonts/notosansjp-regular.ttf') format('truetype');
-        }
-
-        @font-face {
-            font-display: swap;
-            font-weight: 500;
-            font-style: normal;
-            font-family: 'Noto Sans JP';
-            src: url('https://tsukunobi.com/sys/wp-content/themes/sango-theme/fonts/notosansjp-medium.ttf') format('truetype');
-        }
-
-        @font-face {
-            font-display: swap;
-            font-weight: 600;
-            font-style: normal;
-            font-family: 'Noto Sans JP';
-            src: url('https://tsukunobi.com/sys/wp-content/themes/sango-theme/fonts/notosansjp-semibold.ttf') format('truetype');
-        }
-
-        @font-face {
-            font-display: swap;
-            font-weight: 700;
-            font-style: normal;
-            font-family: 'Noto Sans JP';
-            src: url('https://tsukunobi.com/sys/wp-content/themes/sango-theme/fonts/notosansjp-bold.ttf') format('truetype');
-        }
-
-        @font-face {
-            font-display: swap;
-            font-weight: 900;
-            font-style: normal;
-            font-family: 'Noto Sans JP';
-            src: url('https://tsukunobi.com/sys/wp-content/themes/sango-theme/fonts/notosansjp-black.ttf') format('truetype');
-        }
-    </style> <!-- cssファイル読み込み -->
+    
     <link rel="stylesheet" href="https://tsukunobi.com/sys/wp-content/themes/sango-theme/css/style.css">
     <!-- WordPress jQuery読み込み --> <!-- // 削除禁止 -->
     <title>【ツクノビ公式】建築建設特化の営業代行｜丸投げで2000社に営業&amp;売上増 | 営業戦略からアポ獲得まで支援いたします</title>
@@ -214,7 +165,6 @@
         input[type=reset],
         input[type=submit] {
             cursor: pointer;
-            -webkit-appearance: button
         }
 
         input[type=checkbox],
@@ -2137,7 +2087,6 @@
             background: #fff;
             outline: 0;
             transition: var(--wp--custom--transition--default);
-            -webkit-appearance: none;
             margin-bottom: 0;
             box-shadow: var(--wp--custom--shadow--medium);
             border-radius: var(--wp--custom--rounded--small)
@@ -3876,7 +3825,6 @@
             outline: 0;
             box-shadow: var(--wp--custom--shadow--medium);
             transition: var(--wp--custom--transition--default);
-            -webkit-appearance: none
         }
 
         .layout-squared .wp-block-search .wp-block-search__input {
@@ -6901,7 +6849,6 @@
             display: block;
             line-height: 1.3;
             padding: .5em;
-            vertical-align: middle
         }
 
         #inner-content .wp-block-sgb-headings .hh10:before {
@@ -11398,15 +11345,15 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="google-site-verification" content="UA_rTLz88WiMf3dYQHUVH5pomQJsBIqFxKBw39caUHA" />
     <!-- Google Tag Manager -->
-    <script>(function (w, d, s, l, i) {
+    <!-- <script>(function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({
                 'gtm.start':
                     new Date().getTime(), event: 'gtm.js'
             }); var f = d.getElementsByTagName(s)[0],
                 j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
                     'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-MH99Z2M');</script><!-- End Google Tag Manager -->
-    <script> (function (i, s, o, g, r, a, m) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o), m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m) })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga'); ga('create', 'G-88FBYY0EED', 'auto'); ga('send', 'pageview');</script>
+        })(window, document, 'script', 'dataLayer', 'GTM-MH99Z2M');</script>End Google Tag Manager -->
+    <!-- <script> (function (i, s, o, g, r, a, m) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o), m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m) })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga'); ga('create', 'G-88FBYY0EED', 'auto'); ga('send', 'pageview');</script> -->
     <style id="uagb-style-conditional-extension">
         @media (min-width: 1025px) {
 
@@ -11482,10 +11429,6 @@
             }
         }
 
-        /*
-    footer p,span{	color: #FFF !important;
-    }
-    */
         .footer_menu_m a {
             color: #fff;
         }
@@ -11560,7 +11503,6 @@
             text-align: start;
             text-indent: 0px;
             text-transform: none;
-            vertical-align: baseline;
             white-space: normal;
             word-spacing: 1px;
             /* Color & Background */
@@ -11659,7 +11601,6 @@
             text-align: start;
             text-indent: 0px;
             text-transform: none;
-            vertical-align: baseline;
             white-space: normal;
             word-spacing: 1px;
             /* Color & Background */
@@ -11957,8 +11898,6 @@
             margin-bottom: -602px;
             margin-right: 10%;
         }
-
-        .top_elements2.wp-block-column:nth-child(1) {}
 
         .top_elements2.wp-block-column:nth-child(2) {
             width: auto;
@@ -12411,8 +12350,6 @@
         .text-caution {
             color: #7c98b6;
         }
-
-        .servicer_form {}
 
         .servicer_form p {
             font-weight: 700;
@@ -12896,15 +12833,145 @@
             max-width: 100%
         }}
     </style> <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-196596681-2"></script>
-    <script> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-196596681-2'); </script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-196596681-2"></script> -->
+    <!-- <script> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-196596681-2'); </script> -->
+    
+    <!-- <style class="custom-style">
+        .example_sub-title span {
+            color: #39acb3;
+        }
+        .example-success-after_list {
+            border: 2px solid #39acb3;
+        }
+        .example-success-after_list h5 {
+            background-color: #39acb3;
+        }
+        .example-success-after_list .blue {
+            color: #39acb3;
+        }
+        .example-success-after_list li::before {
+            background-image: url("{{ asset('assets/img/tsukubnobi/web/PC/img/check.png') }}");
+        }
+        .section-title {
+            color: #39acb3;
+        }
+        .section-title_border {
+            background-color: #39acb3;
+        }
+        .introduce-banner {
+            background-color: #39acb3;
+        }
+        .top-introduce {
+            padding-bottom: 0;
+        }
+        .custom_btn a {
+            background-color: #06c655;
+        }
+        .top-reason {
+            padding-top: 0;
+        }
+        .solution-item_title h3 span {
+            color: #39acb3;
+        }
+        @media screen and (min-width: 768px) {
+            .reason-bottom_title img {
+                width: 50%;
+                aspect-ratio: auto;
+            }
+            .reason-bottom-inner {
+                padding-top: 3.875rem;
+            }
+            .reason-bottom_item {
+                border: #39acb3 solid 4px;
+            }
+            .reason-bottom-item_title {
+                background-color: #39acb3;
+            }
+            .reason-bottom-item_content {
+                padding: 1rem;
+                height: 18.6rem;
+            }
+            .reason-bottom_image {
+                margin-top: 0 !important;
+                margin-bottom: 0 !important;
+            }
+            .reason-bottom_text {
+                margin-top: 1.5rem;
+            }
+            .reason-bottom_item--1 .reason-bottom_image {
+                width: 16rem;
+            }
+            .reason-bottom_item--2 .reason-bottom_image {
+                width: 14rem;
+            }
+            .reason-bottom_item--3 .reason-bottom_image {
+                width: 14rem;
+            }
+            .comparison-table-wrapper .bg-gray th:nth-last-child(3), .comparison-table-wrapper tr td:nth-last-child(3) {
+                border-left: 0;
+            }
+        }
+
+        .row {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            margin-right: -15px;
+            margin-left: -15px;
+            padding-top: 5rem;
+        }
+        .col-6 {
+            -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+        .col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
+            position: relative;
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+    </style> -->
+    <style>
+        @media screen and (min-width: 768px) {
+            .top-mv {
+                background-image: url("{{ asset('assets/img/tsukubnobi/servicer/PC/img/fv_back.png') }}");
+                background-size: contain;
+            }
+            .reason-bottom_title img {
+                width: 50%;
+                aspect-ratio: auto;
+            }
+            .reason-bottom_item--3 .reason-bottom_image {
+                width: 16rem;
+            }
+            .mv-title-strength_img {
+                width: 45.5vh;
+                margin-left: -2rem;
+            }
+        }
+
+        .header-contact_tel {
+            background-color: #f3f3f7;
+        }
+        .header-contact_tel span {
+            color: #0f2469 !important;
+        }
+        .header-contact_tel span svg {
+            fill: #0f2469;
+        }
+    </style>
+
 </head>
 
 <body
     class="home page-template page-template-page-forfront page-template-page-forfront-php page page-id-3673 wp-custom-logo fa5 layout-squared parts-squared posts-squared">
-    <!-- Google Tag Manager (noscript) --> <noscript><iframe
+    <!-- Google Tag Manager (noscript) --> 
+    <!-- <noscript><iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-MH99Z2M" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript> <!-- End Google Tag Manager (noscript) --> <svg
+            style="display:none;visibility:hidden"></iframe></noscript> -->
+            <svg
         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none"
         style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
         <defs>
@@ -13029,7 +13096,7 @@
     <div id="container"> <!-- ヘッダー -->
         <header id="main-header"> <!-- ヘッダーロゴ -->
             <div class="header-logo logo"> <a href="https://tsukunobi.com/"> <img
-                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/common/logo.png" alt="ツクノビ">
+                        src="{{ asset('assets/img/tsukubnobi/servicer/PC/img/logo.png') }}" alt="ツクノビ">
                 </a> </div>
             <div class="header-contact-wrapper"> <!-- 問い合わせボタン -->
                 <div class="red-btn btn free_contact header_red-btn u-desktop"> <a
@@ -13056,17 +13123,16 @@
                             </div> <!-- ーーーーーテキスト --> <!-- 強み -->
                             <div class="mv-title_strength"> <!-- ① -->
                                 <div class="mv-title-strength_img"> <img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/point_1.png"
+                                        src="{{ asset('assets/img/tsukubnobi/servicer/PC/img/point_1.png') }}"
                                         alt="導入社数250社" loading="lazy"> </div>
-                                <div class="mv-title-strength-flexbox"> <!-- ② -->
+                                <!-- <div class="mv-title-strength-flexbox">
                                     <div class="mv-title-strength_img"> <img
                                             src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/point_2.png"
-                                            alt="満足いかなければ全額返金" loading="lazy"> </div> <!-- ③ -->
+                                            alt="満足いかなければ全額返金" loading="lazy"> </div>
                                     <div class="mv-title-strength_img"> <img
                                             src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/point_3.png"
-                                            alt="返金回数0回" loading="lazy"> </div>
+                                            alt="返金回数0回" loading="lazy"> </div> -->
                                 </div>
-                                <p class="mv-title_strength-text">※返金の条件については別途お問い合わせください</p>
                             </div> <!-- ーーーーー強み -->
                         </div>
                     </div> <!-- ーーーーー上半分 --> <!-- 下半分 -->
@@ -13078,9 +13144,6 @@
                                 <p class="document-request-link_balloon mv_link-balloon link-balloon"> まずはこちらから </p>
                                 <div class="red-btn btn mv_docrequest-btn mv_docrequest-btn--red"> <a
                                         href="#go-contact">資料請求</a> </div>
-                                <div class="mv-document-request_hukidasi-img"> <img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/button_hukidasi.png"
-                                        alt="新規案件を増やす厳選60施策の冊子付き" loading="lazy"> </div>
                             </div> <!-- ーーーーー資料請求 --> <!-- 問い合わせ --> <!-- <div class="mv-contact-request_link"> -->
                             <!-- <div class="white-btn btn mv_docrequest-btn mv_docrequest-btn--white"> -->
                             <!-- <a href="https://tsukunobi.com/contact"> --> <!-- 建築・建設会社へ<br> -->
@@ -13089,42 +13152,6 @@
                     </div> <!-- ーーーーー下半分 -->
                 </div>
             </section><!-- 取引事例紹介 -->
-            <section class="example top-example heading"> <!-- タイトル -->
-                <div class="example_title-wrapper section-title-wrapper">
-                    <h4 class="section-title"> 超大手優良顧客との取引の実績／売上改善の事例をご紹介 </h4> <span
-                        class="section-title_border"></span>
-                </div> <!-- 上半分 -->
-                <div class="example-inner inner">
-                    <div class="example-sub-contents">
-                        <h3 class="example_sub-title"> 売上が<span class="number">800</span><span>万円/月増</span>に成功。<br>
-                            大手多店舗展開企業と<br> 長期的なお付き合いへ。 </h3>
-                        <div class="example_sub-image"> <img
-                                src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/graph_1.png"
-                                alt="800万円UP" loading="lazy"> </div>
-                    </div> <!-- 下半分 -->
-                    <div class="example-success-contents">
-                        <div class="example_success-before">
-                            <div class="example-success-before_company company-banner"> 事例：株式会社アイル様(内装業) </div>
-                            <div class="example-success-before_list example-success-list">
-                                <h5>導入前の課題</h5>
-                                <ul>
-                                    <li><span class="position">テレアポ会社導入でも効果が出ず</span></li>
-                                    <li><span class="position">営業を採用しても定着しない</span></li>
-                                    <li><span class="position">現場対応に追われ、営業対応の余裕が無い</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="example-success-after_list example-success-list">
-                            <h5>導入後の効果</h5>
-                            <ul>
-                                <li><span class="position">業界知見をもとに<span class="blue">効果的な営業活動</span>を実行</span></li>
-                                <li><span class="position">無駄になっていた<span class="blue">採用や教育コストの削減</span></span></li>
-                                <li><span class="position">現場業務に<span class="blue">注力できる体制</span>ができた</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section><!-- お客さまの声 -->
             <section class="reputation top-reputation heading"> <!-- タイトル -->
                 <div class="reputation_title-wrapper section-title-wrapper">
                     <h4 class="section-title"> お客様の声 </h4> <span class="section-title_border"></span>
@@ -13150,7 +13177,7 @@
                     </div>
                 </div>
             </section><!-- ツクノビとは？ -->
-            <section class="introduce top-introduce heading"> <!-- タイトル -->
+            <section class="introduce top-introduce heading" style="padding-bottom: 0;"> <!-- タイトル -->
                 <div class="introduce_title-wrapper section-title-wrapper">
                     <h4 class="section-title"> 建築･建設業界に特化した営業代行サービス、ツクノビとは？ </h4> <span
                         class="section-title_border"></span>
@@ -13166,14 +13193,14 @@
                             <h3 class="introduce-text_title"> サービス開始<span class="bla-number number">3</span>年で<br>
                                 ツクノビ導入企業<span class="blue"><span class="blu-number number">250</span>社突破</span> </h3>
                             <div class="introduce-text_image u-mobile"> <img
-                                    src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/graph_2.png"
+                                    src="{{ asset('assets/img/tsukubnobi/servicer/SP/img/graph.png') }}"
                                     alt="250社突破" loading="lazy"> </div>
                             <p class="introduce-text_letter">
                                 ツクノビはサービス開始3年で導入社数250社を突破し、建築・建設業界における営業の成功パターンを保有しています。各社の成功パターンをもとに業界知見のあるスタッフが営業企画〜実施までサポートさせていただきます。<br>
                                 ツクノビのノウハウによって各社が新規案件を獲得し、営業効果を実感し続けています。 </p>
                         </div>
                         <div class="introduce-text_image u-desktop-flex"> <img
-                                src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/graph_2.png"
+                                src="{{ asset('assets/img/tsukubnobi/servicer/PC/img/graph.png') }}"
                                 alt="250社突破" loading="lazy"> </div>
                     </div> <!-- 対応業種リスト -->
                     <div class="introduce-type">
@@ -13201,109 +13228,41 @@
                                 class="underline"><span class="number">250</span>社を突破</span> </h3>
                         <ul class="introduce-campany_list">
                             <li class="usen"><img
-                                    src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/company_logo_1.png"
+                                    src="{{ asset('assets/img/tsukubnobi/servicer/PC/img/company_logo_1.png') }}"
                                     alt="USEN様" loading="lazy"></li>
+                            <li class="i-tec"><img
+                                    src="{{ asset('assets/img/tsukubnobi/servicer/PC/img/company_logo_2.png') }}"
+                                    alt="I-TEC様" loading="lazy"></li>
                             <li class="daiwanet"><img
-                                    src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/company_logo_3.png"
+                                    src="{{ asset('assets/img/tsukubnobi/servicer/PC/img/company_logo_3.png') }}"
                                     alt="Daiwa Net様" loading="lazy"></li>
                             <li class="air"><img
-                                    src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/company_logo_4.png"
+                                    src="{{ asset('assets/img/tsukubnobi/servicer/PC/img/company_logo_4.png') }}"
                                     alt="air株式会社様" loading="lazy"></li>
-                            <li class="i-tec"><img
-                                    src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/company_logo_5.png"
-                                    alt="I-TEC様" loading="lazy"></li>
                             <li class="nexel"><img
-                                    src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/company_logo_6.png"
+                                    src="{{ asset('assets/img/tsukubnobi/servicer/PC/img/company_logo_5.png') }}"
                                     alt="株式会社NEXEL様" loading="lazy"></li>
                         </ul>
                     </div>
                 </div>
             </section><!-- 中間テキストバナー -->
-            <section class="banner-text heading">
-                <div class="banner-set-wrapper">
-                    <h3 class="banner-set_title"> <span>営業丸投げで売上が上がる</span><br> 建築・建設業界特化の営業代行サービス </h3>
-                    <div class="banner-set-links">
-                        <div class="document-request_link">
-                            <p class="document-request-link_balloon link-balloon"> サービス概要や価格体系を知りたい </p>
-                            <div class="red-btn btn document_request-btn document_request-btn--red"> <a
-                                    href="#go-contact">資料請求</a> </div>
-                        </div>
-                        <div class="contact-request_link">
-                            <p class="contact-request-link_balloon link-balloon"> 見積り・個別提案を受けたい </p>
-                            <div class="white-btn btn document_request-btn document_request-btn--white"> <a
-                                    href="https://tsukunobi.com/contact">詳しく話を聞く</a> </div>
-                            <p class="contact-request-link_text"> （お問い合わせフォームへ遷移します｡） </p>
-                        </div>
-                    </div>
-                </div>
-            </section><!-- お客様のお悩み・理由 -->
             <section class="reason top-reason heading"> <!-- 上半分 -->
-                <div class="reason-top-wrapper">
-                    <div class="reason-top-inner"> <!-- タイトル -->
-                        <div class="reason-top-title-wrapper">
-                            <h3 class="reason-top_title u-desktop"> 工事会社様は<span>営業によって<br
-                                        class="u-mobile">必ず売上が上がる</span>ことをご存知ですか？ </h3>
-                            <h3 class="reason-top_title u-mobile">工事会社様は<span>営業によって</span></h3> <br class="u-mobile">
-                            <h3 class="reason-top_title u-mobile"><span>必ず売上が上がる</span>ことをご存知ですか？</h3>
-                        </div>
-                        <div class="reason-top-contents"> <!-- ーーーーー --> <!-- ① -->
-                            <div class="reason-top_item reason-top_item--1">
-                                <div class="reason-top-item_image"> <img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/illust_1_1.png"
-                                        alt="探しています" class="u-desktop-flex" loading="lazy"> <img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/illust_1_1_sp.png"
-                                        alt="探しています" class="u-mobile" loading="lazy"> </div>
-                                <div class="reason-top-item_text">
-                                    <h5 class="reason-top_text-title"> 元請会社は常に質の良い<br><span>工事会社を探しています。</span> </h5>
-                                    <p class="reason-top_text-letter"> 工事会社の選定条件は施工技術･コストパフォーマンス･スムーズなコミュニケーションが主軸です。
-                                    </p>
-                                </div>
-                            </div> <!-- ② -->
-                            <div class="reason-top_item reason-top_item--2">
-                                <div class="reason-top-item_image"> <img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/illust_1_2.png"
-                                        alt="探す時間がありません" class="u-desktop-flex" loading="lazy"> <img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/illust_1_2_sp.png"
-                                        alt="探す時間がありません" class="u-mobile" loading="lazy"> </div>
-                                <div class="reason-top-item_text">
-                                    <h5 class="reason-top_text-title">
-                                        しかし、元請会社は日々の業務で忙しく、<span>良い工事会社を探す時間が取れません。</span> </h5>
-                                    <p class="reason-top_text-letter"> さらに、元請会社は工事会社を選定するのに一度試す必要があります。 </p>
-                                </div>
-                            </div> <!-- ③ -->
-                            <div class="reason-top_item reason-top_item--3">
-                                <div class="reason-top-item_image"> <img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/illust_1_3.png"
-                                        alt="お試しで案件発注" class="u-desktop-flex" loading="lazy"> <img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/illust_1_3_sp.png"
-                                        alt="お試しで案件発注" class="u-mobile" loading="lazy"> </div>
-                                <div class="reason-top-item_text">
-                                    <h5 class="reason-top_text-title"> 元請会社は<span>一度お試しで案件を<br>発注する</span>可能性が高いです。
-                                    </h5>
-                                    <p class="reason-top_text-letter">
-                                        そのため工事会社は元請会社との接点を作りやすいです。仕事を試していただく中で相性が良ければ継続的に案件をいただけます。 </p>
-                                </div>
-                            </div>
-                        </div> <!-- ーーーーー -->
-                    </div>
-                </div> <!-- 下半分 -->
                 <div class="reason-bottom-wrapper">
                     <div class="reason-bottom-inner inner"> <!-- タイトル -->
                         <div class="reason-bottom_title"> <img
-                                src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/hukidasi_but.png"
+                                src="{{ asset('assets/img/tsukubnobi/servicer/PC/img/hukidasi_nayami.png') }}"
                                 alt="しかし…" loading="lazy">
-                            <h3> 成果が出るとわかっていても、<br> 工事会社様は営業に取り組めていません。<br class="u-mobile">その理由は… </h3>
                         </div>
                         <div class="reason-bottom-item-flexbox"> <!-- ① -->
                             <div class="reason-bottom_item reason-bottom_item--1">
                                 <div class="reason-bottom-item_title">
                                     <h5>理由</h5> <img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/reason_1.png"
+                                        src="{{ asset('assets/img/tsukubnobi/servicer/PC/img/nayami_1.png') }}"
                                         alt="❶" loading="lazy">
                                 </div>
                                 <div class="reason-bottom-item_content">
                                     <div class="reason-bottom_image"> <img
-                                            src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/illust_2_1.png"
+                                            src="{{ asset('assets/img/tsukubnobi/servicer/PC/img/illust_1_1.png') }}"
                                             alt="わからない" loading="lazy"> </div>
                                     <p class="reason-bottom_text"> 最適な営業手法が<br>わからない </p>
                                 </div>
@@ -13311,12 +13270,12 @@
                             <div class="reason-bottom_item reason-bottom_item--2">
                                 <div class="reason-bottom-item_title">
                                     <h5>理由</h5> <img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/reason_2.png"
+                                        src="{{ asset('assets/img/tsukubnobi/servicer/PC/img/nayami_2.png') }}"
                                         alt="❷" loading="lazy">
                                 </div>
                                 <div class="reason-bottom-item_content">
                                     <div class="reason-bottom_image"> <img
-                                            src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/illust_2_2.png"
+                                            src="{{ asset('assets/img/tsukubnobi/servicer/PC/img/illust_1_2.png') }}"
                                             alt="時間がない" loading="lazy"> </div>
                                     <p class="reason-bottom_text"> 営業に割く時間がない </p>
                                 </div>
@@ -13324,12 +13283,12 @@
                             <div class="reason-bottom_item reason-bottom_item--3">
                                 <div class="reason-bottom-item_title">
                                     <h5>理由</h5> <img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/reason_3.png"
+                                        src="{{ asset('assets/img/tsukubnobi/servicer/PC/img/nayami_3.png') }}"
                                         alt="❸" loading="lazy">
                                 </div>
                                 <div class="reason-bottom-item_content">
                                     <div class="reason-bottom_image"> <img
-                                            src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/illust_2_3.png"
+                                            src="{{ asset('assets/img/tsukubnobi/servicer/PC/img/illust_1_3.png') }}"
                                             alt="苦手" loading="lazy"> </div>
                                     <p class="reason-bottom_text"> 営業が苦手 </p>
                                 </div>
@@ -13347,7 +13306,7 @@
                         <div class="solution-items solution-item--1">
                             <div class="solution-item-text">
                                 <div class="solution-item_tag"> <img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/hukidasi_kaiketu_1.png"
+                                        src="{{ asset('assets/img/tsukubnobi/servicer/PC/img/hukidasi_kaiketu_1.png') }}"
                                         alt="解決１" loading="lazy">
                                     <p>最適な営業手法がわからない</p>
                                 </div>
@@ -13359,15 +13318,15 @@
                                 </div>
                             </div>
                             <div class="solution-item-image"> <img
-                                    src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/illust_3_1.png"
+                                    src="{{ asset('assets/img/tsukubnobi/servicer/PC/img/illust_2_1.png') }}"
                                     alt="企画します" loading="lazy"> </div>
                         </div> <!-- ーーーーーー --> <!-- ② -->
                         <div class="solution-items solution-item--2">
                             <div class="solution-item-text">
                                 <div class="solution-item_tag"> <img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/hukidasi_kaiketu_2.png"
+                                        src="{{ asset('assets/img/tsukubnobi/servicer/PC/img/hukidasi_kaiketu_2.png') }}"
                                         alt="解決２" class="u-desktop" loading="lazy"> <img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/hukidasi_kaiketu_2_sp.png"
+                                        src="{{ asset('assets/img/tsukubnobi/servicer/SP/img/hukidasi_kaiketu_2.png') }}"
                                         alt="解決２" class="u-mobile" loading="lazy">
                                     <p>営業に割く時間がない</p>
                                 </div>
@@ -13379,13 +13338,13 @@
                                 </div>
                             </div>
                             <div class="solution-item-image"> <img
-                                    src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/illust_3_2.png"
+                                    src="{{ asset('assets/img/tsukubnobi/servicer/PC/img/illust_2_2.png') }}"
                                     alt="提供します" loading="lazy"> </div>
                         </div> <!-- ーーーーーー --> <!-- ③ -->
                         <div class="solution-items solution-item--3">
                             <div class="solution-item-text">
                                 <div class="solution-item_tag"> <img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/hukidasi_kaiketu_3.png"
+                                        src="{{ asset('assets/img/tsukubnobi/servicer/PC/img/hukidasi_kaiketu_3.png') }}"
                                         alt="解決３" loading="lazy">
                                     <p>営業が苦手</p>
                                 </div>
@@ -13398,7 +13357,7 @@
                                 </div>
                             </div>
                             <div class="solution-item-image"> <img
-                                    src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/illust_3_3.png"
+                                    src="{{ asset('assets/img/tsukubnobi/servicer/PC/img/illust_2_3.png') }}"
                                     alt="実行します" loading="lazy"> </div>
                         </div> <!-- ーーーーーー -->
                     </div>
@@ -13889,8 +13848,7 @@
         <script type='text/javascript' id='sango_theme_client-block-js-js-extra'>/* <![CDATA[ */
             var sgb_client_options = { "site_url": "https:\/\/tsukunobi.com\/sys", "is_logged_in": "" };
     /* ]]> */</script>
-        <script type='text/javascript'
-            id='sango_theme_client-block-js-js-after'>(() => { var l = t => { document.readyState === "interactive" || document.readyState === "complete" ? t() : document.addEventListener("DOMContentLoaded", t) }; l(() => { let t = window.innerWidth - document.body.clientWidth; document.querySelector("html").style.setProperty("--sgb-scroll-bar-width", t + "px") }); function f(t) { t.style.opacity = "1", function o() { let e = parseFloat(t.style.opacity); t.style.opacity = `${e - .1}`, e - .1 < 0 ? t.style.display = "none" : requestAnimationFrame(o) }() } function g(t, o = "block") { t.style.opacity = "0", t.style.display = o, function e() { let a = parseFloat(t.style.opacity); (a += .1) > 1 || (t.style.opacity = `${a}`, requestAnimationFrame(e)) }() } function L(t) { let o = t.getBoundingClientRect(), e = window.pageYOffset || document.documentElement.scrollTop; return o.top + e } function j() { return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0 } function p(t) { return t.offsetWidth > 0 || t.offsetHeight > 0 } l(() => { let t = document.querySelectorAll(".wp-block-sgb-tab .post-tab");[].forEach.call(t, (e, a) => { let i = "js-tab-id-" + a; e.classList.add(i); let s = e.getAttribute("data-active-color"), n = document.createElement("style"); n.innerHTML = ".post-tab." + i + " > label.tab-active { background: " + s + "}", document.body.appendChild(n) }); let o = document.querySelectorAll(".post-tab > label");[].forEach.call(o, e => { e.addEventListener("click", a => { let i = e.closest(".wp-block-sgb-tab"); if (i) { let s = i.querySelectorAll(":scope > .post-tab > label");[].forEach.call(s, c => { c.classList.remove("tab-active") }), e.classList.add("tab-active"); let n = i.querySelectorAll(":scope > .post-tab__content");[].forEach.call(n, (c, d) => { parseInt(e.getAttribute("class").replace("tab", ""), 10) - 1 === d ? (c.classList.add("tab-active"), g(c)) : (c.classList.remove("tab-active"), f(c)) }), setTimeout(() => { typeof jQuery < "u" && (jQuery(".js-sng-slider").length > 0 && jQuery(".js-sng-slider").slick("setPosition"), jQuery(".js-sng-slider-alt").length > 0 && jQuery(".js-sng-slider-alt").slick("setPosition"), jQuery(".js-sng-post-slider").length > 0 && jQuery(".js-sng-post-slider").slick("setPosition")) }, 100) } }) }) }); l(() => { let t = document.querySelectorAll("pre.js-sng-highlight code");[].forEach.call(t, o => { hljs.highlightBlock(o) }) }); l(() => { let t = document.querySelectorAll(".js-header-video");[].forEach.call(t, o => { let e = o.getAttribute("data-src"); e && o.setAttribute("src", e) }) }); var _ = () => { typeof jQuery > "u" || (jQuery(".js-sng-post-slider").length > 0 && jQuery(".js-sng-post-slider").slick(), jQuery(".js-sng-slider-alt").length > 0 && jQuery(".js-sng-slider-alt").slick(), jQuery(".js-sng-slider").length > 0 && jQuery(".js-sng-slider").slick({ responsive: [{ breakpoint: 768, settings: { slidesToShow: 1, slidesToScroll: 1 } }] })) }; l(() => { _() }); var k = t => { let o = document.querySelector("#toc_container"), e = o.querySelector(".toc_list"), i = ` <dialog class="sgb-toc-dialog"> <div class="sgb-toc-dialog__contents dfont"> <div class="sgb-toc-dialog__header"> <button class="sgb-toc-dialog__dismiss" aria-label="\u30C0\u30A4\u30A2\u30ED\u30B0\u3092\u9589\u3058\u308B"> <span></span> </button> <p class="sgb-toc-dialog__title">${o.dataset.dialogTitle || "Table of Contents"}</p> </div> <div class="sgb-toc-dialog__list-wrap"> <ul class="sgb-toc-dialog__list"> ${e.innerHTML} </ul> </div> </p> </dialog> `; o.insertAdjacentHTML("beforeend", i); let s = document.querySelector(".sgb-toc-dialog"), n = document.querySelector(".sgb-toc-dialog__contents"), c = n.querySelectorAll("a"), d = document.querySelector(".sgb-toc-dialog__dismiss"); t.addEventListener("click", r => { r.preventDefault(), s.showModal() }), n.addEventListener("click", r => { r.stopPropagation() }), s.addEventListener("click", r => { s.close() }), d.addEventListener("click", r => { s.close() }), c.forEach(r => { r.addEventListener("click", () => { s.close() }) }) }; l(() => { let t = document.querySelector(".js-toc-toggle"); t && t.addEventListener("click", s => { let n = document.querySelector(".toc_list"); if (n.offsetParent !== null) { let c = t.getAttribute("data-open-toggle"); t.innerHTML = c, f(n) } else { let c = t.getAttribute("data-close-toggle"); t.innerHTML = c, g(n) } }); let o = document.querySelectorAll(".js-smooth-scroll a:not(.js-toc-button):not(.js-no-scroll)"), e = document.querySelector(".js-toc-button"), a = document.querySelector("#toc_container"); if (o.length) { let s = document.querySelector("html"); s && (s.style.scrollBehavior = "smooth") } e && (e.dataset.openDialog === "true" && typeof HTMLDialogElement == "function" ? k(e) : e.setAttribute("href", "#toc_container")), e && a && window.addEventListener("scroll", s => { (document.documentElement.scrollTop || document.body.scrollTop) > 700 ? p(e) || sng.fadeIn(e) : p(e) && sng.fadeOut(e) }, { passive: !0 }), document.querySelector(".js-highlight-menu") && window.addEventListener("scroll", s => { let c = ".entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5", d = -1, r = -1; document.querySelectorAll(c).forEach((u, h) => { let E = u.getAttribute("id"), T = "#" + E, b = !1; if (document.querySelectorAll(".js-highlight-menu li a:not(.js-no-highlight)").forEach((S, M) => { if (S.getAttribute("href") === T) return b = !0, !1 }), !b) return !0; r++, L(u) <= j() + 5 && (d = r) }), document.querySelectorAll(".js-highlight-menu li a:not(.js-no-highlight)").forEach((u, h) => { u.classList.remove("active"), h === d && u.classList.add("active") }) }, { passive: !0 }) }); var P = sgb_client_options.site_url, y = t => { if (sgb_client_options.is_logged_in) return; t.querySelectorAll(".js-sgb-content-block").forEach(e => { navigator.sendBeacon("?rest_route=/sng/v1/cb/pv", JSON.stringify({ postId: e.dataset.id })), e.querySelectorAll("a").forEach(i => { i.addEventListener("click", s => { navigator.sendBeacon("?rest_route=/sng/v1/cb/click", JSON.stringify({ postId: e.dataset.id, url: i.href, label: i.innerText })) }) }) }) }; l(() => { y(document) }); var v = (t, o) => Math.floor(Math.random() * (o - t + 1) + t); l(() => { document.querySelectorAll(".js-ab-test").forEach(async o => { let e = o.dataset.aId, a = o.dataset.bId, i = parseInt(o.dataset.deliveryRate, 10), s = v(1, 100), n = ""; s <= i ? n = e : n = a; let c = await fetch("?rest_route=/sng/v1/cb/block", { method: "POST", body: JSON.stringify({ id: n }) }), { html: d, css: r } = await c.json(), m = ""; r && (m = `<style>${r}</style>`), m += d, o.innerHTML = m, y(o) }) }); })();</script>
+
         <script type='text/javascript'
             src='https://tsukunobi.com/sys/wp-content/plugins/contact-form-7/includes/swv/js/index.js'
             id='swv-js'></script>
@@ -13900,14 +13858,14 @@
         <script type='text/javascript'
             src='https://tsukunobi.com/sys/wp-content/plugins/contact-form-7/includes/js/index.js'
             id='contact-form-7-js'></script>
-        <script type='text/javascript'
+        <!-- <script type='text/javascript'
             src='https://tsukunobi.com/sys/wp-content/plugins/sticky-block/dist/sticky-block.min.js'
-            id='sticky_block-js-js'></script>
-        <script type='text/javascript' id='uagb-post-js-js-extra'>/* <![CDATA[ */
+            id='sticky_block-js-js'></script> -->
+        <!-- <script type='text/javascript' id='uagb-post-js-js-extra'>/* <![CDATA[ */
             var uagb_data = { "ajax_url": "https:\/\/tsukunobi.com\/sys\/wp-admin\/admin-ajax.php", "uagb_masonry_ajax_nonce": "a9618babc4" };
             var uagb_data = { "ajax_url": "https:\/\/tsukunobi.com\/sys\/wp-admin\/admin-ajax.php", "uagb_masonry_ajax_nonce": "a9618babc4" };
-    /* ]]> */</script>
-        <script type='text/javascript'
+    /* ]]> */</script> -->
+        <!-- <script type='text/javascript'
             src='https://tsukunobi.com/sys/wp-content/plugins/ultimate-addons-for-gutenberg/assets/js/post.min.js'
             id='uagb-post-js-js'></script>
         <script type='text/javascript'
@@ -13930,13 +13888,15 @@
             id='wp-polyfill-js'></script>
         <script type='text/javascript' id='wpcf7-recaptcha-js-extra'>/* <![CDATA[ */
             var wpcf7_recaptcha = { "sitekey": "6LdgwY4kAAAAANPvvMcEDYtAjkl0jLq2fZVlvz3k", "actions": { "homepage": "homepage", "contactform": "contactform" } };
-    /* ]]> */</script>
-        <script type='text/javascript'
+    /* ]]> */</script> -->
+        <!-- <script type='text/javascript'
             src='https://tsukunobi.com/sys/wp-content/plugins/contact-form-7/modules/recaptcha/index.js'
-            id='wpcf7-recaptcha-js'></script><!-- Google Tag Manager (noscript) --><noscript><iframe
+            id='wpcf7-recaptcha-js'></script> -->
+            <!-- Google Tag Manager (noscript) -->
+            <!-- <noscript><iframe
                 src="https://www.googletagmanager.com/ns.html?id=GTM-MH99Z2M" height="0" width="0"
-                style="display:none;visibility:hidden"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
-        <script>const sng = {}; sng.domReady = (fn) => { document.addEventListener("DOMContentLoaded", fn); if (document.readyState === "interactive" || document.readyState === "complete") { fn(); } }; sng.fadeIn = (el, display = "block") => {
+                style="display:none;visibility:hidden"></iframe></noscript>End Google Tag Manager (noscript) -->
+        <!-- <script>const sng = {}; sng.domReady = (fn) => { document.addEventListener("DOMContentLoaded", fn); if (document.readyState === "interactive" || document.readyState === "complete") { fn(); } }; sng.fadeIn = (el, display = "block") => {
                 if (el.classList.contains(display)) { return; }
                 el.classList.add(display); function fadeInAnimationEnd() { el.removeEventListener('transitionend', fadeInAnimationEnd); }; el.addEventListener('transitionend', fadeInAnimationEnd); requestAnimationFrame(() => { el.classList.add('active'); });
             }; sng.fadeOut = (el, display = "block") => {
@@ -13950,7 +13910,7 @@
                         element.classList.add('executed');
                     }
                 });
-            }); elements.forEach((element) => { io.observe(element); });</script>
+            }); elements.forEach((element) => { io.observe(element); });</script> -->
             
 </body>
 
