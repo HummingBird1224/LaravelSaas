@@ -5,6 +5,11 @@ $user = Auth::user();
 @endphp
 
 @section('content')
+<style>
+  .green-button:disabled {
+    background: lightgrey;
+  }
+</style>
 <div class="content-wrapper">
   <div class="container-xxl flex-grow-1 container-p-y">
     <main id="main" class="main">
@@ -125,99 +130,97 @@ $user = Auth::user();
                 <i class="menu-icon tf-icons bx bx-chevron-right"></i>
               </a>
             </div>
-
           </div>
         </div>
-  </div>
-  <!-- End おすすめのお役立ちガイド -->
+        </div>
+        <!-- End おすすめのお役立ちガイド -->
 
-  <!-- さんにおすすめのサービス -->
-  <div class="row card-section">
-    <div class=" section-title">
-      <i class="menu-icon tf-icons bx bxs-download"></i>
-      <h5>{{$user->full_name}}さんにおすすめのサービス</h5>
-    </div>
+        <!-- さんにおすすめのサービス -->
+        <div class="row card-section">
+          <div class=" section-title">
+            <i class="menu-icon tf-icons bx bxs-download"></i>
+            <h5>{{$user->full_name}}さんにおすすめのサービス</h5>
+          </div>
 
-    <div class="card info-card sales-card">
-      <div class="card-body ">
-        <div class="row">
-          @foreach($r_services as $r_service) 
-          <div class="col-sm-6  service-block">
-            <div class="service-content">
-              <a class="service-logo" href="{{route('service_view', $r_service->id)}}">
-                <img alt="logo name" src="{{asset($r_service->logo)}}" data-xblocker="passed"
-                  style="visibility: visible;" width="100%" height="100%">
-              </a>
-              <div class="service-info">
-                <div class="service-title">
-                  <a href="{{route('service_view', $r_service->id)}}">
-                    <h6> {{$r_service->title}}</h6>
+          <div class="card info-card sales-card">
+            <div class="card-body ">
+              <div class="row">
+                @foreach($r_services as $r_service) 
+                <div class="col-sm-6  service-block">
+                  <div class="service-content">
+                    <a class="service-logo" href="{{route('service_view', $r_service->id)}}">
+                      <img alt="logo name" src="{{asset($r_service->logo)}}" data-xblocker="passed"
+                        style="visibility: visible;" width="100%" height="100%">
+                    </a>
+                    <div class="service-info">
+                      <div class="service-title">
+                        <a href="{{route('service_view', $r_service->id)}}">
+                          <h6> {{$r_service->title}}</h6>
+                        </a>
+                      </div>
+                      <a class="service-description" href="{{route('service_view', $r_service->id)}}">
+                        <p>
+                          {{$r_service->description}}
+                        </p>
+                      </a>
+                    </div>
+                  </div>
+                  <a class="middle-button " href="/downloads/confirm?type=document&&id={{$r_service->id}}">
+                    <button class="green-button button service-button" >
+                      <div class="button-text" >
+                        資料請求
+                      </div>
+                    </button>
                   </a>
                 </div>
-                <a class="service-description" href="{{route('service_view', $r_service->id)}}">
-                  <p>
-                    {{$r_service->description}}
-                  </p>
-                </a>
+                @endforeach
               </div>
             </div>
-            <a class="middle-button " href="/downloads/confirm?type=document&&id={{$r_service->id}}">
-              <button class="green-button button service-button" >
-                <div class="button-text" >
-                  資料請求
+          </div>
+        </div>
+        <!-- End さんにおすすめのサービス -->
+
+        <!-- 資料請求したサービス -->
+        <!-- <div class="row card-section">
+          <div class=" section-title">
+            <i class="menu-icon tf-icons bx bxs-download"></i>
+            <h5>資料請求したサービス</h5>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card info-card sales-card">
+                <div class="card-body">
+                  <p class="card-title text-center">
+                    要求された資料
+                  </p>
                 </div>
-              </button>
-            </a>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card info-card sales-card">
+                <div class="card-body">
+                  <p class="card-title text-center">
+                    自社サービスをお持ちの方、<br>
+                    ボクシルにサービスを掲載しませんか？
+                  </p>
+                  <div class="middle-button text-center">
+                    <button class="green-button button">
+                      <a class="button-text text-white" href="{{ route('add_service') }}">
+                        ボクシルにサービスを掲載
+                      </a>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          @endforeach
-        </div>
-      </div>
-    </div>
+        </div> -->
+        <!-- End 資料請求したサービス -->
+
+      </section>
+    </main><!-- End #main -->
   </div>
-<!-- End さんにおすすめのサービス -->
-
-<!-- 資料請求したサービス -->
-<div class="row card-section">
-  <div class=" section-title">
-    <i class="menu-icon tf-icons bx bxs-download"></i>
-    <h5>資料請求したサービス</h5>
-  </div>
-
-  <div class="row">
-    <div class="col-md-6">
-      <div class="card info-card sales-card">
-        <div class="card-body">
-          <p class="card-title text-center">
-            要求された資料
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="card info-card sales-card">
-        <div class="card-body">
-          <p class="card-title text-center">
-            自社サービスをお持ちの方、<br>
-            ボクシルにサービスを掲載しませんか？
-          </p>
-          <div class="middle-button text-center">
-            <button class="green-button button">
-              <a class="button-text text-white" href="{{route('add_service')}}">
-                ボクシルにサービスを掲載
-              </a>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- End 資料請求したサービス -->
-
-</section>
-
-</main><!-- End #main -->
-</div>
 </div>
 @endsection
 

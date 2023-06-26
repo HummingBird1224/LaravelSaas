@@ -122,7 +122,7 @@
 								else echo 'class="menu-item"'; ?>>
             <a href="{{ route('admin_service_managing') }}" class="menu-link">
               <i class="menu-icon tf-icons bx bx-building"></i>
-              <div>会社情報</div>
+              <div>サービス依頼及び請求管理</div>
             </a>
           </li>
 
