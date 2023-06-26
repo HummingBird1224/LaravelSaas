@@ -1072,83 +1072,46 @@
                     <div class="reputationSummary">
                       <div class="reputationSummary__title">Zoomの良い評判・口コミ</div>
                       <div class="reputationSummary__items">
+                        @php
+                          $count = count($all_review);
+                          $min_count = min(3, $count);
+                        @endphp
+
+                        @for ($a = 0; $a < $min_count; $a++)
                         <div class="reputationSummaryItem">
                           <div class="reputationSummary__icon reputationSummary__icon--smile">
                             <i class="far fa-smile" aria-hidden="true"></i>
                           </div>
                           <div class="reputationSummary__text">
-                            無料版でも十分な機能が提供されており、業務利用でも有料版にすれば十分にニーズを満たしてくれます
+                            {{ $all_review[$a]->good_point }}
                             <div class="reputationSummary__link">
                               <a href="https://boxil.jp/service/3558/reviews/11263/">この口コミを読む</a>
                             </div>
                           </div>
                         </div>
-                        <div class="reputationSummaryItem">
-                          <div class="reputationSummary__icon reputationSummary__icon--smile">
-                            <i class="far fa-smile" aria-hidden="true"></i>
-                          </div>
-                          <div class="reputationSummary__text">
-                            UI分かりやすいです。発言のマイクオフや動画のオフも、チャットも、双方向でやり取りできる感じがとても良いです。
-                            <div class="reputationSummary__link">
-                              <a href="https://boxil.jp/service/3558/reviews/7338/">この口コミを読む</a>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="reputationSummaryItem">
-                          <div class="reputationSummary__icon reputationSummary__icon--smile">
-                            <i class="far fa-smile" aria-hidden="true"></i>
-                          </div>
-                          <div class="reputationSummary__text">
-                            chromeの拡張機能との連携で、Googleカレンダーで予定作成したときに1クリックでzoomリンクも予定に入れることができる
-                            <div class="reputationSummary__link">
-                              <a href="https://boxil.jp/service/3558/reviews/28289/">この口コミを読む</a>
-                            </div>
-                          </div>
-                        </div>
+                        @endfor
                       </div>
                     </div>
                     <div class="reputationSummary">
                       <div class="reputationSummary__title">Zoomの改善点</div>
                       <div class="reputationSummary__items">
+                        @for ($b = 0; $b < $min_count; $b++)
                         <div class="reputationSummaryItem">
                           <div class="reputationSummary__icon reputationSummary__icon--frown">
                             <i class="far fa-frown" aria-hidden="true"></i>
                           </div>
                           <div class="reputationSummary__text">
-                            参加を承認制にした場合、一人一人ぽちぽち「承認」ボタンを押していく必要がありますが、そのエリアが小さく3名程度しか表示されないため、大人数の承認が大変。
+                            {{ $all_review[$b]->bad_point }}
                             <div class="reputationSummary__link">
                               <a href="https://boxil.jp/service/3558/reviews/3090/">この口コミを読む</a>
                             </div>
                           </div>
                         </div>
-                        <div class="reputationSummaryItem">
-                          <div class="reputationSummary__icon reputationSummary__icon--frown">
-                            <i class="far fa-frown" aria-hidden="true"></i>
-                          </div>
-                          <div class="reputationSummary__text">
-                            googleカレンダー連携したときに両方のタイムゾーンが日本なのにも関わらずアメリカ時間で発行されて原因がわからなくて困りました・・（いまはなおりました）
-                            <div class="reputationSummary__link">
-                              <a href="https://boxil.jp/service/3558/reviews/251/">この口コミを読む</a>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="reputationSummaryItem">
-                          <div class="reputationSummary__icon reputationSummary__icon--frown">
-                            <i class="far fa-frown" aria-hidden="true"></i>
-                          </div>
-                          <div class="reputationSummary__text">
-                            接続時には、必ずミュートで参加する設定にしてほしい。接続画面で選択できるが、そこをチェックせずに参加する人が、自分の声が周りに聞こえてる事に気付かない場面がある
-                            <div class="reputationSummary__link">
-                              <a href="https://boxil.jp/service/3558/reviews/19079/">この口コミを読む</a>
-                            </div>
-                          </div>
-                        </div>
+                        @endfor
                       </div>
                     </div>
                   </div>
                 </div>
-
-
                 <div class="ss-reviews-footer">
                   <a class="serviceReputationMetricsButton" target="_blank" href="/service/3558/reviews/">すべての口コミ・評判を見る</a>
                 </div>
@@ -1419,7 +1382,6 @@
         </div> -->
         <div style="display: block; width: 336px; height: 598px; float: none;"></div>
       </div>
-
     </div>
   </div>
   <script>
