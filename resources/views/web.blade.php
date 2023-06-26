@@ -12876,7 +12876,19 @@
         .solution-item_title h3 span {
             color: #39acb3;
         }
+        .header-contact_tel {
+            background-color: #f3f3f7;
+        }
+        .header-contact_tel span {
+            color: #39acb3 !important;
+        }
+        .header-contact_tel span svg {
+            fill: #39acb3;
+        }
         @media screen and (min-width: 768px) {
+            .top-mv {
+                background-image: url("{{ asset('assets/img/tsukubnobi/web/PC/img/fv_back.png') }}");
+            }
             .reason-bottom_title img {
                 width: 50%;
                 aspect-ratio: auto;
@@ -12910,6 +12922,33 @@
             .reason-bottom_item--3 .reason-bottom_image {
                 width: 14rem;
             }
+            .comparison-table-wrapper .bg-gray th:nth-last-child(3), .comparison-table-wrapper tr td:nth-last-child(3) {
+                border-left: 0;
+            }
+            .mv-title-strength_img {
+                width: 33.5vh;
+            }
+        }
+
+        .row {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            margin-right: -15px;
+            margin-left: -15px;
+            padding-top: 5rem;
+        }
+        .col-6 {
+            -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+        .col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
+            position: relative;
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
         }
     </style>
 </head>
@@ -13045,10 +13084,12 @@
     <div id="container"> <!-- ヘッダー -->
         <header id="main-header"> <!-- ヘッダーロゴ -->
             <div class="header-logo logo"> <a href="https://tsukunobi.com/"> <img
-                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/common/logo.png" alt="ツクノビ">
+                        style="max-width: 150%; width: 150%;"
+                        src="{{ asset('assets/img/tsukubnobi/web/PC/img/logo.png') }}" alt="ツクノビ">
                 </a> </div>
             <div class="header-contact-wrapper"> <!-- 問い合わせボタン -->
                 <div class="red-btn btn free_contact header_red-btn u-desktop"> <a
+                        style="background-color: #06c655;"
                         href="https://tsukunobi.com/contact">無料お問い合わせ</a> </div> <!-- 電話ボタン -->
                 <div class="header-contact_tel"> <a href="tel:0365552078"> <span
                             class="header-contact_tel--text1">お急ぎの方はお電話で</span> <span class="header_tel-number number">
@@ -13068,11 +13109,11 @@
                             <div class="mv-title_text">
                                 <h1 class="mv-title_first"> <span class="big-text">営業丸投げ</span>で<br> 売上<span
                                         class="small-text">が</span>上がる </h1>
-                                <h2 class="mv-title_second"> 建築・建設業界特化の営業代行 </h2>
+                                <h2 class="mv-title_second"> 建築・建設業界特化の営業代行建設業界特化 </h2>
                             </div> <!-- ーーーーーテキスト --> <!-- 強み -->
-                            <div class="mv-title_strength"> <!-- ① -->
+                            <div class="mv-title_strength" style="margin-left: -22rem;"> <!-- ① -->
                                 <div class="mv-title-strength_img"> <img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/point_1.png"
+                                        src="{{ asset('assets/img/tsukubnobi/web/PC/img/point.png') }}"
                                         alt="導入社数250社" loading="lazy"> </div>
                                 <!-- <div class="mv-title-strength-flexbox">
                                     <div class="mv-title-strength_img"> <img
@@ -13276,7 +13317,7 @@
                                 <div class="solution-item_tag"> <img
                                         src="{{ asset('assets/img/tsukubnobi/web/PC/img/hukidasi_kaiketu_2.png') }}"
                                         alt="解決２" class="u-desktop" loading="lazy"> <img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/hukidasi_kaiketu_2_sp.png"
+                                        src="{{ asset('assets/img/tsukubnobi/web/SP/img/hukidasi_kaiketu_2.png') }}"
                                         alt="解決２" class="u-mobile" loading="lazy">
                                     <p>営業に割く時間がない</p>
                                 </div>
@@ -13330,7 +13371,71 @@
                     </div>
                 </div>
             </section><!-- 他社比較 -->
+            <section class="companys top-companys heading">
+                <div class="companys_title-wrapper section-title-wrapper" style="padding-bottom: 3rem;">
+                    <h4 class="section-title"> 導入企業 </h4> <span class="section-title_border"></span>
+                </div>
+                <div class="comparison-inner">
+                    <div class="comparison-title">
+                        <h3 class="u-desktop"> <span>他社に負けない営業代行サービス</span>を磨いてまいりました </h3>
+                    </div>
+                </div>
+                <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+                <div class="solution-inner inner">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="img">
+                                <img src="{{ asset('assets/img/tsukubnobi/web/PC/img/example_1.png') }}" alt="株式会社アイル様" loading="lazy">
+                            </div>
+                            <div class="comparison-title" style="padding-top: 1rem;">
+                                <h4 class="u-desktop"> <span>営業に割く時間がない</span> </h4>
+                                <div class="solution-item_tag">
+                                    <p style="margin:0 auto; color: #39acb3;">他社に負けない営業代行サービス導入</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="img">
+                                <img src="{{ asset('assets/img/tsukubnobi/web/PC/img/example_2.png') }}" alt="株式会社アイル様" loading="lazy" style="width: 100%; height:100%;">
+                            </div>
+                            <div class="comparison-title" style="padding-top: 1rem;">
+                                <h4 class="u-desktop"> <span>営業に割く時間がない</span> </h4>
+                                <div class="solution-item_tag">
+                                    <p style="margin:0 auto; color: #39acb3;">他社に負けない営業代行サービス導入</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="img">
+                                <img src="{{ asset('assets/img/tsukubnobi/web/PC/img/example_3.png') }}" alt="株式会社アイル様" loading="lazy">
+                            </div>
+                            <div class="comparison-title" style="padding-top: 1rem;">
+                                <h4 class="u-desktop"> <span>営業に割く時間がない</span> </h4>
+                                <div class="solution-item_tag">
+                                    <p style="margin:0 auto; color: #39acb3;">他社に負けない営業代行サービス導入</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="img">
+                                <img src="{{ asset('assets/img/tsukubnobi/web/PC/img/example_4.png') }}" alt="株式会社アイル様" loading="lazy" style="width: 100%; height:100%;">
+                            </div>
+                            <div class="comparison-title" style="padding-top: 1rem;">
+                                <h4 class="u-desktop"> <span>営業に割く時間がない</span> </h4>
+                                <div class="solution-item_tag">
+                                    <p style="margin:0 auto; color: #39acb3;">他社に負けない営業代行サービス導入</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section><!-- よくある質問 -->
             <section class="comparison top-comparison heading">
+                <div class="companys_title-wrapper section-title-wrapper" style="padding-bottom: 3rem;">
+                    <h4 class="section-title"> 導入企業 </h4> <span class="section-title_border"></span>
+                </div>
                 <div class="comparison-inner"> <!-- タイトル -->
                     <div class="comparison-title">
                         <h3> 私たちは3年以上かけて </h3> <br>
@@ -13346,130 +13451,58 @@
                     <div class="comparison-table-wrapper">
                         <table class="white_border">
                             <tr class="bg-gray"> <!-- 社名 -->
-                                <th class="table_hidden fixed"> </th>
                                 <th class="left-title_2 border fixed"> </th>
-                                <th class="tsukunobi tsukunobi_th">ツクノビ</th>
                                 <th>営業代行A</th>
                                 <th>フォーム代行B</th>
                                 <th>フォーム代行C</th>
                             </tr>
                             <tr> <!-- 提供形態 -->
-                                <th rowspan="2" class="left-title table_hidden fixed">サービスに<br>ついて</th>
                                 <td class="left-title_2 fixed">提供形態</td>
-                                <td class="tsukunobi">営業サービス</td>
-                                <td>営業サービス</td>
+                                <td></td>
                                 <td>営業ツール</td>
-                                <td>営業ツール</td>
+                                <td></td>
                             </tr>
                             <tr> <!-- 業界への理解 -->
                                 <td class="left-title_2 fixed">建築・建設業界の理解</td>
-                                <td class="tsukunobi"><img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/mark_1.png"
-                                        alt="◎" loading="lazy">業界理解に基づく<br>戦力を立案</td>
-                                <td class="gray "><img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/mark_4.png"
-                                        alt="×" loading="lazy">なし</td>
-                                <td class="gray"><img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/mark_4.png"
-                                        alt="×" loading="lazy">なし</td>
-                                <td class="gray"><img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/mark_4.png"
-                                        alt="×" loading="lazy">なし</td>
+                                <td class="gray">なし</td>
+                                <td class="gray">なし</td>
+                                <td class="gray">なし</td>
                             </tr>
-                            <tr> <!-- お客様の対応 -->
-                                <th rowspan="3" class="left-title table_hidden fixed">営業準備</th>
-                                <td class="left-title_2 fixed">営業までに必要な<br>お客様の対応</td>
-                                <td class="tsukunobi">提案をチェック</td>
-                                <td>提案をチェック</td>
-                                <td>リスト作成･<br>精査･文面作成</td>
-                                <td>リスト作成･<br>精査･文面作成</td>
+                            <tr> <!-- 提供形態 -->
+                                <td class="left-title_2 fixed">提供形態</td>
+                                <td></td>
+                                <td><img src="{{ asset('assets/img/tsukubnobi/web/PC/img/mark.png') }}"></td>
+                                <td></td>
                             </tr>
-                            <tr> <!-- 営業リスト作成 -->
-                                <td class="left-title_2 fixed">営業先リスト作成</td>
-                                <td class="tsukunobi"><img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/mark_2.png"
-                                        alt="◯" loading="lazy"></td>
-                                <td><img src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/mark_2.png"
-                                        alt="◯" loading="lazy"></td>
-                                <td><img src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/mark_2.png"
-                                        alt="◯" loading="lazy"></td>
-                                <td><img src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/mark_2.png"
-                                        alt="◯" loading="lazy"></td>
+                            <tr> <!-- 提供形態 -->
+                                <td class="left-title_2 fixed">提供形態</td>
+                                <td></td>
+                                <td>営業ツール</td>
+                                <td></td>
                             </tr>
-                            <tr> <!-- 精度・カスタマイズ -->
-                                <td class="left-title_2 fixed">営業先リストの精度<br>カスタマイズ</td>
-                                <td class="tsukunobi"><img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/mark_1.png"
-                                        alt="◎" loading="lazy">貴社用の最新データを<br>個別収集しご提案</td>
-                                <td class="gray "><img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/mark_4.png"
-                                        alt="×" loading="lazy">お客様が対応</td>
-                                <td class="gray"><img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/mark_4.png"
-                                        alt="×" loading="lazy">お客様が対応</td>
-                                <td class="gray"><img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/mark_4.png"
-                                        alt="×" loading="lazy">お客様が対応</td>
+                            <tr> <!-- 提供形態 -->
+                                <td class="left-title_2 fixed">提供形態</td>
+                                <td></td>
+                                <td>営業ツール</td>
+                                <td></td>
                             </tr>
-                            <tr> <!-- 電話 -->
-                                <th rowspan="3" class="left-title table_hidden fixed">実務<br>サポート<br>体制</th>
-                                <td class="left-title_2 fixed">お電話による追客･<br>トークスクリプトの作成</td>
-                                <td class="tsukunobi"><img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/mark_2.png"
-                                        alt="◯" loading="lazy">対応可能</td>
-                                <td><img src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/mark_2.png"
-                                        alt="◯" loading="lazy">対応可能</td>
-                                <td class="gray"><img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/mark_3.png"
-                                        alt="△" loading="lazy">アポ取得なし</td>
-                                <td class="gray"><img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/mark_4.png"
-                                        alt="×" loading="lazy">なし</td>
+                            <tr> <!-- 提供形態 -->
+                                <td class="left-title_2 fixed">提供形態</td>
+                                <td></td>
+                                <td><img src="{{ asset('assets/img/tsukubnobi/web/PC/img/mark.png') }}"></td>
+                                <td></td>
                             </tr>
-                            <tr> <!-- メール -->
-                                <td class="left-title_2 fixed">メール確認･受電対応</td>
-                                <td class="tsukunobi"><img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/mark_1.png"
-                                        alt="◎" loading="lazy">プロのライターが作成</td>
-                                <td class="gray "><img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/mark_4.png"
-                                        alt="×" loading="lazy">お客様が対応</td>
-                                <td class="gray"><img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/mark_4.png"
-                                        alt="×" loading="lazy">お客様が対応</td>
-                                <td class="gray"><img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/mark_4.png"
-                                        alt="×" loading="lazy">お客様が対応</td>
+                            <tr> <!-- 提供形態 -->
+                                <td class="left-title_2 fixed">提供形態</td>
+                                <td></td>
+                                <td>営業ツール</td>
+                                <td></td>
                             </tr>
-                            <tr> <!-- 業務改善 -->
-                                <td class="left-title_2 fixed">業務改善</td>
-                                <td class="tsukunobi"><img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/mark_1.png"
-                                        alt="◎" loading="lazy">月一の定例会<br>翌月の戦略を立案</td>
-                                <td><img src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/mark_2.png"
-                                        alt="◯" loading="lazy">電話･対面でサポート</td>
-                                <td class="gray text-wrap"><img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/mark_3.png"
-                                        alt="△" loading="lazy">ツールの使い方を<br class="u-mobile">サポート</td>
-                                <td class="gray"><img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/mark_4.png"
-                                        alt="×" loading="lazy">なし</td>
-                            </tr>
-                            <tr> <!-- 紹介 -->
-                                <th class="left-title table_hidden fixed">その他</th>
-                                <td class="left-title_2 fixed">協力会社や元請のご紹介</td>
-                                <td class="tsukunobi"><img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/mark_1.png"
-                                        alt="◎" loading="lazy">ツクノビコミュニティの<br>中でのご紹介が可能</td>
-                                <td class="gray "><img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/mark_4.png"
-                                        alt="×" loading="lazy">なし</td>
-                                <td class="gray"><img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/mark_4.png"
-                                        alt="×" loading="lazy">なし</td>
-                                <td class="gray"><img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/mark_4.png"
-                                        alt="×" loading="lazy">なし</td>
+                            <tr> <!-- 提供形態 -->
+                                <td class="left-title_2 fixed">提供形態</td>
+                                <td></td>
+                                <td>営業ツール</td>
+                                <td></td>
                             </tr>
                         </table>
                     </div>
@@ -13494,69 +13527,6 @@
                     </div>
                 </div>
             </section><!-- 導入企業 -->
-            <section class="companys top-companys heading">
-                <div class="companys_title-wrapper section-title-wrapper">
-                    <h4 class="section-title"> 導入企業 </h4> <span class="section-title_border"></span>
-                </div>
-                <div class="companys-slider-wrapper">
-                    <ul class="slider"> <!-- ① -->
-                        <li> <!-- 写真＋タイトル -->
-                            <div class="companys-contents-title">
-                                <div class="companys-content_image"> <img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/voice_image_orions.jpg"
-                                        alt="株式会社ORIENS様" loading="lazy"> </div>
-                                <div class="companys-content_text">
-                                    <h3 class="companys-content_text-title"> たくさんの企業と取引ができ、<br> 単価の高い取引相手を<br>
-                                        選べるようになった。 </h3>
-                                    <div class="companys-content_banner company-banner"> 株式会社ORIENS様 </div>
-                                </div>
-                            </div> <!-- テキスト -->
-                            <div class="container">
-                                <p class="container-text"> ツクノビ導入後、多数のアポイントを獲得していただき、多くの企業と取引できるようになりました。<br>
-                                    結果、私たちから頭を下げて単価の安い仕事を受注する必要がなくなりました。取引相手を選べるようになったのはとても嬉しいです。 </p> <button
-                                    class="more-btn">もっと見る</button>
-                            </div>
-                        </li> <!-- ② -->
-                        <li> <!-- 写真＋タイトル -->
-                            <div class="companys-contents-title">
-                                <div class="companys-content_image"> <img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/voice_image_daiwa.jpg"
-                                        alt="大和通信機株式会社様" loading="lazy"> </div>
-                                <div class="companys-content_text">
-                                    <h3 class="companys-content_text-title"> 民間企業からの問い合わせ増加<br
-                                            class="u-desktop">により取引先も増えた </h3>
-                                    <div class="companys-content_banner company-banner"> 大和通信機株式会社様 </div>
-                                </div>
-                            </div> <!-- テキスト -->
-                            <div class="container">
-                                <p class="container-text">
-                                    定期的に商談を習得していて満足しています。たまに、アポが多すぎて対応しきれず、一時的に落ち着くまで止めている時もある程です。<br>
-                                    また会話の中で学びになることも多く、若い新田さん達との関わりから刺激を受けています。<br> 引き続き、オールマイティに協力して欲しいです。 </p> <button
-                                    class="more-btn">もっと見る</button>
-                            </div>
-                        </li> <!-- ③ -->
-                        <li> <!-- 写真＋タイトル -->
-                            <div class="companys-contents-title">
-                                <div class="companys-content_image"> <img
-                                        src="https://tsukunobi.com/sys/wp-content/themes/sango-theme/img/top/voice_image_ono.jpg"
-                                        alt="大野内装様" loading="lazy"> </div>
-                                <div class="companys-content_text">
-                                    <h3 class="companys-content_text-title"> 売上や顧客数が増加しただけで<br
-                                            class="u-desktop">なく、協力会社も見つかった </h3>
-                                    <div class="companys-content_banner company-banner"> 大野内装様 </div>
-                                </div>
-                            </div> <!-- テキスト -->
-                            <div class="container">
-                                <p class="container-text">
-                                    新たな顧客を獲得することによって受注案件が増え、顧客からの信頼を獲得していくと同時に任される仕事量も大きく増えていくことを実感していました。<br>
-                                    しかし影響は顧客だけに留まりませんでした。業界内の繋がりをどんどん作ってくれたのです。<br>
-                                    このサービスは売上や顧客の獲得は勿論のこと、同業者同士の新たな繋がりを作ることが出来るというのも大きな魅力だと思います。 </p> <button
-                                    class="more-btn">もっと見る</button>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </section><!-- よくある質問 -->
             <section class="question top-question heading"> <!-- タイトル -->
                 <div class="question_title-wrapper section-title-wrapper">
                     <h4 class="section-title"> よくある質問 </h4> <span class="section-title_border"></span>

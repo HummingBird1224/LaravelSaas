@@ -176,7 +176,7 @@
 							<img src="/${service_logo}" id="s_logo"/>
 							<div class="info-wrapper">
 								<strong id="s_name">${review.service.title}</strong>
-								<p id="s_company_name">SONY</p>
+								<p id="s_company_name">${review.user.company_name}</p>
 							</div>
 						</div>
 						<div class="col-6 display-flex">

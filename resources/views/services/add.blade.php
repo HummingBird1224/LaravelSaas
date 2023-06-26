@@ -73,7 +73,7 @@ public_path('company_profile.json')
 
                 <div class="row m-t-15">
                   <div class="col-4">
-                    <strong>データ</strong>
+                    <strong>サービス資料</strong>
                   </div>
                   <div class="col-8">
                     <input class="form-control" type="file" id="s_data" name="data" value="" required />
@@ -176,7 +176,7 @@ public_path('company_profile.json')
                   </div>
                 </div>
 
-                <div class="row m-t-15">
+                <!-- <div class="row m-t-15">
                   <div class="col-4">
                     <strong>機能ごとの評価</strong>
                   </div>
@@ -192,7 +192,7 @@ public_path('company_profile.json')
                     </div>
                     <input class="" type="checkbox" id="g_recommended" name="recommended" />
                   </div>
-                </div>
+                </div> -->
               </div>
 
               <!-- Modal footer -->

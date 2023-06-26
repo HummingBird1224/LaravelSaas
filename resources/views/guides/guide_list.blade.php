@@ -94,7 +94,7 @@ $user = Auth::user();
                 <div class="middle-button text-center">
                   <button class="orange-button button" onclick="downloadClick()">
                     <div class="button-text">
-                      選択中の資料 <spin id="checked_num">0</spin>点をまとめてダウンロード
+                      選択中の資料 <spin id="checked_num1">0</spin>点をまとめてダウンロード
                     </div>
                   </button>
                 </div>
@@ -136,7 +136,7 @@ $user = Auth::user();
             <div class="middle-button text-center">
               <button class="orange-button button" onclick="downloadClick()">
                 <div class="button-text">
-                  選択中の資料 <spin id="checked_num">0</spin>点をまとめてダウンロード
+                  選択中の資料 <spin id="checked_num2">0</spin>点をまとめてダウンロード
                 </div>
               </button>
             </div>
@@ -155,6 +155,9 @@ $user = Auth::user();
 
 @section('script')
 <script type="text/javascript">
+
+var selected_count = 0;
+
 $.ajaxSetup({
   headers: {
     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -216,5 +219,17 @@ downloadClick = () => {
     location.href = '/downloads/confirm?type=category_documents&&id=' + docs;
   }
 }
+
+$('.checkbox-input').click(function(event) {
+  if(event.target.checked == true) {
+    selected_count += 1;
+  } else {
+    selected_count -= 1;
+  }
+  console.log('12345', selected_count, event.target.checked);
+  $('#checked_num1').text(selected_count);
+  $('#checked_num2').text(selected_count);
+});
+
 </script>
 @endsection

@@ -233,9 +233,9 @@
                     <div class="screenShotsWrapper__container">
                       <div class="screenShotsWrapper__leftItem">
                         <div class="screenShotLarge">
-                          <img alt="{{ $service->uis[0]->description }}" is-lazyload="true" src="{{ asset($service->uis[0]->portfolio) }}">
+                          <img alt="{{ $service->uis[0]->description }}" is-lazyload="true" src="{{ asset($service->uis[0]->portfolio) }}" id="display_img">
                           <i class="fas fa-search screenShotLarge__zoomIcon" aria-hidden="true">
-                            <a data-lightbox="screenshot" data-toggle="lightbox" href="/attachments/files/images/eyJpZCI6Ijc3ZTkxNDMyNjUxMWY5ODBkNDhmY2IwNTY5MGQ1NTUyMDRjODFkMjgxM2Q3M2VlN2Y3N2UyZDUwOTBlMiIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6IuOCv-ODrOODs-ODiOODkeODrOODg-ODiOODiOODg-ODl-eUuy5qcGciLCJzaXplIjo2OTY2NjEsIm1pbWVfdHlwZSI6ImltYWdlL2pwZWcifX0">
+                            <a id="detail_url" data-lightbox="screenshot" data-toggle="lightbox" href="{{ asset($service->uis[0]->portfolio) }}" target="_blank">
                               <div class="ScreenShotHoverBlock"></div>
                             </a>
                           </i>
@@ -276,7 +276,7 @@
                       <div class="screenShotsWrapper__rightItem-top">
                         @foreach ( $service->uis as $u )
                         <div class="screenShotSmall" id="screenshot-{{ $u->id }}">
-                          <img alt="{{ $u->description }}" is-lazyload="true" src="{{ asset($u->portfolio) }}" data-src="" style="opacity: 0.5;">
+                          <img alt="{{ $u->description }}" is-lazyload="true" src="{{ asset($u->portfolio) }}" style="opacity: 0.5;" onclick="change_display_img(event)">
                         </div>
                         @endforeach
                       </div>
@@ -1421,6 +1421,15 @@
       </div>
 
     </div>
-
   </div>
+  <script>
+    console.log('123');
+
+    const change_display_img = (e) => {
+      // console.log(e);
+      var display_img = e.target.src;
+      $('#display_img').attr('src', display_img);
+      $('#detail_url').attr('href', display_img);
+    }
+  </script>
 @endsection
