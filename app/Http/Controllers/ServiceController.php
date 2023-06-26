@@ -127,12 +127,13 @@ class ServiceController extends Controller
     public function show($id)
     {
         $service=Service::reviewAvgCount()->findOrFail($id);
+        $all_review = Review::where('service_id', $id)->where('status', 'approved')->get();
         $reviews = [];
         for($i = 1; $i < 6; $i++){
             $reviews[$i] = $service->score_count($i, $service->id);
         }
 
-        return view('services.show', ['service'=>$service, 'reviews'=>$reviews]);
+        return view('services.show', ['service'=>$service, 'reviews'=>$reviews, 'all_review'=>$all_review]);
     }
 
     /**
