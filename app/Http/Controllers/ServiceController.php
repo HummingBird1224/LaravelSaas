@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Company;
 use App\Models\Review;
 use App\Models\Service;
 use App\Models\Guide;
@@ -126,14 +127,20 @@ class ServiceController extends Controller
      */
     public function show($id)
     {
-        $service=Service::reviewAvgCount()->findOrFail($id);
+        $service = Service::reviewAvgCount()->findOrFail($id);
         $all_review = Review::where('service_id', $id)->where('status', 'approved')->get();
         $reviews = [];
         for($i = 1; $i < 6; $i++){
             $reviews[$i] = $service->score_count($i, $service->id);
         }
+        $service_user = Service::select('user_id')->where('id', $id)->get();
+        $service_user_id = $service_user[0]->user_id;
+        $service_company = Company::where('user_id', $service_user_id)->get();
+        $service_company = $service_company[0];
+        // dd($service_company);
 
-        return view('services.show', ['service'=>$service, 'reviews'=>$reviews, 'all_review'=>$all_review]);
+
+        return view('services.show', ['service'=>$service, 'reviews'=>$reviews, 'all_review'=>$all_review, 'service_company'=>$service_company]);
     }
 
     /**
