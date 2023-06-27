@@ -50,6 +50,12 @@
   <link rel="stylesheet" media="all" href="{{ asset('assets/vendor/css/service.css') }}" />
 @endsection
 
+@php
+$data=json_decode(file_get_contents(
+  public_path('company_profile.json')
+));
+@endphp
+
 @section('content')
 
   <div class="container" style="padding-top: 4rem;">
@@ -1116,6 +1122,88 @@
                   <a class="serviceReputationMetricsButton" target="_blank" href="/service/3558/reviews/">すべての口コミ・評判を見る</a>
                 </div>
 
+              </div>
+            </div>
+
+            <div class="corporationOverviewV2">
+              <div id="ss-corporation">
+                <h2 class="ServicesShow-main-block-title">{{$service->title}}の提供会社</h2>
+                <div class="ServicesShow-main-block-contents">
+                  <div class="serviceCorporationContents">
+                    <div class="corporationOverviewWrapper">
+                      <div class="corporationOverviewWrapper__logo m-r-32">
+                        <img alt="アトラシアン株式会社" class="media-object" loading="lazy" src="{{ asset($service_company->logo) }}">
+                      </div>
+                      <div class="corporationOverviewWrapper__info">
+                        <div class="corporationOverviewWrapper__info-name">{{ $service_company->name }}</div>
+                        <div class="corporationOverviewWrapper__info-detail">
+                          @foreach($data->industries as $industry)
+                            @if ($industry->id == $service_company->business_type)
+                              <?php echo $industry->value; ?>
+                            @endif
+                          @endforeach
+                        </div>
+                        <div class="corporationOverviewWrapper__info-detail">{{ $service_company->address }}</div>
+                      </div>
+                    </div>
+                    <div class="corporationDetailRowWrapper">
+                      <div class="corporationDetailRowWrapper__column">
+                        <div class="corporationDetailRowWrapper__texts-title">代表者名</div>
+                        <div class="corporationDetailRowWrapper__texts-text">{{ $service_company->representative }}</div>
+                      </div>
+                      <div class="corporationDetailRowWrapper__column hiddenOnSP">
+                        <div class="corporationDetailRowWrapper__texts-title">資本金</div>
+                        <div class="corporationDetailRowWrapper__texts-text"></div>
+                      </div>
+                    </div>
+                    <div class="corporationDetailRowWrapper">
+                      <div class="corporationDetailRowWrapper__column">
+                        <div class="corporationDetailRowWrapper__texts-title">従業員規模</div>
+                        <div class="corporationDetailRowWrapper__texts-text">
+                          @foreach($data->employee_numbers as $employee_number)
+                            @if ($employee_number->id == $service_company->corporation_scale)
+                              <?php echo $employee_number->value; ?>
+                            @endif
+                          @endforeach
+                        </div>
+                      </div>
+                      <div class="corporationDetailRowWrapper__column hiddenOnSP">
+                        <div class="corporationDetailRowWrapper__texts-title">企業URL</div>
+                        <div class="corporationDetailRowWrapper__texts-text">{{ $service_company->company_url }}</div>
+                      </div>
+                    </div>
+                    <div class="corporationDetailRowWrapper">
+                      <div class="corporationDetailRowWrapper__column">
+                        <div class="corporationDetailRowWrapper__texts-title">設立年月</div>
+                        <div class="corporationDetailRowWrapper__texts-text">{{ $service_company->founded_year }}年{{ $service_company->founded_month }}月</div>
+                      </div>
+                      <div class="corporationDetailRowWrapper hiddenOnPC">
+                        <div class="corporationDetailRowWrapper__column">
+                          <div class="corporationDetailRowWrapper__texts-title">資本金</div>
+                          <div class="corporationDetailRowWrapper__texts-text"></div>
+                        </div>
+                        <div class="corporationDetailRowWrapper__column">
+                          <div class="corporationDetailRowWrapper__texts-title">企業URL</div>
+                          <div class="corporationDetailRowWrapper__texts-text">https://www.atlassian.com/ja</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="corporationDetailWrapper">
+                      <h3 class="corporationDetailWrapper__title">提供サービス</h3>
+                      <div class="corporationDetailWrapper__ownedServices">
+                        <div class="corporationDetailWrapper__ownedService">
+                          <a href="/service/736/?via=ss-corporationServiceLink-main">Confluence</a>
+                        </div>
+                        <div class="corporationDetailWrapper__ownedService">
+                          <a href="/service/8029/?via=ss-corporationServiceLink-main">Jira Service Management</a>
+                        </div>
+                        <div class="corporationDetailWrapper__ownedService">
+                          <a href="/service/8030/?via=ss-corporationServiceLink-main">Jira Work Management</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
