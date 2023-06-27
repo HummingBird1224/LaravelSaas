@@ -246,36 +246,23 @@ $data=json_decode(file_get_contents(
                             </a>
                           </i>
                         </div>
-                        <!-- <div class="screenShotLarge" style="display: none;">
-                          <img alt="タレントパレットのスクリーンショット2" is-lazyload="true" data-src="/attachments/files/images/eyJpZCI6ImQzZmQwYjIwOGQyNThjY2Q4Nzg3NjZjYzc3ZTQwNDQ5LmpwZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQwNy00NDYtdmppOXk0LmpwZyIsInNpemUiOjYwOTk5LCJtaW1lX3R5cGUiOm51bGx9fQ" src="">
-                          <i class="fas fa-search screenShotLarge__zoomIcon" aria-hidden="true">
-                            <a data-lightbox="screenshot" data-toggle="lightbox" href="/attachments/files/images/eyJpZCI6IjliZDkyMTE3ODc3OWQ4NWMwNjk4MTAyNzRmNmExMTcwMTQyNDNhYTU4ZDY5MDJiNjk2ZmU4Zjc4OTJlZSIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6IuOCv-ODrOODs-ODiOODkeODrOODg-ODiOODiOODg-ODl-eUuzIuanBnIiwic2l6ZSI6MTY0MDI4LCJtaW1lX3R5cGUiOiJpbWFnZS9qcGVnIn19">
-                              <div class="ScreenShotHoverBlock"></div>
-                            </a>
-                          </i>
-                        </div>
-                        <div class="screenShotLarge" style="display: none;">
-                          <img alt="タレントパレットのスクリーンショット3" is-lazyload="true" data-src="/attachments/files/images/eyJpZCI6ImI1ODczOTk5OTM5ZTFiM2UyZTllOGQxMzFhYmE3ZjExLmpwZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQwNy00NDYtMWltYjlvNC5qcGciLCJzaXplIjo4MDg2MywibWltZV90eXBlIjpudWxsfX0" src="">
-                          <i class="fas fa-search screenShotLarge__zoomIcon" aria-hidden="true">
-                            <a data-lightbox="screenshot" data-toggle="lightbox" href="/attachments/files/images/eyJpZCI6ImJmZjUzNmI0NmFiOWMyZTU2ZDY5NGVjNTNkZThjYWYwMWJhZjYxM2RiYTgyNjY0ZGI0NDUzNGFlYmFjMiIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6IjIwMTgwMTI2ZGFzaGJvYXJkMXZ2LmpwZyIsInNpemUiOjIzOTMzOCwibWltZV90eXBlIjoiaW1hZ2UvanBlZyJ9fQ">
-                              <div class="ScreenShotHoverBlock"></div>
-                            </a>
-                          </i>
-                        </div>
-                        <div class="screenShotLarge" style="display: none;">
-                          <img alt="タレントパレットのスクリーンショット4" is-lazyload="true" data-src="/attachments/files/images/eyJpZCI6IjYxOTMwMDVhZWQxOTY3ZmNlYmZkZjE4MjRmZmI0ZTgzLmpwZyIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6ImltYWdlX3Byb2Nlc3NpbmcyMDIzMDQwNy00NDYtZWpmeWJ6LmpwZyIsInNpemUiOjYyMDQxLCJtaW1lX3R5cGUiOm51bGx9fQ" src="">
-                          <i class="fas fa-search screenShotLarge__zoomIcon" aria-hidden="true">
-                            <a data-lightbox="screenshot" data-toggle="lightbox" href="/attachments/files/images/eyJpZCI6IjdjZjhmMTZhMDczZDBhOTA1NGJkZTI4ZDM3NDZiNWQ3YzM1NjgyMjFjOGRhYTQ3ZmRjNTExMzE3OTQwYyIsInN0b3JhZ2UiOiJzZXJ2aWNlX3NjcmVlbnNob3QiLCJtZXRhZGF0YSI6eyJmaWxlbmFtZSI6IuOCv-ODrOODs-ODiOODkeODrOODg-ODiOODiOODg-ODl-eUuzMuanBnIiwic2l6ZSI6MTY5NDQ3LCJtaW1lX3R5cGUiOiJpbWFnZS9qcGVnIn19">
-                              <div class="ScreenShotHoverBlock"></div>
-                            </a>
-                          </i>
-                        </div> -->
                       </div>
                       <div class="screenShotsWrapper__leftItem-bottom">
-                        <div class="screenShotTexts"></div>
-                        <div class="screenShotTexts" style="display: none;"></div>
-                        <div class="screenShotTexts" style="display: none;"></div>
-                        <div class="screenShotTexts" style="display: none;"></div>
+                        <div class="screenShotTexts">
+                          <div class="screenShotDescription">{{ $service->uis[0]->description }}</div>
+                        </div>
+                        <!-- <div class="screenShotTexts" style="display: block;">
+                          <div class="screenShotDescription">1 標準のデータ項目が搭載されており、且つカスタマイズも柔軟に対応。HRMOSであらゆる情報を一元管理可能。</div>
+                        </div>
+                        <div class="screenShotTexts" style="display: none;">
+                          <div class="screenShotDescription">2 標準のデータ項目が搭載されており、且つカスタマイズも柔軟に対応。HRMOSであらゆる情報を一元管理可能。</div>
+                        </div>
+                        <div class="screenShotTexts" style="display: none;">
+                          <div class="screenShotDescription">3 標準のデータ項目が搭載されており、且つカスタマイズも柔軟に対応。HRMOSであらゆる情報を一元管理可能。</div>
+                        </div>
+                        <div class="screenShotTexts" style="display: none;">
+                          <div class="screenShotDescription">4 標準のデータ項目が搭載されており、且つカスタマイズも柔軟に対応。HRMOSであらゆる情報を一元管理可能。</div>
+                        </div> -->
                       </div>
                     </div>
                     <div class="screenShotsWrapper__rightItem">
@@ -530,11 +517,11 @@ $data=json_decode(file_get_contents(
               </div>
             </div>
 
-            <div id="ss-features">
+            <!-- <div id="ss-features">
               <div class="container_feature">
                 <h2 class="ServicesShow-main-block-title">機能ごとの評価</h2>
                 <div class="ServicesShow-main-block-contents">
-                  <!-- <div class="featuresWrapper">
+                  <div class="featuresWrapper">
                     <div class="featuresColumn">
                       <div class="featuresColumn__text">iPhone</div>
                       <i class="far fa-circle featuresColumn__icon" aria-hidden="true"></i>
@@ -551,7 +538,7 @@ $data=json_decode(file_get_contents(
                       <div class="featuresColumn__text">日本語対応</div>
                       <i class="far fa-circle featuresColumn__icon" aria-hidden="true"></i>
                     </div>
-                  </div> -->
+                  </div>
                   <div class="featuresRatings">
                     <h3 class="featuresRatings__innerTitle">機能ごとの口コミ評価</h3>
                     <div class="featuresRatings__title">
@@ -927,7 +914,7 @@ $data=json_decode(file_get_contents(
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
 
             <div class="ss-reviews" id="ss-basic-info-tabs">
               <div class="serviceMetrics__item">
@@ -1008,7 +995,7 @@ $data=json_decode(file_get_contents(
                             </div>
                           @endfor
                         </div>
-                        <div class="serviceReputationMetricsBarContainerTop bar_second">
+                        <!-- <div class="serviceReputationMetricsBarContainerTop bar_second">
                           <div class="serviceReputationMetricsBarContainerText">従業員規模</div>
                           <div class="serviceReputationMetricsBarBlock">
                             <div class="serviceReputationMetricsBarBlock__rate">1~10</div>
@@ -1052,7 +1039,7 @@ $data=json_decode(file_get_contents(
                             </div>
                             <div class="serviceReputationMetricsBarBlock__count">(380)</div>
                           </div>
-                        </div>
+                        </div> -->
                       </div>
                     </div>
                   </div>
@@ -1153,7 +1140,7 @@ $data=json_decode(file_get_contents(
                       </div>
                       <div class="corporationDetailRowWrapper__column hiddenOnSP">
                         <div class="corporationDetailRowWrapper__texts-title">資本金</div>
-                        <div class="corporationDetailRowWrapper__texts-text"></div>
+                        <div class="corporationDetailRowWrapper__texts-text">{{ $service_company->capital }}万円</div>
                       </div>
                     </div>
                     <div class="corporationDetailRowWrapper">
@@ -1180,11 +1167,11 @@ $data=json_decode(file_get_contents(
                       <div class="corporationDetailRowWrapper hiddenOnPC">
                         <div class="corporationDetailRowWrapper__column">
                           <div class="corporationDetailRowWrapper__texts-title">資本金</div>
-                          <div class="corporationDetailRowWrapper__texts-text"></div>
+                          <div class="corporationDetailRowWrapper__texts-text">{{ $service_company->capital }}万円</div>
                         </div>
                         <div class="corporationDetailRowWrapper__column">
                           <div class="corporationDetailRowWrapper__texts-title">企業URL</div>
-                          <div class="corporationDetailRowWrapper__texts-text">https://www.atlassian.com/ja</div>
+                          <div class="corporationDetailRowWrapper__texts-text">{{ $service_company->company_url }}</div>
                         </div>
                       </div>
                     </div>
@@ -1477,9 +1464,17 @@ $data=json_decode(file_get_contents(
 
     const change_display_img = (e) => {
       // console.log(e);
-      var display_img = e.target.src;
+      let display_img = e.target.src;
+      let description = e.target.alt;
       $('#display_img').attr('src', display_img);
       $('#detail_url').attr('href', display_img);
+
+      let _description =  `
+                            <div class="screenShotTexts">
+                              <div class="screenShotDescription">${description}</div>
+                            </div>
+                          `;
+      $('.screenShotsWrapper__leftItem-bottom').html(_description);
     }
   </script>
 @endsection
