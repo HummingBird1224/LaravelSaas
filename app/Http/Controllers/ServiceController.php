@@ -127,8 +127,8 @@ class ServiceController extends Controller
      */
     public function show($id)
     {
-        $service = Service::reviewAvgCount()->findOrFail($id);
-        $all_review = Review::where('service_id', $id)->where('status', 'approved')->get();
+        $service=Service::reviewAvgCount()->findOrFail($id);
+        $all_review = Review::where('service_id', $id)->where('status', 'approved')->limit(5)->get();
         $reviews = [];
         for($i = 1; $i < 6; $i++){
             $reviews[$i] = $service->score_count($i, $service->id);
@@ -141,6 +141,39 @@ class ServiceController extends Controller
 
 
         return view('services.show', ['service'=>$service, 'reviews'=>$reviews, 'all_review'=>$all_review, 'service_company'=>$service_company]);
+    }
+
+    public function service_reviews($id)
+    {
+        $service=Service::reviewAvgCount()->findOrFail($id);
+        $all_reviews = Review::where('service_id', $id)->where('status', 'approved')->get();
+        $reviews = [];
+        for($i = 1; $i < 6; $i++){
+            $reviews[$i] = $service->score_count($i, $service->id);
+        }
+        $sizes=[];
+        $sizes[1]=0;
+        $sizes[2]=0;
+        $sizes[3]=0;
+        $sizes[4]=0;
+        $sizes[5]=0;
+        foreach($all_reviews as $review){
+            $size=$review->user->company->corporation_scale;
+            if($size == "no_employee" | $size== "very_small") $sizes[1]++;
+            else if($size == 'smaller') $sizes[2]++;
+            else if($size == 'small' | $size == 'medium') $sizes[3]++;
+            else if($size == 'large' | $size == 'small_large' | $size == 'medium_large') $sizes[4]++;
+            else $sizes[5]++;
+        }
+        $services=Service::where('guide_id', $service->guide_id)->reviewAvgCount()->where('data', '!=', null)->get();
+
+        return view('services.all_reviews', [
+                                            'service'=>$service, 
+                                            'reviews'=>$reviews, 
+                                            'all_reviews'=>$all_reviews, 
+                                            'sizes'=>$sizes,
+                                            'services'=>$services
+                                        ]);
     }
 
     /**
