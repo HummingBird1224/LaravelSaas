@@ -478,26 +478,28 @@ public_path('company_profile.json')
                       <div class="compared-services">
                         @foreach($requested_guides as $r_guide)
                           @foreach($r_guide->services as $g_service)
-                          <div class="m-t-30 display-flex justify-content-between" id="g_service_{{$g_service->id}}">
-                            <div class="m-t-15 selected-doc display-flex">
-                              <div class="display-flex">
-                                <div class="service-logo-wrapper">
-                                  <img src="{{ asset($g_service->logo) }}" alt="{{$g_service->data_title}}" width="52px"
-                                      height="52px" />
-                                  <input type="hidden"  name="service[]" value="{{$g_service->id}}"/>
-                                </div>
-                                <div class="service-info">
-                                  <h6><b>{{$g_service->data_title?$g_service->data_title:$g_service->title}}</b></h6>
-                                  <p>{{$g_service->up_user[0]->company_name}}</p>
+                            @if($g_service->data!=null)
+                            <div class="m-t-30 display-flex justify-content-between" id="g_service_{{$g_service->id}}">
+                              <div class="m-t-15 selected-doc display-flex">
+                                <div class="display-flex">
+                                  <div class="service-logo-wrapper">
+                                    <img src="{{ asset($g_service->logo) }}" alt="{{$g_service->data_title}}" width="52px"
+                                        height="52px" />
+                                    <input type="hidden"  name="service[]" value="{{$g_service->id}}"/>
+                                  </div>
+                                  <div class="service-info">
+                                    <h6><b>{{$g_service->data_title?$g_service->data_title:$g_service->title}}</b></h6>
+                                    <p>{{$g_service->up_user[0]->company_name}}</p>
+                                  </div>
                                 </div>
                               </div>
+                              <div class="sevice-button-wrapper">
+                                <button type="button" onclick="serviceAdd({{$g_service->id}}, 'category_document')" class="button green-border-button">
+                                  追加
+                                </button>
+                              </div>
                             </div>
-                            <div class="sevice-button-wrapper">
-                              <button type="button" onclick="serviceAdd({{$g_service->id}}, 'category_document')" class="button green-border-button">
-                                追加
-                              </button>
-                            </div>
-                          </div>
+                            @endif
                           @endforeach
                         @endforeach
                       </div>

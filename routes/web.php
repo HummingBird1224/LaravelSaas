@@ -57,6 +57,9 @@ Route::prefix('downloads')->group(function(){
 
 //Service Routes
 Route::get('/services/{id}',[ServiceController::class,'show'])->name('service_view');
+Route::get('/services/{id}/reviews',[ServiceController::class,'service_reviews'])->name('service_reviews');
+Route::get('/services/{service_id}/reviews/{review_id}',[ReviewController::class,'show'])->name('review_view');
+
 
 
 

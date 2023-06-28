@@ -1,5 +1,11 @@
 @extends('layouts.no_aside')
 
+@php
+$data=json_decode(file_get_contents(
+public_path('company_profile.json')
+));
+@endphp
+
 @section('additional_style')
   <style>
     .pagesCategories-content-childCategory {
@@ -146,7 +152,7 @@ $data=json_decode(file_get_contents(
                                       @endif
                                     @endfor
                                   </div>
-                                  <div class="service_show_overview__header__main__content__i-bottom-review-score"></div>
+                                  <div class="service_show_overview__header__main__content__i-bottom-review-score">{{$service->reviews_avg_score+0}}</div>
                                   <div class="service_show_overview__header__main__content__i-bottom-review-count">
                                     <a class="service_show_overview__header__main__content__i-bottom-review-link" href="">{{ $service->reviews_count }}件の口コミ </a>
                                   </div>
@@ -916,9 +922,9 @@ $data=json_decode(file_get_contents(
               </div>
             </div> -->
 
+            @if(count($service->reviews)>0)
             <div class="ss-reviews" id="ss-basic-info-tabs">
               <div class="serviceMetrics__item">
-
                 <h2 class="ServicesShow-main-block-title">{{ $service->title }}の口コミ・評判</h2>
                 <div class="reviewOverviewCard__contents">
                   <div class="serviceReputationMetricsContainerV2">
@@ -933,11 +939,6 @@ $data=json_decode(file_get_contents(
                               <i class="fa fa-yellow fa-star text-black-400 fa-lg" style="margin-right: 4px;" aria-hidden="true"></i>
                               @endif
                             @endfor
-                            <!-- <i class="fa fa-yellow fa-star text-yellow fa-lg" style="margin-right: 4px;" aria-hidden="true"></i>
-                            <i class="fa fa-yellow fa-star text-yellow fa-lg" style="margin-right: 4px;" aria-hidden="true"></i>
-                            <i class="fa fa-yellow fa-star text-yellow fa-lg" style="margin-right: 4px;" aria-hidden="true"></i>
-                            <i class="fa fa-yellow fa-star text-yellow fa-lg" style="margin-right: 4px;" aria-hidden="true"></i>
-                            <i class="fa fa-yellow fa-star text-black-400 fa-lg" style="margin-right: 4px;" aria-hidden="true"></i> -->
                           </div>
                           <div class="serviceReputationMetricsRateBlock"> {{ $service->reviews_avg_score != 0 ? round($service->reviews_avg_score, 2, PHP_ROUND_HALF_UP) : '0.00' }}</div>
                         </div>
@@ -956,37 +957,6 @@ $data=json_decode(file_get_contents(
                                 @for ($k = 0; $k < ($i - 1); $k++)
                                 <i class="fa fa-yellow fa-star text-black-400 fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
                                 @endfor
-                                <!-- @if ($i == 1)
-                                <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                                <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                                <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                                <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                                <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                                @elseif ($i == 2)
-                                <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                                <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                                <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                                <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                                <i class="fa fa-yellow fa-star text-black-400 fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                                @elseif ($i == 3)
-                                <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                                <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                                <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                                <i class="fa fa-yellow fa-star text-black-400 fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                                <i class="fa fa-yellow fa-star text-black-400 fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                                @elseif ($i == 4)
-                                <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                                <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                                <i class="fa fa-yellow fa-star text-black-400 fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                                <i class="fa fa-yellow fa-star text-black-400 fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                                <i class="fa fa-yellow fa-star text-black-400 fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                                @else
-                                <i class="fa fa-yellow fa-star text-yellow fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                                <i class="fa fa-yellow fa-star text-black-400 fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                                <i class="fa fa-yellow fa-star text-black-400 fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                                <i class="fa fa-yellow fa-star text-black-400 fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                                <i class="fa fa-yellow fa-star text-black-400 fa-sm" style="margin-right: 1px;" aria-hidden="true"></i>
-                                @endif -->
                               </div>
                               <div class="serviceReputationMetricsBarBlock__bar">
                                 <div class="serviceReputationMetricsBarBlock__progress bar_star_5" style="width: <?php echo ( $service->reviews_count ? ($reviews[(6 - $i)] / $service->reviews_count) * 100 : 0 ); ?>%"></div>   <!-- {{-- $service->reviews_count ? ($reviews[(6 - $i)] / $service->reviews_count) * 100 : 0 --}} -->
@@ -1063,7 +1033,7 @@ $data=json_decode(file_get_contents(
                 <div class="reputationSummariesWrapper">
                   <div class="reputationSummaries">
                     <div class="reputationSummary">
-                      <div class="reputationSummary__title">Zoomの良い評判・口コミ</div>
+                      <div class="reputationSummary__title">{{$service->title}}の良い評判・口コミ</div>
                       <div class="reputationSummary__items">
                         @php
                           $count = count($all_review);
@@ -1076,9 +1046,9 @@ $data=json_decode(file_get_contents(
                             <i class="far fa-smile" aria-hidden="true"></i>
                           </div>
                           <div class="reputationSummary__text">
-                            {{ $all_review[$a]->good_point }}
+                            {!! $all_review[$a]->good_point !!}
                             <div class="reputationSummary__link">
-                              <a href="https://boxil.jp/service/3558/reviews/11263/">この口コミを読む</a>
+                              <a href="{{route('review_view', ['service_id'=>$service->id ,'review_id'=> $all_review[$a]->id])}}">この口コミを読む</a>
                             </div>
                           </div>
                         </div>
@@ -1086,7 +1056,7 @@ $data=json_decode(file_get_contents(
                       </div>
                     </div>
                     <div class="reputationSummary">
-                      <div class="reputationSummary__title">Zoomの改善点</div>
+                      <div class="reputationSummary__title">{{$service->title}}の改善点</div>
                       <div class="reputationSummary__items">
                         @for ($b = 0; $b < $min_count; $b++)
                         <div class="reputationSummaryItem">
@@ -1094,9 +1064,9 @@ $data=json_decode(file_get_contents(
                             <i class="far fa-frown" aria-hidden="true"></i>
                           </div>
                           <div class="reputationSummary__text">
-                            {{ $all_review[$b]->bad_point }}
+                            {!! $all_review[$b]->bad_point !!}
                             <div class="reputationSummary__link">
-                              <a href="https://boxil.jp/service/3558/reviews/3090/">この口コミを読む</a>
+                              <a href="{{route('review_view', ['service_id'=>$service->id ,'review_id'=> $all_review[$b]->id])}}">この口コミを読む</a>
                             </div>
                           </div>
                         </div>
@@ -1105,12 +1075,128 @@ $data=json_decode(file_get_contents(
                     </div>
                   </div>
                 </div>
-                <div class="ss-reviews-footer">
-                  <a class="serviceReputationMetricsButton" target="_blank" href="/service/3558/reviews/">すべての口コミ・評判を見る</a>
+                <div class="ServicesShow__reviewItems">
+                  <div class="reputationAnswerItemServicePickupHeaderBlock">
+                    ピックアップ 口コミ
+                    <i class="fas fa-stars" aria-hidden="true"></i>
+                  </div>
+                  @foreach($all_review as $review)
+                  <div id="ss-service-summary" >
+                    <div <?php if($review->id==$all_review[0]->id) echo 'class="reputationAnswerItemWrap reputationAnswerItemPickupBlock"'; else echo 'class="reputationAnswerItemWrap "' ?>  >
+                      <div class="reputationAnswerItemTopBlock">
+                        <div class="reputationAnswerItemTopLeftBlock">
+                          <div class="reputationAnswerItemTopLeftBlock__icon reputationAnswerItemTopLeftBlock__icon--anonymous">
+                            @if($review->user->avatar)
+                            <img src="{{asset($review->user->avatar)}}" alt="avatar" style="width:70px; height:70px; border-radius:50%"/>
+                            @else
+                            <i class="fa fa-user-tie" aria-hidden="true"></i>
+                            @endif
+                          </div>
+                        </div>
+                        <div class="reputationAnswerItemTopRightBlock">
+                          <div class="reputationAnswerItemTopRightItemBaseInfoBlock m-b-4">
+                            <div class="reputationAnswerItemTopRightItemBaseInfoBlock__username">{{$review->user->full_name}}</div>
+                            <div class="reputationAnswerItemTopRightItemBaseInfoBlock__position">ユーザー</div>
+                          </div>
+                          <div class="reputationAnswerItemTopRightItemBlock">
+                            <div class="reputationAnswerItemTopRightItemBlock__companyName">{{$review->user->company?$review->user->company->name:''}}</div>
+                            <div class="reputationAnswerItemTopRightItemBlock__separator">/</div>                          
+                            @foreach($data->industries as $industry)
+                              @if($industry->id==$review->user->business_type)
+                              <div class="reputationAnswerItemTopRightItemBlock__typeOfBusiness">
+                                {{$industry->value}}
+                              </div>
+                              @endif
+                            @endforeach 
+                          </div>
+                          <!-- <div class="reputationAnswerItemTopRightItemBlock">
+                            <div class="reputationAnswerItemTopRightItemBlock__usageStatus">利用状況：利用中</div>
+                            <div class="reputationAnswerItemTopRightItemBlock__separator">/</div>
+                            <div class="reputationAnswerItemTopRightItemBlock__separator__numberRangeOfUserAccount">利用アカウント数：11件〜30件</div>
+                          </div> -->
+                          <div class="reputationAnswerItemTopRightItemBlock">投稿日：{{\Carbon\Carbon::parse($review->updated_at)->format('Y/m/d')}}</div>
+                        </div>
+                      </div>
+                      <div class="reputationAnswerItemContentsBlock">
+                        <div class="reputationAnswerItemBlock">
+                          <div class="reputationAnswerItemStatusBlock">
+                            <div class="reputationAnswerItemStatusScoreBlock">
+                              <span class="reputationAnswerItemStatusScoreBlock__stars">
+                                @for ($i = 1; $i < 6; $i++)
+                                  @if ($i <= $review->score)
+                                    <i class="fa fa-yellow fa-star text-yellow fa-lg" style="margin-right: 4px;" aria-hidden="true"></i>
+                                  @else
+                                    <i class="fa fa-yellow fa-star text-black-400 fa-lg" style="margin-right: 4px;" aria-hidden="true"></i>
+                                  @endif
+                                @endfor
+                              </span>
+                              <span class="reputationAnswerItemStatusScoreBlock__scoreNum">{{$review->score}}/5</span>
+                            </div>
+                            <!-- <div class="reputationAnswerItemStatusTagsBlock">
+                              <div class="reputationAnswerItemStatusTagBlock review-tooltip">
+                                <span class="reputationAnswerItemStatusTagBlock__title">投稿経路</span>
+                                <span class="reputationAnswerItemStatusTagBlock__text">キャンペーン</span>
+                                <span class="review-tooltip-text">ボクシルが口コミ投稿に謝礼をお渡ししています</span>
+                              </div>
+                            </div> -->
+                          </div>
+                          <div class="reputationAnswerItemBasicBlock">
+                            <div class="reputationAnswerItemBasicBlock__title">
+                              <a href="{{route('review_view', ['service_id'=>$service->id ,'review_id'=> $review->id])}}">{{$review->title}}</a>
+                            </div>
+                            <div class="reputationAnswerItemBasicBlock__description">{{$review->description}}</div>
+                          </div>
+                          <div class="reputationAnswerItemFirstQuestionBlock">
+                            <div class="reputationAnswerItemFirstQuestionBlock__title">サービス導入後の効果・メリット・解決したことを教えてください</div>
+                            <div class="reputationAnswerItemFirstQuestionBlock__answer">{{$review->effect_after_implementation}}</div>
+                          </div>
+                          <div id="reputation-answer-item__more-{{$review->id}}" style="display: none;">
+                            <div class="section-base">
+                              <div class="reputationAnswerGoodPointsBlock">
+                                <div class="reputationAnswerGoodPointsBlock__title">
+                                  <div class="first-line"></div>
+                                  このサービスの良いポイントはなんですか？
+                                </div>
+                                <!-- <ul>
+                                  <li class="reputationAnswerGoodPointsBlock__point">
+                                    <i class="far fa-smile" aria-hidden="true"></i>
+                                    <div class="reputationAnswerGoodPointsBlock__text">初心者にも使いやすい。</div>
+                                  </li>
+                                </ul> -->
+                                <div>
+                                  {!! $review->good_point !!}
+                                </div>
+                              </div>
+                              <div class="reputationAnswerBadPointsBlock">
+                                <div class="reputationAnswerBadPointsBlock__title">このサービスの改善点はなんですか？</div>
+                                <!-- <ul>
+                                  <li class="reputationAnswerBadPointsBlock__point">
+                                    <i class="far fa-frown" aria-hidden="true"></i>
+                                    <div class="reputationAnswerBadPointsBlock__text">マニュアルが少しわかりにくい。</div>
+                                  </li>
+                                </ul> -->
+                                <div>
+                                  {!! $review->bad_point !!}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <button class="reputationAnswerItemMoreButtonBlock" id="reputation-answer-item__more-button-{{$review->id}}" onclick="onClickReputationMoreButton({{$review->id}})">
+                        <span>費用感や連携サービスをくわしく見る</span>
+                        <i class="far inner-icon fa-chevron-down" id="reputation-answer-item__more-button-icon-{{$review->id}}" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                  </div>
+                  @endforeach
                 </div>
-
+                <div class="ss-reviews-footer">
+                  <a class="serviceReputationMetricsButton" target="_blank" href="{{route('service_reviews', $service->id)}}">すべての口コミ・評判を見る</a>
+                </div>
               </div>
             </div>
+            @endif
 
             <div class="corporationOverviewV2">
               <div id="ss-corporation">
@@ -1198,17 +1284,6 @@ $data=json_decode(file_get_contents(
         </div>
 
       </div>
-      <script src="https://d-cache.microad.jp/js/td_bx_access.js"></script>
-      <script>microadTd.BX.start({"service_category_large":"通信インフラ","service_category_small":"WEB会議システム"});</script>
-      <script>
-          (function(){
-            var uid = '';
-            var o = [];
-            var elm = window.document.createElement('div');
-            elm.innerHTML = unescape('%3C') + 'img src="//relay-dsp.ad-m.asia/dmp/sync/bizmatrix?pid=b2ceff7d7e3fda0a7b' + '&uid=' + encodeURIComponent(uid) + '&o=' + encodeURIComponent(o.join(',')) + '&l=' + encodeURIComponent(location.href) + '" alt=""  style="display:block; margin:0; padding:0; border:0; outline:0; width:0; height:0; line-height:0;" ' + unescape('%2F%3E');
-            window.document.body.appendChild(elm);
-          })();
-      </script>
       <div class="v2Sidebar">
         <div class="v2Sidebar__title">レビューを書いてみませんか？</div>
         <div class="v2Sidebar__content">
@@ -1460,8 +1535,6 @@ $data=json_decode(file_get_contents(
     </div>
   </div>
   <script>
-    console.log('123');
-
     const change_display_img = (e) => {
       // console.log(e);
       let display_img = e.target.src;
@@ -1475,6 +1548,10 @@ $data=json_decode(file_get_contents(
                             </div>
                           `;
       $('.screenShotsWrapper__leftItem-bottom').html(_description);
+    }
+    const onClickReputationMoreButton=(id)=>{
+      $('#reputation-answer-item__more-'+id).toggle();
+      $('#reputation-answer-item__more-button-icon-'+id).toggleClass('fa-chevron-up');
     }
   </script>
 @endsection

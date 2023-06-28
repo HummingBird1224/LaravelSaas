@@ -54,6 +54,7 @@ class GuideController extends Controller
             $service=Service::with('up_user')->reviewavgcount()->findOrFail($request->query('id'));
             $c_services=Service::where('guide_id', $service->guide_id)
                         ->where('id','!=', $service->id)->with('up_user')->reviewavgcount()->get();
+            $c_services=$c_services->where('data', '!=', null);
             return view('guides.download_confirm', [
                 'service'=>$service, 
                 'c_services'=>$c_services, 
@@ -74,7 +75,7 @@ class GuideController extends Controller
         else if($type=='category'){
             $c_id=$request->query('id');
             $category=Category::findOrFail($c_id);
-            $services=$category->guide->services;
+            $services=$category->guide->services->where('data', '!=', null);
             
             return view('guides.download_confirm',['services'=>$services,'c_title'=>$category->title, 'type'=>'category']);
         }
