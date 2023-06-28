@@ -36,23 +36,23 @@
 											<td>{{$w_user->company->name}}</td>
 											<td>{{$w_user->email}}</td>
 											<td  class="button-wrapper">
-                        <span
-                          data-id="{{ $w_user->id}}"
-                          data-bs-toggle="modal" 
-                          data-bs-target="#confirmModal"
-                          class=" m-b-15"
-                        >
-                          <img src="{{asset('assets/img/tsukubnobi/hand-thumbs-up-custom.svg')}}" alt="thumbsup" width="20px"/>
-                        </span>
-                        <!-- <span class="m-l-15 m-r-15">/</span> -->
-                        <span
-                          data-id="{{ $w_user->id }}"
-                          data-bs-toggle="modal"
-                          data-bs-target="#categoryModal"
-                          class="m-b-15"
-                        >
-                          <img src="{{asset('assets/img/tsukubnobi/hand-thumbs-down-custom.svg')}}" alt="thumbsup" width="20px"/>
-                        </span>
+												<span
+												data-id="{{ $w_user->id}}"
+												data-bs-toggle="modal" 
+												data-bs-target="#confirmModal"
+												class=" m-b-15"
+												>
+												<img src="{{asset('assets/img/tsukubnobi/hand-thumbs-up-custom.svg')}}" alt="thumbsup" width="20px"/>
+												</span>
+												<!-- <span class="m-l-15 m-r-15">/</span> -->
+												<span
+												data-id="{{ $w_user->id }}"
+												data-bs-toggle="modal"
+												data-bs-target="#categoryModal"
+												class="m-b-15"
+												>
+												<img src="{{asset('assets/img/tsukubnobi/hand-thumbs-down-custom.svg')}}" alt="thumbsup" width="20px"/>
+												</span>
 											</td>
 										</tr>
 										@endforeach

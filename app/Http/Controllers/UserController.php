@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 use App\Models\User;
 use App\Models\Company;
@@ -220,6 +221,91 @@ class UserController extends Controller
     }
 
     public function client_reject(Request $request,$id)
+    {
+        $user=User::findOrFail($id);
+        $user->role="rejected";
+        $user->rejected_reason=$request->reason;
+        $user->save();
+        return $user;
+    }
+
+    public function user_list() 
+    {
+        $users=User::where('role', 'user')->get();
+        $clients=User::where('role', 'client')->get();
+        return view('admin.user_list', ['users'=>$users, 'clients'=>$clients]);
+    }
+
+    public function show_profile($id)
+    {
+        $profile = User::findOrFail($id);
+        return view('admin.change_user_profile', ['user'=>$profile]);
+    }
+
+    public function change_profile(Request $request)
+    {
+        // dd($request);
+        $user = User::findOrFail($request->user_id);
+
+        $user->role         = $request->user_role;
+        $user->email        = $request->email;
+        $user->first_name   = $request->first_name;
+        $user->last_name    = $request->last_name;
+        $user->kana_first   = $request->kana_first;
+        $user->kana_last    = $request->kana_last;
+        $user->phone_number = $request->phone_number;
+        $user->company_name = $request->company_name;
+        $user->corporation_scale = $request->corporation_scale;
+        $user->business_type = $request->business_type;
+        $user->prefecture   = $request->prefecture;
+        $user->address      = $request->address;
+        $user->department   = $request->department;
+        $user->official_position = $request->official_position;
+
+        $user->save();
+        return redirect()->route('user_list');
+    }
+
+    public function add_new_user()
+    {
+        return view('admin.change_user_profile');
+    }
+    
+    public function add_user_profile(Request $request)
+    {
+        $user_pass = base64_encode(random_bytes(10));
+        $user = new User;
+
+        $user->role         = $request->user_role;
+        $user->email        = $request->email;
+        $user->password     = $user_pass;
+        $user->first_name   = $request->first_name;
+        $user->last_name    = $request->last_name;
+        $user->kana_first   = $request->kana_first;
+        $user->kana_last    = $request->kana_last;
+        $user->phone_number = $request->phone_number;
+        $user->company_name = $request->company_name;
+        $user->corporation_scale = $request->corporation_scale;
+        $user->business_type = $request->business_type;
+        $user->prefecture   = $request->prefecture;
+        $user->address      = $request->address;
+        $user->department   = $request->department;
+        $user->official_position = $request->official_position;
+
+        $user->save();
+
+        $details = [];
+        $details['email'] = $request->email;
+        $details['password'] = $user_pass;
+        $details['siteUrl'] = request()->getHost() . ':' . request()->getPort();
+
+        Mail::to($details['email'])
+				->send(new \App\Mail\CreateUserMail($details));
+                
+        return redirect()->route('user_list');
+    }
+
+    public function client_register(Request $request,$id)
     {
         $user=User::findOrFail($id);
         $user->role="rejected";

@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
   
-class UpdateMail extends Mailable
+class CreateUserMail extends Mailable
 {
     use Queueable, SerializesModels;
   
@@ -33,6 +33,6 @@ class UpdateMail extends Mailable
         $bccAry = [];
         return $this->subject('パスワード変更のご連絡')
                     ->from($address = 'info@xs786968.xsrv.jp', $name = 'sniper')
-                    ->view('emails.download_url');
+                    ->view('emails.create_user');
     }
 }
