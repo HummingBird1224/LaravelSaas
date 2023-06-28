@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Review;
 use App\Models\Company;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -95,9 +96,12 @@ class ReviewController extends Controller
      * @param  \App\Models\Review  $review
      * @return \Illuminate\Http\Response
      */
-    public function show(Review $review)
+    public function show($service_id, $review_id)
     {
-        //
+        $service=Service::findOrFail($service_id);
+        $review=Review::findOrFail($review_id);
+        $services=Service::where('guide_id', $service->guide_id)->where('id','!=', $service->id)->reviewAvgCount()->get();
+        return view('reviews.show_review', ['service'=>$service, 'review'=>$review, 'services'=>$services]);
     }
 
     /**
