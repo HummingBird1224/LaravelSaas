@@ -134,6 +134,14 @@
             </a>
           </li>
 
+          <li <?php if (strpos(url()->current(), "admin/user_list") || strpos(url()->current(), "admin/add_new_user") || strpos(url()->current(), "admin/user_profile")) echo 'class="menu-item active"';
+								else echo 'class="menu-item"'; ?>>
+            <a href="{{ route('user_list') }}" class="menu-link">
+              <i class="menu-icon tf-icons bx bxs-user-account"></i>
+              <div>ユーザー管理</div>
+            </a>
+          </li>
+
           <li <?php if (strpos(url()->current(), "admin/review_managing")) echo 'class="menu-item active"';
 								else echo 'class="menu-item"'; ?>>
             <a href="{{ route('admin_review_managing') }}" class="menu-link">

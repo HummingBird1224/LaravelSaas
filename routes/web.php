@@ -164,6 +164,13 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
 		Route::post('/issue_edit', [CategoryController::class, 'issue_edit'])->name('issue_edit');
 		Route::post('/category_add', [CategoryController::class, 'create'])->name('category_add');
 		Route::post('/category_edit', [CategoryController::class, 'edit'])->name('category_edit');
+
+		Route::get('/user_list', [UserController::class, 'user_list'])->name('user_list');
+		Route::get('/user_profile/{id}', [UserController::class, 'show_profile'])->name('show_user_profile');
+		Route::post('/change_user_profile', [UserController::class, 'change_profile'])->name('change_user_profile');
+		Route::get('/add_new_user', [UserController::class, 'add_new_user'])->name('add_new_user');
+		Route::post('/add_user_profile', [UserController::class, 'add_user_profile'])->name('add_user_profile');
+		Route::get('/client_register', [UserController::class, 'client_register'])->name('client_register');
 	});
 
 });

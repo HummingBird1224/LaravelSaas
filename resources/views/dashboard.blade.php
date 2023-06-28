@@ -24,13 +24,12 @@
         </div>
         <div class="boxilTop__logosWrapper">
           <div class="boxilTop__logos">
-            @for($i=1;$i<=4;$i++)   
-              @foreach($services as $service)          
-              <div class="boxilTop__logoWrapper top_fv_service_4888">
+            @for($i=1;$i<=4;$i++)
+              @foreach($services as $service)
+              <div class="boxilTop__logoWrapper">
                 <div class="boxilTop__logo">
                   <a href="{{route('service_view', $service->id)}}">
-                    <img alt="WAN-Sign" class="service-logo-image" loading="auto"
-                      src="{{asset($service->logo)}}" />
+                    <img alt="WAN-Sign" class="service-logo-image" loading="auto" src="{{asset($service->logo)}}" />
                   </a>
                 </div>
               </div>
