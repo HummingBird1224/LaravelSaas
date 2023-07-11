@@ -10,6 +10,7 @@
     <title>{{ env('APP_NAME') }}</title>
     <meta content="on" http-equiv="x-dns-prefetch-control" />
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/tsukubnobi/tsukunobi_favicon.svg') }}" />
+    <!-- <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/tsukubnobi/tsukunobi_favicon.svg') }}" /> -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -81,10 +82,10 @@
                 <div class="modal-users-block">
                     <div class="authButtonWrapper authButtonWrapper__column">
                         <div class="authButtonWrapper__block">
-                            <a class="btn btn-raised authButtonWrapper__flat" rel="nofollow" data-method="post" href="/users/auth/google_oauth2/"><i class="fa fa-google authButtonWrapper__googleIcon" aria-hidden="true"></i>Googleでログイン</a>
+                            <a class="btn btn-raised authButtonWrapper__flat" rel="nofollow" data-method="get" href="{{ url('authorized/google') }}"><i class="fa fa-google authButtonWrapper__googleIcon" aria-hidden="true"></i>Googleでログイン</a>
                         </div>
                         <div class="authButtonWrapper__block">
-                            <a class="btn btn-raised authButtonWrapper__flat authButtonWrapper__flat__fb js-facebook-auth-link" rel="nofollow" data-method="post" href="/users/auth/facebook/"><i class="fa fa-facebook authButtonWrapper__fbIcon" aria-hidden="true"></i>Facebookでログイン</a>
+                            <a class="btn btn-raised authButtonWrapper__flat authButtonWrapper__flat__fb js-facebook-auth-link" rel="nofollow" data-method="get" href="{{ url('redirect') }}"><i class="fa fa-facebook authButtonWrapper__fbIcon" aria-hidden="true"></i>Facebookでログイン</a>
                         </div>
                     </div>
                     <div class="m-b-10 text-center text-14 text-gray middle-line" style="padding-top: 15px;"><span>または</span></div>
@@ -107,11 +108,16 @@
                                 <div class="modal-users-checkbox-text">ログインを記憶</div>
                             </label>
                         </div> -->
+                        @if ($errors->has('error'))
+                            <div class="alert alert-danger">
+                                {{ $errors->first('error') }}
+                            </div>
+                        @endif
                         <div class="modal-users-btn-wrapper none-bt">
                             <button type="submit" class="btn btn-raised btn-orange-md btn-modal-part-signin btn-modal-part-signin-email" data-disable-with="ログイン中...">ログイン</button>
                         </div>
                         <div class="modal-part-signin-forget-password">
-                            <a class="text-link" href="/users/password/new/">パスワードを忘れた方はこちら<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                            <a class="text-link" href="{{ route('forgot') }}">パスワードを忘れた方はこちら<i class="fa fa-angle-right" aria-hidden="true"></i></a>
                         </div>
                         <div class="margin-top-30">
                             <a class="btn-raised btn-border-orange" href="/register/">新規会員登録はこちら</a>
@@ -122,6 +128,7 @@
         </div>
 	</div>
 </div>
+<div id="toast-container" class="toast-top-right"></div>
 @endsection
 
 @section('script')

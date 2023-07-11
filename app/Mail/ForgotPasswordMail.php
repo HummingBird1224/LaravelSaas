@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
   
-class CreateUserMail extends Mailable
+class ForgotPasswordMail extends Mailable
 {
     use Queueable, SerializesModels;
   
@@ -33,6 +33,6 @@ class CreateUserMail extends Mailable
         // $bccAry = [];
         return $this->subject('パスワード変更のご連絡')
                     ->from($address = 'info@xs786968.xsrv.jp', $name = 'support@xs786968.xsrv.jp')
-                    ->view('emails.create_user');
+                    ->view('emails.forgot_password');
     }
 }

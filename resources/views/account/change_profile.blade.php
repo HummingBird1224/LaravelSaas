@@ -49,19 +49,19 @@ public_path('company_profile.json')
                               <label class="col-sm-3 control-label">名前（必須）</label>
                               <div class="col-sm-7 display-flex-sm">
                                 <span class="m-l-20 ">
-                                  <div class="form-group string required user_profile_last_name">
+                                  <div class="form-group string required user_profile_first_name">
                                     <input class="form-control string required form-control w-50px inline-block"
                                       required="required" aria-required="true" placeholder="姓" type="text"
                                       value="{{$user->first_name}}" name="first_name"
-                                      id="user_profile_attributes_last_name">
+                                      id="user_profile_attributes_first_name">
                                   </div>
                                 </span>
                                 <span class="m-l-35 ">
-                                  <div class="form-group string required user_profile_first_name">
+                                  <div class="form-group string required user_profile_last_name">
                                     <input class="form-control string required form-control w-50px inline-block"
                                       required="required" aria-required="true" placeholder="名" type="text"
                                       value="{{$user->last_name}}" name="last_name"
-                                      id="user_profile_attributes_first_name">
+                                      id="user_profile_attributes_last_name">
                                   </div>
                                 </span>
                               </div>
@@ -70,18 +70,18 @@ public_path('company_profile.json')
                               <label class="col-sm-3 control-label">フリガナ（必須）</label>
                               <div class="col-sm-7 display-flex-sm">
                                 <span class="m-l-20">
-                                  <div class="form-group string required user_profile_last_name_kana">
+                                  <div class="form-group string required user_profile_first_name_kana">
                                     <input class="form-control string required form-control w-50px inline-block"
                                       required="required" aria-required="true" placeholder="セイ" type="text"
-                                      name="kana_first" id="user_profile_attributes_last_name_kana"
+                                      name="kana_first" id="user_profile_attributes_first_name_kana"
                                       value="{{$user->kana_first}}">
                                   </div>
                                 </span>
                                 <span class="m-l-35">
-                                  <div class="form-group string required user_profile_first_name_kana">
+                                  <div class="form-group string required user_profile_last_name_kana">
                                     <input class="form-control string required form-control w-50px inline-block"
                                       required="required" aria-required="true" placeholder="メイ" type="text"
-                                      name="kana_last" id="user_profile_attributes_first_name_kana"
+                                      name="kana_last" id="user_profile_attributes_last_name_kana"
                                       value="{{$user->kana_last}}">
                                   </div>
                                 </span>

@@ -372,6 +372,7 @@ public_path('company_profile.json')
                     <h4 class="card-title">
                       請求資料一覧
                     </h4>
+                    
                     @if($type=='document')
                     <div class="selected-docs">
                       <div class="selected_num float-right">資料数 <span class="number"> 1 </span> 件</div>
@@ -385,8 +386,8 @@ public_path('company_profile.json')
                                     height="52px" />
                               </div>
                               <div class="service-info">
-                                <h6><b>{{$service->data_title?$service->data_title:$service->title}}</b></h6>
-                                <p>{{$service->up_user[0]->company_name}}</p>
+                                <h6><b>{{ $service->data_title ? $service->data_title : $service->title }}</b></h6>
+                                <p>{{ $service->up_user[0]->company_name }}</p>
                                 <div class="i-service-details-serviceReview">
                                   @if((int)$service->reviews_avg_score != 0)
                                     @for ($i = 0; $i < ((int)$service->reviews_avg_score); $i++)
@@ -397,7 +398,7 @@ public_path('company_profile.json')
                                     @endfor
                                     <span><?php echo $service->reviews_avg_score+0 ?></span><span><?php echo $service->reviews_avg_score+0 ?></span>
                                   @endif
-                                  <span >(口コミ{{$service->reviews_count?$service->reviews_count:0}}件)</span>
+                                  <span >（口コミ{{$service->reviews_count?$service->reviews_count:0}}件）</span>
                                   <p>{{$service->description}}</p>
                                 </div>
                               </div>
@@ -430,7 +431,7 @@ public_path('company_profile.json')
                                     @endfor
                                     <span><?php echo $c_service->reviews_avg_score+0 ?></span>
                                   @endif
-                                  <span >(口コミ{{$c_service->reviews_count?$c_service->reviews_count:0}}件)</span>
+                                  <span >（口コミ{{$c_service->reviews_count?$c_service->reviews_count:0}}件）</span>
                                   <p>{{$c_service->description}}</p>
                                 </div>
                               </div>
@@ -462,7 +463,7 @@ public_path('company_profile.json')
                                 <h6><b>{{$r_guide->title}}</b></h6>                                
                               </div>
                             </div>
-                            <p class="m-t-15"> 資料には以下のサービス情報が含まれます（{{count($r_guide->services)}}件) </p>
+                            <p class="m-t-15"> 資料には以下のサービス情報が含まれます（{{count($r_guide->services)}}件） </p>
                             <div class="guide-services-wrapper m-t-15">
                               @foreach($r_guide->services as $service)
                                 <p class="">{{$service->title}}|{{$service->up_user[0]->company_name}}</p>
@@ -578,7 +579,7 @@ public_path('company_profile.json')
     location.href='/login';
   }
 
-  serviceAdd=(id, type)=>{
+  serviceAdd = (id, type) => {
     $.ajax({
       url:'/downloads/service_add/'+id,
       method:'get',

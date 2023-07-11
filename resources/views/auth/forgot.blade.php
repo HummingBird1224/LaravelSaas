@@ -1,12 +1,16 @@
 @extends("layouts.auth")
 
+@section('style')
+	<link rel="stylesheet" href="{{ asset('assets/toastr/toastr.min.css') }}" />
+@endsection
+
 @section("content")
 <div class="card auth_card">
 	<div class="card-body">
 		<!-- Logo -->
-		<div class="app-brand justify-content-center">
-			<a href="index.html" class="app-brand-link gap-2">
-				<span class="app-brand-logo demo">
+		<div class="app-brand justify-content-center" style="margin-bottom: 2rem;">
+			<a href="/" class="app-brand-link gap-2">
+				<!-- <span class="app-brand-logo demo">
 					<svg width="25" viewBox="0 0 25 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 						<defs>
 							<path d="M13.7918663,0.358365126 L3.39788168,7.44174259 C0.566865006,9.69408886 -0.379795268,12.4788597 0.557900856,15.7960551 C0.68998853,16.2305145 1.09562888,17.7872135 3.12357076,19.2293357 C3.8146334,19.7207684 5.32369333,20.3834223 7.65075054,21.2172976 L7.59773219,21.2525164 L2.63468769,24.5493413 C0.445452254,26.3002124 0.0884951797,28.5083815 1.56381646,31.1738486 C2.83770406,32.8170431 5.20850219,33.2640127 7.09180128,32.5391577 C8.347334,32.0559211 11.4559176,30.0011079 16.4175519,26.3747182 C18.0338572,24.4997857 18.6973423,22.4544883 18.4080071,20.2388261 C17.963753,17.5346866 16.1776345,15.5799961 13.0496516,14.3747546 L10.9194936,13.4715819 L18.6192054,7.984237 L13.7918663,0.358365126 Z" id="path-1"></path>
@@ -39,19 +43,22 @@
 							</g>
 						</g>
 					</svg>
-				</span>
-				<span class="app-brand-text demo text-body fw-bolder">{{ env('APP_NAME') }}</span>
+				</span> -->
+				<span><img src="{{ asset('assets/img/tsukubnobi/tsukunobi_logo-black.png') }}" width="180" height="50"></span>
+				<!-- <span class="app-brand-text demo text-body fw-bolder">{{ env('APP_NAME') }}</span> -->
 			</a>
 		</div>
 		<!-- /Logo -->
 		<h4 class="mb-2">パスワードを忘れましたか? 🔒</h4>
-		<form id="formAuthentication" class="mb-3" method="GET" action="{{ route('reset') }}" onsubmit="validate(event)">
+		<form id="formAuthentication" class="mb-3" method="post" action="{{ route('forgot_email') }}" onsubmit="return false;">
+			@csrf
 			<div class="mb-3">
 				<label for="email" class="form-label">Email</label>
 				<input type="email" class="form-control" placeholder="Email" name="email" id="email" autofocus />
 			</div>
-			<div class="alert alert-primary" role="alert">ご登録さわたメールアドレスにパスワード再設定のご案内が送信されます。</div>
-			<button type="submit" value="送信する" class="btn btn-primary d-grid w-100">送信する</button>
+			<div class="alert alert-primary" role="alert">登録したメールアドレスに新しいパスワードが送信されます。</div>
+			<button type="submit" onclick="validate(event);" value="送信する" class="btn btn-primary d-grid w-100" style="background: #F66800; border: #F66800;" >送信する</button>
+			<!-- <button type="submit" class="btn btn-raised btn-orange-md btn-modal-part-signin btn-modal-part-signin-email" data-disable-with="ログイン中...">ログイン</button> -->
 		</form>
 		<div class="text-center">
 			<a href="{{ route('login') }}" class="d-flex align-items-center justify-content-center">
@@ -64,31 +71,43 @@
 
 <div id="toast-container" class="toast-top-right"></div>
 @endsection
-<script src="{{ asset('assets/js/ui-toasts.js') }}"></script>
+
+@section('script')
+<script src="{{ asset('assets/toastr/toastr.min.js') }}"></script>
+
 <script>
 	let emails = <?php echo $emails; ?>;
-	const validate = function(e) {
-		let addr = document.getElementById('email').value;
-		let addrs = [];
-		for (const addr of emails) {
-			addrs.push(addr.email);
-		}
 
-		console.log(addrs);
+	const validate = (e) => {
+		let addr = document.getElementById('email').value;
+		
+		let addrs = [];
+		for (const _email of emails) {
+			addrs.push(_email.email);
+		}
+		// console.log(addrs);
 
 		if (addrs.indexOf(addr) == -1) {
-			e.preventDefault();
+			console.log('123');
 			toastr.error('登録されたメールではありません。');
-			setTimeout(() => {
-				location.href = "/";
-			}, 5000);
-			return false;
 		} else {
-			toastr.success('情報が正常に送信されました。');
-			setTimeout(() => {
-				location.href = "/";
-			}, 5000);
-			return true;
+			$.ajax({
+				url: '{{ route("forgot_email") }}',
+				type: 'post',
+				headers: {
+					'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')
+				},
+				data: {
+					email: addr
+				},
+				success: function(response) {
+					toastr.success('情報が正常に送信されました。');
+					setTimeout(() => {
+						location.href = "/";
+					}, 3500);
+				}
+			});
 		}
 	};
 </script>
+@endsection

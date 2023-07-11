@@ -8,8 +8,10 @@ use App\Models\Service;
 use App\Models\Guide;
 use App\Models\ServiceUI;
 use App\Models\ServicePricePlan;
+use App\Models\DocumentDown;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Ramsey\Uuid\Guid\Guid;
 
 class ServiceController extends Controller
 {
@@ -105,8 +107,31 @@ class ServiceController extends Controller
 
     public function requested_materials()
     {
-        $requested_services=Auth::user()->down_services;
-        return view('mypage.requested_materials', ['r_services'=>$requested_services]);
+        $guide_id = DocumentDown::select('guide_id')->where('user_id', Auth::id())->get();
+        $service_id = DocumentDown::select('service_id')->where('user_id', Auth::id())->get();
+        $gids = json_decode(json_encode($guide_id), true);
+        $sids = json_decode(json_encode($service_id), true);
+        $request_gid = [];
+        $request_sid = [];
+
+        foreach ($gids as $key => $gid) {
+            foreach ($gid as $key => $g) {
+                foreach (json_decode($g) as $j) {
+                    array_push($request_gid, $j);
+                }
+            }
+        }
+        foreach ($sids as $key => $sid) {
+            foreach ($sid as $key => $s) {
+                foreach (json_decode($s) as $k) {
+                    array_push($request_sid, $k);
+                }
+            }
+        }
+        $requested_guides = Guide::whereIn('id', array_unique($request_gid))->get();
+        $requested_services = Service::whereIn('id', array_unique($request_sid))->get();
+
+        return view('mypage.requested_materials', ['r_guides'=>$requested_guides, 'r_services'=>$requested_services]);
     }
 
     public function service_activities()
@@ -168,12 +193,12 @@ class ServiceController extends Controller
         $services=Service::where('guide_id', $service->guide_id)->reviewAvgCount()->where('data', '!=', null)->get();
 
         return view('services.all_reviews', [
-                                            'service'=>$service, 
-                                            'reviews'=>$reviews, 
-                                            'all_reviews'=>$all_reviews, 
-                                            'sizes'=>$sizes,
-                                            'services'=>$services
-                                        ]);
+                    'service'=>$service, 
+                    'reviews'=>$reviews, 
+                    'all_reviews'=>$all_reviews, 
+                    'sizes'=>$sizes,
+                    'services'=>$services
+                ]);
     }
 
     /**

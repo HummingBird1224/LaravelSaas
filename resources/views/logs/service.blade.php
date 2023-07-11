@@ -1903,15 +1903,12 @@ $user=Auth::user();
                   </div>
                 </div>
 
-
                 <div class="ss-reviews-footer">
                   <a class="serviceReputationMetricsButton" target="_blank" href="/service/3558/reviews/">すべての口コミ・評判を見る</a>
                 </div>
 
               </div>
             </div>
-
-
           </div>
         </div>
 
@@ -2235,7 +2232,7 @@ $user=Auth::user();
     <div class="footer" id="boxil-footer">
       <div class="footer-contents">
         <div class="corporation">
-          <div class="logo"><img alt="SMARTCAMP" class="logo-img" src="https://boxil.jp/footer/smartcamp_logo.svg" />
+          <div class="logo"><img alt="SMARTCAMP" class="logo-img" src="{{ asset('assets/img/tsukubnobi/smartcamp_logo.svg') }}" />
           </div>
           <div class="border"></div>
           <div class="corporation-info">
@@ -2318,7 +2315,7 @@ $user=Auth::user();
         </div>
         <div class="products">
           <div class="product">
-            <div class="logo"><img alt="BOXIL" class="logo-img" src="https://boxil.jp/footer/boxil_logo.svg" /></div>
+            <div class="logo"><img alt="BOXIL" class="logo-img" src="{{ asset('assets/img/tsukubnobi/boxil_logo.svg') }}" /></div>
             <div class="border"></div>
             <div class="product-info">
               <div class="product-info-links">

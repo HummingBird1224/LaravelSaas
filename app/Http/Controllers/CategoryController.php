@@ -97,7 +97,7 @@ class CategoryController extends Controller
 		$guide= Guide::create([
 			'title'=>$request->g_title,
 			'description'=>$request->g_description,			
-      'recommended'=>$request->g_recommended=='on'?1:0,
+      		'recommended'=>$request->g_recommended=='on'?1:0,
 			'free'=>$request->g_free=='on'?1:0,
 		]);
 		if($data) {
