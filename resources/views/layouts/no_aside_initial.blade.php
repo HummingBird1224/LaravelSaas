@@ -51,7 +51,7 @@
 		
 		@yield('css')
 
-		<div class="loader-wrapper" id="loader-4" style="display: inherit; width: 100%; height: 100%; background: lightgrey; position:fixed; top: 0; left: 0; z-index: 10000;">
+		<!-- <div class="loader-wrapper" id="loader-4" style="display: inherit; width: 100%; height: 100%; background: lightgrey; position:fixed; top: 0; left: 0; z-index: 10000;">
 			<div id="loader">少</div>
 			<div id="loader">々</div>
 			<div id="loader">お</div>
@@ -62,7 +62,7 @@
 			<div id="loader">さ</div>
 			<div id="loader">い</div>
 			<div id="loader">。</div>
-		</div>
+		</div> -->
 	</head>
 
 	<body>
@@ -83,7 +83,7 @@
 
 						<div class="navbar-nav-right d-flex align-items-center container-xxl" id="navbar-collapse">
 							<a class="head-logo" href="/">
-								<img src="{{asset('assets/img/tsukubnobi/tsukunobi_logo-black.png')}}" width="150px"/>
+								<img src="{{ asset('assets/img/tsukubnobi/tsukunobi_logo-black.png') }}" width="150px"/>
 							</a>
 
 						</div>

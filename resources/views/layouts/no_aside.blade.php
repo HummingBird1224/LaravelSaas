@@ -51,24 +51,30 @@ $user=Auth::user();
     <ul>
       @if(!$user)
       <li class="drawermenu-list sign">
-        <a class="drawermenu-inner" href="/register/">無料会員登録</a>
+        <a class="drawermenu-inner" href="/top">掲載希望の方</a>
+      </li>
+      <li class="drawermenu-list sign">
+        <a class="drawermenu-inner" href="/register">無料会員登録</a>
       </li>
       <li class="drawermenu-list sign">
         <a class="drawermenu-inner"  href="/login">ログイン</a>
       </li>
       @else
       <li class="drawermenu-list sign">
+        <a class="drawermenu-inner" href="/top">掲載希望の方</a>
+      </li>
+      <li class="drawermenu-list sign">
         <a class="drawermenu-inner" href="/logout">ログアウト</a>
       </li>
       @endif
       <li class="drawermenu-list">
-        <a class="drawermenu-inner" href="/categories/">カテゴリから探す</a>
+        <a class="drawermenu-inner" href="/categories">カテゴリから探す</a>
       </li>
       <li class="drawermenu-list">
-        <a class="drawermenu-inner" href="/issues/">課題から探す</a>
+        <a class="drawermenu-inner" href="/issues">課題から探す</a>
       </li>
       <li class="drawermenu-list">
-        <a class="drawermenu-inner" href="/category_documents/">お役立ちガイド</a>
+        <a class="drawermenu-inner" href="/category_documents">お役立ちガイド</a>
       </li>
     </ul>
   </nav>
@@ -96,19 +102,19 @@ $user=Auth::user();
         <nav>
           <ul class="navigation">
             <li class="navigation-item sign">
-              <a class="bn-title-menu-ele-link" href="/registration/">無料会員登録</a>
+              <a class="bn-title-menu-ele-link" href="/registration">無料会員登録</a>
             </li>
             <li class="navigation-item sign">
               <a class="bn-title-menu-ele-link" data-signin="true" href="/login">ログイン</a>
             </li>
             <li class="navigation-item">
-              <a class="bn-title-menu-ele-link" href="/categories/">カテゴリから探す</a>
+              <a class="bn-title-menu-ele-link" href="/categories">カテゴリから探す</a>
             </li>
             <li class="navigation-item">
-              <a class="bn-title-menu-ele-link" href="/issues/">課題から探す</a>
+              <a class="bn-title-menu-ele-link" href="/issues">課題から探す</a>
             </li>
             <li class="navigation-item">
-              <a class="bn-title-menu-ele-link" href="/category_documents/">お役立ちガイド</a>
+              <a class="bn-title-menu-ele-link" href="/category_documents">お役立ちガイド</a>
             </li>           
           </ul>
         </nav>
@@ -131,6 +137,12 @@ $user=Auth::user();
       @if($user)
       <div class="header-action">
         <ul class="header-menu pc-menu">
+          <li>
+            <a class="header-menu-link header-menu-item" data-signin="true" href="/top">
+              <i class="fal fa-angle-double-up item-icon"></i>
+              <div class="item-text">掲載希望の方</div>
+            </a>
+          </li>
           <li class="header-menu-item dropdown-trigger ">
             <i class="fal fa-user-circle item-icon" aria-hidden="true"></i>
             <div class="item-text">マイページ</div>
@@ -163,13 +175,19 @@ $user=Auth::user();
       <div class="header-action">
         <ul class="header-menu pc-menu">
           <li>
+            <a class="header-menu-link header-menu-item" data-signin="true" href="/top">
+              <i class="fal fa-angle-double-up item-icon"></i>
+              <div class="item-text">掲載希望の方</div>
+            </a>
+          </li>
+          <li>
             <a class="header-menu-link header-menu-item" data-signin="true" href="/login">
               <i class="fal fa-sign-in item-icon"></i>
               <div class="item-text">ログイン</div>
             </a>
           </li>
           <li>
-            <a class="header-menu-link header-menu-item--dark" href="/register/">
+            <a class="header-menu-link header-menu-item--dark" href="/register">
               <i class="fal fa-edit item-icon"></i>
               <div class="item-text">会員登録</div>
             </a>
@@ -228,7 +246,7 @@ $user=Auth::user();
     <div class="footer" id="boxil-footer">
       <div class="footer-contents">
         <div class="corporation">
-          <div class="logo"><img alt="SMARTCAMP" class="logo-img" src="https://boxil.jp/footer/smartcamp_logo.svg" />
+          <div class="logo"><img alt="SMARTCAMP" class="logo-img" src="{{ asset('assets/img/tsukubnobi/smartcamp_logo.svg') }}" />
           </div>
           <div class="border"></div>
           <div class="corporation-info">
@@ -311,7 +329,7 @@ $user=Auth::user();
         </div>
         <div class="products">
           <div class="product">
-            <div class="logo"><img alt="BOXIL" class="logo-img" src="https://boxil.jp/footer/boxil_logo.svg" /></div>
+            <div class="logo"><img alt="BOXIL" class="logo-img" src="{{ asset('assets/img/tsukubnobi/boxil_logo.svg') }}" /></div>
             <div class="border"></div>
             <div class="product-info">
               <div class="product-info-links">

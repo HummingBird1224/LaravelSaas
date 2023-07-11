@@ -71,7 +71,7 @@ class LoginController extends Controller
         }
 
         return back()->withErrors([
-            'error' => '提供されたクレデンシャルは、当社の記録と一致しません。',
+            'error' => 'メールアドレス、パスワードをご確認ください。またはソーシャルログインをお試しください。',
         ]);
     }
 
@@ -111,9 +111,29 @@ class LoginController extends Controller
         return redirect()->route('logout');
     }
 
-    public function forgotPwd(Request $request) {
+    public function forgotPwd () {
         $emails = User::select('email')->get();
         return view('auth.forgot', ['emails' => $emails]);
+    }
+
+    public function forgot_email (Request $request) {
+        $users = User::where('email', $request->email)->get();
+        $user = $users[0];
+        $user_pass = base64_encode(random_bytes(10));
+        $password = Hash::make($user_pass);
+        $user->password = $password;
+        $user->save();
+
+        $details = [];
+        $details['email'] = $request->email;
+        $details['name'] = $user['first_name'] . " " . $user['last_name'];
+        $details['password'] = $user_pass;
+        $details['siteUrl'] = 'https://' . request()->getHost();
+
+        // Mail::to($details['email'])
+		// 		->send(new \App\Mail\ForgotPasswordMail($details));
+
+        return;
     }
 
     public function updatePwd(Request $request) {

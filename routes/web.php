@@ -6,6 +6,8 @@ use App\Http\Controllers\DashboardController;
 
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\LoginWithGoogleController;
+use App\Http\Controllers\LoginWithFacebookController;
 
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\CategoryController;
@@ -15,14 +17,16 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\GuideController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\DocumentDownController;
 
 use App\Http\Controllers\Admin\GuideController as CategoryDocumentController;
 
 // Default Route
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-Route::view('/web', 'web')				->name('web_lp');
-Route::view('/servicer', 'servicer')	->name('servicer_lp');
-Route::view('/komon', 'komon')			->name('komon_lp');
+Route::view('/top', 'top')				->name('top_lp');
+// Route::view('/web', 'web')				->name('web_lp');
+// Route::view('/servicer', 'servicer')	->name('servicer_lp');
+// Route::view('/komon', 'komon')			->name('komon_lp');
 
 // Authentication Routes
 Route::get('/signup/{role?}', [RegisterController::class, 'index']);
@@ -30,10 +34,19 @@ Route::post('/register', [RegisterController::class, 'register'])->name('registe
 Route::post('/login', [LoginController::class, 'login']);
 Route::get('/loginview', [LoginController::class, 'loginview'])->name('loginview');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-Route::get('forgot-password', [LoginController::class, 'forgotPwd'])->name('forgot');
-Route::get('reset_password', [LoginController::class, 'resetPwd'])->name('reset');
-Route::get('reset_pwd', function() { return view('auth.reset'); });
-Route::post('update_password', [LoginController::class, 'updatePwd'])->name('password.update');
+Route::get('/forgot-password', [LoginController::class, 'forgotPwd'])->name('forgot');
+Route::post('/forgot_email', [LoginController::class, 'forgot_email'])->name('forgot_email');
+Route::get('/reset_password', [LoginController::class, 'resetPwd'])->name('reset');
+Route::get('/reset_pwd', function() { return view('auth.reset'); });
+Route::post('/update_password', [LoginController::class, 'updatePwd'])->name('password.update');
+
+// google login
+Route::get('/authorized/google', [LoginWithGoogleController::class, 'redirectToGoogle']);
+Route::get('/authorized/google/callback', [LoginWithGoogleController::class, 'handleGoogleCallback']);
+
+// facebook login
+Route::get('/redirect', [LoginWithFacebookController::class, 'redirectFacebook']);
+Route::get('/callback', [LoginWithFacebookController::class, 'facebookCallback']);
 
 //Category Routes
 Route::get('/lc/{id}',[CategoryController::class,'lc_view'])->name('lc_view');
@@ -48,10 +61,7 @@ Route::prefix('category_documents')->group(function() {
 	Route::get('/', [GuideController::class, 'index'])->name('category_documents');
 	Route::get('/search', [GuideController::class, 'search'])->name('category_documents_search');	
 });
-Route::prefix('downloads')->group(function(){
-	Route::get('/confirm', [GuideController::class, 'download_confirm'])->name('download_confirm');
-	Route::get('/service_add/{id}', [GuideController::class, 'service_add'])->name('download_service_add');
-});
+
 
 // Route::get('/downloads/confirm', [GuideController::class, 'download_confirm'])->name('download_confirm');
 
@@ -67,9 +77,16 @@ Route::get('/categories/{parent}/{id}',[CategoryController::class, 'categories_b
 // Route::get('/issue/categories/{id}',[CategoryController::class, 'categories_by_issue'])->name('categories_by_issue');
 
 
-	
+
 // Main Routes
 Route::group(['middleware' => ['auth']], function() {
+	
+	Route::prefix('downloads')->group(function(){
+		Route::get('/confirm', [GuideController::class, 'download_confirm'])->name('download_confirm');
+		Route::get('/service_add/{id}', [GuideController::class, 'service_add'])->name('download_service_add');
+	});
+
+	Route::post('/downloads/post_mail', [DocumentDownController::class, 'post_mail'])->name('post_mail');
 
 	Route::prefix('mypage')->group(function(){
 		Route::get('/', [MypageController::class, 'index'])->name('mypage');
@@ -176,8 +193,6 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
 });
 
 Route::group(['middleware' => ['auth', 'client']], function() {
-	
-	Route::post('/downloads/post_mail', [GuideController::class, 'post_mail'])->name('post_mail');
 
 	Route::prefix('client')->group(function() {
 		Route::get('/client_tools', [ClientController::class, 'client_tools'])->name('client_tools');

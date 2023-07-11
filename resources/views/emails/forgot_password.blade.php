@@ -2,24 +2,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>You registered successfully</title>
+    <title>Your Password changed successfully</title>
 </head>
 <body>
 
     <br>
-     Hello {{ $details['user_name'] }} !<br>
+     Hello {{ $details['name'] }} !<br>
     <br>
-    このサイトへの登録が完了しました。
+    パスワードが成果的に変更されました。
     <br>
     -------------------------------------------------------------<br>
     <br>
-    Site URL : <a href={{ $details['siteUrl'] }}>{{ $details['siteUrl'] }}</a>
+    Site URL : <a href="{{ $details['siteUrl'] }}">{{ $details['siteUrl'] }}</a>
     <br>
     <br>
     Email : <strong>😉{{ $details['email'] }}</strong>😉
     <br>
     <br>
-    Password : 「 <strong> {{ $details['password'] }} </strong> 」
+    新しいパスワード : 「 <strong> {{ $details['password'] }} </strong> 」
     <br>
     <br>
     <a href="{{ $details['siteUrl'] }}">このサイトにログインしますか?</a>

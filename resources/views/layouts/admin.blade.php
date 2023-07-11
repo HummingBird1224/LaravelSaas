@@ -49,7 +49,7 @@
 
   @yield('css')
 
-  <div class="loader-wrapper" id="loader-4"
+  <!-- <div class="loader-wrapper" id="loader-4"
     style="display: inherit; width: 100%; height: 100%; background: lightgrey; position:fixed; top: 0; left: 0; z-index: 10000;">
     <div id="loader">少</div>
     <div id="loader">々</div>
@@ -61,7 +61,7 @@
     <div id="loader">さ</div>
     <div id="loader">い</div>
     <div id="loader">。</div>
-  </div>
+  </div> -->
 </head>
 
 <body>

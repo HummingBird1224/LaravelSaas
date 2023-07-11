@@ -7,21 +7,18 @@
 <body>
   
     <br>
-     Hello Elen !<br>    
-    <br>
-    Contact to {{ $details['mail_address'] }}
-    <br>
-    (-_-)😴 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I am very Sleepy. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 😴(-_-)
-    <br>
-    (^_-) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; But it's okay. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 😉
-    <br>
-    Let's do our best.
+     Hello {{ $details['email'] }} !<br>
     <br>
     -------------------------------------------------------------<br>
     <br>
-    Let's do our best.
+    You have requested some documents from <a class="url" href="{{ $details['site_url'] }}"> {{ $details['site_domain'] }} </a>.
     <br>
-    <a href="http://but.jp/i/don't/make/download/url/yet?Are_you_ok?">This is download URL.</a>
+    <br>
+    This is download URL.
+    <br>
+    <h3>
+        <a class="download" href="{{ $details['down_link'] }}"> {{ $details['down_link'] }} </a>
+    </h3>
 
 </body>
 </html>

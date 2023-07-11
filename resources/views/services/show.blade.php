@@ -154,7 +154,7 @@ $data=json_decode(file_get_contents(
                                   </div>
                                   <div class="service_show_overview__header__main__content__i-bottom-review-score">{{$service->reviews_avg_score+0}}</div>
                                   <div class="service_show_overview__header__main__content__i-bottom-review-count">
-                                    <a class="service_show_overview__header__main__content__i-bottom-review-link" href="">{{ $service->reviews_count }}件の口コミ </a>
+                                    <a class="service_show_overview__header__main__content__i-bottom-review-link" href="{{ route('service_reviews', $service->id) }}">{{ $service->reviews_count }}件の口コミ </a>
                                   </div>
                                 </div>
                               </div>

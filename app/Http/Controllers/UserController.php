@@ -132,7 +132,7 @@ class UserController extends Controller
     }
 
     public function profile_edit(Request $request){
-        dd($request);
+        // dd($request);
         $file=$request->file('avatar');
         $user = User::updateOrCreate(
             [
@@ -193,14 +193,14 @@ class UserController extends Controller
                     'capital'=>$request->capital,
                     'company_url'=>$request->company_url,
                 ]);
-        if($file) {
+        if ($file) {
             $company->logo = $file->storeAs(
                 'uploads/company/logos', time().'_'.$file->getClientOriginalName(), 'public'
             );
             $company->save();
         }
-        if($user->role=='user'){
-            $user->role='waiting';
+        if ($user->role == 'user') {
+            $user->role = 'waiting';
             $user->save();
         }
         return back()->withInput();
@@ -274,11 +274,12 @@ class UserController extends Controller
     public function add_user_profile(Request $request)
     {
         $user_pass = base64_encode(random_bytes(10));
+        $password = Hash::make($user_pass);
         $user = new User;
 
         $user->role         = $request->user_role;
         $user->email        = $request->email;
-        $user->password     = $user_pass;
+        $user->password     = $password;
         $user->first_name   = $request->first_name;
         $user->last_name    = $request->last_name;
         $user->kana_first   = $request->kana_first;
@@ -297,7 +298,8 @@ class UserController extends Controller
         $details = [];
         $details['email'] = $request->email;
         $details['password'] = $user_pass;
-        $details['siteUrl'] = request()->getHost() . ':' . request()->getPort();
+        $details['user_name'] = $request->first_name . " " . $request->last_name;
+        $details['siteUrl'] = 'https://' . request()->getHost();
 
         Mail::to($details['email'])
 				->send(new \App\Mail\CreateUserMail($details));

@@ -87,48 +87,6 @@ class GuideController extends Controller
         return $service;
     }
 
-    public function post_mail(Request $request) {
-        $details = [];
-
-        // dd($request);
-        // $user = User::findOrFail(Auth::id());
-        // $user->first_name           =   $request->first_name;
-        // $user->last_name            =   $request->last_name;
-        // $user->kana_first           =   $request->kana_first;
-        // $user->kana_last            =   $request->kana_last;
-        // $user->phone_number         =   $request->phone_number;
-        // $user->department           =   $request->department;
-        // $user->official_position    =   $request->job_title;
-        // $user->company_name         =   $request->company_name;
-        // $user->prefecture           =   $request->prefecture;
-        // $user->address              =   $request->address;
-        // $user->business_type        =   $request->industry;
-        // $user->corporation_scale    =   $request->employee_number;
-        $details['email'] = $request->email;
-        $details['guide'] = $request->guide;
-        $details['service'] = $request->guide;
-        dd($details);
-        // $service = $request->service;
-        // dd($guide, $service);
-        // $data = "";
-		// $filename = "Download File";
-		// $data .= "This is download file.\n";
-        // $data .= "First Name: " . $request->first_name . "\n";
-        // $data .= "Last Name: " . $request->last_name . "\n";
-        // $data .= "Kana Name: " . $request->kana_first . " " . $request->kana_last . "\n";
-        // $data .= "Email Address: " . $request->email . "\n";
-
-        // header('Content-Type: application/txt');
-		// header('Content-Disposition: attachment; filename="' . $filename . "_" . date("Y-m-d") . '.txt"');
-		// echo $data;
-		// exit();
-
-        Mail::to($details['email'])
-				->send(new \App\Mail\UpdateMail($details));
-
-        return redirect()->route('category_documents');
-    }
-
     /**
      * Show the form for creating a new resource.
      *

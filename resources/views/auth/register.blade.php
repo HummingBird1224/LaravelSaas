@@ -85,7 +85,7 @@ public_path('company_profile.json')
     <div class="header-container-registration">
       <div class="header-mobile-inner">
         <div class="brand-logo-only">
-          <a href="/"><img alt="ボクシルSaaS_ロゴ" class="brand-logo-img" src="https://assets.boxil.jp/images/logo/boxil-saas-yoko-color-logo.svg"></a>
+          <a href="/"><img alt="ボクシルSaaS_ロゴ" class="brand-logo-img" src="{{ asset('assets/img/tsukubnobi/tsukunobi_logo-black.png') }}"></a>
         </div>
         <div class="header-nav">
           <div class="registration-title"></div>
@@ -104,10 +104,10 @@ public_path('company_profile.json')
                     <div class="modal-users-block">
                       <div class="authButtonWrapper authButtonWrapper__column">
                         <div class="authButtonWrapper__block">
-                          <a class="btn btn-raised authButtonWrapper__flat" rel="nofollow" data-method="post" href="/users/auth/google_oauth2/?redirect_path="><i class="fa fa-google authButtonWrapper__googleIcon" aria-hidden="true"></i>Googleでログイン</a>
+                          <a class="btn btn-raised authButtonWrapper__flat" rel="nofollow" data-method="get" href="{{ url('authorized/google') }}"><i class="fa fa-google authButtonWrapper__googleIcon" aria-hidden="true"></i>Googleでログイン</a>
                         </div>
                         <div class="authButtonWrapper__block">
-                          <a class="btn btn-raised authButtonWrapper__flat authButtonWrapper__flat__fb js-facebook-auth-link" rel="nofollow" data-method="post" href="/users/auth/facebook/?redirect_path="><i class="fa fa-facebook authButtonWrapper__fbIcon" aria-hidden="true"></i>Facebookでログイン</a>
+                          <a class="btn btn-raised authButtonWrapper__flat authButtonWrapper__flat__fb js-facebook-auth-link" rel="nofollow" data-method="get" href="{{ url('redirect') }}"><i class="fa fa-facebook authButtonWrapper__fbIcon" aria-hidden="true"></i>Facebookでログイン</a>
                         </div>
                       </div>
                       <div class="m-b-10 text-center text-14 text-gray middle-line">
@@ -166,13 +166,13 @@ public_path('company_profile.json')
       <div class="entryProfile-buttonWrapper--signup">
         <div class="authButtonWrapper m-b-20">
           <div class="authButtonWrapper__block">
-            <a class="btn btn-raised authButtonWrapper__flat" rel="nofollow" data-method="post" href="/users/auth/google_oauth2/?is_business=false"><i class="fa fa-google authButtonWrapper__googleIcon" aria-hidden="true"></i>Googleで基本情報を入力</a>
+            <a class="btn btn-raised authButtonWrapper__flat" rel="nofollow" data-method="get" href="{{ url('authorized/google') }}"><i class="fa fa-google authButtonWrapper__googleIcon" aria-hidden="true"></i>Googleで基本情報を入力</a>
           </div>
           <div class="authButtonWrapper__block">
-            <a class="btn btn-raised authButtonWrapper__flat authButtonWrapper__flat__fb" rel="nofollow" data-method="post" href="/users/auth/facebook/?is_business=false"><i class="fa fa-facebook authButtonWrapper__fbIcon" aria-hidden="true"></i>Facebookで基本情報を入力</a>
+            <a class="btn btn-raised authButtonWrapper__flat authButtonWrapper__flat__fb" rel="nofollow" data-method="get" href="{{ url('redirect') }}"><i class="fa fa-facebook authButtonWrapper__fbIcon" aria-hidden="true"></i>Facebookで基本情報を入力</a>
           </div>
         </div>
-        <div class="emailRegistration-form-title">メールアドレスで登録</div>
+        <!-- <div class="emailRegistration-form-title">メールアドレスで登録</div> -->
         <form class="new_user" id="js-registrationForm" action="/register" accept-charset="UTF-8" method="post">
           @csrf
           <!-- <input type="hidden" name="authenticity_token" value="bXuMShj0B1Sougybu1RccHjcdokgF0N9VefVy4KbvYcUNJ5STfoUalcKgq/nr1mZ+p0k5a/qmwkXXKa7Vik26Q==">
@@ -586,7 +586,7 @@ public_path('company_profile.json')
     <div class="simple-footer">
       <div class="simple-footer__top">
         <div class="simple-footer__contents__corporation-logo">
-          <img alt="" src="https://boxil.jp/footer/smartcamp_logo.svg">
+          <img alt="" src="{{ asset('assets/img/tsukubnobi/smartcamp_logo.svg') }}">
         </div>
       </div>
       <div class="simple-footer__divider"></div>
